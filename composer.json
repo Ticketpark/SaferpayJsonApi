@@ -1,0 +1,18 @@
+{
+    "name": "ticketpark/saferpay-json",
+    "type": "library",
+    "description": "A php library to use the json api of Saferpay",
+    "keywords": ["saferpay"],
+    "homepage": "https://github.com/Ticketpark/SaferpayJson",
+    "license": "MIT",
+    "authors": [
+        {"name": "Manuel Reinhard", "email": "manuel.reinhard@ticketpark.ch"}
+    ],
+    "require": {
+        "kriswallsmith/buzz": "^0.15",
+        "jms/serializer": "^1.1"
+    },
+    "autoload": {
+        "psr-4": { "Ticketpark\\SaferpayJson\\": "lib/SaferpayJson" }
+    }
+}
