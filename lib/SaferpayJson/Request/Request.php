@@ -7,6 +7,7 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\SerializerBuilder;
+use Ticketpark\SaferpayJson\Exception\HttpRequestException;
 use Ticketpark\SaferpayJson\Request\RequestHeader;
 
 
@@ -15,6 +16,8 @@ abstract class Request
     const ROOT_URL = 'https://www.saferpay.com/api/';
 
     const ROOT_URL_TEST = 'https://test.saferpay.com/api/';
+
+    const ERROR_RESPONSE_CLASS = 'Ticketpark\SaferpayJson\Response\ErrorResponse';
 
     /**
      * @var string
@@ -35,6 +38,12 @@ abstract class Request
     protected $test = false;
 
     /**
+     * @var Buzz\Browser
+     * @Exclude
+     */
+    protected $browser;
+
+    /**
      * @var Ticketpark\SaferpayJson\Request\RequestHeader
      * @SerializedName("RequestHeader")
      */
@@ -47,11 +56,13 @@ abstract class Request
      * @param string $apiSecret
      * @param bool $test
      */
-    public function __construct($apiKey, $apiSecret, $test = true)
+    public function __construct($apiKey, $apiSecret, $test = true, Browser $browser = null)
     {
         $this->apiKey = $apiKey;
         $this->apiSecret = $apiSecret;
         $this->test = $test;
+
+        $this->setBrowser($browser);
     }
 
     /**
@@ -131,18 +142,63 @@ abstract class Request
     }
 
     /**
-     * Run request
+     * Set browser
+     *
+     * @param  Browser $browser
+     * @return $this
      */
-    public function run()
+    public function setBrowser(Browser $browser = null)
     {
-        $browser = new Browser();
-        $response = $browser->post(
-            $this->getUrl(),
-            $this->getHeaders(),
-            $this->getContent()
-        );
+        $this->browser = $browser;
 
-        return $this->getSerializer()->deserialize($response->getContent(), static::RESPONSE_CLASS, 'json');
+        return $this;
+    }
+
+    /**
+     * Get browser
+     *
+     * @return Browser
+     */
+    public function getBrowser()
+    {
+        if (null == $this->browser) {
+
+            return new Browser();
+        }
+
+        return $this->browser;
+    }
+
+    /**
+     * Execute request
+     *
+     * @return Ticketpark\SaferpayJson\Response\Response
+     * @throws HttpRequestException
+     */
+    public function execute()
+    {
+        try {
+            $response = $this->getBrowser()->post(
+                $this->getUrl(),
+                $this->getHeaders(),
+                $this->getContent()
+            );
+        } catch (\Exception $e) {
+
+            throw new HttpRequestException($e->getMessage());
+        }
+
+        if ($response->isClientError()) {
+
+            return $this->getSerializer()->deserialize($response->getContent(), static::ERROR_RESPONSE_CLASS, 'json');
+        }
+
+        if (200 !== $response->getStatusCode()) {
+
+            throw new HttpRequestException(sprintf('Unexpected http request response with status code %s.', $response->getStatusCode()));
+        }
+
+         return $this->getSerializer()->deserialize($response->getContent(), static::RESPONSE_CLASS, 'json');
     }
 
     /**
