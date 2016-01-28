@@ -1,6 +1,6 @@
 <?php
 
-namespace Ticketpark\SaferpayJson\Request;
+namespace Ticketpark\SaferpayJson\Message;
 
 use Buzz\Browser;
 use Doctrine\Common\Annotations\AnnotationRegistry;
@@ -8,7 +8,7 @@ use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\SerializerBuilder;
 use Ticketpark\SaferpayJson\Exception\HttpRequestException;
-use Ticketpark\SaferpayJson\Request\RequestHeader;
+use Ticketpark\SaferpayJson\Container\RequestHeader;
 
 
 abstract class Request
@@ -44,7 +44,7 @@ abstract class Request
     protected $browser;
 
     /**
-     * @var Ticketpark\SaferpayJson\Request\RequestHeader
+     * @var Ticketpark\SaferpayJson\Container\RequestHeader
      * @SerializedName("RequestHeader")
      */
     protected $requestHeader;
@@ -123,7 +123,7 @@ abstract class Request
     }
 
     /**
-     * @return Ticketpark\SaferpayJson\Request\RequestHeader
+     * @return Ticketpark\SaferpayJson\Container\RequestHeader
      */
     public function getRequestHeader()
     {
@@ -131,7 +131,7 @@ abstract class Request
     }
 
     /**
-     * @param Ticketpark\SaferpayJson\Request\RequestHeader $requestHeader
+     * @param Ticketpark\SaferpayJson\Container\RequestHeader $requestHeader
      * @return Request
      */
     public function setRequestHeader(RequestHeader $requestHeader)
@@ -172,7 +172,7 @@ abstract class Request
     /**
      * Execute request
      *
-     * @return Ticketpark\SaferpayJson\Response\Response
+     * @return Ticketpark\SaferpayJson\Message\Response
      * @throws HttpRequestException
      */
     public function execute()

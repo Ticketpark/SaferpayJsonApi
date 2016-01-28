@@ -1,6 +1,6 @@
 <?php
 
-namespace Ticketpark\SaferpayJson\Response;
+namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;

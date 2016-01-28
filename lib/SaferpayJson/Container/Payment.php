@@ -1,13 +1,13 @@
 <?php
 
-namespace Ticketpark\SaferpayJson\Request;
+namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
 class Payment
 {
     /**
-     * @var Ticketpark\SaferpayJson\Request\Amount
+     * @var Ticketpark\SaferpayJson\Container\Amount
      * @SerializedName("Amount")
      */
     protected $amount;
@@ -31,7 +31,7 @@ class Payment
     protected $payerNote;
 
     /**
-     * @return Ticketpark\SaferpayJson\Request\Amount
+     * @return Ticketpark\SaferpayJson\Container\Amount
      */
     public function getAmount()
     {
@@ -39,10 +39,10 @@ class Payment
     }
 
     /**
-     * @param Ticketpark\SaferpayJson\Request\Amount $amount
+     * @param Ticketpark\SaferpayJson\Container\Amount $amount
      * @return Payment
      */
-    public function setAmount($amount)
+    public function setAmount(Amount $amount)
     {
         $this->amount = $amount;
 

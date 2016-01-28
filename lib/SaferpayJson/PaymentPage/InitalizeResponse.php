@@ -1,12 +1,12 @@
 <?php
 
-namespace Ticketpark\SaferpayJson;
+namespace Ticketpark\SaferpayJson\PaymentPage;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Response\Response;
+use Ticketpark\SaferpayJson\Message\Response;
 
-class PaymentPageResponse extends Response
+class InitalizeResponse extends Response
 {
     /**
      * @var string

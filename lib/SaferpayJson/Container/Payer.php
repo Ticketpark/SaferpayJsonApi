@@ -1,6 +1,6 @@
 <?php
 
-namespace Ticketpark\SaferpayJson\Request;
+namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
@@ -19,13 +19,13 @@ class Payer
     protected $languageCode;
 
     /**
-     * @var Ticketpark\SaferpayJson\Request\Address
+     * @var Ticketpark\SaferpayJson\Container\Address
      * @SerializedName("DeliveryAddress")
      */
     protected $deliveryAddress;
 
     /**
-     * @var Ticketpark\SaferpayJson\Request\Address
+     * @var Ticketpark\SaferpayJson\Container\Address
      * @SerializedName("BillingAddress")
      */
     protected $billingAddress;
@@ -69,7 +69,7 @@ class Payer
     }
 
     /**
-     * @return Ticketpark\SaferpayJson\Request\Address
+     * @return Ticketpark\SaferpayJson\Container\Address
      */
     public function getDeliveryAddress()
     {
@@ -77,7 +77,7 @@ class Payer
     }
 
     /**
-     * @param Ticketpark\SaferpayJson\Request\Address $deliveryAddress
+     * @param Ticketpark\SaferpayJson\Container\Address $deliveryAddress
      * @return Payer
      */
     public function setDeliveryAddress(Address $deliveryAddress)
@@ -88,7 +88,7 @@ class Payer
     }
 
     /**
-     * @return Ticketpark\SaferpayJson\Request\Address
+     * @return Ticketpark\SaferpayJson\Container\Address
      */
     public function getBillingAddress()
     {
@@ -96,7 +96,7 @@ class Payer
     }
 
     /**
-     * @param Ticketpark\SaferpayJson\Request\Address $billingAddress
+     * @param Ticketpark\SaferpayJson\Container\Address $billingAddress
      * @return Payer
      */
     public function setBillingAddress(Address $billingAddress)

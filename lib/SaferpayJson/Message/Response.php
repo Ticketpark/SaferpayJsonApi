@@ -1,22 +1,22 @@
 <?php
 
-namespace Ticketpark\SaferpayJson\Response;
+namespace Ticketpark\SaferpayJson\Message;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Response\ResponseHeader;
+use Ticketpark\SaferpayJson\Container\ResponseHeader;
 
 abstract class Response
 {
     /**
-     * @var Ticketpark\SaferpayJson\Response\ResponseHeader
+     * @var Ticketpark\SaferpayJson\Container\ResponseHeader
      * @SerializedName("ResponseHeader")
-     * @Type("Ticketpark\SaferpayJson\Response\ResponseHeader")
+     * @Type("Ticketpark\SaferpayJson\Container\ResponseHeader")
      */
     protected $responseHeader;
 
     /**
-     * @return Ticketpark\SaferpayJson\Response\ResponseHeader
+     * @return Ticketpark\SaferpayJson\Container\ResponseHeader
      */
     public function getResponseHeader()
     {
@@ -24,10 +24,10 @@ abstract class Response
     }
 
     /**
-     * @param Ticketpark\SaferpayJson\Response\ResponseHeader $responseHeader
+     * @param Ticketpark\SaferpayJson\Container\ResponseHeader $responseHeader
      * @return Response
      */
-    public function setResponseHeader($responseHeader)
+    public function setResponseHeader(ResponseHeader $responseHeader)
     {
         $this->responseHeader = $responseHeader;
 

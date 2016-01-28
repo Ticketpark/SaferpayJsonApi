@@ -1,40 +1,40 @@
 <?php
 
-namespace Ticketpark\SaferpayJson;
+namespace Ticketpark\SaferpayJson\PaymentPage;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Request\Notification;
-use Ticketpark\SaferpayJson\Request\Payer;
-use Ticketpark\SaferpayJson\Request\Payment;
-use Ticketpark\SaferpayJson\Request\ReturnUrls;
-use Ticketpark\SaferpayJson\Request\Request;
+use Ticketpark\SaferpayJson\Container\Notification;
+use Ticketpark\SaferpayJson\Container\Payer;
+use Ticketpark\SaferpayJson\Container\Payment;
+use Ticketpark\SaferpayJson\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Message\Request;
 
-class PaymentPageRequest extends Request
+class InitializeRequest extends Request
 {
     const API_PATH = '/Payment/v1/PaymentPage/Initialize';
 
-    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\PaymentPageResponse';
+    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\PaymentPage\InitalizeResponse';
 
     /**
-     * @var Ticketpark\SaferpayJson\Request\Payment
+     * @var Ticketpark\SaferpayJson\Container\Payment
      * @SerializedName("Payment")
      */
     protected $payment;
 
     /**
-     * @var Ticketpark\SaferpayJson\Request\Payer
+     * @var Ticketpark\SaferpayJson\Container\Payer
      * @SerializedName("Payer")
      */
     protected $payer;
 
     /**
-     * @var Ticketpark\SaferpayJson\Request\ReturnUrls
+     * @var Ticketpark\SaferpayJson\Container\ReturnUrls
      * @SerializedName("ReturnUrls")
      */
     protected $returnUrls;
 
     /**
-     * @var Ticketpark\SaferpayJson\Request\Notification
+     * @var Ticketpark\SaferpayJson\Container\Notification
      * @SerializedName("Notification")
      */
     protected $notification;
@@ -46,7 +46,7 @@ class PaymentPageRequest extends Request
     protected $terminalId;
 
     /**
-     * @return Ticketpark\SaferpayJson\Request\Payment
+     * @return Ticketpark\SaferpayJson\Container\Payment
      */
     public function getPayment()
     {
@@ -54,7 +54,7 @@ class PaymentPageRequest extends Request
     }
 
     /**
-     * @param Ticketpark\SaferpayJson\Request\Payment $payment
+     * @param Ticketpark\SaferpayJson\Container\Payment $payment
      * @return Request
      */
     public function setPayment(Payment $payment)
@@ -65,7 +65,7 @@ class PaymentPageRequest extends Request
     }
 
     /**
-     * @return Ticketpark\SaferpayJson\Request\Payer
+     * @return Ticketpark\SaferpayJson\Container\Payer
      */
     public function getPayer()
     {
@@ -73,7 +73,7 @@ class PaymentPageRequest extends Request
     }
 
     /**
-     * @param Ticketpark\SaferpayJson\Request\Payer $payer
+     * @param Ticketpark\SaferpayJson\Container\Payer $payer
      * @return Request
      */
     public function setPayer(Payer $payer)
@@ -84,7 +84,7 @@ class PaymentPageRequest extends Request
     }
 
     /**
-     * @return Ticketpark\SaferpayJson\Request\ReturnUrls
+     * @return Ticketpark\SaferpayJson\Container\ReturnUrls
      */
     public function getReturnUrls()
     {
@@ -92,7 +92,7 @@ class PaymentPageRequest extends Request
     }
 
     /**
-     * @param Ticketpark\SaferpayJson\Request\ReturnUrls $returnUrls
+     * @param Ticketpark\SaferpayJson\Container\ReturnUrls $returnUrls
      * @return Request
      */
     public function setReturnUrls(ReturnUrls $returnUrls)
@@ -103,7 +103,7 @@ class PaymentPageRequest extends Request
     }
 
     /**
-     * @return Ticketpark\SaferpayJson\Request\Notification
+     * @return Ticketpark\SaferpayJson\Container\Notification
      */
     public function getNotification()
     {
@@ -111,7 +111,7 @@ class PaymentPageRequest extends Request
     }
 
     /**
-     * @param Ticketpark\SaferpayJson\Request\Notification $notification
+     * @param Ticketpark\SaferpayJson\Container\Notification $notification
      * @return PaymentPageRequest
      */
     public function setNotification(Notification $notification)
