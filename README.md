@@ -1,6 +1,8 @@
 #SaferpayJsonApi
 
-A php library to use the [Saferpay Json API](https://test.saferpay.com/jsonapihelp/)
+A php library to use the [Saferpay Json API](https://test.saferpay.com/jsonapihelp/).
+
+**In development. Feel free to contribute.**
 
 ## Installation
 
