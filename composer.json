@@ -1,5 +1,5 @@
 {
-    "name": "ticketpark/saferpay-json",
+    "name": "ticketpark/saferpay-json-api",
     "type": "library",
     "description": "A php library to use the json api of Saferpay",
     "keywords": ["saferpay"],
