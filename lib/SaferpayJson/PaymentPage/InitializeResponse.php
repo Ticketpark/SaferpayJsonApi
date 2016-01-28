@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Message\Response;
 
-class InitalizeResponse extends Response
+class InitializeResponse extends Response
 {
     /**
      * @var string

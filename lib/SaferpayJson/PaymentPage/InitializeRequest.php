@@ -13,7 +13,7 @@ class InitializeRequest extends Request
 {
     const API_PATH = '/Payment/v1/PaymentPage/Initialize';
 
-    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\PaymentPage\InitalizeResponse';
+    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\PaymentPage\InitializeResponse';
 
     /**
      * @var Ticketpark\SaferpayJson\Container\Payment

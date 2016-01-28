@@ -56,7 +56,7 @@ abstract class Request
      * @param string $apiSecret
      * @param bool $test
      */
-    public function __construct($apiKey, $apiSecret, $test = true, Browser $browser = null)
+    public function __construct($apiKey = null, $apiSecret  = null, $test = true, Browser $browser = null)
     {
         $this->apiKey = $apiKey;
         $this->apiSecret = $apiSecret;
