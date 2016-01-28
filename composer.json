@@ -3,7 +3,7 @@
     "type": "library",
     "description": "A php library to use the json api of Saferpay",
     "keywords": ["saferpay"],
-    "homepage": "https://github.com/Ticketpark/SaferpayJson",
+    "homepage": "https://github.com/Ticketpark/SaferpayJsonApi",
     "license": "MIT",
     "authors": [
         {"name": "Manuel Reinhard", "email": "manuel.reinhard@ticketpark.ch"}
