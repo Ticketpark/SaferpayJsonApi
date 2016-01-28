@@ -3,11 +3,7 @@
 namespace Ticketpark\SaferpayJson\PaymentPage;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Request\Notification;
-use Ticketpark\SaferpayJson\Request\Payer;
-use Ticketpark\SaferpayJson\Request\Payment;
-use Ticketpark\SaferpayJson\Request\ReturnUrls;
-use Ticketpark\SaferpayJson\Request\Request;
+use Ticketpark\SaferpayJson\Message\Request;
 
 class AssertRequest extends Request
 {

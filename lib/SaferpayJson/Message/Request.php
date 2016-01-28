@@ -17,7 +17,7 @@ abstract class Request
 
     const ROOT_URL_TEST = 'https://test.saferpay.com/api/';
 
-    const ERROR_RESPONSE_CLASS = 'Ticketpark\SaferpayJson\Response\ErrorResponse';
+    const ERROR_RESPONSE_CLASS = 'Ticketpark\SaferpayJson\Message\ErrorResponse';
 
     /**
      * @var string

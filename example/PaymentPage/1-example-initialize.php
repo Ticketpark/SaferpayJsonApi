@@ -2,7 +2,7 @@
 
 use \Ticketpark\SaferpayJson\PaymentPage\InitializeRequest;
 use \Ticketpark\SaferpayJson\Container;
-use \Ticketpark\SaferpayJson\Response\ErrorResponse;
+use \Ticketpark\SaferpayJson\Message\ErrorResponse;
 
 require_once 'vendor/autoload.php';
 
@@ -76,3 +76,7 @@ echo 'Redirect to: ' . $response->getRedirectUrl() ."<br>\n";
 // Step 5:
 // Fill in test payment page. For dummy credit card numbers see
 // https://www.six-payment-services.com/de/site/saferpay-support/testaccount/Saferpay_Testdaten.html
+
+// Step 6:
+// On success page and notification url, assert the payment has been successful.
+// -> see 2-example-assert.php

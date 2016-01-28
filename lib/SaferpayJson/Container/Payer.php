@@ -3,30 +3,35 @@
 namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class Payer
 {
     /**
      * @var string
      * @SerializedName("IpAddress")
+     * @Type("string")
      */
     protected $ipAddress;
 
     /**
      * @var string
      * @SerializedName("LanguageCode")
+     * @Type("string")
      */
     protected $languageCode;
 
     /**
      * @var Ticketpark\SaferpayJson\Container\Address
      * @SerializedName("DeliveryAddress")
+     * @Type("Ticketpark\SaferpayJson\Container\Address")
      */
     protected $deliveryAddress;
 
     /**
      * @var Ticketpark\SaferpayJson\Container\Address
      * @SerializedName("BillingAddress")
+     * @Type("Ticketpark\SaferpayJson\Container\Address")
      */
     protected $billingAddress;
 

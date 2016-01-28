@@ -3,18 +3,21 @@
 namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class Amount
 {
     /**
      * @var int
      * @SerializedName("Value")
+     * @Type("integer")
      */
     protected $value;
 
     /**
      * @var string
      * @SerializedName("CurrencyCode")
+     * @Type("string")
      */
     protected $currencyCode;
 
