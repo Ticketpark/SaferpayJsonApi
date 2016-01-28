@@ -13,6 +13,10 @@ $customerId = '401860';
 $apiKey     = 'API_401860_81002685';
 $apiSecret  = 'C-y*bv8346Ze5-T8';
 
+// A token you received after initializing a payment page (see 1-example-assert.php)
+
+$token = 'xxx';
+
 // Step 1:
 // Prepare the assert request
 // See https://test.saferpay.com/jsonapihelp/#Payment_v1_PaymentPage_Assert
@@ -23,7 +27,7 @@ $requestHeader = (new Container\RequestHeader())
 
 $response = (new AssertRequest($apiKey, $apiSecret))
     ->setRequestHeader($requestHeader)
-    ->setToken('99101mhdvzzsdwjskr3qcwuwo')
+    ->setToken($token)
     ->execute();
 
 // Step 2:
