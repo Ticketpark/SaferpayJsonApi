@@ -1,8 +1,8 @@
 <?php
 
 use \Ticketpark\SaferpayJson\Container;
-use \Ticketpark\SaferpayJson\PaymentPage\AssertRequest;
 use \Ticketpark\SaferpayJson\Message\ErrorResponse;
+use \Ticketpark\SaferpayJson\Transaction\CaptureRequest;
 
 require_once 'vendor/autoload.php';
 
@@ -13,21 +13,24 @@ $customerId = '401860';
 $apiKey     = 'API_401860_81002685';
 $apiSecret  = 'C-y*bv8346Ze5-T8';
 
-// A token you received after initializing a payment page (see 1-example-assert.php)
+// A transactionid you received with a successful payment (see ../PaymentPage/2-example-assert.php)
 
-$token = 'xxx';
+$transactionId = 'xxx';
 
 // Step 1:
-// Prepare the assert request
-// See https://test.saferpay.com/jsonapihelp/#Payment_v1_PaymentPage_Assert
+// Prepare the capture request
+// https://test.saferpay.com/jsonapihelp/#Payment_v1_Transaction_Capture
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)
     ->setRequestId(uniqid());
 
-$response = (new AssertRequest($apiKey, $apiSecret))
+$transactionReference = (new Container\TransactionReference())
+    ->setTransactionId($transactionId);
+
+$response = (new CaptureRequest($apiKey, $apiSecret))
     ->setRequestHeader($requestHeader)
-    ->setToken($token)
+    ->setTransactionReference($transactionReference)
     ->execute();
 
 // Step 2:
@@ -37,8 +40,4 @@ if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
 
-echo 'The transaction has been successful! Transaction id: ' . $response->getTransaction()->getId();
-
-// Step 3:
-// Capture the transaction to get the cash flowing.
-// See ../Transaction/1-example-capture.php
+echo 'The transaction has successfully been captured! Transaction-ID: ' . $response->getTransactionId();
