@@ -3,90 +3,105 @@
 namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class Address
 {
     /**
      * @var string
      * @SerializedName("FirstName")
+     * @Type("string")
      */
     protected $firstName;
 
     /**
      * @var string
      * @SerializedName("LastName")
+     * @Type("string")
      */
     protected $lastName;
 
     /**
      * @var \DateTime
      * @SerializedName("DateOfBirth")
+     * @Type("string")
      */
     protected $dateOfBirth;
 
     /**
      * @var string
      * @SerializedName("Company")
+     * @Type("string")
      */
     protected $company;
 
     /**
      * @var string
      * @SerializedName("Gender")
+     * @Type("string")
      */
     protected $gender;
 
     /**
      * @var string
      * @SerializedName("LegalForm")
+     * @Type("string")
      */
     protected $legalForm;
 
     /**
      * @var string
      * @SerializedName("Street")
+     * @Type("string")
      */
     protected $street;
 
     /**
      * @var string
      * @SerializedName("Street2")
+     * @Type("string")
      */
     protected $street2;
 
     /**
      * @var string
      * @SerializedName("Zip")
+     * @Type("string")
      */
     protected $zip;
 
     /**
      * @var string
      * @SerializedName("City")
+     * @Type("string")
      */
     protected $city;
 
     /**
      * @var string
      * @SerializedName("CountrySubdivisionCode")
+     * @Type("string")
      */
     protected $countrySubdivisionCode;
 
     /**
      * @var string
      * @SerializedName("CountryCode")
+     * @Type("string")
      */
     protected $countryCode;
 
     /**
      * @var string
      * @SerializedName("Phone")
+     * @Type("string")
      */
     protected $phone;
 
     /**
      * @var string
      * @SerializedName("Email")
+     * @Type("string")
      */
     protected $email;
 
