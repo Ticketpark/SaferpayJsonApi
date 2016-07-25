@@ -31,5 +31,8 @@ class AliasInsertAssertResponse extends AssertResponse
         return $this->alias;
     }
 
-
+    public function setAlias($alias)
+    {
+        $this->alias = $alias;
+    }
 }

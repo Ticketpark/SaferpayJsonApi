@@ -1,6 +1,6 @@
 <?php
 
-namespace Ticketpark\SaferpayJson\Tests\PaymentPage;
+namespace Ticketpark\SaferpayJson\Tests\Transaction;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\SerializerBuilder;
