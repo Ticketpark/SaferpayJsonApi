@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thomasm
- * Date: 05.07.2016
- * Time: 13:37
- */
 
 namespace Ticketpark\SaferpayJson\Transaction;
 

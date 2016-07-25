@@ -1,17 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thomasm
- * Date: 25.07.2016
- * Time: 10:40
- */
 
 namespace Ticketpark\SaferpayJson\Tests\Transaction;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\SerializerBuilder;
 use Ticketpark\SaferpayJson\Transaction\AuthorizationRequest;
-
 
 class AuthorizationRequestTest extends \PHPUnit_Framework_TestCase
 {

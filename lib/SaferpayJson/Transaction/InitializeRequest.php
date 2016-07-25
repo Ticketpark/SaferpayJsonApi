@@ -1,14 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: thomasm
- * Date: 05.07.2016
- * Time: 13:34
- */
-
 namespace Ticketpark\SaferpayJson\Transaction;
-
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
@@ -19,7 +11,6 @@ use Ticketpark\SaferpayJson\PaymentPage\InitializeRequest as InitRequest;
 
 class InitializeRequest extends InitRequest
 {
-
     const API_PATH = '/Payment/v1/Transaction/Initialize';
 
     const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\Transaction\InitializeResponse';
@@ -30,7 +21,6 @@ class InitializeRequest extends InitRequest
      * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
      */
     protected $paymentMeans;
-
 
     /**
      * @return Ticketpark\SaferpayJson\Container\PaymentMeans
@@ -50,5 +40,4 @@ class InitializeRequest extends InitRequest
 
         return $this;
     }
-
 }

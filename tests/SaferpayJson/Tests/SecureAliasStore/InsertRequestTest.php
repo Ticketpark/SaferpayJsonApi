@@ -3,19 +3,13 @@ namespace Ticketpark\SaferpayJson\Tests\SecureAliasStore;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\SerializerBuilder;
-use Ticketpark\SaferpayJson\SecureAliasStore\AliasInsertRequest;
+use Ticketpark\SaferpayJson\SecureAliasStore\InsertRequest;
 
-/**
- * Created by PhpStorm.
- * User: thomasm
- * Date: 25.07.2016
- * Time: 11:14
- */
-class AliasInsertRequestTest extends \PHPUnit_Framework_TestCase
+class InsertRequestTest extends \PHPUnit_Framework_TestCase
 {
     public function testErrorResponse()
     {
-        $initializer = new AliasInsertRequest();
+        $initializer = new InsertRequest();
         $initializer->setBrowser($this->getBrowserMock(false));
         $response = $initializer->execute();
 
@@ -24,11 +18,11 @@ class AliasInsertRequestTest extends \PHPUnit_Framework_TestCase
 
     public function testSuccessfulResponse()
     {
-        $initializer = new AliasInsertRequest();
+        $initializer = new InsertRequest();
         $initializer->setBrowser($this->getBrowserMock(true));
         $response = $initializer->execute();
 
-        $this->assertInstanceOf('Ticketpark\SaferpayJson\SecureAliasStore\AliasInsertResponse', $response);
+        $this->assertInstanceOf('Ticketpark\SaferpayJson\SecureAliasStore\InsertResponse', $response);
     }
 
     public function getBrowserMock($successful)
@@ -61,7 +55,7 @@ class AliasInsertRequestTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(200));
 
         if ($successful) {
-            $content = $this->getFakedApiResponse('Ticketpark\SaferpayJson\SecureAliasStore\AliasInsertResponse');
+            $content = $this->getFakedApiResponse('Ticketpark\SaferpayJson\SecureAliasStore\InsertResponse');
         } else {
             $content = $this->getFakedApiResponse('Ticketpark\SaferpayJson\Message\ErrorResponse');
         }

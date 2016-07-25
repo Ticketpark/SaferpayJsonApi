@@ -1,12 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thomasm
- * Date: 04.07.2016
- * Time: 15:23
- */
 
 namespace Ticketpark\SaferpayJson\SecureAliasStore;
+
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Container\Notification;
@@ -14,23 +9,24 @@ use Ticketpark\SaferpayJson\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Container\ReturnUrls;
 use Ticketpark\SaferpayJson\Message\Request;
 
-class AliasInsertRequest extends Request
+class InsertRequest extends Request
 {
+    const API_PATH = '/Payment/v1/Alias/Insert';
+
+    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\SecureAliasStore\InsertResponse';
 
     /**
-     * Possible values: CARD, BANK_ACCOUNT, POSTFINANCE.
-     *
      * @var string
      * @SerializedName("Type")
      * @Type("string")
      */
-    protected $type=null;
+    protected $type;
 
     /**
      * @var \Ticketpark\SaferpayJson\Container\RegisterAlias
      * @SerializedName("RegisterAlias")
      */
-    protected $registerAlias=null;
+    protected $registerAlias;
 
     /**
      * @var \Ticketpark\SaferpayJson\Container\ReturnUrls
@@ -43,11 +39,6 @@ class AliasInsertRequest extends Request
      * @SerializedName("Notification")
      */
     protected $notification;
-
-    const API_PATH = '/Payment/v1/Alias/Insert';
-    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\SecureAliasStore\AliasInsertResponse';
-    
-
 
     /**
      * @return string
@@ -107,7 +98,6 @@ class AliasInsertRequest extends Request
         return $this;
     }
 
-
     /**
      * @return \Ticketpark\SaferpayJson\Container\Notification
      */
@@ -126,5 +116,4 @@ class AliasInsertRequest extends Request
 
         return $this;
     }
-
 }

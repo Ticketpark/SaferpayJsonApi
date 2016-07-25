@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thomasm
- * Date: 04.07.2016
- * Time: 15:26
- */
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -14,8 +8,6 @@ use JMS\Serializer\Annotation\Type;
 class RegisterAlias
 {
     /**
-     * Possible values: MANUAL, RANDOM, RANDOM_UNIQUE.
-     *
      * @var string
      * @SerializedName("IdGenerator")
      * @Type("string")
