@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Ticketpark/SaferpayJsonApi.svg?branch=master)](https://travis-ci.org/Ticketpark/SaferpayJsonApi)
 
-A php library to use the [Saferpay Json API](https://test.saferpay.com/jsonapihelp/).
+A php library to use the [Saferpay Json API](http://saferpay.github.io/jsonapi/).
 
 ## Installation
 
