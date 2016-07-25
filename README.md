@@ -15,6 +15,13 @@ composer require ticketpark/saferpay-json-api
 ## Usage
 See [example folder](/example).
 
+## Contribution
+You are welcome to contribute to this repo.
+
+* Follow [Symfony coding standards](http://symfony.com/doc/current/contributing/code/standards.html)
+* Write useful commit messages
+* Be nice and respect others
+
 ## License
 This bundle is under the MIT license. See the complete license in the bundle:
 
