@@ -6,7 +6,14 @@
     "homepage": "https://github.com/Ticketpark/SaferpayJsonApi",
     "license": "MIT",
     "authors": [
-        {"name": "Manuel Reinhard", "email": "manuel.reinhard@ticketpark.ch"}
+        {
+            "name": "Manuel Reinhard",
+            "email": "manuel.reinhard@ticketpark.ch"
+        },
+        {
+            "name": "Additional contributors",
+            "homepage": "https://github.com/Ticketpark/SaferpayJsonApi/graphs/contributors"
+        }
     ],
     "require": {
         "php": ">=5.6",
