@@ -4,18 +4,21 @@ namespace Ticketpark\SaferpayJson\SecureAliasStore;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Container\Alias;
 use Ticketpark\SaferpayJson\Container\PaymentMeans;
-use Ticketpark\SaferpayJson\Message\Response;
+use Ticketpark\SaferpayJson\Container\RegisterAlias;
+use Ticketpark\SaferpayJson\Message\Request;
 
-class AssertInsertResponse extends Response
+class InsertDirectRequest extends Request
 {
+    const API_PATH = '/Payment/v1/Alias/InsertDirect';
+
+    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\SecureAliasStore\InsertDirectResponse';
+
     /**
-     * @var \Ticketpark\SaferpayJson\Container\Alias
-     * @SerializedName("Alias")
-     * @Type("Ticketpark\SaferpayJson\Container\Alias")
+     * @var \Ticketpark\SaferpayJson\Container\RegisterAlias
+     * @SerializedName("RegisterAlias")
      */
-    protected $alias;
+    protected $registerAlias;
 
     /**
      * @var Ticketpark\SaferpayJson\Container\PaymentMeans
@@ -25,20 +28,20 @@ class AssertInsertResponse extends Response
     protected $paymentMeans;
 
     /**
-     * @return \Ticketpark\SaferpayJson\Container\Alias
+     * @return Ticketpark\SaferpayJson\Container\RegisterAlias
      */
-    public function getAlias()
+    public function getRegisterAlias()
     {
-        return $this->alias;
+        return $this->registerAlias;
     }
 
     /**
-     * @param Ticketpark\SaferpayJson\Container\Alias $alias
-     * @return AssertInsertResponse
+     * @param Ticketpark\SaferpayJson\Container\RegisterAlias $registerAlias
+     * @return InsertRequest
      */
-    public function setAlias(Alias $alias)
+    public function setRegisterAlias(RegisterAlias $registerAlias)
     {
-        $this->alias = $alias;
+        $this->registerAlias = $registerAlias;
 
         return $this;
     }
@@ -53,12 +56,11 @@ class AssertInsertResponse extends Response
 
     /**
      * @param Ticketpark\SaferpayJson\Container\PaymentMeans $paymentMeans
-     * @return AssertInsertResponse
+     * @return InsertRequest
      */
     public function setPaymentMeans(PaymentMeans $paymentMeans)
     {
         $this->paymentMeans = $paymentMeans;
-
         return $this;
     }
 }
