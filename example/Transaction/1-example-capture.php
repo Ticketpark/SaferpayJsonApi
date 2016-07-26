@@ -4,14 +4,8 @@ use \Ticketpark\SaferpayJson\Container;
 use \Ticketpark\SaferpayJson\Message\ErrorResponse;
 use \Ticketpark\SaferpayJson\Transaction\CaptureRequest;
 
-require_once 'vendor/autoload.php';
-
-// Common test data according to
-// https://www.six-payment-services.com/en/site/saferpay-support/testaccount.html
-
-$customerId = '401860';
-$apiKey     = 'API_401860_81002685';
-$apiSecret  = 'C-y*bv8346Ze5-T8';
+require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../credentials.php';
 
 // A transactionid you received with a successful payment (see ../PaymentPage/2-example-assert.php)
 
