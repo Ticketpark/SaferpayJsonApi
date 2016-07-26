@@ -55,7 +55,7 @@ class InitializeRequest extends Request
 
     /**
      * @param Ticketpark\SaferpayJson\Container\Payment $payment
-     * @return Request
+     * @return InitializeRequest
      */
     public function setPayment(Payment $payment)
     {
@@ -74,7 +74,7 @@ class InitializeRequest extends Request
 
     /**
      * @param Ticketpark\SaferpayJson\Container\Payer $payer
-     * @return Request
+     * @return InitializeRequest
      */
     public function setPayer(Payer $payer)
     {
@@ -93,7 +93,7 @@ class InitializeRequest extends Request
 
     /**
      * @param Ticketpark\SaferpayJson\Container\ReturnUrls $returnUrls
-     * @return Request
+     * @return InitializeRequest
      */
     public function setReturnUrls(ReturnUrls $returnUrls)
     {
@@ -112,7 +112,7 @@ class InitializeRequest extends Request
 
     /**
      * @param Ticketpark\SaferpayJson\Container\Notification $notification
-     * @return PaymentPageRequest
+     * @return InitializeRequest
      */
     public function setNotification(Notification $notification)
     {
@@ -131,7 +131,7 @@ class InitializeRequest extends Request
 
     /**
      * @param string $terminalId
-     * @return Request
+     * @return InitializeRequest
      */
     public function setTerminalId($terminalId)
     {
