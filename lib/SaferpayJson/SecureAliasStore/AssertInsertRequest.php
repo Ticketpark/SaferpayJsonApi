@@ -2,6 +2,7 @@
 
 namespace Ticketpark\SaferpayJson\SecureAliasStore;
 
+use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Message\Request;
 
 class AssertInsertRequest extends Request
