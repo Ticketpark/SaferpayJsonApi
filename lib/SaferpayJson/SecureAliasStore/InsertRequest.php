@@ -16,17 +16,17 @@ class InsertRequest extends Request
     const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\SecureAliasStore\InsertResponse';
 
     /**
+     * @var \Ticketpark\SaferpayJson\Container\RegisterAlias
+     * @SerializedName("RegisterAlias")
+     */
+    protected $registerAlias;
+
+    /**
      * @var string
      * @SerializedName("Type")
      * @Type("string")
      */
     protected $type;
-
-    /**
-     * @var \Ticketpark\SaferpayJson\Container\RegisterAlias
-     * @SerializedName("RegisterAlias")
-     */
-    protected $registerAlias;
 
     /**
      * @var \Ticketpark\SaferpayJson\Container\ReturnUrls
@@ -35,30 +35,23 @@ class InsertRequest extends Request
     protected $returnUrls;
 
     /**
-     * @var \Ticketpark\SaferpayJson\Container\Notification
-     * @SerializedName("Notification")
+     * @var \Ticketpark\SaferpayJson\Container\Styling
+     * @SerializedName("Styling")
      */
-    protected $notification;
+    protected $styling;
 
     /**
-     * @return string
+     * @var string
+     * @SerializedName("LanguageCode")
+     * @Type("string")
      */
-    public function getType()
-    {
-        return $this->type;
-    }
+    protected $languageCode;
 
     /**
-     * @param string $type
-     * @return AliasInsertRequest
+     * @var \Ticketpark\SaferpayJson\Container\Check
+     * @SerializedName("Check")
      */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
+    protected $check;
 
     /**
      * @return string
@@ -80,6 +73,25 @@ class InsertRequest extends Request
     }
 
     /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     * @return AliasInsertRequest
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
      * @return \Ticketpark\SaferpayJson\Container\ReturnUrls
      */
     public function getReturnUrls()
@@ -94,25 +106,6 @@ class InsertRequest extends Request
     public function setReturnUrls(ReturnUrls $returnUrls)
     {
         $this->returnUrls = $returnUrls;
-
-        return $this;
-    }
-
-    /**
-     * @return \Ticketpark\SaferpayJson\Container\Notification
-     */
-    public function getNotification()
-    {
-        return $this->notification;
-    }
-
-    /**
-     * @param \Ticketpark\SaferpayJson\Container\Notification $notification
-     * @return AliasInsertRequest
-     */
-    public function setNotification(Notification $notification)
-    {
-        $this->notification = $notification;
 
         return $this;
     }
