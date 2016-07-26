@@ -72,7 +72,7 @@ class InsertRequest extends Request
      * @param string $registerAlias
      * @return AliasInsertRequest
      */
-    public function setRegisterAlias($registerAlias)
+    public function setRegisterAlias(RegisterAlias $registerAlias)
     {
         $this->registerAlias = $registerAlias;
 
