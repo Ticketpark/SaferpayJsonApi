@@ -53,5 +53,9 @@ echo 'Redirect required? ' . ($response->isRedirectRequired() ? "yes" : "no") . 
 echo 'Redirect to: ' . $response->getRedirect()->getRedirectUrl() ."<br>\n";
 
 // Step 5:
+// Fill in test payment page. For dummy credit card numbers see
+// https://www.six-payment-services.com/de/site/saferpay-support/testaccount/Saferpay_Testdaten.html
+
+// Step 6:
 // On success page, authorize the transaction
 // -> see 2-example-authorize.php
