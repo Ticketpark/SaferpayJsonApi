@@ -14,7 +14,7 @@ use Ticketpark\SaferpayJson\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Container\ReturnUrls;
 use Ticketpark\SaferpayJson\Message\Request;
 
-class AliasInsertRequest extends Request
+class InsertRequest extends Request
 {
 
     /**
@@ -45,7 +45,7 @@ class AliasInsertRequest extends Request
     protected $notification;
 
     const API_PATH = '/Payment/v1/Alias/Insert';
-    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\SecureAliasStore\AliasInsertResponse';
+    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\SecureAliasStore\InsertResponse';
     
 
 
@@ -59,7 +59,7 @@ class AliasInsertRequest extends Request
 
     /**
      * @param string $type
-     * @return AliasInsertRequest
+     * @return InsertRequest
      */
     public function setType($type)
     {
@@ -79,7 +79,7 @@ class AliasInsertRequest extends Request
 
     /**
      * @param string $registerAlias
-     * @return AliasInsertRequest
+     * @return InsertRequest
      */
     public function setRegisterAlias($registerAlias)
     {
@@ -98,7 +98,7 @@ class AliasInsertRequest extends Request
 
     /**
      * @param \Ticketpark\SaferpayJson\Container\ReturnUrls $returnUrls
-     * @return AliasInsertRequest
+     * @return InsertRequest
      */
     public function setReturnUrls(ReturnUrls $returnUrls)
     {
@@ -118,7 +118,7 @@ class AliasInsertRequest extends Request
 
     /**
      * @param \Ticketpark\SaferpayJson\Container\Notification $notification
-     * @return AliasInsertRequest
+     * @return InsertRequest
      */
     public function setNotification(Notification $notification)
     {

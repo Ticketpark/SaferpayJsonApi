@@ -13,7 +13,7 @@ namespace Ticketpark\SaferpayJson\SecureAliasStore;
 
 use Ticketpark\SaferpayJson\PaymentPage\InitializeResponse;
 
-class AliasInsertResponse extends InitializeResponse
+class InsertResponse extends InitializeResponse
 {
 
 }

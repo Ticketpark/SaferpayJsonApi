@@ -105,7 +105,7 @@ class AssertResponse extends Response
      * @param mixed $payer
      * @return AssertResponse
      */
-    public function setPayer(Payer $payer)
+    public function setPayer($payer)
     {
         $this->payer = $payer;
 

@@ -12,7 +12,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\PaymentPage\AssertResponse;
 
-class AliasInsertAssertResponse extends AssertResponse
+class AssertInsertResponse extends AssertResponse
 {
     /**
      * @var \Ticketpark\SaferpayJson\Container\Alias
