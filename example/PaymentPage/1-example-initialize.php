@@ -5,18 +5,11 @@ use \Ticketpark\SaferpayJson\Container;
 use \Ticketpark\SaferpayJson\Message\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
-
-// Common test data according to
-// https://www.six-payment-services.com/en/site/saferpay-support/testaccount.html
-
-$customerId = '401860';
-$apiKey     = 'API_401860_80003225';
-$apiSecret  = 'C-y*bv8346Ze5-T8';
-$terminalId = '17795278';
+require_once __DIR__ . '/../credentials.php';
 
 // Step 1:
 // Initialize the payment page
-// See http://saferpay.github.io/jsonapi/#Payment_v1_PaymentPage_Initialize
+// See https://test.saferpay.com/jsonapihelp/#Payment_v1_PaymentPage_Initialize
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)
@@ -52,7 +45,6 @@ $notification = (new Container\Notification())
     ->setNotifyUrl('https://www.mysite.ch/notification');
 
 $response = (new InitializeRequest($apiKey, $apiSecret))
-    ->setTest(true)
     ->setRequestHeader($requestHeader)
     ->setPayment($payment)
     ->setTerminalId($terminalId)
@@ -63,7 +55,6 @@ $response = (new InitializeRequest($apiKey, $apiSecret))
 // Step 2:
 // Check for successful response
 if ($response instanceof ErrorResponse) {
-    var_dump($response);
     die($response->getErrorMessage());
 }
 

@@ -1,25 +1,25 @@
 <?php
 
 use \Ticketpark\SaferpayJson\Container;
-use \Ticketpark\SaferpayJson\PaymentPage\AssertRequest;
+use Ticketpark\SaferpayJson\SecureAliasStore\AssertInsertRequest;
 use \Ticketpark\SaferpayJson\Message\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
-// A token you received after initializing a payment page (see 1-example-assert.php)
+// A token you received after initializing an insert (see 1-example-insert.php)
 
 $token = 'xxx';
 
 // Step 1:
 // Prepare the assert request
-// See http://saferpay.github.io/jsonapi/#Payment_v1_PaymentPage_Assert
+// See http://saferpay.github.io/jsonapi/#Payment_v1_Alias_AssertInsert
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)
     ->setRequestId(uniqid());
 
-$response = (new AssertRequest($apiKey, $apiSecret))
+$response = (new AssertInsertRequest($apiKey, $apiSecret))
     ->setRequestHeader($requestHeader)
     ->setToken($token)
     ->execute();
@@ -31,7 +31,14 @@ if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
 
-echo 'The transaction has been successful! Transaction id: ' . $response->getTransaction()->getId();
+// Step 2:
+// Check for successful response
+
+if ($response instanceof ErrorResponse) {
+    die($response->getErrorMessage());
+}
+
+echo 'The insert has been successful! Insert alias: ' . $response->getAlias()->getId();
 
 // Step 3:
 // Capture the transaction to get the cash flowing.
