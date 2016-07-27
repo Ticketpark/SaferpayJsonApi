@@ -51,3 +51,7 @@ echo 'Payment token: ' . $response->getToken() . "<br>\n";
 // Redirect to security check, if necessary
 echo 'Redirect required? ' . ($response->isRedirectRequired() ? "yes" : "no") . "<br>\n";
 echo 'Redirect to: ' . $response->getRedirect()->getRedirectUrl() ."<br>\n";
+
+// Step 5:
+// On success page, authorize the transaction
+// -> see 2-example-authorize.php
