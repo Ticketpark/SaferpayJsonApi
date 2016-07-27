@@ -31,15 +31,4 @@ if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
 
-// Step 2:
-// Check for successful response
-
-if ($response instanceof ErrorResponse) {
-    die($response->getErrorMessage());
-}
-
 echo 'The insert has been successful! Insert alias: ' . $response->getAlias()->getId();
-
-// Step 3:
-// Capture the transaction to get the cash flowing.
-// See ../Transaction/1-example-capture.php
