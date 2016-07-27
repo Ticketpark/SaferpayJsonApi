@@ -9,13 +9,6 @@ class Card
 {
     /**
      * @var string
-     * @SerializedName("Number")
-     * @Type("string")
-     */
-    protected $number;
-
-    /**
-     * @var string
      * @SerializedName("MaskedNumber")
      * @Type("string")
      */
@@ -55,25 +48,6 @@ class Card
      * @Type("string")
      */
     protected $hashValue;
-
-    /**
-     * @return string
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
-
-    /**
-     * @param string $number
-     * @return Card
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-
-        return $this;
-    }
 
     /**
      * @return string
