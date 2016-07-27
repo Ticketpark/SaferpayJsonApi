@@ -52,7 +52,6 @@ class ErrorResponse extends Response
     /**
      * @var string
      * @SerializedName("ProcessorResult")
-     * @Type("string")
      */
     protected $processorResult;
 

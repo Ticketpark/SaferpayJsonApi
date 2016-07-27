@@ -5,7 +5,7 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class Error
+class Alias
 {
     /**
      * @var string

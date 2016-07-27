@@ -1,16 +1,16 @@
 <?php
 
-namespace Ticketpark\SaferpayJson\Tests\Transaction;
+namespace Ticketpark\SaferpayJson\Tests\PaymentPage;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\SerializerBuilder;
-use Ticketpark\SaferpayJson\Transaction\CaptureRequest;
+use Ticketpark\SaferpayJson\PaymentPage\AssertRequest;
 
-class CaptureRequestTest extends \PHPUnit_Framework_TestCase
+class AssertRequestTest extends \PHPUnit_Framework_TestCase
 {
     public function testErrorResponse()
     {
-        $initializer = new CaptureRequest();
+        $initializer = new AssertRequest();
         $initializer->setBrowser($this->getBrowserMock(false));
         $response = $initializer->execute();
 
@@ -19,11 +19,11 @@ class CaptureRequestTest extends \PHPUnit_Framework_TestCase
 
     public function testSuccessfulResponse()
     {
-        $initializer = new CaptureRequest();
+        $initializer = new AssertRequest();
         $initializer->setBrowser($this->getBrowserMock(true));
         $response = $initializer->execute();
 
-        $this->assertInstanceOf('Ticketpark\SaferpayJson\Transaction\CaptureResponse', $response);
+        $this->assertInstanceOf('Ticketpark\SaferpayJson\PaymentPage\AssertResponse', $response);
     }
 
     public function getBrowserMock($successful)
@@ -56,7 +56,7 @@ class CaptureRequestTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(200));
 
         if ($successful) {
-            $content = $this->getFakedApiResponse('Ticketpark\SaferpayJson\Transaction\CaptureResponse');
+            $content = $this->getFakedApiResponse('Ticketpark\SaferpayJson\PaymentPage\AssertResponse');
         } else {
             $content = $this->getFakedApiResponse('Ticketpark\SaferpayJson\Message\ErrorResponse');
         }
