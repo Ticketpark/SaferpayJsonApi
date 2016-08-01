@@ -27,7 +27,7 @@ class PaymentMeans
     /**
      * @var string
      * @SerializedName("Wallet")
-     * @Type("Ticketpark\SaferpayJson\Container\Wallet")
+     * @Type("string")
      */
     protected $wallet;
 
