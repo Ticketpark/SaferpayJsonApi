@@ -19,7 +19,7 @@ class Wallet
      * @SerializedName("PaymentMethods")
      * @Type("array")
      */
-    protected $paymentMethods = array();
+    protected $paymentMethods;
 
     /**
      * @var bool
