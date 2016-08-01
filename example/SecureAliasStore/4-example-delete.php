@@ -31,13 +31,6 @@ if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
 
-// Step 2:
-// Check for successful response
-
-if ($response instanceof ErrorResponse) {
-    die($response->getErrorMessage());
-}
-
 
 // Step 3:
 // You are done!

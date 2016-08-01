@@ -28,7 +28,7 @@ $response = (new AuthorizeRequest($apiKey, $apiSecret))
 // Check for successful response
 
 if ($response instanceof ErrorResponse) {
-    die($response->getErrorName().': '.$response->getErrorMessage());
+    die($response->getErrorMessage());
 }
 
 echo 'The transaction has been successful! Transaction id: ' . $response->getTransaction()->getId();

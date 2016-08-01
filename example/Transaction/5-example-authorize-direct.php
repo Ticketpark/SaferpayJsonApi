@@ -50,7 +50,7 @@ if ($response instanceof ErrorResponse) {
 // Step 3:
 // Save the response token, you will need it later to verify the payment
 echo 'Succesful payment. Status: ' . $response->getTransaction()->getStatus() . "<br>\n";
-echo 'Payment id: ' . $response->getTransaction()->getId() . "<br>\n";
+echo 'Payment token: ' . $response->getTransaction()->getId() . "<br>\n";
 
 // Step 4:
 // Capture the transaction to get the cash flowing.

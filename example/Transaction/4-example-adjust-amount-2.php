@@ -35,7 +35,7 @@ $response = (new AdjustAmountRequest($apiKey, $apiSecret))
 // Check for successful response
 
 if ($response instanceof ErrorResponse) {
-    die($response->getErrorName().': '.$response->getErrorMessage());
+    die($response->getErrorMessage());
 }
 
 echo "The amount has successfully been changed for payment<br>\n";
