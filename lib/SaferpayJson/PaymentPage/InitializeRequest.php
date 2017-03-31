@@ -15,6 +15,28 @@ class InitializeRequest extends Request
 
     const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\PaymentPage\InitializeResponse';
 
+    const PAYMENT_METHOD_AMEX = "AMEX";
+    const PAYMENT_METHOD_BANCONTACT = "BANCONTACT";
+    const PAYMENT_METHOD_BONUS = "BONUS";
+    const PAYMENT_METHOD_DINERS = "DINERS";
+    const PAYMENT_METHOD_DIRECTDEBIT = "DIRECTDEBIT";
+    const PAYMENT_METHOD_EPRZELEWY = "EPRZELEWY";
+    const PAYMENT_METHOD_EPS = "EPS";
+    const PAYMENT_METHOD_GIROPAY = "GIROPAY";
+    const PAYMENT_METHOD_IDEAL = "IDEAL";
+    const PAYMENT_METHOD_INVOICE = "INVOICE";
+    const PAYMENT_METHOD_JCB = "JCB";
+    const PAYMENT_METHOD_MAESTRO = "MAESTRO";
+    const PAYMENT_METHOD_MASTERCARD = "MASTERCARD";
+    const PAYMENT_METHOD_MYONE = "MYONE";
+    const PAYMENT_METHOD_PAYPAL = "PAYPAL";
+    const PAYMENT_METHOD_POSTCARD = "POSTCARD";
+    const PAYMENT_METHOD_POSTFINANCE = "POSTFINANCE";
+    const PAYMENT_METHOD_SAFERPAYTEST = "SAFERPAYTEST";
+    const PAYMENT_METHOD_SOFORT = "SOFORT";
+    const PAYMENT_METHOD_VISA = "VISA";
+    const PAYMENT_METHOD_VPAY = "VPAY";
+
     /**
      * @var Ticketpark\SaferpayJson\Container\Payment
      * @SerializedName("Payment")
@@ -44,6 +66,12 @@ class InitializeRequest extends Request
      * @SerializedName("TerminalId")
      */
     protected $terminalId;
+
+    /**
+     * @var array
+     * @SerializedName("PaymentMethods")
+     */
+    protected $paymentMethods;
 
     /**
      * @return Ticketpark\SaferpayJson\Container\Payment
@@ -136,6 +164,25 @@ class InitializeRequest extends Request
     public function setTerminalId($terminalId)
     {
         $this->terminalId = $terminalId;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPaymentMethods()
+    {
+        return $this->paymentMethods;
+    }
+
+    /**
+     * @param array $paymentMethods
+     * @return InitializeRequest
+     */
+    public function setPaymentMethods(array $paymentMethods)
+    {
+        $this->paymentMethods = $paymentMethods;
 
         return $this;
     }
