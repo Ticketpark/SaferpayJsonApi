@@ -46,6 +46,13 @@ class PaymentMeans
     protected $bankAccount;
 
     /**
+     * @var \Ticketpark\SaferpayJson\Container\Alias
+     * @SerializedName("Alias")
+     * @Type("Ticketpark\SaferpayJson\Container\Alias")
+     */
+    protected $alias;
+
+    /**
      * @return Ticketpark\SaferpayJson\Container\Brand
      */
     public function getBrand()
@@ -136,6 +143,25 @@ class PaymentMeans
     public function setBankAccount(BankAccount $bankAccount)
     {
         $this->bankAccount = $bankAccount;
+
+        return $this;
+    }
+
+    /**
+     * @return \Ticketpark\SaferpayJson\Container\Alias
+     */
+    public function getAlias()
+    {
+        return $this->alias;
+    }
+
+    /**
+     * @param \Ticketpark\SaferpayJson\Container\Alias $alias
+     * @return PaymentMeans
+     */
+    public function setAlias(Alias $alias)
+    {
+        $this->alias = $alias;
 
         return $this;
     }
