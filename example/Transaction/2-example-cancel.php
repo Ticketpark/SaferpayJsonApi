@@ -2,7 +2,7 @@
 
 use \Ticketpark\SaferpayJson\Container;
 use \Ticketpark\SaferpayJson\Message\ErrorResponse;
-use \Ticketpark\SaferpayJson\Transaction\CaptureRequest;
+use \Ticketpark\SaferpayJson\Transaction\CancelRequest;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
@@ -12,8 +12,8 @@ require_once __DIR__ . '/../credentials.php';
 $transactionId = 'xxx';
 
 // Step 1:
-// Prepare the capture request
-// https://saferpay.github.io/jsonapi/#Payment_v1_Transaction_Capture
+// Prepare the cancel request
+// https://saferpay.github.io/jsonapi/#Payment_v1_Transaction_Cancel
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)
@@ -22,7 +22,7 @@ $requestHeader = (new Container\RequestHeader())
 $transactionReference = (new Container\TransactionReference())
     ->setTransactionId($transactionId);
 
-$response = (new CaptureRequest($apiKey, $apiSecret))
+$response = (new CancelRequest($apiKey, $apiSecret))
     ->setRequestHeader($requestHeader)
     ->setTransactionReference($transactionReference)
     ->execute();
@@ -34,4 +34,4 @@ if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
 
-echo 'The transaction has successfully been captured! Transaction-ID: ' . $response->getTransactionId();
+echo 'The transaction has successfully been canceled! Transaction-ID: ' . $response->getTransactionId();

@@ -13,7 +13,7 @@ $token = 'xxx';
 
 // Step 1:
 // Prepare the assert request
-// See http://saferpay.github.io/jsonapi/#Payment_v1_Alias_AssertInsert
+// See https://saferpay.github.io/jsonapi/#Payment_v1_Alias_AssertInsert
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)

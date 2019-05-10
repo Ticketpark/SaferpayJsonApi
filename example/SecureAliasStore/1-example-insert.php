@@ -9,7 +9,7 @@ require_once __DIR__ . '/../credentials.php';
 
 // Step 1:
 // Prepare the assert request
-// See http://saferpay.github.io/jsonapi/#Payment_v1_Alias_Insert
+// See https://saferpay.github.io/jsonapi/#Payment_v1_Alias_Insert
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)
@@ -44,7 +44,7 @@ echo 'Redirect to: ' . $response->getRedirectUrl() ."<br>\n";
 
 // Step 5:
 // Fill in test payment page. For dummy credit card numbers see
-// https://www.six-payment-services.com/de/site/saferpay-support/testaccount/Saferpay_Testdaten.html
+// https://saferpay.github.io/sndbx/paymentmeans.html
 
 // Step 6:
 // On success page, assert the data has successfully been inserted

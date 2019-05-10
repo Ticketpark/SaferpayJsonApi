@@ -13,7 +13,7 @@ $aliasId = 'xxx';
 
 // Step 1:
 // Prepare the delete request
-// http://saferpay.github.io/jsonapi/#Payment_v1_Alias_Delete
+// https://saferpay.github.io/jsonapi/#Payment_v1_Alias_Delete
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)
