@@ -7,13 +7,13 @@ use \Ticketpark\SaferpayJson\Transaction\CaptureRequest;
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
-// A transactionid you received with a successful payment (see ../PaymentPage/2-example-assert.php)
+// A transactionid you received with a successful assert request (see ../PaymentPage/2-example-assert.php)
 
 $transactionId = 'xxx';
 
 // Step 1:
 // Prepare the capture request
-// https://test.saferpay.com/jsonapihelp/#Payment_v1_Transaction_Capture
+// https://saferpay.github.io/jsonapi/#Payment_v1_Transaction_Capture
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)

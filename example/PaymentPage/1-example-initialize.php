@@ -9,7 +9,7 @@ require_once __DIR__ . '/../credentials.php';
 
 // Step 1:
 // Initialize the payment page
-// See https://test.saferpay.com/jsonapihelp/#Payment_v1_PaymentPage_Initialize
+// See https://saferpay.github.io/jsonapi/#Payment_v1_PaymentPage_Initialize
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)
@@ -68,7 +68,7 @@ echo 'Redirect to: ' . $response->getRedirectUrl() ."<br>\n";
 
 // Step 5:
 // Fill in test payment page. For dummy credit card numbers see
-// https://www.six-payment-services.com/de/site/saferpay-support/testaccount/Saferpay_Testdaten.html
+// https://saferpay.github.io/sndbx/paymentmeans.html
 
 // Step 6:
 // On success page and notification url, assert the payment has been successful.
