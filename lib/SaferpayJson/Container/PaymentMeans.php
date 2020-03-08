@@ -11,7 +11,7 @@ use Ticketpark\SaferpayJson\Container\Card;
 class PaymentMeans
 {
     /**
-     * @var Ticketpark\SaferpayJson\Container\Brand
+     * @var Brand
      * @SerializedName("Brand")
      * @Type("Ticketpark\SaferpayJson\Container\Brand")
      */
@@ -32,21 +32,21 @@ class PaymentMeans
     protected $wallet;
 
     /**
-     * @var Ticketpark\SaferpayJson\Container\Card
+     * @var Card
      * @SerializedName("Card")
      * @Type("Ticketpark\SaferpayJson\Container\Card")
      */
     protected $card;
 
     /**
-     * @var Ticketpark\SaferpayJson\Container\BankAccount
+     * @var BankAccount
      * @SerializedName("BankAccount")
      * @Type("Ticketpark\SaferpayJson\Container\BankAccount")
      */
     protected $bankAccount;
 
     /**
-     * @var \Ticketpark\SaferpayJson\Container\Alias
+     * @var Alias
      * @SerializedName("Alias")
      * @Type("Ticketpark\SaferpayJson\Container\Alias")
      */
@@ -69,7 +69,7 @@ class PaymentMeans
         return $this->displayText;
     }
 
-    public function setDisplayText($displayText): self
+    public function setDisplayText(string $displayText): self
     {
         $this->displayText = $displayText;
 

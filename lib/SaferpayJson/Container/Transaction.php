@@ -36,7 +36,7 @@ class Transaction
     protected $date;
 
     /**
-     * @var Ticketpark\SaferpayJson\Container\Amount
+     * @var Amount
      * @SerializedName("Amount")
      * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */

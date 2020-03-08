@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-use \Ticketpark\SaferpayJson\PaymentPage\InitializeRequest;
+use \Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
 use \Ticketpark\SaferpayJson\Container;
-use \Ticketpark\SaferpayJson\Message\ErrorResponse;
+use \Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';

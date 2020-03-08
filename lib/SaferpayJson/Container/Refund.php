@@ -8,7 +8,7 @@ use JMS\Serializer\Annotation\Type;
 class Refund
 {
     /**
-     * @var Ticketpark\SaferpayJson\Container\Amount
+     * @var Amount
      * @SerializedName("Amount")
      * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */

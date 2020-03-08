@@ -12,7 +12,7 @@ class Recurring
      */
     protected $initial;
 
-    public function __construct($initial = true)
+    public function __construct(bool $initial = true)
     {
         $this->initial = $initial;
     }

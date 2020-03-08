@@ -2,7 +2,7 @@
 
 use \Ticketpark\SaferpayJson\Container;
 use Ticketpark\SaferpayJson\SecureAliasStore\AssertInsertRequest;
-use \Ticketpark\SaferpayJson\Message\ErrorResponse;
+use \Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';

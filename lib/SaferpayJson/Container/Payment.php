@@ -7,7 +7,7 @@ use JMS\Serializer\Annotation\SerializedName;
 class Payment
 {
     /**
-     * @var Ticketpark\SaferpayJson\Container\Amount
+     * @var Amount
      * @SerializedName("Amount")
      */
     protected $amount;

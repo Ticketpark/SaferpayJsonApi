@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 use \Ticketpark\SaferpayJson\Container;
-use \Ticketpark\SaferpayJson\Message\ErrorResponse;
+use \Ticketpark\SaferpayJson\Response\ErrorResponse;
 use \Ticketpark\SaferpayJson\Transaction\RefundRequest;
 
 require_once __DIR__ . '/../../vendor/autoload.php';

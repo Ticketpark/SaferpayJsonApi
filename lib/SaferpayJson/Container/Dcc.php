@@ -8,11 +8,11 @@ use JMS\Serializer\Annotation\Type;
 class Dcc
 {
     /**
-     * @var Ticketpark\SaferpayJson\Container\Amount
+     * @var Amount
      * @SerializedName("PayerAmount")
      * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */
-    protected $payerAmount;
+    private $payerAmount;
 
     public function getPayerAmount(): Amount
     {

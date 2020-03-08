@@ -38,7 +38,7 @@ class Amount
         return $this->currencyCode;
     }
 
-    public function setCurrencyCode($currencyCode): self
+    public function setCurrencyCode(string $currencyCode): self
     {
         $this->currencyCode = $currencyCode;
 

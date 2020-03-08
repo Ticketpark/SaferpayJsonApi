@@ -22,14 +22,14 @@ class Payer
     protected $languageCode;
 
     /**
-     * @var Ticketpark\SaferpayJson\Container\Address
+     * @var Address
      * @SerializedName("DeliveryAddress")
      * @Type("Ticketpark\SaferpayJson\Container\Address")
      */
     protected $deliveryAddress;
 
     /**
-     * @var Ticketpark\SaferpayJson\Container\Address
+     * @var Address
      * @SerializedName("BillingAddress")
      * @Type("Ticketpark\SaferpayJson\Container\Address")
      */

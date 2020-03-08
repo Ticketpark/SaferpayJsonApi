@@ -17,14 +17,14 @@ class RegistrationResult
     protected $success;
 
     /**
-     * @var Ticketpark\SaferpayJson\Container\Alias
+     * @var Alias
      * @SerializedName("Alias")
      * @Type("Ticketpark\SaferpayJson\Container\Alias")
      */
     protected $alias;
 
     /**
-     * @var Ticketpark\SaferpayJson\Container\Error
+     * @var Error
      * @SerializedName("Error")
      * @Type("Ticketpark\SaferpayJson\Container\Error")
      */

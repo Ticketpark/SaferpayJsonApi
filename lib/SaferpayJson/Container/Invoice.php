@@ -9,7 +9,7 @@ use Ticketpark\SaferpayJson\Container\Payee;
 class Invoice
 {
     /**
-     * @var Ticketpark\SaferpayJson\Container\Payee
+     * @var Payee
      * @SerializedName("Payee")
      * @Type("Ticketpark\SaferpayJson\Container\Payee")
      */

@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
 use Ticketpark\SaferpayJson\Container;
-use Ticketpark\SaferpayJson\Message\ErrorResponse;
-use Ticketpark\SaferpayJson\PaymentPage\AuthorizeReferencedRequest;
-use Ticketpark\SaferpayJson\PaymentPage\AuthorizeReferencedResponse;
+use Ticketpark\SaferpayJson\Response\ErrorResponse;
+use Ticketpark\SaferpayJson\Request\PaymentPage\AuthorizeReferencedRequest;
+use Ticketpark\SaferpayJson\Response\PaymentPage\AuthorizeReferencedResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
