@@ -4,6 +4,8 @@ namespace Ticketpark\SaferpayJson\SecureAliasStore;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use Ticketpark\SaferpayJson\Container\Alias;
+use Ticketpark\SaferpayJson\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Message\Response;
 
 class InsertDirectResponse extends Response

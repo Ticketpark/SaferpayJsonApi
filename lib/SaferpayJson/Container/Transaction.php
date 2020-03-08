@@ -108,7 +108,7 @@ class Transaction
         return $this;
     }
 
-    public function getAmount(): \Ticketpark\SaferpayJson\Container\Ticketpark\SaferpayJson\Container\Amount
+    public function getAmount(): Amount
     {
         return $this->amount;
     }

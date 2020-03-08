@@ -59,7 +59,7 @@ class Payer
         return $this;
     }
 
-    public function getDeliveryAddress(): \Ticketpark\SaferpayJson\Container\Ticketpark\SaferpayJson\Container\Address
+    public function getDeliveryAddress(): Address
     {
         return $this->deliveryAddress;
     }
@@ -71,7 +71,7 @@ class Payer
         return $this;
     }
 
-    public function getBillingAddress(): \Ticketpark\SaferpayJson\Container\Ticketpark\SaferpayJson\Container\Address
+    public function getBillingAddress(): Address
     {
         return $this->billingAddress;
     }
