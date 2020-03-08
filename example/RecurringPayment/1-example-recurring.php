@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Ticketpark\SaferpayJson\Container;
 use Ticketpark\SaferpayJson\Message\ErrorResponse;
@@ -38,7 +38,8 @@ if ($response instanceof ErrorResponse) {
 }
 
 /** @var AuthorizeReferencedResponse $response */
-echo sprintf("Transaction ID: %s, Status: %s, via %s (%s)",
+echo sprintf(
+    "Transaction ID: %s, Status: %s, via %s (%s)",
     $response->getTransaction()->getId(),
     $response->getTransaction()->getStatus(),
     $response->getPaymentMeans()->getBrand()->getName(),

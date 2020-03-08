@@ -1,15 +1,17 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Container\Refund;
+use Ticketpark\SaferpayJson\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Message\Request;
 
 class RefundRequest extends Request
 {
     const API_PATH = '/Payment/v1/Transaction/Refund';
 
-    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\Transaction\RefundResponse';
+    const RESPONSE_CLASS = RefundResponse::class;
 
     /**
      * @var Ticketpark\SaferpayJson\Container\Refund
@@ -23,38 +25,24 @@ class RefundRequest extends Request
      */
     protected $transactionReference;
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Refund
-     */
-    public function getRefund()
+    public function getRefund(): Refund
     {
         return $this->refund;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Refund $refund
-     * @return RefundRequest
-     */
-    public function setRefund($refund)
+    public function setRefund(Refund $refund): self
     {
         $this->refund = $refund;
 
         return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\TransactionReference
-     */
-    public function getTransactionReference()
+    public function getTransactionReference(): TransactionReference
     {
         return $this->transactionReference;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\TransactionReference $transactionReference
-     * @return CaptureRequest
-     */
-    public function setTransactionReference($transactionReference)
+    public function setTransactionReference(TransactionReference $transactionReference): self
     {
         $this->transactionReference = $transactionReference;
 

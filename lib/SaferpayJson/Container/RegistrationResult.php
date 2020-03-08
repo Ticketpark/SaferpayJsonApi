@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -30,56 +30,35 @@ class RegistrationResult
      */
     protected $error;
 
-    /**
-     * @return boolean
-     */
-    public function isSuccess()
+    public function isSuccess(): bool
     {
         return $this->success;
     }
 
-    /**
-     * @param boolean $success
-     * @return RegistrationResult
-     */
-    public function setSuccess($success)
+    public function setSuccess(bool $success): self
     {
         $this->success = $success;
         return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Alias
-     */
-    public function getAlias()
+    public function getAlias(): Alias
     {
         return $this->alias;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Alias $alias
-     * @return RegistrationResult
-     */
-    public function setAlias(Alias $alias)
+    public function setAlias(Alias $alias): self
     {
         $this->alias = $alias;
 
         return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Error
-     */
-    public function getError()
+    public function getError(): Error
     {
         return $this->error;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Error $error
-     * @return RegistrationResult
-     */
-    public function setError(Error $error)
+    public function setError(Error $error): self
     {
         $this->error = $error;
 

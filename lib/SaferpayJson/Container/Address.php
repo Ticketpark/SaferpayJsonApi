@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -105,266 +105,168 @@ class Address
      */
     protected $email;
 
-    /**
-     * @return string
-     */
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->firstName;
     }
 
-    /**
-     * @param string $firstName
-     * @return Address
-     */
-    public function setFirstName($firstName)
+    public function setFirstName(string $firstName): self
     {
         $this->firstName = $firstName;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->lastName;
     }
 
-    /**
-     * @param string $lastName
-     * @return Address
-     */
-    public function setLastName($lastName)
+    public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
 
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getDateOfBirth()
+    public function getDateOfBirth(): \DateTime
     {
         return $this->dateOfBirth;
     }
 
-    /**
-     * @param \DateTime $dateOfBirth
-     * @return Address
-     */
-    public function setDateOfBirth($dateOfBirth)
+    public function setDateOfBirth(\DateTime $dateOfBirth): self
     {
         $this->dateOfBirth = $dateOfBirth;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCompany()
+    public function getCompany(): string
     {
         return $this->company;
     }
 
-    /**
-     * @param string $company
-     * @return Address
-     */
-    public function setCompany($company)
+    public function setCompany(string $company): self
     {
         $this->company = $company;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getGender()
+    public function getGender(): string
     {
         return $this->gender;
     }
 
-    /**
-     * @param string $gender
-     * @return Address
-     */
-    public function setGender($gender)
+    public function setGender(string $gender): self
     {
         $this->gender = $gender;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getLegalForm()
+    public function getLegalForm(): string
     {
         return $this->legalForm;
     }
 
-    /**
-     * @param string $legalForm
-     * @return Address
-     */
-    public function setLegalForm($legalForm)
+    public function setLegalForm(string $legalForm): self
     {
         $this->legalForm = $legalForm;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getStreet()
+    public function getStreet(): string
     {
         return $this->street;
     }
 
-    /**
-     * @param string $street
-     * @return Address
-     */
-    public function setStreet($street)
+    public function setStreet(string $street): self
     {
         $this->street = $street;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getStreet2()
+    public function getStreet2(): string
     {
         return $this->street2;
     }
 
-    /**
-     * @param string $street2
-     * @return Address
-     */
-    public function setStreet2($street2)
+    public function setStreet2(string $street2): self
     {
         $this->street2 = $street2;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getZip()
+    public function getZip(): string
     {
         return $this->zip;
     }
 
-    /**
-     * @param string $zip
-     * @return Address
-     */
-    public function setZip($zip)
+    public function setZip(string $zip): self
     {
         $this->zip = $zip;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->city;
     }
 
-    /**
-     * @param string $city
-     * @return Address
-     */
-    public function setCity($city)
+    public function setCity(string $city): self
     {
         $this->city = $city;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCountrySubdivisionCode()
+    public function getCountrySubdivisionCode(): string
     {
         return $this->countrySubdivisionCode;
     }
 
-    /**
-     * @param string $countrySubdivisionCode
-     * @return Address
-     */
-    public function setCountrySubdivisionCode($countrySubdivisionCode)
+    public function setCountrySubdivisionCode(string $countrySubdivisionCode): self
     {
         $this->countrySubdivisionCode = $countrySubdivisionCode;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCountryCode()
+    public function getCountryCode(): string
     {
         return $this->countryCode;
     }
 
-    /**
-     * @param string $countryCode
-     * @return Address
-     */
-    public function setCountryCode($countryCode)
+    public function setCountryCode(string $countryCode): self
     {
         $this->countryCode = $countryCode;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getPhone()
+    public function getPhone(): string
     {
         return $this->phone;
     }
 
-    /**
-     * @param string $phone
-     * @return Address
-     */
-    public function setPhone($phone)
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * @param string $email
-     * @return Address
-     */
-    public function setEmail($email)
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 

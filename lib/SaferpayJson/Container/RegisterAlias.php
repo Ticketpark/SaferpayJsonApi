@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -31,7 +31,7 @@ class RegisterAlias
     /**
      * @return string
      */
-    public function getIdGenerator()
+    public function getIdGenerator(): string
     {
         return $this->IdGenerator;
     }
@@ -40,7 +40,7 @@ class RegisterAlias
      * @param string $idGenerator
      * @return RegisterAlias
      */
-    public function setIdGenerator($idGenerator)
+    public function setIdGenerator(string $idGenerator): self
     {
         $this->IdGenerator = $idGenerator;
 
@@ -50,7 +50,7 @@ class RegisterAlias
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -59,26 +59,19 @@ class RegisterAlias
      * @param string $id
      * @return RegisterAlias
      */
-    public function setId($id)
+    public function setId(string $id): self
     {
         $this->id = $id;
 
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getLifetime()
+    public function getLifetime(): int
     {
         return $this->lifetime;
     }
 
-    /**
-     * @param int $lifetime
-     * @return RegisterAlias
-     */
-    public function setLifetime($lifetime)
+    public function setLifetime(int $lifetime): self
     {
         $this->lifetime = $lifetime;
 

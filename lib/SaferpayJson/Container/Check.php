@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -18,38 +18,24 @@ class Check
      */
     protected $terminalId;
 
-    /**
-     * @return string
-     */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @param string $type
-     * @return Check
-     */
-    public function setType($type)
+    public function setType(string $type): self
     {
         $this->type = $type;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getTerminalId()
+    public function getTerminalId(): string
     {
         return $this->terminalId;
     }
 
-    /**
-     * @param string $terminalId
-     * @return Check
-     */
-    public function setTerminalId($terminalId)
+    public function setTerminalId(string $terminalId): self
     {
         $this->terminalId = $terminalId;
 

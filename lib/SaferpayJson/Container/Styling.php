@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -18,38 +18,24 @@ class Styling
      */
     protected $theme;
 
-    /**
-     * @return string
-     */
-    public function getCssUrl()
+    public function getCssUrl(): string
     {
         return $this->cssUrl;
     }
 
-    /**
-     * @param string $cssUrl
-     * @return Styling
-     */
-    public function setCssUrl($cssUrl)
+    public function setCssUrl(string $cssUrl): self
     {
         $this->cssUrl = $cssUrl;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getTheme()
+    public function getTheme(): string
     {
         return $this->theme;
     }
 
-    /**
-     * @param string $theme
-     * @return Styling
-     */
-    public function setTheme($theme)
+    public function setTheme(string $theme): self
     {
         $this->theme = $theme;
 

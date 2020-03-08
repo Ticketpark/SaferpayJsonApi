@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Transaction;
 
@@ -37,79 +37,43 @@ class CaptureResponse extends Response
      */
     protected $invoice;
 
-    /**
-     * @return string
-     */
-    public function getTransactionId()
+    public function getTransactionId(): string
     {
         return $this->transactionId;
     }
 
-    /**
-     * @param string $transactionId
-     * @return CaptureResponse
-     */
-    public function setTransactionId($transactionId)
+    public function setTransactionId(string $transactionId): void
     {
         $this->transactionId = $transactionId;
-
-        return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getOrderId()
+    public function getOrderId(): string
     {
         return $this->orderId;
     }
 
-    /**
-     * @param string $orderId
-     * @return CaptureResponse
-     */
-    public function setOrderId($orderId)
+    public function setOrderId(string $orderId): void
     {
         $this->orderId = $orderId;
-
-        return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDate()
+    public function getDate(): string
     {
         return $this->date;
     }
 
-    /**
-     * @param string $date
-     * @return CaptureResponse
-     */
-    public function setDate($date)
+    public function setDate(string $date): void
     {
         $this->date = $date;
-
-        return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Invoice
-     */
-    public function getInvoice()
+    public function getInvoice(): Invoice
     {
         return $this->invoice;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Invoice $invoice
-     * @return CaptureResponse
-     */
-    public function setInvoice(Invoice $invoice)
+    public function setInvoice(Invoice $invoice): void
     {
         $this->invoice = $invoice;
-
-        return $this;
     }
 }

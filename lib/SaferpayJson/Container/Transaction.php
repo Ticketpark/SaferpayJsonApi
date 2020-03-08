@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -63,149 +63,93 @@ class Transaction
      */
     protected $acquirerReference;
 
-    /**
-     * @return string
-     */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @param string $type
-     * @return Transaction
-     */
-    public function setType($type)
+    public function setType(string $type): self
     {
         $this->type = $type;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->status;
     }
 
-    /**
-     * @param string $status
-     * @return Transaction
-     */
-    public function setStatus($status)
+    public function setStatus(string $status): self
     {
         $this->status = $status;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
 
-    /**
-     * @param string $id
-     * @return Transaction
-     */
-    public function setId($id)
+    public function setId(string $id): self
     {
         $this->id = $id;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDate()
+    public function getDate(): string
     {
         return $this->date;
     }
 
-    /**
-     * @param string $date
-     * @return Transaction
-     */
-    public function setDate($date)
+    public function setDate(string $date): self
     {
         $this->date = $date;
 
         return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Amount
-     */
-    public function getAmount()
+    public function getAmount(): \Ticketpark\SaferpayJson\Container\Ticketpark\SaferpayJson\Container\Amount
     {
         return $this->amount;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Amount $amount
-     * @return Transaction
-     */
-    public function setAmount(Amount $amount)
+    public function setAmount(Amount $amount): self
     {
         $this->amount = $amount;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getOrderId()
+    public function getOrderId(): string
     {
         return $this->orderId;
     }
 
-    /**
-     * @param string $orderId
-     * @return Transaction
-     */
-    public function setOrderId($orderId)
+    public function setOrderId(string $orderId): self
     {
         $this->orderId = $orderId;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getAcquirerName()
+    public function getAcquirerName(): string
     {
         return $this->acquirerName;
     }
 
-    /**
-     * @param string $acquirerName
-     * @return Transaction
-     */
-    public function setAcquirerName($acquirerName)
+    public function setAcquirerName(string $acquirerName): self
     {
         $this->acquirerName = $acquirerName;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getAcquirerReference()
+    public function getAcquirerReference(): string
     {
         return $this->acquirerReference;
     }
 
-    /**
-     * @param string $acquirerReference
-     * @return Transaction
-     */
-    public function setAcquirerReference($acquirerReference)
+    public function setAcquirerReference(string $acquirerReference): self
     {
         $this->acquirerReference = $acquirerReference;
 

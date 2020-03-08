@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\PaymentPage;
 
@@ -29,57 +29,36 @@ class InitializeResponse extends Response
      */
     protected $redirectUrl;
 
-    /**
-     * @return string
-     */
-    public function getToken()
+    public function getToken(): string
     {
         return $this->token;
     }
 
-    /**
-     * @param string $token
-     * @return PaymentPageResponse
-     */
-    public function setToken($token)
+    public function setToken(string $token): self
     {
         $this->token = $token;
 
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getExpiration()
+    public function getExpiration(): \DateTime
     {
         return $this->expiration;
     }
 
-    /**
-     * @param \DateTime $expiration
-     * @return PaymentPageResponse
-     */
-    public function setExpiration($expiration)
+    public function setExpiration(\DateTime $expiration): self
     {
         $this->expiration = $expiration;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getRedirectUrl()
+    public function getRedirectUrl(): string
     {
         return $this->redirectUrl;
     }
 
-    /**
-     * @param string $redirectUrl
-     * @return PaymentPageResponse
-     */
-    public function setRedirectUrl($redirectUrl)
+    public function setRedirectUrl(string $redirectUrl): self
     {
         $this->redirectUrl = $redirectUrl;
 

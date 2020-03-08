@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -36,76 +36,48 @@ class ThreeDs
      */
     protected $verificationValue;
 
-    /**
-     * @return boolean
-     */
-    public function isAuthenticated()
+    public function isAuthenticated(): bool
     {
         return $this->authenticated;
     }
 
-    /**
-     * @param boolean $authenticated
-     * @return ThreeDs
-     */
-    public function setAuthenticated($authenticated)
+    public function setAuthenticated(bool $authenticated): self
     {
         $this->authenticated = $authenticated;
 
         return $this;
     }
 
-    /**
-     * @return boolean
-     */
-    public function isLiabilityShift()
+    public function isLiabilityShift(): bool
     {
         return $this->liabilityShift;
     }
 
-    /**
-     * @param boolean $liabilityShift
-     * @return ThreeDs
-     */
-    public function setLiabilityShift($liabilityShift)
+    public function setLiabilityShift(bool $liabilityShift): self
     {
         $this->liabilityShift = $liabilityShift;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getXid()
+    public function getXid(): string
     {
         return $this->xid;
     }
 
-    /**
-     * @param string $xid
-     * @return ThreeDs
-     */
-    public function setXid($xid)
+    public function setXid(string $xid): self
     {
         $this->xid = $xid;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getVerificationValue()
+    public function getVerificationValue(): string
     {
         return $this->verificationValue;
     }
 
-    /**
-     * @param string $verificationValue
-     * @return ThreeDs
-     */
-    public function setVerificationValue($verificationValue)
+    public function setVerificationValue(string $verificationValue): self
     {
         $this->verificationValue = $verificationValue;
 

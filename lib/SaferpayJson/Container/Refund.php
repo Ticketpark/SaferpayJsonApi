@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -28,57 +28,36 @@ class Refund
      */
     protected $description;
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Amount
-     */
-    public function getAmount()
+    public function getAmount(): Amount
     {
         return $this->amount;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Amount $amount
-     * @return Transaction
-     */
-    public function setAmount(Amount $amount)
+    public function setAmount(Amount $amount): self
     {
         $this->amount = $amount;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getOrderId()
+    public function getOrderId(): string
     {
         return $this->orderId;
     }
 
-    /**
-     * @param string $orderId
-     * @return Transaction
-     */
-    public function setOrderId($orderId)
+    public function setOrderId(string $orderId): self
     {
         $this->orderId = $orderId;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     * @return Refund
-     */
-    public function setDescription($description)
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -21,38 +21,24 @@ class Brand
      */
     protected $name;
 
-    /**
-     * @return string
-     */
-    public function getPaymentMethod()
+    public function getPaymentMethod(): string
     {
         return $this->paymentMethod;
     }
 
-    /**
-     * @param string $paymentMethod
-     * @return Brand
-     */
-    public function setPaymentMethod($paymentMethod)
+    public function setPaymentMethod(string $paymentMethod): self
     {
         $this->paymentMethod = $paymentMethod;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     * @return Brand
-     */
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 

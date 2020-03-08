@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Message;
 
@@ -15,19 +15,12 @@ abstract class Response
      */
     protected $responseHeader;
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\ResponseHeader
-     */
-    public function getResponseHeader()
+    public function getResponseHeader(): ResponseHeader
     {
         return $this->responseHeader;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\ResponseHeader $responseHeader
-     * @return Response
-     */
-    public function setResponseHeader(ResponseHeader $responseHeader)
+    public function setResponseHeader(ResponseHeader $responseHeader): self
     {
         $this->responseHeader = $responseHeader;
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -56,133 +56,84 @@ class Card
      */
     protected $hashValue;
 
-    /**
-     * @return string
-     */
-    public function getNumber()
+    public function getNumber(): string
     {
         return $this->number;
     }
 
-    /**
-     * @param string $number
-     * @return Card
-     */
-    public function setNumber($number)
+    public function setNumber(string $number): self
     {
         $this->number = $number;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getMaskedNumber()
+    public function getMaskedNumber(): string
     {
         return $this->maskedNumber;
     }
 
-    /**
-     * @param string $maskedNumber
-     * @return Card
-     */
-    public function setMaskedNumber($maskedNumber)
+    public function setMaskedNumber(string $maskedNumber): self
     {
         $this->maskedNumber = $maskedNumber;
 
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getExpYear()
+    public function getExpYear(): int
     {
         return $this->expYear;
     }
 
-    /**
-     * @param int $expYear
-     * @return Card
-     */
-    public function setExpYear($expYear)
+    public function setExpYear(int $expYear): self
     {
         $this->expYear = $expYear;
 
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getExpMonth()
+    public function getExpMonth(): int
     {
         return $this->expMonth;
     }
 
-    /**
-     * @param int $expMonth
-     * @return Card
-     */
-    public function setExpMonth($expMonth)
+    public function setExpMonth(int $expMonth): self
     {
         $this->expMonth = $expMonth;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getHolderName()
+    public function getHolderName(): string
     {
         return $this->holderName;
     }
 
-    /**
-     * @param string $holderName
-     * @return Card
-     */
-    public function setHolderName($holderName)
+    public function setHolderName(string $holderName): self
     {
         $this->holderName = $holderName;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCountryCode()
+    public function getCountryCode(): string
     {
         return $this->countryCode;
     }
 
-    /**
-     * @param string $countryCode
-     * @return Card
-     */
-    public function setCountryCode($countryCode)
+    public function setCountryCode(string $countryCode): self
     {
         $this->countryCode = $countryCode;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getHashValue()
+    public function getHashValue(): string
     {
         return $this->hashValue;
     }
 
-    /**
-     * @param string $hashValue
-     * @return Card
-     */
-    public function setHashValue($hashValue)
+    public function setHashValue(string $hashValue): self
     {
         $this->hashValue = $hashValue;
 

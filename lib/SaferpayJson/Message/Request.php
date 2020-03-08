@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Message;
 
@@ -6,10 +6,10 @@ use Buzz\Browser;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use Ticketpark\SaferpayJson\Exception\HttpRequestException;
 use Ticketpark\SaferpayJson\Container\RequestHeader;
-
 
 abstract class Request
 {
@@ -17,7 +17,7 @@ abstract class Request
 
     const ROOT_URL_TEST = 'https://test.saferpay.com/api/';
 
-    const ERROR_RESPONSE_CLASS = 'Ticketpark\SaferpayJson\Message\ErrorResponse';
+    const ERROR_RESPONSE_CLASS = ErrorResponse::class;
 
     /**
      * @var string
@@ -49,15 +49,12 @@ abstract class Request
      */
     protected $requestHeader;
 
-    /**
-     * Constructor
-     *
-     * @param string $apiKey
-     * @param string $apiSecret
-     * @param bool $test
-     */
-    public function __construct($apiKey = null, $apiSecret  = null, $test = true, Browser $browser = null)
-    {
+    public function __construct(
+        string $apiKey = null,
+        string $apiSecret  = null,
+        bool $test = true,
+        Browser $browser = null
+    ) {
         $this->apiKey = $apiKey;
         $this->apiSecret = $apiSecret;
         $this->test = $test;
@@ -65,88 +62,54 @@ abstract class Request
         $this->setBrowser($browser);
     }
 
-    /**
-     * @return string
-     */
-    public function getApiKey()
+    public function getApiKey(): string
     {
         return $this->apiKey;
     }
 
-    /**
-     * @param string $apiKey
-     * @return Request
-     */
-    public function setApiKey($apiKey)
+    public function setApiKey($apiKey): self
     {
         $this->apiKey = $apiKey;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getApiSecret()
+    public function getApiSecret(): string
     {
         return $this->apiSecret;
     }
 
-    /**
-     * @param string $apiSecret
-     * @return Request
-     */
-    public function setApiSecret($apiSecret)
+    public function setApiSecret(string $apiSecret): self
     {
         $this->apiSecret = $apiSecret;
 
         return $this;
     }
 
-    /**
-     * @return boolean
-     */
-    public function isTest()
+    public function isTest(): bool
     {
         return $this->test;
     }
 
-    /**
-     * @param boolean $test
-     * @return Request
-     */
-    public function setTest($test)
+    public function setTest(bool $test): self
     {
         $this->test = $test;
 
         return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\RequestHeader
-     */
-    public function getRequestHeader()
+    public function getRequestHeader(): RequestHeader
     {
         return $this->requestHeader;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\RequestHeader $requestHeader
-     * @return Request
-     */
-    public function setRequestHeader(RequestHeader $requestHeader)
+    public function setRequestHeader(RequestHeader $requestHeader): self
     {
         $this->requestHeader = $requestHeader;
 
         return $this;
     }
 
-    /**
-     * Set browser
-     *
-     * @param  Browser $browser
-     * @return $this
-     */
     public function setBrowser(Browser $browser = null)
     {
         $this->browser = $browser;
@@ -154,28 +117,16 @@ abstract class Request
         return $this;
     }
 
-    /**
-     * Get browser
-     *
-     * @return Browser
-     */
-    public function getBrowser()
+    public function getBrowser(): Browser
     {
         if (null == $this->browser) {
-
             return new Browser();
         }
 
         return $this->browser;
     }
 
-    /**
-     * Execute request
-     *
-     * @return Ticketpark\SaferpayJson\Message\Response
-     * @throws HttpRequestException
-     */
-    public function execute()
+    public function execute(): Response
     {
         try {
             $response = $this->getBrowser()->post(
@@ -184,29 +135,21 @@ abstract class Request
                 $this->getContent()
             );
         } catch (\Exception $e) {
-
             throw new HttpRequestException($e->getMessage());
         }
 
         if ($response->isClientError()) {
-
             return $this->getSerializer()->deserialize($response->getContent(), static::ERROR_RESPONSE_CLASS, 'json');
         }
 
         if (200 !== $response->getStatusCode()) {
-
             throw new HttpRequestException(sprintf('Unexpected http request response with status code %s.', $response->getStatusCode()));
         }
 
-         return $this->getSerializer()->deserialize($response->getContent(), static::RESPONSE_CLASS, 'json');
+        return $this->getSerializer()->deserialize($response->getContent(), static::RESPONSE_CLASS, 'json');
     }
 
-    /**
-     * Get url of request
-     *
-     * @return string
-     */
-    protected function getUrl()
+    protected function getUrl(): string
     {
         $rootUrl = self::ROOT_URL;
 
@@ -217,12 +160,7 @@ abstract class Request
         return $rootUrl . static::API_PATH;
     }
 
-    /**
-     * Get headers of request
-     *
-     * @return array
-     */
-    protected function getHeaders()
+    protected function getHeaders(): array
     {
         return array(
             'Content-Type'  => 'application/json; charset=utf-8',
@@ -231,22 +169,12 @@ abstract class Request
         );
     }
 
-    /**
-     * Get content of request
-     *
-     * @return string
-     */
-    protected function getContent()
+    protected function getContent(): string
     {
         return $this->getSerializer()->serialize($this, 'json');
     }
 
-    /**
-     * Get serializer
-     *
-     * @return \JMS\Serializer\Serializer
-     */
-    protected function getSerializer()
+    protected function getSerializer(): Serializer
     {
         AnnotationRegistry::registerLoader('class_exists');
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\PaymentPage;
 
@@ -13,7 +13,7 @@ class InitializeRequest extends Request
 {
     const API_PATH = '/Payment/v1/PaymentPage/Initialize';
 
-    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\PaymentPage\InitializeResponse';
+    const RESPONSE_CLASS = InitializeResponse::class;
 
     const PAYMENT_METHOD_AMEX = "AMEX";
     const PAYMENT_METHOD_BANCONTACT = "BANCONTACT";
@@ -74,114 +74,72 @@ class InitializeRequest extends Request
      */
     protected $paymentMethods;
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Payment
-     */
-    public function getPayment()
+    public function getPayment(): Payment
     {
         return $this->payment;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Payment $payment
-     * @return InitializeRequest
-     */
-    public function setPayment(Payment $payment)
+    public function setPayment(Payment $payment): self
     {
         $this->payment = $payment;
 
         return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Payer
-     */
-    public function getPayer()
+    public function getPayer(): Payer
     {
         return $this->payer;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Payer $payer
-     * @return InitializeRequest
-     */
-    public function setPayer(Payer $payer)
+    public function setPayer(Payer $payer): self
     {
         $this->payer = $payer;
 
         return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\ReturnUrls
-     */
-    public function getReturnUrls()
+    public function getReturnUrls(): ReturnUrls
     {
         return $this->returnUrls;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\ReturnUrls $returnUrls
-     * @return InitializeRequest
-     */
-    public function setReturnUrls(ReturnUrls $returnUrls)
+    public function setReturnUrls(ReturnUrls $returnUrls): self
     {
         $this->returnUrls = $returnUrls;
 
         return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Notification
-     */
-    public function getNotification()
+    public function getNotification(): Notification
     {
         return $this->notification;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Notification $notification
-     * @return InitializeRequest
-     */
-    public function setNotification(Notification $notification)
+    public function setNotification(Notification $notification): self
     {
         $this->notification = $notification;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getTerminalId()
+    public function getTerminalId(): string
     {
         return $this->terminalId;
     }
 
-    /**
-     * @param string $terminalId
-     * @return InitializeRequest
-     */
-    public function setTerminalId($terminalId)
+    public function setTerminalId(string $terminalId): self
     {
         $this->terminalId = $terminalId;
 
         return $this;
     }
 
-    /**
-     * @return array
-     */
-    public function getPaymentMethods()
+    public function getPaymentMethods(): array
     {
         return $this->paymentMethods;
     }
 
-    /**
-     * @param array $paymentMethods
-     * @return InitializeRequest
-     */
-    public function setPaymentMethods(array $paymentMethods)
+    public function setPaymentMethods(array $paymentMethods): self
     {
         $this->paymentMethods = $paymentMethods;
 

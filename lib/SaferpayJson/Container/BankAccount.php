@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -42,94 +42,59 @@ class BankAccount
      */
     protected $countryCode;
 
-    /**
-     * @return string
-     */
-    public function getIban()
+    public function getIban(): string
     {
         return $this->iban;
     }
 
-    /**
-     * @param string $iban
-     * @return BankAccount
-     */
-    public function setIban($iban)
+    public function setIban(string $iban): self
     {
         $this->iban = $iban;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getHolderName()
+    public function getHolderName(): string
     {
         return $this->holderName;
     }
 
-    /**
-     * @param string $holderName
-     * @return BankAccount
-     */
-    public function setHolderName($holderName)
+    public function setHolderName(string $holderName): self
     {
         $this->holderName = $holderName;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getBic()
+    public function getBic(): string
     {
         return $this->bic;
     }
 
-    /**
-     * @param string $bic
-     * @return BankAccount
-     */
-    public function setBic($bic)
+    public function setBic(string $bic): self
     {
         $this->bic = $bic;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getBankName()
+    public function getBankName(): string
     {
         return $this->bankName;
     }
 
-    /**
-     * @param string $bankName
-     * @return BankAccount
-     */
-    public function setBankName($bankName)
+    public function setBankName(string $bankName): self
     {
         $this->bankName = $bankName;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCountryCode()
+    public function getCountryCode(): string
     {
         return $this->countryCode;
     }
 
-    /**
-     * @param string $countryCode
-     * @return BankAccount
-     */
-    public function setCountryCode($countryCode)
+    public function setCountryCode(string $countryCode): self
     {
         $this->countryCode = $countryCode;
 

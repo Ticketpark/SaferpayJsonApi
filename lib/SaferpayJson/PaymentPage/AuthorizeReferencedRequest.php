@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\PaymentPage;
 
@@ -11,7 +11,7 @@ class AuthorizeReferencedRequest extends Request
 {
     const API_PATH = '/Payment/v1/Transaction/AuthorizeReferenced';
 
-    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\PaymentPage\AuthorizeReferencedResponse';
+    const RESPONSE_CLASS = AuthorizeReferencedResponse::class;
 
     /**
      * @var string
@@ -31,57 +31,36 @@ class AuthorizeReferencedRequest extends Request
      */
     protected $transactionReference;
 
-    /**
-     * @return string
-     */
-    public function getTerminalId()
+    public function getTerminalId(): string
     {
         return $this->terminalId;
     }
 
-    /**
-     * @param string $terminalId
-     * @return AuthorizeReferencedRequest
-     */
-    public function setTerminalId($terminalId)
+    public function setTerminalId(string $terminalId): self
     {
         $this->terminalId = $terminalId;
 
         return $this;
     }
 
-    /**
-     * @return TransactionReference
-     */
-    public function getTransactionReference()
+    public function getTransactionReference(): TransactionReference
     {
         return $this->transactionReference;
     }
 
-    /**
-     * @param TransactionReference $transactionReference
-     * @return AuthorizeReferencedRequest
-     */
-    public function setTransactionReference($transactionReference)
+    public function setTransactionReference(TransactionReference $transactionReference): self
     {
         $this->transactionReference = $transactionReference;
 
         return $this;
     }
 
-    /**
-     * @return Payment
-     */
-    public function getPayment()
+    public function getPayment(): Payment
     {
         return $this->payment;
     }
 
-    /**
-     * @param Payment $payment
-     * @return AuthorizeReferencedRequest
-     */
-    public function setPayment($payment)
+    public function setPayment(Payment $payment): self
     {
         $this->payment = $payment;
 

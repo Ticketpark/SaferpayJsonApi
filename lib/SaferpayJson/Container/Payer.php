@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -35,81 +35,51 @@ class Payer
      */
     protected $billingAddress;
 
-    /**
-     * @return string
-     */
-    public function getIpAddress()
+    public function getIpAddress(): string
     {
         return $this->ipAddress;
     }
 
-    /**
-     * @param string $ipAddress
-     * @return Payer
-     */
-    public function setIpAddress($ipAddress)
+    public function setIpAddress(string $ipAddress): self
     {
         $this->ipAddress = $ipAddress;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getLanguageCode()
+    public function getLanguageCode(): string
     {
         return $this->languageCode;
     }
 
-    /**
-     * @param string $languageCode
-     * @return Payer
-     */
-    public function setLanguageCode($languageCode)
+    public function setLanguageCode(string $languageCode): self
     {
         $this->languageCode = $languageCode;
 
         return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Address
-     */
-    public function getDeliveryAddress()
+    public function getDeliveryAddress(): \Ticketpark\SaferpayJson\Container\Ticketpark\SaferpayJson\Container\Address
     {
         return $this->deliveryAddress;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Address $deliveryAddress
-     * @return Payer
-     */
-    public function setDeliveryAddress(Address $deliveryAddress)
+    public function setDeliveryAddress(Address $deliveryAddress): self
     {
         $this->deliveryAddress = $deliveryAddress;
 
         return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Address
-     */
-    public function getBillingAddress()
+    public function getBillingAddress(): \Ticketpark\SaferpayJson\Container\Ticketpark\SaferpayJson\Container\Address
     {
         return $this->billingAddress;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Address $billingAddress
-     * @return Payer
-     */
-    public function setBillingAddress(Address $billingAddress)
+    public function setBillingAddress(Address $billingAddress): self
     {
         $this->billingAddress = $billingAddress;
 
         return $this;
     }
-
-
 }

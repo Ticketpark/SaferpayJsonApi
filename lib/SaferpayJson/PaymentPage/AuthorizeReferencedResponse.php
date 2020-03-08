@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\PaymentPage;
 
@@ -24,34 +24,22 @@ class AuthorizeReferencedResponse extends Response
      */
     protected $paymentMeans;
 
-    /**
-     * @return Transaction
-     */
-    public function getTransaction()
+    public function getTransaction(): Transaction
     {
         return $this->transaction;
     }
 
-    /**
-     * @param Transaction $transaction
-     */
-    public function setTransaction($transaction)
+    public function setTransaction(Transaction $transaction): void
     {
         $this->transaction = $transaction;
     }
 
-    /**
-     * @return PaymentMeans
-     */
-    public function getPaymentMeans()
+    public function getPaymentMeans(): PaymentMeans
     {
         return $this->paymentMeans;
     }
 
-    /**
-     * @param PaymentMeans $paymentMeans
-     */
-    public function setPaymentMeans($paymentMeans)
+    public function setPaymentMeans(PaymentMeans $paymentMeans): void
     {
         $this->paymentMeans = $paymentMeans;
     }

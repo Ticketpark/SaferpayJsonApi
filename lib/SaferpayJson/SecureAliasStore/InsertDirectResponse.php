@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\SecureAliasStore;
 
@@ -22,41 +22,23 @@ class InsertDirectResponse extends Response
      */
     protected $paymentMeans;
 
-    /**
-     * @return \Ticketpark\SaferpayJson\Container\Alias
-     */
-    public function getAlias()
+    public function getAlias(): Alias
     {
         return $this->alias;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Alias $alias
-     * @return AssertInsertResponse
-     */
-    public function setAlias(Alias $alias)
+    public function setAlias(Alias $alias): void
     {
         $this->alias = $alias;
-
-        return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\PaymentMeans
-     */
-    public function getPaymentMeans()
+    public function getPaymentMeans(): PaymentMeans
     {
         return $this->paymentMeans;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\PaymentMeans $paymentMeans
-     * @return AssertInsertResponse
-     */
-    public function setPaymentMeans(PaymentMeans $paymentMeans)
+    public function setPaymentMeans(PaymentMeans $paymentMeans): void
     {
         $this->paymentMeans = $paymentMeans;
-
-        return $this;
     }
 }

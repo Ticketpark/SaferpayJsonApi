@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\SecureAliasStore;
 
@@ -9,7 +9,7 @@ class DeleteRequest extends Request
 {
     const API_PATH = '/Payment/v1/Alias/Delete';
 
-    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\SecureAliasStore\DeleteResponse';
+    const RESPONSE_CLASS = DeleteResponse::class;
 
     /**
      * @var string
@@ -17,19 +17,12 @@ class DeleteRequest extends Request
      */
     protected $aliasId;
 
-    /**
-     * @return string
-     */
-    public function getAliasId()
+    public function getAliasId(): string
     {
         return $this->aliasId;
     }
 
-    /**
-     * @param string $aliasId
-     * @return DeleteRequest
-     */
-    public function setAliasId($aliasId)
+    public function setAliasId(string $aliasId): self
     {
         $this->aliasId = $aliasId;
 

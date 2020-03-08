@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -21,38 +21,24 @@ class Amount
      */
     protected $currencyCode;
 
-    /**
-     * @return int
-     */
-    public function getValue()
+    public function getValue(): int
     {
         return $this->value;
     }
 
-    /**
-     * @param int $value
-     * @return Amount
-     */
-    public function setValue($value)
+    public function setValue(int $value): self
     {
         $this->value = $value;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): string
     {
         return $this->currencyCode;
     }
 
-    /**
-     * @param string $currency
-     * @return Amount
-     */
-    public function setCurrencyCode($currencyCode)
+    public function setCurrencyCode($currencyCode): self
     {
         $this->currencyCode = $currencyCode;
 

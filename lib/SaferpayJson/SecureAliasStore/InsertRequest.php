@@ -1,10 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\SecureAliasStore;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Container\Notification;
 use Ticketpark\SaferpayJson\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Container\ReturnUrls;
 use Ticketpark\SaferpayJson\Message\Request;
@@ -13,7 +12,7 @@ class InsertRequest extends Request
 {
     const API_PATH = '/Payment/v1/Alias/Insert';
 
-    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\SecureAliasStore\InsertResponse';
+    const RESPONSE_CLASS = InsertResponse::class;
 
     /**
      * @var \Ticketpark\SaferpayJson\Container\RegisterAlias
@@ -53,57 +52,36 @@ class InsertRequest extends Request
      */
     protected $check;
 
-    /**
-     * @return string
-     */
-    public function getRegisterAlias()
+    public function getRegisterAlias(): string
     {
         return $this->registerAlias;
     }
 
-    /**
-     * @param string $registerAlias
-     * @return AliasInsertRequest
-     */
-    public function setRegisterAlias(RegisterAlias $registerAlias)
+    public function setRegisterAlias(RegisterAlias $registerAlias): self
     {
         $this->registerAlias = $registerAlias;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @param string $type
-     * @return AliasInsertRequest
-     */
-    public function setType($type)
+    public function setType(string $type): self
     {
         $this->type = $type;
 
         return $this;
     }
 
-    /**
-     * @return \Ticketpark\SaferpayJson\Container\ReturnUrls
-     */
-    public function getReturnUrls()
+    public function getReturnUrls(): ReturnUrls
     {
         return $this->returnUrls;
     }
 
-    /**
-     * @param \Ticketpark\SaferpayJson\Container\ReturnUrls $returnUrls
-     * @return AliasInsertRequest
-     */
-    public function setReturnUrls(ReturnUrls $returnUrls)
+    public function setReturnUrls(ReturnUrls $returnUrls): self
     {
         $this->returnUrls = $returnUrls;
 

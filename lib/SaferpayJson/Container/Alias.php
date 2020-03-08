@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -21,38 +21,24 @@ class Alias
      */
     protected $lifetime;
 
-    /**
-     * @return string
-     */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
 
-    /**
-     * @param string $id
-     * @return Alias
-     */
-    public function setId($id)
+    public function setId(string $id): self
     {
         $this->id = $id;
 
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getLifetime()
+    public function getLifetime(): int
     {
         return $this->lifetime;
     }
 
-    /**
-     * @param int $lifetime
-     * @return Alias
-     */
-    public function setLifetime($lifetime)
+    public function setLifetime(int $lifetime): self
     {
         $this->lifetime = $lifetime;
 

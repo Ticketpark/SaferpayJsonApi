@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -21,38 +21,24 @@ class Error
      */
     protected $errorMessage;
 
-    /**
-     * @return string
-     */
-    public function getErrorName()
+    public function getErrorName(): string
     {
         return $this->errorName;
     }
 
-    /**
-     * @param string $errorName
-     * @return Alias
-     */
-    public function setErrorName($errorName)
+    public function setErrorName(string $errorName): self
     {
         $this->errorName = $errorName;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getErrorMessage()
+    public function getErrorMessage(): string
     {
         return $this->errorMessage;
     }
 
-    /**
-     * @param string $errorMessage
-     * @return Alias
-     */
-    public function setErrorMessage($errorMessage)
+    public function setErrorMessage(string $errorMessage): self
     {
         $this->errorMessage = $errorMessage;
 

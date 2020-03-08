@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Message;
 
@@ -63,152 +63,96 @@ class ErrorResponse extends Response
      */
     protected $processorMessage;
 
-    /**
-     * @return string
-     */
-    public function getBehaviour()
+    public function getBehaviour(): string
     {
         return $this->behaviour;
     }
 
-    /**
-     * @param string $behaviour
-     * @return ErrorResponse
-     */
-    public function setBehaviour($behaviour)
+    public function setBehaviour(string $behaviour): self
     {
         $this->behaviour = $behaviour;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getErrorName()
+    public function getErrorName(): string
     {
         return $this->errorName;
     }
 
-    /**
-     * @param string $errorName
-     * @return ErrorResponse
-     */
-    public function setErrorName($errorName)
+    public function setErrorName(string $errorName): self
     {
         $this->errorName = $errorName;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getErrorMessage()
+    public function getErrorMessage(): string
     {
         return $this->errorMessage;
     }
 
-    /**
-     * @param string $errorMessage
-     * @return ErrorResponse
-     */
-    public function setErrorMessage($errorMessage)
+    public function setErrorMessage(string $errorMessage): self
     {
         $this->errorMessage = $errorMessage;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getTransactionId()
+    public function getTransactionId(): string
     {
         return $this->transactionId;
     }
 
-    /**
-     * @param string $transactionId
-     * @return ErrorResponse
-     */
-    public function setTransactionId($transactionId)
+    public function setTransactionId(string $transactionId): self
     {
         $this->transactionId = $transactionId;
 
         return $this;
     }
 
-    /**
-     * @return array
-     */
-    public function getErrorDetail()
+    public function getErrorDetail(): array
     {
         return $this->errorDetail;
     }
 
-    /**
-     * @param array $errorDetail
-     * @return ErrorResponse
-     */
-    public function setErrorDetail(array $errorDetail)
+    public function setErrorDetail(array $errorDetail): self
     {
         $this->errorDetail = $errorDetail;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getProcessorName()
+    public function getProcessorName(): string
     {
         return $this->processorName;
     }
 
-    /**
-     * @param string $processorName
-     * @return ErrorResponse
-     */
-    public function setProcessorName($processorName)
+    public function setProcessorName(string $processorName): self
     {
         $this->processorName = $processorName;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getProcessorResult()
+    public function getProcessorResult(): string
     {
         return $this->processorResult;
     }
 
-    /**
-     * @param string $processorResult
-     * @return ErrorResponse
-     */
-    public function setProcessorResult($processorResult)
+    public function setProcessorResult(string $processorResult): self
     {
         $this->processorResult = $processorResult;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getProcessorMessage()
+    public function getProcessorMessage(): string
     {
         return $this->processorMessage;
     }
 
-    /**
-     * @param string $processorMessage
-     * @return ErrorResponse
-     */
-    public function setProcessorMessage($processorMessage)
+    public function setProcessorMessage(string $processorMessage): self
     {
         $this->processorMessage = $processorMessage;
 

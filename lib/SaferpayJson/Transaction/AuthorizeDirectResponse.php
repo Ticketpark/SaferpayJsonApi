@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use Ticketpark\SaferpayJson\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Container\Transaction;
 use Ticketpark\SaferpayJson\Message\Response;
 
@@ -26,19 +27,23 @@ class AuthorizeDirectResponse extends Response
      */
     protected $paymentMeans;
 
-    /**
-     * @return Transaction
-     */
-    public function getTransaction()
+    public function getTransaction(): Transaction
     {
         return $this->transaction;
     }
 
-    /**
-     * @return \Ticketpark\SaferpayJson\Container\PaymentMeans
-     */
-    public function getPaymentMeans()
+    public function setTransaction(Transaction $transaction): void
+    {
+        $this->transaction = $transaction;
+    }
+
+    public function getPaymentMeans(): PaymentMeans
     {
         return $this->paymentMeans;
+    }
+
+    public function setPaymentMeans(PaymentMeans $paymentMeans): void
+    {
+        $this->paymentMeans = $paymentMeans;
     }
 }

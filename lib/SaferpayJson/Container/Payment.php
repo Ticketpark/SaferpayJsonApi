@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -36,100 +36,63 @@ class Payment
      */
     protected $recurring;
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Amount
-     */
-    public function getAmount()
+    public function getAmount(): Amount
     {
         return $this->amount;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Amount $amount
-     * @return Payment
-     */
-    public function setAmount(Amount $amount)
+    public function setAmount(Amount $amount): self
     {
         $this->amount = $amount;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getOrderId()
+    public function getOrderId(): string
     {
         return $this->orderId;
     }
 
-    /**
-     * @param string $orderId
-     * @return Payment
-     */
-    public function setOrderId($orderId)
+    public function setOrderId(string $orderId): self
     {
         $this->orderId = $orderId;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     * @return Payment
-     */
-    public function setDescription($description)
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getPayerNote()
+    public function getPayerNote(): string
     {
         return $this->payerNote;
     }
 
-    /**
-     * @param string $payerNote
-     * @return Payment
-     */
-    public function setPayerNote($payerNote)
+    public function setPayerNote(string $payerNote): self
     {
         $this->payerNote = $payerNote;
 
         return $this;
     }
 
-    /**
-     * @return Recurring
-     */
-    public function getRecurring()
+    public function getRecurring(): Recurring
     {
         return $this->recurring;
     }
 
-    /**
-     * @param Recurring $recurring
-     * @return Payment
-     */
-    public function setRecurring($recurring)
+    public function setRecurring(Recurring $recurring): self
     {
         $this->recurring = $recurring;
 
         return $this;
     }
-
-
 }

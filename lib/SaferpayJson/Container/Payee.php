@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -36,76 +36,48 @@ class Payee
      */
     protected $bankName;
 
-    /**
-     * @return string
-     */
-    public function getIban()
+    public function getIban(): string
     {
         return $this->iban;
     }
 
-    /**
-     * @param string $iban
-     * @return Payee
-     */
-    public function setIban($iban)
+    public function setIban(string $iban): self
     {
         $this->iban = $iban;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getHolderName()
+    public function getHolderName(): string
     {
         return $this->holderName;
     }
 
-    /**
-     * @param string $holderName
-     * @return Payee
-     */
-    public function setHolderName($holderName)
+    public function setHolderName(string $holderName): self
     {
         $this->holderName = $holderName;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getBic()
+    public function getBic(): string
     {
         return $this->bic;
     }
 
-    /**
-     * @param string $bic
-     * @return Payee
-     */
-    public function setBic($bic)
+    public function setBic(string $bic): self
     {
         $this->bic = $bic;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getBankName()
+    public function getBankName(): string
     {
         return $this->bankName;
     }
 
-    /**
-     * @param string $bankName
-     * @return Payee
-     */
-    public function setBankName($bankName)
+    public function setBankName(string $bankName): self
     {
         $this->bankName = $bankName;
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -24,57 +24,36 @@ class ReturnUrls
      */
     protected $abort;
 
-    /**
-     * @return string
-     */
-    public function getSuccess()
+    public function getSuccess(): string
     {
         return $this->success;
     }
 
-    /**
-     * @param string $success
-     * @return ReturnUrls
-     */
-    public function setSuccess($success)
+    public function setSuccess(string $success): self
     {
         $this->success = $success;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getFail()
+    public function getFail(): string
     {
         return $this->fail;
     }
 
-    /**
-     * @param string $fail
-     * @return ReturnUrls
-     */
-    public function setFail($fail)
+    public function setFail(string $fail): self
     {
         $this->fail = $fail;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getAbort()
+    public function getAbort(): string
     {
         return $this->abort;
     }
 
-    /**
-     * @param string $abort
-     * @return ReturnUrls
-     */
-    public function setAbort($abort)
+    public function setAbort(string $abort): self
     {
         $this->abort = $abort;
 

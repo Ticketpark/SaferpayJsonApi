@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\SecureAliasStore;
 
@@ -29,60 +29,33 @@ class InsertResponse extends Response
      */
     protected $redirectUrl;
 
-    /**
-     * @return string
-     */
-    public function getToken()
+    public function getToken(): string
     {
         return $this->token;
     }
 
-    /**
-     * @param string $token
-     * @return InsertResponse
-     */
-    public function setToken($token)
+    public function setToken(string $token): void
     {
         $this->token = $token;
-
-        return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getExpiration()
+    public function getExpiration(): \DateTime
     {
         return $this->expiration;
     }
 
-    /**
-     * @param \DateTime $expiration
-     * @return InsertResponse
-     */
-    public function setExpiration($expiration)
+    public function setExpiration(\DateTime $expiration): void
     {
         $this->expiration = $expiration;
-
-        return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getRedirectUrl()
+    public function getRedirectUrl(): string
     {
         return $this->redirectUrl;
     }
 
-    /**
-     * @param string $redirectUrl
-     * @return InsertResponse
-     */
-    public function setRedirectUrl($redirectUrl)
+    public function setRedirectUrl(string $redirectUrl): void
     {
         $this->redirectUrl = $redirectUrl;
-
-        return $this;
     }
 }

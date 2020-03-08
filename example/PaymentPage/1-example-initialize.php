@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use \Ticketpark\SaferpayJson\PaymentPage\InitializeRequest;
 use \Ticketpark\SaferpayJson\Container;

@@ -1,15 +1,16 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Message\Request;
 
 class CaptureRequest extends Request
 {
     const API_PATH = '/Payment/v1/Transaction/Capture';
 
-    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\Transaction\CaptureResponse';
+    const RESPONSE_CLASS = CaptureResponse::class;
 
     /**
      * @var Ticketpark\SaferpayJson\Container\TransactionReference
@@ -17,19 +18,12 @@ class CaptureRequest extends Request
      */
     protected $transactionReference;
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\TransactionReference
-     */
-    public function getTransactionReference()
+    public function getTransactionReference(): TransactionReference
     {
         return $this->transactionReference;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\TransactionReference $transactionReference
-     * @return CaptureRequest
-     */
-    public function setTransactionReference($transactionReference)
+    public function setTransactionReference(TransactionReference $transactionReference): self
     {
         $this->transactionReference = $transactionReference;
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -30,76 +30,48 @@ class RequestHeader
      */
     protected $retryIndicator = 0;
 
-    /**
-     * @return string
-     */
-    public function getSpecVersion()
+    public function getSpecVersion(): string
     {
         return $this->specVersion;
     }
 
-    /**
-     * @param string $specVersion
-     * @return Header
-     */
-    public function setSpecVersion($specVersion)
+    public function setSpecVersion(string $specVersion): self
     {
         $this->specVersion = $specVersion;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCustomerId()
+    public function getCustomerId(): string
     {
         return $this->customerId;
     }
 
-    /**
-     * @param string $customerId
-     * @return Header
-     */
-    public function setCustomerId($customerId)
+    public function setCustomerId(string $customerId): self
     {
         $this->customerId = $customerId;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getRequestId()
+    public function getRequestId(): string
     {
         return $this->requestId;
     }
 
-    /**
-     * @param string $requestId
-     * @return Header
-     */
-    public function setRequestId($requestId)
+    public function setRequestId(string $requestId): self
     {
         $this->requestId = $requestId;
 
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getRetryIndicator()
+    public function getRetryIndicator(): int
     {
         return $this->retryIndicator;
     }
 
-    /**
-     * @param int $retryIndicator
-     * @return Header
-     */
-    public function setRetryIndicator($retryIndicator)
+    public function setRetryIndicator(int $retryIndicator): self
     {
         $this->retryIndicator = $retryIndicator;
 

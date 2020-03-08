@@ -1,9 +1,12 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use Ticketpark\SaferpayJson\Container\Dcc;
+use Ticketpark\SaferpayJson\Container\PaymentMeans;
+use Ticketpark\SaferpayJson\Container\Transaction;
 use Ticketpark\SaferpayJson\Message\Response;
 
 class RefundResponse extends Response
@@ -29,60 +32,33 @@ class RefundResponse extends Response
      */
     protected $dcc;
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Transaction
-     */
-    public function getTransaction()
+    public function getTransaction(): Transaction
     {
         return $this->transaction;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Transaction $transaction
-     * @return RefundResponse
-     */
-    public function setTransaction($transaction)
+    public function setTransaction(Transaction $transaction): void
     {
         $this->transaction = $transaction;
-
-        return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\PaymentMeans
-     */
-    public function getPaymentMeans()
+    public function getPaymentMeans(): PaymentMeans
     {
         return $this->paymentMeans;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\PaymentMeans $paymentMeans
-     * @return RefundResponse
-     */
-    public function setPaymentMeans($paymentMeans)
+    public function setPaymentMeans(PaymentMeans $paymentMeans): void
     {
         $this->paymentMeans = $paymentMeans;
-
-        return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Dcc
-     */
-    public function getDcc()
+    public function getDcc(): Dcc
     {
         return $this->dcc;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Dcc $dcc
-     * @return RefundResponse
-     */
-    public function setDcc($dcc)
+    public function setDcc(Dcc $dcc): void
     {
         $this->dcc = $dcc;
-
-        return $this;
     }
 }

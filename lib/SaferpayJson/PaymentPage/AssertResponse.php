@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\PaymentPage;
 
@@ -55,117 +55,63 @@ class AssertResponse extends Response
      */
     protected $dcc;
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Transaction
-     */
-    public function getTransaction()
+    public function getTransaction(): Transaction
     {
         return $this->transaction;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Transaction $transaction
-     * @return AssertResponse
-     */
-    public function setTransaction(Transaction $transaction)
+    public function setTransaction(Transaction $transaction): void
     {
         $this->transaction = $transaction;
-
-        return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\PaymentMeans
-     */
-    public function getPaymentMeans()
+    public function getPaymentMeans(): PaymentMeans
     {
         return $this->paymentMeans;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\PaymentMeans $paymentMeans
-     * @return AssertResponse
-     */
-    public function setPaymentMeans(PaymentMeans $paymentMeans)
+    public function setPaymentMeans(PaymentMeans $paymentMeans): void
     {
         $this->paymentMeans = $paymentMeans;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getPayer()
     {
         return $this->payer;
     }
 
-    /**
-     * @param mixed $payer
-     * @return AssertResponse
-     */
-    public function setPayer(Payer $payer)
+    public function setPayer(Payer $payer): void
     {
         $this->payer = $payer;
-
-        return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\RegistrationResult
-     */
-    public function getRegistrationResult()
+    public function getRegistrationResult(): RegistrationResult
     {
         return $this->registrationResult;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\RegistrationResult $registrationResult
-     * @return AssertResponse
-     */
-    public function setRegistrationResult(RegistrationResult $registrationResult)
+    public function setRegistrationResult(RegistrationResult $registrationResult): void
     {
         $this->registrationResult = $registrationResult;
-
-        return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\ThreeDs
-     */
-    public function getThreeDs()
+    public function getThreeDs(): ThreeDs
     {
         return $this->threeDs;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\ThreeDs $threeDs
-     * @return AssertResponse
-     */
-    public function setThreeDs(ThreeDs $threeDs)
+    public function setThreeDs(ThreeDs $threeDs): void
     {
         $this->threeDs = $threeDs;
-
-        return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Dcc
-     */
-    public function getDcc()
+    public function getDcc(): Dcc
     {
         return $this->dcc;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Dcc $dcc
-     * @return AssertResponse
-     */
-    public function setDcc(Dcc $dcc)
+    public function setDcc(Dcc $dcc): void
     {
         $this->dcc = $dcc;
-
-        return $this;
     }
 }

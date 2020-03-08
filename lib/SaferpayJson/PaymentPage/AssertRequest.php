@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\PaymentPage;
 
@@ -9,7 +9,7 @@ class AssertRequest extends Request
 {
     const API_PATH = '/Payment/v1/PaymentPage/Assert';
 
-    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\PaymentPage\AssertResponse';
+    const RESPONSE_CLASS = AssertResponse::class;
 
     /**
      * @var string
@@ -17,19 +17,12 @@ class AssertRequest extends Request
      */
     protected $token;
 
-    /**
-     * @return string
-     */
-    public function getToken()
+    public function getToken(): string
     {
         return $this->token;
     }
 
-    /**
-     * @param string $token
-     * @return AssertRequest
-     */
-    public function setToken($token)
+    public function setToken(string $token): self
     {
         $this->token = $token;
 

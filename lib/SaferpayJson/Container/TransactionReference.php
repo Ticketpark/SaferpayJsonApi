@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -18,38 +18,24 @@ class TransactionReference
      */
     protected $orderId;
 
-    /**
-     * @return string
-     */
-    public function getTransactionId()
+    public function getTransactionId(): string
     {
         return $this->transactionId;
     }
 
-    /**
-     * @param string $transactionId
-     * @return TransactionReference
-     */
-    public function setTransactionId($transactionId)
+    public function setTransactionId(string $transactionId): self
     {
         $this->transactionId = $transactionId;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getOrderId()
+    public function getOrderId(): string
     {
         return $this->orderId;
     }
 
-    /**
-     * @param string $orderId
-     * @return TransactionReference
-     */
-    public function setOrderId($orderId)
+    public function setOrderId(string $orderId): self
     {
         $this->orderId = $orderId;
 

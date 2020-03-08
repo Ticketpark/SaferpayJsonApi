@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -29,57 +29,36 @@ class Invoice
      */
     protected $dueDate;
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Payee
-     */
-    public function getPayee()
+    public function getPayee(): Payee
     {
         return $this->payee;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Payee $payee
-     * @return Invoice
-     */
-    public function setPayee(Payee $payee)
+    public function setPayee(Payee $payee): self
     {
         $this->payee = $payee;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getReasonForTransfer()
+    public function getReasonForTransfer(): string
     {
         return $this->reasonForTransfer;
     }
 
-    /**
-     * @param string $reasonForTransfer
-     * @return Invoice
-     */
-    public function setReasonForTransfer($reasonForTransfer)
+    public function setReasonForTransfer(string $reasonForTransfer): self
     {
         $this->reasonForTransfer = $reasonForTransfer;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDueDate()
+    public function getDueDate(): string
     {
         return $this->dueDate;
     }
 
-    /**
-     * @param string $dueDate
-     * @return Invoice
-     */
-    public function setDueDate($dueDate)
+    public function setDueDate(string $dueDate): self
     {
         $this->dueDate = $dueDate;
 

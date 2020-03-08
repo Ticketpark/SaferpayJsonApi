@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 // Common test data according to
 // https://www.six-payment-services.com/en/site/saferpay-support/testaccount.html

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -21,38 +21,24 @@ class ResponseHeader
      */
     protected $requestId;
 
-    /**
-     * @return string
-     */
-    public function getSpecVersion()
+    public function getSpecVersion(): string
     {
         return $this->specVersion;
     }
 
-    /**
-     * @param string $specVersion
-     * @return ResponseHeader
-     */
-    public function setSpecVersion($specVersion)
+    public function setSpecVersion(string $specVersion): self
     {
         $this->specVersion = $specVersion;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getRequestId()
+    public function getRequestId(): string
     {
         return $this->requestId;
     }
 
-    /**
-     * @param string $requestId
-     * @return ResponseHeader
-     */
-    public function setRequestId($requestId)
+    public function setRequestId(string $requestId): self
     {
         $this->requestId = $requestId;
 

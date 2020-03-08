@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -24,57 +24,36 @@ class Notification
      */
     protected $notifyUrl;
 
-    /**
-     * @return string
-     */
-    public function getMerchantEmail()
+    public function getMerchantEmail(): string
     {
         return $this->merchantEmail;
     }
 
-    /**
-     * @param string $merchantEmail
-     * @return Notification
-     */
-    public function setMerchantEmail($merchantEmail)
+    public function setMerchantEmail(string $merchantEmail): self
     {
         $this->merchantEmail = $merchantEmail;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getPayerEmail()
+    public function getPayerEmail(): string
     {
         return $this->payerEmail;
     }
 
-    /**
-     * @param string $payerEmail
-     * @return Notification
-     */
-    public function setPayerEmail($payerEmail)
+    public function setPayerEmail(string $payerEmail): self
     {
         $this->payerEmail = $payerEmail;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getNotifyUrl()
+    public function getNotifyUrl(): string
     {
         return $this->notifyUrl;
     }
 
-    /**
-     * @param string $notifyUrl
-     * @return Notification
-     */
-    public function setNotifyUrl($notifyUrl)
+    public function setNotifyUrl(string $notifyUrl): self
     {
         $this->notifyUrl = $notifyUrl;
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Transaction;
 
@@ -29,60 +29,33 @@ class CancelResponse extends Response
      */
     protected $date;
 
-    /**
-     * @return string
-     */
-    public function getTransactionId()
+    public function getTransactionId(): string
     {
         return $this->transactionId;
     }
 
-    /**
-     * @param string $transactionId
-     * @return CancelResponse
-     */
-    public function setTransactionId($transactionId)
+    public function setTransactionId(string $transactionId): void
     {
         $this->transactionId = $transactionId;
-
-        return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getOrderId()
+    public function getOrderId(): string
     {
         return $this->orderId;
     }
 
-    /**
-     * @param string $orderId
-     * @return CancelResponse
-     */
-    public function setOrderId($orderId)
+    public function setOrderId(string $orderId): void
     {
         $this->orderId = $orderId;
-
-        return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDate()
+    public function getDate(): string
     {
         return $this->date;
     }
 
-    /**
-     * @param string $date
-     * @return CancelResponse
-     */
-    public function setDate($date)
+    public function setDate(string $date): void
     {
         $this->date = $date;
-
-        return $this;
     }
 }

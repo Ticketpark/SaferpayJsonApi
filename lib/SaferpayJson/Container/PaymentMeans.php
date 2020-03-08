@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -52,114 +52,72 @@ class PaymentMeans
      */
     protected $alias;
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Brand
-     */
-    public function getBrand()
+    public function getBrand(): Brand
     {
         return $this->brand;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Brand $brand
-     * @return PaymentMeans
-     */
-    public function setBrand(Brand $brand)
+    public function setBrand(Brand $brand): self
     {
         $this->brand = $brand;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDisplayText()
+    public function getDisplayText(): string
     {
         return $this->displayText;
     }
 
-    /**
-     * @param string
-     * @return PaymentMeans
-     */
-    public function setDisplayText($displayText)
+    public function setDisplayText($displayText): self
     {
         $this->displayText = $displayText;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getWallet()
+    public function getWallet(): string
     {
         return $this->wallet;
     }
 
-    /**
-     * @param string $wallet
-     * @return PaymentMeans
-     */
-    public function setWallet($wallet)
+    public function setWallet(string $wallet): self
     {
         $this->wallet = $wallet;
 
         return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Card
-     */
-    public function getCard()
+    public function getCard(): Card
     {
         return $this->card;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Card $card
-     * @return PaymentMeans
-     */
-    public function setCard(Card $card)
+    public function setCard(Card $card): self
     {
         $this->card = $card;
 
         return $this;
     }
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\BankAccount
-     */
-    public function getBankAccount()
+    public function getBankAccount(): BankAccount
     {
         return $this->bankAccount;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\BankAccount $bankAccount
-     * @return PaymentMeans
-     */
-    public function setBankAccount(BankAccount $bankAccount)
+    public function setBankAccount(BankAccount $bankAccount): self
     {
         $this->bankAccount = $bankAccount;
 
         return $this;
     }
 
-    /**
-     * @return \Ticketpark\SaferpayJson\Container\Alias
-     */
-    public function getAlias()
+    public function getAlias(): Alias
     {
         return $this->alias;
     }
 
-    /**
-     * @param \Ticketpark\SaferpayJson\Container\Alias $alias
-     * @return PaymentMeans
-     */
-    public function setAlias(Alias $alias)
+    public function setAlias(Alias $alias): self
     {
         $this->alias = $alias;
 

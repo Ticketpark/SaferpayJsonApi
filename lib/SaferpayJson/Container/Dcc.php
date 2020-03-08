@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -14,19 +14,12 @@ class Dcc
      */
     protected $payerAmount;
 
-    /**
-     * @return Ticketpark\SaferpayJson\Container\Amount
-     */
-    public function getPayerAmount()
+    public function getPayerAmount(): Amount
     {
         return $this->payerAmount;
     }
 
-    /**
-     * @param Ticketpark\SaferpayJson\Container\Amount $payerAmount
-     * @return Dcc
-     */
-    public function setPayerAmount($payerAmount)
+    public function setPayerAmount(Amount $payerAmount): self
     {
         $this->payerAmount = $payerAmount;
 

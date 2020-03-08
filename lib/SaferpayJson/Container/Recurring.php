@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Container;
 
@@ -17,19 +17,15 @@ class Recurring
         $this->initial = $initial;
     }
 
-    /**
-     * @return bool
-     */
-    public function isInitial()
+    public function isInitial(): bool
     {
         return $this->initial;
     }
 
-    /**
-     * @param bool $initial
-     */
-    public function setInitial($initial)
+    public function setInitial(bool $initial): self
     {
         $this->initial = $initial;
+
+        return $this;
     }
 }

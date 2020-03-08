@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
@@ -15,7 +15,7 @@ class AuthorizeDirectRequest extends Request
 {
     const API_PATH = '/Payment/v1/Transaction/AuthorizeDirect';
 
-    const RESPONSE_CLASS = 'Ticketpark\SaferpayJson\Transaction\AuthorizeDirectResponse';
+    const RESPONSE_CLASS = AuthorizeDirectResponse::class;
 
     /**
      * @var \Ticketpark\SaferpayJson\Container\Payment
@@ -36,57 +36,36 @@ class AuthorizeDirectRequest extends Request
      */
     protected $terminalId;
 
-    /**
-     * @return Payment
-     */
-    public function getPayment()
+    public function getPayment(): Payment
     {
         return $this->payment;
     }
 
-    /**
-     * @param Payment $payment
-     * @return self
-     */
-    public function setPayment(Payment $payment)
+    public function setPayment(Payment $payment): self
     {
         $this->payment = $payment;
 
         return $this;
     }
 
-    /**
-     * @return PaymentMeans
-     */
-    public function getPaymentMeans()
+    public function getPaymentMeans(): PaymentMeans
     {
         return $this->paymentMeans;
     }
 
-    /**
-     * @param PaymentMeans $paymentMeans
-     * @return self
-     */
-    public function setPaymentMeans(PaymentMeans $paymentMeans)
+    public function setPaymentMeans(PaymentMeans $paymentMeans): self
     {
         $this->paymentMeans = $paymentMeans;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getTerminalId()
+    public function getTerminalId(): string
     {
         return $this->terminalId;
     }
 
-    /**
-     * @param string $terminalId
-     * @return self
-     */
-    public function setTerminalId($terminalId)
+    public function setTerminalId(string $terminalId): self
     {
         $this->terminalId = $terminalId;
 
