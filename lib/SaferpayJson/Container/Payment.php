@@ -31,6 +31,12 @@ class Payment
     protected $payerNote;
 
     /**
+     * @var Recurring
+     * @SerializedName("Recurring")
+     */
+    protected $recurring;
+
+    /**
      * @return Ticketpark\SaferpayJson\Container\Amount
      */
     public function getAmount()
@@ -102,6 +108,25 @@ class Payment
     public function setPayerNote($payerNote)
     {
         $this->payerNote = $payerNote;
+
+        return $this;
+    }
+
+    /**
+     * @return Recurring
+     */
+    public function getRecurring()
+    {
+        return $this->recurring;
+    }
+
+    /**
+     * @param Recurring $recurring
+     * @return Payment
+     */
+    public function setRecurring($recurring)
+    {
+        $this->recurring = $recurring;
 
         return $this;
     }
