@@ -9,7 +9,10 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
 // ID of an existing captured transaction flagged as recurring. eg: $payment->setRecurring(new Recurring(true))
-$transactionId = '';
+$transactionId = 'xx';
+
+// Step 1:
+// Prepare the recurring paymen request
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)
@@ -26,6 +29,9 @@ $response = (new AuthorizeReferencedRequest($apiKey, $apiSecret, true))
     ->setTerminalId($terminalId)
     ->execute();
 
+// Step 2:
+// Check for successful response
+
 if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
@@ -39,4 +45,4 @@ echo sprintf("Transaction ID: %s, Status: %s, via %s (%s)",
 );
 
 // Recurring payment transactions still need to be captured.
-// see: Transaction/1-example-catpure.php
+// see: Transaction/1-example-capture.php
