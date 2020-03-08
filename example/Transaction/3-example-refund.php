@@ -7,7 +7,7 @@ use \Ticketpark\SaferpayJson\Transaction\RefundRequest;
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
-// A transactionid you received with a successful assert request (see ../PaymentPage/2-example-assert.php)
+// A transaction id you received with a successful assert request (see ../PaymentPage/2-example-assert.php)
 
 $transactionId = 'xxx';
 
