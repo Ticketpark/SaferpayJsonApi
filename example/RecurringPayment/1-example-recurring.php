@@ -13,6 +13,7 @@ $transactionId = 'xx';
 
 // Step 1:
 // Prepare the recurring paymen request
+// See https://saferpay.github.io/jsonapi/1.2/#Payment_v1_Transaction_AuthorizeReferenced
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)

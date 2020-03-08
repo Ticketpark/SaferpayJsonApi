@@ -9,7 +9,7 @@ require_once __DIR__ . '/../credentials.php';
 
 // Step 1:
 // Prepare the insert direct request
-// See https://saferpay.github.io/jsonapi/#Payment_v1_Alias_InsertDirect
+// See https://saferpay.github.io/jsonapi/1.2/#Payment_v1_Alias_InsertDirect
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)

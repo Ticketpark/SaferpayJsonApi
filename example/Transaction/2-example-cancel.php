@@ -13,7 +13,7 @@ $transactionId = 'xxx';
 
 // Step 1:
 // Prepare the cancel request
-// https://saferpay.github.io/jsonapi/#Payment_v1_Transaction_Cancel
+// https://saferpay.github.io/jsonapi/1.2/#Payment_v1_Transaction_Cancel
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)

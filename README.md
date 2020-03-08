@@ -15,6 +15,13 @@ composer require ticketpark/saferpay-json-api
 ## Usage
 See [example folder](/example).
 
+
+## Documentation
+
+Note that this library is based on v1.2 of the Saferpay JSON API:
+https://saferpay.github.io/jsonapi/1.2/
+
+
 ## Contribution
 You are welcome to contribute to this repo.
 

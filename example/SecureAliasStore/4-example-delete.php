@@ -7,13 +7,13 @@ use \Ticketpark\SaferpayJson\Message\ErrorResponse;
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
-// An alias you received for an insert (see 23-example-insert-direct.php)
+// An alias you received for an insert (see 3-example-insert-direct.php)
 
 $aliasId = 'xxx';
 
 // Step 1:
 // Prepare the delete request
-// https://saferpay.github.io/jsonapi/#Payment_v1_Alias_Delete
+// https://saferpay.github.io/jsonapi/1.2/#Payment_v1_Alias_Delete
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)

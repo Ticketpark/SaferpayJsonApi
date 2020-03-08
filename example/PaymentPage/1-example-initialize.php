@@ -9,7 +9,7 @@ require_once __DIR__ . '/../credentials.php';
 
 // Step 1:
 // Initialize the payment page
-// See https://saferpay.github.io/jsonapi/#Payment_v1_PaymentPage_Initialize
+// See https://saferpay.github.io/jsonapi/1.2/#Payment_v1_PaymentPage_Initialize
 
 $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)
