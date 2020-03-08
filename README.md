@@ -8,7 +8,7 @@ A php library to use the [Saferpay Json API](http://saferpay.github.io/jsonapi/)
 
 Add the library in your composer.json:
 
-```js
+```
 composer require ticketpark/saferpay-json-api
 ```
 
@@ -20,6 +20,12 @@ See [example folder](/example).
 
 Note that this library is based on v1.2 of the Saferpay JSON API:
 https://saferpay.github.io/jsonapi/1.2/
+
+## Roadmap
+
+* Future: Version 3 will be based on the most recent version of the Saferpay API (currently v1.16)
+* Current: Version 2 added type-hints and requires PHP 7.3
+* Past: Version 1 was the initial version of this library based on PHP 5.6 and the Saferpay API v1.2
 
 
 ## Contribution
