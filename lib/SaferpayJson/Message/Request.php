@@ -2,8 +2,8 @@
 
 namespace Ticketpark\SaferpayJson\Message;
 
-use Buzz\Browser;
 use Doctrine\Common\Annotations\AnnotationRegistry;
+use GuzzleHttp\Client;
 use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Serializer;
@@ -38,10 +38,10 @@ abstract class Request
     protected $test = false;
 
     /**
-     * @var Buzz\Browser
+     * @var \GuzzleHttp\Client
      * @Exclude
      */
-    protected $browser;
+    protected $client;
 
     /**
      * @var Ticketpark\SaferpayJson\Container\RequestHeader
@@ -52,14 +52,11 @@ abstract class Request
     public function __construct(
         string $apiKey = null,
         string $apiSecret  = null,
-        bool $test = true,
-        Browser $browser = null
+        bool $test = true
     ) {
         $this->apiKey = $apiKey;
         $this->apiSecret = $apiSecret;
         $this->test = $test;
-
-        $this->setBrowser($browser);
     }
 
     public function getApiKey(): string
@@ -110,43 +107,58 @@ abstract class Request
         return $this;
     }
 
-    public function setBrowser(Browser $browser = null)
+    public function setClient(Client $client = null)
     {
-        $this->browser = $browser;
+        $this->client = $client;
 
         return $this;
     }
 
-    public function getBrowser(): Browser
+    public function getClient(): Client
     {
-        if (null == $this->browser) {
-            return new Browser();
+        if (null == $this->client) {
+            return new Client();
         }
 
-        return $this->browser;
+        return $this->client;
     }
 
     public function execute(): Response
     {
         try {
-            $response = $this->getBrowser()->post(
+            $response = $this->getClient()->post(
                 $this->getUrl(),
-                $this->getHeaders(),
-                $this->getContent()
+                [
+                    'headers' => $this->getHeaders(),
+                    'body' => $this->getContent()
+                ]
             );
         } catch (\Exception $e) {
             throw new HttpRequestException($e->getMessage());
         }
 
-        if ($response->isClientError()) {
-            return $this->getSerializer()->deserialize($response->getContent(), static::ERROR_RESPONSE_CLASS, 'json');
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode >= 400 && $statusCode < 500) {
+            return $this->getSerializer()->deserialize(
+                (string) $response->getBody(),
+                static::ERROR_RESPONSE_CLASS,
+                'json'
+            );
         }
 
-        if (200 !== $response->getStatusCode()) {
-            throw new HttpRequestException(sprintf('Unexpected http request response with status code %s.', $response->getStatusCode()));
+        if (200 !== $statusCode) {
+            throw new HttpRequestException(sprintf(
+                'Unexpected http request response with status code %s.',
+                $response->getStatusCode()
+            ));
         }
 
-        return $this->getSerializer()->deserialize($response->getContent(), static::RESPONSE_CLASS, 'json');
+        return $this->getSerializer()->deserialize(
+            (string) $response->getBody(),
+            static::RESPONSE_CLASS,
+            'json'
+        );
     }
 
     protected function getUrl(): string
@@ -162,11 +174,11 @@ abstract class Request
 
     protected function getHeaders(): array
     {
-        return array(
+        return [
             'Content-Type'  => 'application/json; charset=utf-8',
             'Accept'        => 'application/json',
             'Authorization' => 'Basic ' . base64_encode($this->apiKey.':'.$this->apiSecret)
-        );
+        ];
     }
 
     protected function getContent(): string
