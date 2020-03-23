@@ -4,6 +4,7 @@ namespace Ticketpark\SaferpayJson\Request;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\SerializerBuilder;
@@ -130,27 +131,39 @@ abstract class Request
 
     public function execute(): ResponseInterface
     {
-        try {
+        try
+        {
             $response = $this->getClient()->post(
                 $this->getUrl(),
                 [
                     'headers' => $this->getHeaders(),
-                    'body' => $this->getContent()
+                    'body'    => $this->getContent()
                 ]
             );
-        } catch (\Exception $e) {
+        } catch (ClientException $e)
+        {
+            if ($e->hasResponse())
+            {
+                $response = $e->getResponse();
+                $statusCode = $response->getStatusCode();
+
+                if ($statusCode >= 400 && $statusCode < 500)
+                {
+                    return $this->getSerializer()->deserialize(
+                        (string) $response->getBody(),
+                        self::ERROR_RESPONSE_CLASS,
+                        'json'
+                    );
+                }
+            }
+
+            throw new HttpRequestException($e->getMessage());
+        } catch (\Exception $e)
+        {
             throw new HttpRequestException($e->getMessage());
         }
 
         $statusCode = $response->getStatusCode();
-
-        if ($statusCode >= 400 && $statusCode < 500) {
-            return $this->getSerializer()->deserialize(
-                (string) $response->getBody(),
-                self::ERROR_RESPONSE_CLASS,
-                'json'
-            );
-        }
 
         if (200 !== $statusCode) {
             throw new HttpRequestException(sprintf(
