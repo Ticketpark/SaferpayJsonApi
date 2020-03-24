@@ -81,13 +81,13 @@ class InitializeRequest extends Request
 
     /**
      * @var RegisterAlias|null
-     * @Serializer\SerializedName("RegisterAlias")
+     * @SerializedName("RegisterAlias")
      */
     protected $registerAlias;
 
     /**
      * @var Styling|null
-     * @Serializer\SerializedName("Styling")
+     * @SerializedName("Styling")
      */
     protected $styling;
 

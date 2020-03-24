@@ -59,8 +59,8 @@ class InsertRequest extends Request
 
     /**
      * @var string[]
-     * @Serializer\SerializedName("PaymentMethods")
-     * @Serializer\Type("array")
+     * @SerializedName("PaymentMethods")
+     * @Type("array")
      */
     protected $paymentMethods = [];
 

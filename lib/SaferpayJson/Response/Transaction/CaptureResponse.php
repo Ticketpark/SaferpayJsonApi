@@ -39,15 +39,15 @@ class CaptureResponse extends Response
 
     /**
      * @var string
-     * @Serializer\SerializedName("Status")
-     * @Serializer\Type("string")
+     * @SerializedName("Status")
+     * @Type("string")
      */
     protected $status;
 
     /**
      * @var string
-     * @Serializer\SerializedName("CaptureId")
-     * @Serializer\Type("string")
+     * @SerializedName("CaptureId")
+     * @Type("string")
      */
     protected $captureId;
 
