@@ -57,6 +57,13 @@ class InsertRequest extends Request
      */
     protected $check;
 
+    /**
+     * @var string[]
+     * @Serializer\SerializedName("PaymentMethods")
+     * @Serializer\Type("array")
+     */
+    protected $paymentMethods = [];
+
     public function getRegisterAlias(): RegisterAlias
     {
         return $this->registerAlias;
@@ -89,6 +96,42 @@ class InsertRequest extends Request
     public function setReturnUrls(ReturnUrls $returnUrls): self
     {
         $this->returnUrls = $returnUrls;
+
+        return $this;
+    }
+
+    public function getPaymentMethods(): array
+    {
+        return $this->paymentMethods;
+    }
+
+    public function setPaymentMethods(array $paymentMethods): self
+    {
+        $this->paymentMethods = $paymentMethods;
+
+        return $this;
+    }
+
+    public function getStyling(): ?Styling
+    {
+        return $this->styling;
+    }
+
+    public function setStyling(Styling $styling): self
+    {
+        $this->styling = $styling;
+
+        return $this;
+    }
+
+    public function getCheck(): ?Check
+    {
+        return $this->check;
+    }
+
+    public function setCheck(Check $check): self
+    {
+        $this->check = $check;
 
         return $this;
     }

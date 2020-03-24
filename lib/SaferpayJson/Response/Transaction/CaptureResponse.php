@@ -37,6 +37,20 @@ class CaptureResponse extends Response
      */
     protected $invoice;
 
+    /**
+     * @var string
+     * @Serializer\SerializedName("Status")
+     * @Serializer\Type("string")
+     */
+    protected $status;
+
+    /**
+     * @var string
+     * @Serializer\SerializedName("CaptureId")
+     * @Serializer\Type("string")
+     */
+    protected $captureId;
+
     public function getTransactionId(): string
     {
         return $this->transactionId;
@@ -75,5 +89,29 @@ class CaptureResponse extends Response
     public function setInvoice(Invoice $invoice): void
     {
         $this->invoice = $invoice;
+    }
+    
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+        
+        return $this;
+    }
+
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+    
+    public function setCaptureId(string $captureId): self
+    {
+        $this->captureId = $captureId;
+        
+        return $this;
+    }
+
+    public function getCaptureId(): string
+    {
+        return $this->captureId;
     }
 }

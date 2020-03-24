@@ -9,7 +9,7 @@ class ErrorResponse extends Response
 {
     /**
      * @var string
-     * @SerializedName("Behaviour")
+     * @SerializedName("Behavior")
      * @Type("string")
      */
     protected $behaviour;
@@ -29,7 +29,7 @@ class ErrorResponse extends Response
     protected $errorMessage;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("TransactionId")
      * @Type("string")
      */
@@ -40,24 +40,24 @@ class ErrorResponse extends Response
      * @SerializedName("ErrorDetail")
      * @Type("array")
      */
-    protected $errorDetail;
+    protected $errorDetail = [];
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("ProcessorName")
      * @Type("string")
      */
     protected $processorName;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("ProcessorResult")
      * @Type("string")
      */
     protected $processorResult;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("ProcessorMessage")
      * @Type("string")
      */
@@ -99,7 +99,7 @@ class ErrorResponse extends Response
         return $this;
     }
 
-    public function getTransactionId(): string
+    public function getTransactionId(): ?string
     {
         return $this->transactionId;
     }
@@ -123,7 +123,7 @@ class ErrorResponse extends Response
         return $this;
     }
 
-    public function getProcessorName(): string
+    public function getProcessorName(): ?string
     {
         return $this->processorName;
     }
@@ -135,7 +135,7 @@ class ErrorResponse extends Response
         return $this;
     }
 
-    public function getProcessorResult(): string
+    public function getProcessorResult(): ?string
     {
         return $this->processorResult;
     }
@@ -147,7 +147,7 @@ class ErrorResponse extends Response
         return $this;
     }
 
-    public function getProcessorMessage(): string
+    public function getProcessorMessage(): ?string
     {
         return $this->processorMessage;
     }
