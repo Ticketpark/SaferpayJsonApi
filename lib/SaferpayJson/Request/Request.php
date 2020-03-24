@@ -139,7 +139,11 @@ abstract class Request
                 ]
             );
         } catch (\Exception $e) {
-            throw new HttpRequestException($e->getMessage());
+            if ($e->getCode() >= 500) {
+                throw new HttpRequestException($e->getMessage());
+            }
+
+            $response = $e->getResponse();
         }
 
         $statusCode = $response->getStatusCode();
