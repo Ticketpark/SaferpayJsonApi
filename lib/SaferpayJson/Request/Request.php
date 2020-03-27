@@ -4,6 +4,7 @@ namespace Ticketpark\SaferpayJson\Request;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\SerializerBuilder;
@@ -139,7 +140,11 @@ abstract class Request
                 ]
             );
         } catch (\Exception $e) {
-            throw new HttpRequestException($e->getMessage());
+            if ($e instanceof ClientException) {
+                $response = $e->getResponse();
+            } else {
+                throw new HttpRequestException($e->getMessage());
+            }
         }
 
         $statusCode = $response->getStatusCode();
