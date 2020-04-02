@@ -92,4 +92,28 @@ class InsertRequest extends Request
 
         return $this;
     }
+
+    public function getStyling(): ?Styling
+    {
+        return $this->styling;
+    }
+
+    public function setStyling(Styling $styling): self
+    {
+        $this->styling = $styling;
+
+        return $this;
+    }
+
+    public function getCheck(): ?Check
+    {
+        return $this->check;
+    }
+
+    public function setCheck(Check $check): self
+    {
+        $this->check = $check;
+
+        return $this;
+    }
 }

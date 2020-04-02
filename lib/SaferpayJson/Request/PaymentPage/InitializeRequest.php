@@ -6,7 +6,9 @@ use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Container\Notification;
 use Ticketpark\SaferpayJson\Container\Payer;
 use Ticketpark\SaferpayJson\Container\Payment;
+use Ticketpark\SaferpayJson\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Container\Styling;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Response\PaymentPage\InitializeResponse;
@@ -77,6 +79,18 @@ class InitializeRequest extends Request
      */
     protected $paymentMethods;
 
+    /**
+     * @var RegisterAlias|null
+     * @SerializedName("RegisterAlias")
+     */
+    protected $registerAlias;
+
+    /**
+     * @var Styling|null
+     * @SerializedName("Styling")
+     */
+    protected $styling;
+
     public function getPayment(): Payment
     {
         return $this->payment;
@@ -145,6 +159,30 @@ class InitializeRequest extends Request
     public function setPaymentMethods(array $paymentMethods): self
     {
         $this->paymentMethods = $paymentMethods;
+
+        return $this;
+    }
+
+    public function getRegisterAlias(): ?RegisterAlias
+    {
+        return $this->registerAlias;
+    }
+
+    public function setRegisterAlias(RegisterAlias $registerAlias): self
+    {
+        $this->registerAlias = $registerAlias;
+
+        return $this;
+    }
+
+    public function getStyling(): ?Styling
+    {
+        return $this->styling;
+    }
+
+    public function setStyling(Styling $styling): self
+    {
+        $this->styling = $styling;
 
         return $this;
     }
