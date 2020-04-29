@@ -14,7 +14,7 @@ class Recurring
 
     public function __construct(bool $initial = true)
     {
-        $this->initial = $initial;
+        $this>initial = $initial;
     }
 
     public function isInitial(): bool
