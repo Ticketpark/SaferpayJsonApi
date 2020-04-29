@@ -10,7 +10,7 @@ env:
 
 install:
   - composer update --prefer-source $PREFER_LOWEST
-  - curl -o vendor/bin/php-cs-fixer "http://get.sensiolabs.org/php-cs-fixer.phar"
+  - curl -o vendor/bin/php-cs-fixer "https://cs.symfony.com/download/php-cs-fixer-v2.phar"
 
 script:
   - php vendor/bin/php-cs-fixer --no-interaction --dry-run --diff -v fix lib/
