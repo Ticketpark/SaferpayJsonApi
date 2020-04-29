@@ -9,10 +9,10 @@ env:
     - PREFER_LOWEST=""
 
 install:
-  - curl -o php-cs-fixer "http://get.sensiolabs.org/php-cs-fixer.phar"
   - composer update --prefer-source $PREFER_LOWEST
+  - curl -o vendor/bin/php-cs-fixer "http://get.sensiolabs.org/php-cs-fixer.phar"
 
 script:
-  - php php-cs-fixer --no-interaction --dry-run --diff -v fix lib/
+  - php vendor/bin/php-cs-fixer --no-interaction --dry-run --diff -v fix lib/
   - vendor/bin/phpunit
   - vendor/bin/phpstan analyse
