@@ -8,9 +8,11 @@ env:
     - PREFER_LOWEST="--prefer-lowest"
     - PREFER_LOWEST=""
 
-before_script:
+install:
+  - curl -o php-cs-fixer "http://get.sensiolabs.org/php-cs-fixer.phar"
   - composer update --prefer-source $PREFER_LOWEST
 
 script:
+  - php php-cs-fixer --no-interaction --dry-run --diff -v fix lib/
   - vendor/bin/phpunit
   - vendor/bin/phpstan analyse
