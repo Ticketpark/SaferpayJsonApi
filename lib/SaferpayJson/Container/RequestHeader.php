@@ -10,7 +10,7 @@ class RequestHeader
      * @var string
      * @SerializedName("SpecVersion")
      */
-    protected $specVersion = '1.2';
+    protected $specVersion = '1.17';
 
     /**
      * @var string
@@ -29,6 +29,12 @@ class RequestHeader
      * @SerializedName("RetryIndicator")
      */
     protected $retryIndicator = 0;
+
+    /**
+     * @var ClientInfo
+     * @SerializedName("ClientInfo")
+     */
+    protected $clientInfo;
 
     public function getSpecVersion(): string
     {
@@ -74,6 +80,18 @@ class RequestHeader
     public function setRetryIndicator(int $retryIndicator): self
     {
         $this->retryIndicator = $retryIndicator;
+
+        return $this;
+    }
+
+    public function getClientInfo(): ?ClientInfo
+    {
+        return $this->clientInfo;
+    }
+
+    public function setClientInfo(ClientInfo $clientInfo): self
+    {
+        $this->clientInfo = $clientInfo;
 
         return $this;
     }
