@@ -9,8 +9,9 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
 
+// -----------------------------
 // Step 1:
-// Initialize the payment page
+// Initialize the required payment page data
 // See https://saferpay.github.io/jsonapi/#Payment_v1_PaymentPage_Initialize
 
 $requestConfig = new RequestConfig(
@@ -32,12 +33,12 @@ $payment = new Container\Payment(
 
 $returnUrls = new Container\ReturnUrls(
     'http://www.mysite.ch/success?orderId=12839',
-    'http://www.mysite.ch/fail',
-    'http://www.mysite.ch/abort'
+    'http://www.mysite.ch/fail'
 );
 
+// -----------------------------
 // Step 2:
-// Execute the request
+// Create the request with required data
 
 $initializeRequest = new InitializeRequest(
     $requestConfig,
@@ -46,26 +47,36 @@ $initializeRequest = new InitializeRequest(
     $returnUrls
 );
 
+// Note: More data can be provided to InitializeRequest with setters,
+// for example: $initializeRequest->setPayer()
+// See Saferpay documentation for available options.
+
+// -----------------------------
+// Step 3:
+// Execute and check for successful response
+
 $response = $initializeRequest->execute();
 
-// Step 3:
-// Check for successful response
 if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
 
+// -----------------------------
 // Step 4:
-// Save the response token, you will need it later to verify the payment
+// Save the response token, you will need it later to verify the payment (see step 7)
 echo 'Payment token: ' . $response->getToken() . "<br>\n";
 
+// -----------------------------
 // Step 5:
 // Redirect to the payment page
 echo 'Redirect to: ' . $response->getRedirectUrl() ."<br>\n";
 
+// -----------------------------
 // Step 6:
 // Fill in test payment page. For dummy credit card numbers see
 // https://saferpay.github.io/sndbx/paymentmeans.html
 
+// -----------------------------
 // Step 7:
-// On success page and notification url, assert the payment has been successful.
+// On success page and notification url, assert that the payment has been successful.
 // -> see 2-example-assert.php
