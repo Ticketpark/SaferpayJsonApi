@@ -2,7 +2,7 @@
 
 use \Ticketpark\SaferpayJson\Container;
 use \Ticketpark\SaferpayJson\Request\Response\ErrorResponse;
-use \Ticketpark\SaferpayJson\Transaction\CancelRequest;
+use \Ticketpark\SaferpayJson\Request\Transaction\CancelRequest;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
