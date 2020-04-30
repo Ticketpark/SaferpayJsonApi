@@ -23,10 +23,10 @@ https://saferpay.github.io/jsonapi/1.2/
 
 ## Roadmap
 
-* Future: Version 3 will be based on the most recent version of the Saferpay API (currently v1.16) and will likely contain more refactoring.
-* Current: Version 2 added type-hints with major refactoring and runs on PHP 7.3 only.
-* Past: Version 1 was the initial version of this library based on PHP 5.6 and the Saferpay API v1.2
-
+* v3 will be based on the most recent version of the Saferpay API (currently v1.16)
+* v2.3 added support for PHP 7.4
+* v2 added type-hints with major refactoring and required PHP 7.3
+* v1 was the initial version of this library based on PHP 5.6 and the Saferpay API v1.2
 
 ## Contribution
 You are welcome to contribute to this repo.
