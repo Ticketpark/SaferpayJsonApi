@@ -140,7 +140,7 @@ abstract class Request
                 ]
             );
         } catch (\Exception $e) {
-            if (! $e instanceof ClientException) {
+            if (!$e instanceof ClientException) {
                 throw new HttpRequestException($e->getMessage());
             }
 
@@ -156,6 +156,7 @@ abstract class Request
                 self::ERROR_RESPONSE_CLASS,
                 'json'
             );
+
             return $responseData;
         }
 
@@ -172,6 +173,7 @@ abstract class Request
             $this->getResponseClass(),
             'json'
         );
+
         return $responseData;
     }
 
