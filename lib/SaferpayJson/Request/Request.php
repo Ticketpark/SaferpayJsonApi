@@ -94,7 +94,6 @@ abstract class Request
         $statusCode = $response->getStatusCode();
 
         if ($statusCode >= 400 && $statusCode < 500) {
-            print (string) $response->getBody(); exit;
             return $this->getSerializer()->deserialize(
                 (string) $response->getBody(),
                 self::ERROR_RESPONSE_CLASS,
