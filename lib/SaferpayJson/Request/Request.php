@@ -136,25 +136,27 @@ abstract class Request
                 $this->getUrl(),
                 [
                     'headers' => $this->getHeaders(),
-                    'body' => $this->getContent()
+                    'body' => $this->getContent(),
                 ]
             );
         } catch (\Exception $e) {
-            if ($e instanceof ClientException) {
-                $response = $e->getResponse();
-            } else {
+            if (! $e instanceof ClientException) {
                 throw new HttpRequestException($e->getMessage());
             }
+
+            $response = $e->getResponse();
         }
 
         $statusCode = $response->getStatusCode();
 
         if ($statusCode >= 400 && $statusCode < 500) {
-            return $this->getSerializer()->deserialize(
+            /** @var ResponseInterface $responseData */
+            $responseData = $this->getSerializer()->deserialize(
                 (string) $response->getBody(),
                 self::ERROR_RESPONSE_CLASS,
                 'json'
             );
+            return $responseData;
         }
 
         if (200 !== $statusCode) {
@@ -164,11 +166,13 @@ abstract class Request
             ));
         }
 
-        return $this->getSerializer()->deserialize(
+        /** @var ResponseInterface $responseData */
+        $responseData = $this->getSerializer()->deserialize(
             (string) $response->getBody(),
             $this->getResponseClass(),
             'json'
         );
+        return $responseData;
     }
 
     protected function getUrl(): string
