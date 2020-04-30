@@ -26,7 +26,7 @@ class Notification
 
     public function getMerchantEmails(): array
     {
-        return $this->merchantEmail;
+        return $this->merchantEmails;
     }
 
     public function setMerchantEmails(array $merchantEmails): self
