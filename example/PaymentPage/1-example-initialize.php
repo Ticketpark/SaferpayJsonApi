@@ -1,75 +1,71 @@
 <?php declare(strict_types=1);
 
-use \Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
-use \Ticketpark\SaferpayJson\Container;
-use \Ticketpark\SaferpayJson\Response\ErrorResponse;
+use Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
+use Ticketpark\SaferpayJson\Request\RequestConfig;
+use Ticketpark\SaferpayJson\Container;
+use Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
+
 // Step 1:
 // Initialize the payment page
-// See https://saferpay.github.io/jsonapi/1.2/#Payment_v1_PaymentPage_Initialize
+// See https://saferpay.github.io/jsonapi/#Payment_v1_PaymentPage_Initialize
 
-$requestHeader = (new Container\RequestHeader())
-    ->setCustomerId($customerId)
-    ->setRequestId(uniqid());
+$requestConfig = new RequestConfig(
+    $apiKey,
+    $apiSecret,
+    $customerId,
+    true
+);
 
-$amount = (new Container\Amount())
-    ->setCurrencyCode('CHF')
-    ->setValue(5000); // amount in cents
+$amount = new Container\Amount(
+    5000, // amount in cents
+    'CHF'
+);
 
-$payment = (new Container\Payment())
-    ->setAmount($amount)
-    ->setOrderId('12839')
-    ->setDescription('Order No. 12839');
+$payment = new Container\Payment(
+    $amount,
+    'Order No. 12839'
+);
 
-$address = (new Container\Address())
-    ->setFirstName('Alex')
-    ->setLastName('Tschäppät')
-    ->setStreet('Marktgasse 1')
-    ->setZip('3000')
-    ->setCity('Bern')
-    ->setCountryCode('CH');
-
-$payer = (new Container\Payer())
-    ->setLanguageCode('en')
-    ->setBillingAddress($address);
-
-$returnUrls = (new Container\ReturnUrls())
-    ->setSuccess('http://www.mysite.ch/success?orderId=12839')
-    ->setFail('http://www.mysite.ch/fail')
-    ->setAbort('http://www.mysite.ch/abort');
-
-$notification = (new Container\Notification())
-    ->setNotifyUrl('https://www.mysite.ch/notification');
-
-$response = (new InitializeRequest($apiKey, $apiSecret))
-    ->setRequestHeader($requestHeader)
-    ->setPayment($payment)
-    ->setTerminalId($terminalId)
-    ->setReturnUrls($returnUrls)
-    ->setNotification($notification)
-    ->execute();
+$returnUrls = new Container\ReturnUrls(
+    'http://www.mysite.ch/success?orderId=12839',
+    'http://www.mysite.ch/fail',
+    'http://www.mysite.ch/abort'
+);
 
 // Step 2:
+// Execute the request
+
+$initializeRequest = new InitializeRequest(
+    $requestConfig,
+    $terminalId,
+    $payment,
+    $returnUrls
+);
+
+$response = $initializeRequest->execute();
+
+// Step 3:
 // Check for successful response
 if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
 
-// Step 3:
+// Step 4:
 // Save the response token, you will need it later to verify the payment
 echo 'Payment token: ' . $response->getToken() . "<br>\n";
 
-// Step 4:
+// Step 5:
 // Redirect to the payment page
 echo 'Redirect to: ' . $response->getRedirectUrl() ."<br>\n";
 
-// Step 5:
+// Step 6:
 // Fill in test payment page. For dummy credit card numbers see
 // https://saferpay.github.io/sndbx/paymentmeans.html
 
-// Step 6:
+// Step 7:
 // On success page and notification url, assert the payment has been successful.
 // -> see 2-example-assert.php

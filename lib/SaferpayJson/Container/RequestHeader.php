@@ -10,7 +10,7 @@ class RequestHeader
      * @var string
      * @SerializedName("SpecVersion")
      */
-    protected $specVersion = '1.17';
+    protected $specVersion = '1.16';
 
     /**
      * @var string
@@ -35,6 +35,17 @@ class RequestHeader
      * @SerializedName("ClientInfo")
      */
     protected $clientInfo;
+
+    public function __construct(string $customerId, string $requestId = null, int $retryIndicator = 0)
+    {
+        $this->customerId = $customerId;
+        $this->requestId = $requestId;
+        $this->retryIndicator = $retryIndicator;
+
+        if (null === $requestId && 0 === $retryIndicator) {
+            $this->requestId = uniqid();
+        }
+    }
 
     public function getSpecVersion(): string
     {

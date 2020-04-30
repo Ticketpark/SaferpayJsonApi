@@ -3,8 +3,8 @@
 namespace Ticketpark\SaferpayJson\Request;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\SerializerBuilder;
@@ -23,86 +23,46 @@ abstract class Request
     const ERROR_RESPONSE_CLASS = ErrorResponse::class;
 
     /**
-     * @var string
+     * @var RequestConfig
      * @Exclude
      */
-    protected $apiKey;
-
-    /**
-     * @var string
-     * @Exclude
-     */
-    protected $apiSecret;
-
-    /**
-     * @var bool
-     * @Exclude
-     */
-    protected $test = false;
-
-    /**
-     * @var \GuzzleHttp\Client
-     * @Exclude
-     */
-    protected $client;
+    private $requestConfig;
 
     /**
      * @var RequestHeader
      * @SerializedName("RequestHeader")
+     * @Accessor(getter="getRequestHeader")
      */
-    protected $requestHeader;
-
-    public function __construct(
-        string $apiKey,
-        string $apiSecret,
-        bool $test = true
-    ) {
-        $this->apiKey = $apiKey;
-        $this->apiSecret = $apiSecret;
-        $this->test = $test;
-    }
+    private $requestHeader;
 
     abstract public function getApiPath(): string;
     abstract public function getResponseClass(): string;
 
-    public function getApiKey(): string
+    public function __construct(RequestConfig $requestConfig)
     {
-        return $this->apiKey;
+        $this->requestConfig = $requestConfig;
     }
 
-    public function setApiKey(string $apiKey): self
+    public function getRequestConfig(): RequestConfig
     {
-        $this->apiKey = $apiKey;
-
-        return $this;
+        return $this->requestConfig;
     }
 
-    public function getApiSecret(): string
+    public function setRequestConfig(RequestConfig $requestConfig): self
     {
-        return $this->apiSecret;
-    }
-
-    public function setApiSecret(string $apiSecret): self
-    {
-        $this->apiSecret = $apiSecret;
-
-        return $this;
-    }
-
-    public function isTest(): bool
-    {
-        return $this->test;
-    }
-
-    public function setTest(bool $test): self
-    {
-        $this->test = $test;
+        $this->requestConfig = $requestConfig;
 
         return $this;
     }
 
     public function getRequestHeader(): RequestHeader
     {
+        if (null === $this->requestHeader) {
+            return new RequestHeader(
+                $this->requestConfig->getCustomerId()
+            );
+        }
+
         return $this->requestHeader;
     }
 
@@ -113,26 +73,10 @@ abstract class Request
         return $this;
     }
 
-    public function setClient(Client $client): self
-    {
-        $this->client = $client;
-
-        return $this;
-    }
-
-    public function getClient(): Client
-    {
-        if (null == $this->client) {
-            return new Client();
-        }
-
-        return $this->client;
-    }
-
     public function execute(): ResponseInterface
     {
         try {
-            $response = $this->getClient()->post(
+            $response = $this->requestConfig->getClient()->post(
                 $this->getUrl(),
                 [
                     'headers' => $this->getHeaders(),
@@ -150,6 +94,7 @@ abstract class Request
         $statusCode = $response->getStatusCode();
 
         if ($statusCode >= 400 && $statusCode < 500) {
+            print (string) $response->getBody(); exit;
             return $this->getSerializer()->deserialize(
                 (string) $response->getBody(),
                 self::ERROR_RESPONSE_CLASS,
@@ -171,32 +116,36 @@ abstract class Request
         );
     }
 
-    protected function getUrl(): string
+    private function getUrl(): string
     {
         $rootUrl = self::ROOT_URL;
 
-        if ($this->isTest()) {
+        if ($this->requestConfig->isTest()) {
             $rootUrl = self::ROOT_URL_TEST;
         }
 
         return $rootUrl . $this->getApiPath();
     }
 
-    protected function getHeaders(): array
+    private function getHeaders(): array
     {
         return [
             'Content-Type'  => 'application/json; charset=utf-8',
             'Accept'        => 'application/json',
-            'Authorization' => 'Basic ' . base64_encode($this->apiKey.':'.$this->apiSecret)
+            'Authorization' => 'Basic ' . base64_encode(
+                $this->requestConfig->getApiKey()
+                . ':'
+                . $this->requestConfig->getApiSecret()
+            )
         ];
     }
 
-    protected function getContent(): string
+    private function getContent(): string
     {
         return $this->getSerializer()->serialize($this, 'json');
     }
 
-    protected function getSerializer(): SerializerInterface
+    private function getSerializer(): SerializerInterface
     {
         AnnotationRegistry::registerLoader('class_exists');
 

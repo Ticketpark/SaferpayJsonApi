@@ -13,10 +13,16 @@ class Payment
     protected $amount;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("OrderId")
      */
     protected $orderId;
+
+    /**
+     * @var string|null
+     * @SerializedName("PayerNote")
+     */
+    protected $payerNote;
 
     /**
      * @var string
@@ -25,16 +31,34 @@ class Payment
     protected $description;
 
     /**
-     * @var string
-     * @SerializedName("PayerNote")
+     * @var string|null
+     * @SerializedName("MandateId")
      */
-    protected $payerNote;
+    protected $mandateId;
 
     /**
-     * @var Recurring
+     * @var Options|null
+     * @SerializedName("Options")
+     */
+    protected $options;
+
+    /**
+     * @var Recurring|null
      * @SerializedName("Recurring")
      */
     protected $recurring;
+
+    /**
+     * @var Installment|null
+     * @SerializedName("Installment")
+     */
+    protected $installment;
+
+    public function __construct(Amount $amount, string $description)
+    {
+        $this->amount = $amount;
+        $this->description = $description;
+    }
 
     public function getAmount(): Amount
     {
@@ -48,7 +72,7 @@ class Payment
         return $this;
     }
 
-    public function getOrderId(): string
+    public function getOrderId(): ?string
     {
         return $this->orderId;
     }
@@ -56,6 +80,18 @@ class Payment
     public function setOrderId(string $orderId): self
     {
         $this->orderId = $orderId;
+
+        return $this;
+    }
+
+    public function getPayerNote(): ?string
+    {
+        return $this->payerNote;
+    }
+
+    public function setPayerNote(string $payerNote): self
+    {
+        $this->payerNote = $payerNote;
 
         return $this;
     }
@@ -72,14 +108,26 @@ class Payment
         return $this;
     }
 
-    public function getPayerNote(): string
+    public function getMandateId(): ?string
     {
-        return $this->payerNote;
+        return $this->mandateId;
     }
 
-    public function setPayerNote(string $payerNote): self
+    public function setMandateId(string $mandateId): self
     {
-        $this->payerNote = $payerNote;
+        $this->mandateId = $mandateId;
+
+        return $this;
+    }
+
+    public function getOptions(): ?Options
+    {
+        return $this->options;
+    }
+
+    public function setOptions(Options $options): self
+    {
+        $this->options = $options;
 
         return $this;
     }
@@ -92,6 +140,18 @@ class Payment
     public function setRecurring(Recurring $recurring): self
     {
         $this->recurring = $recurring;
+
+        return $this;
+    }
+
+    public function getInstallment(): ?Installment
+    {
+        return $this->installment;
+    }
+
+    public function setInstallment(Installment $installment): self
+    {
+        $this->installment = $installment;
 
         return $this;
     }

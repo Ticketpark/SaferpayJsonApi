@@ -21,6 +21,12 @@ class Amount
      */
     protected $currencyCode;
 
+    public function __construct(int $value, string $currencyCode)
+    {
+        $this->value = $value;
+        $this->currencyCode = $currencyCode;
+    }
+
     public function getValue(): int
     {
         return $this->value;

@@ -19,10 +19,17 @@ class ReturnUrls
     protected $fail;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Abort")
      */
     protected $abort;
+
+    public function __construct(string $success, string $fail, string $abort = null)
+    {
+        $this->success = $success;
+        $this->fail = $fail;
+        $this->abort = $abort;
+    }
 
     public function getSuccess(): string
     {
@@ -48,12 +55,12 @@ class ReturnUrls
         return $this;
     }
 
-    public function getAbort(): string
+    public function getAbort(): ?string
     {
         return $this->abort;
     }
 
-    public function setAbort(string $abort): self
+    public function setAbort(?string $abort): self
     {
         $this->abort = $abort;
 

@@ -7,12 +7,16 @@ use JMS\Serializer\Annotation\Type;
 
 class RegisterAlias
 {
+    const ID_GENERATOR_MANUAL = 'MANUAL';
+    const ID_GENERATOR_RANDOM = 'RANDOM';
+    const ID_GENERATOR_RANDOM_UNIQUE = 'RANDOM_UNIQUE';
+
     /**
      * @var string
      * @SerializedName("IdGenerator")
      * @Type("string")
      */
-    protected $IdGenerator="RANDOM";
+    protected $idGenerator;
 
     /**
      * @var string
@@ -28,37 +32,28 @@ class RegisterAlias
      */
     protected $lifetime;
 
-    /**
-     * @return string
-     */
-    public function getIdGenerator(): string
+    public function __construct(string $idGenerator = self::ID_GENERATOR_RANDOM)
     {
-        return $this->IdGenerator;
+        $this->idGenerator = $idGenerator;
     }
 
-    /**
-     * @param string $idGenerator
-     * @return RegisterAlias
-     */
+    public function getIdGenerator(): string
+    {
+        return $this->idGenerator;
+    }
+
     public function setIdGenerator(string $idGenerator): self
     {
-        $this->IdGenerator = $idGenerator;
+        $this->idGenerator = $idGenerator;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getId(): string
     {
         return $this->id;
     }
 
-    /**
-     * @param string $id
-     * @return RegisterAlias
-     */
     public function setId(string $id): self
     {
         $this->id = $id;

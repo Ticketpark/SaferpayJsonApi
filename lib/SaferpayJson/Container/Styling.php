@@ -6,19 +6,23 @@ use JMS\Serializer\Annotation\SerializedName;
 
 class Styling
 {
+    const THEME_DEFAULT = 'DEFAULT';
+    const THEME_SIX = 'SIX';
+    const THEME_NONE = 'NONE';
+
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("CssUrl")
      */
     protected $cssUrl;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Theme")
      */
     protected $theme;
 
-    public function getCssUrl(): string
+    public function getCssUrl(): ?string
     {
         return $this->cssUrl;
     }
@@ -30,7 +34,7 @@ class Styling
         return $this;
     }
 
-    public function getTheme(): string
+    public function getTheme(): ?string
     {
         return $this->theme;
     }

@@ -7,36 +7,36 @@ use JMS\Serializer\Annotation\SerializedName;
 class Notification
 {
     /**
-     * @var string
-     * @SerializedName("MerchantEmail")
+     * @var array<string>
+     * @SerializedName("MerchantEmails")
      */
-    protected $merchantEmail;
+    protected $merchantEmails = [];
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("PayerEmail")
      */
     protected $payerEmail;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("NotifyUrl")
      */
     protected $notifyUrl;
 
-    public function getMerchantEmail(): string
+    public function getMerchantEmails(): array
     {
         return $this->merchantEmail;
     }
 
-    public function setMerchantEmail(string $merchantEmail): self
+    public function setMerchantEmails(array $merchantEmails): self
     {
-        $this->merchantEmail = $merchantEmail;
+        $this->merchantEmails = $merchantEmails;
 
         return $this;
     }
 
-    public function getPayerEmail(): string
+    public function getPayerEmail(): ?string
     {
         return $this->payerEmail;
     }
@@ -48,7 +48,7 @@ class Notification
         return $this;
     }
 
-    public function getNotifyUrl(): string
+    public function getNotifyUrl(): ?string
     {
         return $this->notifyUrl;
     }

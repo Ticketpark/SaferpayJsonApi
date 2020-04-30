@@ -22,13 +22,6 @@ class Address
     protected $lastName;
 
     /**
-     * @var \DateTime
-     * @SerializedName("DateOfBirth")
-     * @Type("string")
-     */
-    protected $dateOfBirth;
-
-    /**
      * @var string
      * @SerializedName("Company")
      * @Type("string")
@@ -44,24 +37,10 @@ class Address
 
     /**
      * @var string
-     * @SerializedName("LegalForm")
-     * @Type("string")
-     */
-    protected $legalForm;
-
-    /**
-     * @var string
      * @SerializedName("Street")
      * @Type("string")
      */
     protected $street;
-
-    /**
-     * @var string
-     * @SerializedName("Street2")
-     * @Type("string")
-     */
-    protected $street2;
 
     /**
      * @var string
@@ -79,13 +58,6 @@ class Address
 
     /**
      * @var string
-     * @SerializedName("CountrySubdivisionCode")
-     * @Type("string")
-     */
-    protected $countrySubdivisionCode;
-
-    /**
-     * @var string
      * @SerializedName("CountryCode")
      * @Type("string")
      */
@@ -93,17 +65,45 @@ class Address
 
     /**
      * @var string
-     * @SerializedName("Phone")
-     * @Type("string")
-     */
-    protected $phone;
-
-    /**
-     * @var string
      * @SerializedName("Email")
      * @Type("string")
      */
     protected $email;
+
+    /**
+     * @var \DateTime
+     * @SerializedName("DateOfBirth")
+     * @Type("string")
+     */
+    protected $dateOfBirth;
+
+    /**
+     * @var string
+     * @SerializedName("LegalForm")
+     * @Type("string")
+     */
+    protected $legalForm;
+
+    /**
+     * @var string
+     * @SerializedName("Street2")
+     * @Type("string")
+     */
+    protected $street2;
+
+    /**
+     * @var string
+     * @SerializedName("CountrySubdivisionCode")
+     * @Type("string")
+     */
+    protected $countrySubdivisionCode;
+
+    /**
+     * @var string
+     * @SerializedName("Phone")
+     * @Type("string")
+     */
+    protected $phone;
 
     public function getFirstName(): string
     {
@@ -125,18 +125,6 @@ class Address
     public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    public function getDateOfBirth(): \DateTime
-    {
-        return $this->dateOfBirth;
-    }
-
-    public function setDateOfBirth(\DateTime $dateOfBirth): self
-    {
-        $this->dateOfBirth = $dateOfBirth;
 
         return $this;
     }
@@ -165,18 +153,6 @@ class Address
         return $this;
     }
 
-    public function getLegalForm(): string
-    {
-        return $this->legalForm;
-    }
-
-    public function setLegalForm(string $legalForm): self
-    {
-        $this->legalForm = $legalForm;
-
-        return $this;
-    }
-
     public function getStreet(): string
     {
         return $this->street;
@@ -185,18 +161,6 @@ class Address
     public function setStreet(string $street): self
     {
         $this->street = $street;
-
-        return $this;
-    }
-
-    public function getStreet2(): string
-    {
-        return $this->street2;
-    }
-
-    public function setStreet2(string $street2): self
-    {
-        $this->street2 = $street2;
 
         return $this;
     }
@@ -225,18 +189,6 @@ class Address
         return $this;
     }
 
-    public function getCountrySubdivisionCode(): string
-    {
-        return $this->countrySubdivisionCode;
-    }
-
-    public function setCountrySubdivisionCode(string $countrySubdivisionCode): self
-    {
-        $this->countrySubdivisionCode = $countrySubdivisionCode;
-
-        return $this;
-    }
-
     public function getCountryCode(): string
     {
         return $this->countryCode;
@@ -249,18 +201,6 @@ class Address
         return $this;
     }
 
-    public function getPhone(): string
-    {
-        return $this->phone;
-    }
-
-    public function setPhone(string $phone): self
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
     public function getEmail(): string
     {
         return $this->email;
@@ -269,6 +209,66 @@ class Address
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getDateOfBirth(): \DateTime
+    {
+        return $this->dateOfBirth;
+    }
+
+    public function setDateOfBirth(\DateTime $dateOfBirth): self
+    {
+        $this->dateOfBirth = $dateOfBirth;
+
+        return $this;
+    }
+
+    public function getLegalForm(): string
+    {
+        return $this->legalForm;
+    }
+
+    public function setLegalForm(string $legalForm): self
+    {
+        $this->legalForm = $legalForm;
+
+        return $this;
+    }
+
+    public function getStreet2(): string
+    {
+        return $this->street2;
+    }
+
+    public function setStreet2(string $street2): self
+    {
+        $this->street2 = $street2;
+
+        return $this;
+    }
+
+    public function getCountrySubdivisionCode(): string
+    {
+        return $this->countrySubdivisionCode;
+    }
+
+    public function setCountrySubdivisionCode(string $countrySubdivisionCode): self
+    {
+        $this->countrySubdivisionCode = $countrySubdivisionCode;
+
+        return $this;
+    }
+
+    public function getPhone(): string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(string $phone): self
+    {
+        $this->phone = $phone;
 
         return $this;
     }
