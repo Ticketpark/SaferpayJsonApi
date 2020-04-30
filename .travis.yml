@@ -8,9 +8,10 @@ env:
     - PREFER_LOWEST="--prefer-lowest"
     - PREFER_LOWEST=""
 
-before_script:
+install:
   - composer update --prefer-source $PREFER_LOWEST
 
 script:
+  - vendor/bin/php-cs-fixer --no-interaction --dry-run --diff -v fix lib/
   - vendor/bin/phpunit
   - vendor/bin/phpstan analyse
