@@ -28,6 +28,11 @@ class Refund
      */
     protected $description;
 
+    public function __construct(Amount $amount)
+    {
+        $this->amount = $amount;
+    }
+
     public function getAmount(): Amount
     {
         return $this->amount;

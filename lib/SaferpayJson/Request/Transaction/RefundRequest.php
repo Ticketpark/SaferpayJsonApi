@@ -3,10 +3,13 @@
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Container\CaptureReference;
+use Ticketpark\SaferpayJson\Container\PendingNotification;
 use Ticketpark\SaferpayJson\Container\Refund;
 use Ticketpark\SaferpayJson\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
+use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\Transaction\RefundResponse;
 
 class RefundRequest extends Request
@@ -23,12 +26,29 @@ class RefundRequest extends Request
     protected $refund;
 
     /**
-     * @var TransactionReference
-     * @SerializedName("TransactionReference")
+     * @var CaptureReference
+     * @SerializedName("CaptureReference")
      */
-    protected $transactionReference;
+    protected $captureReference;
 
-    public function getRefund(): Refund
+    /**
+     * @var PendingNotification
+     * @SerializedName("PendingNotification")
+     */
+    protected $pendingNotification;
+
+    public function __construct(
+        RequestConfig $requestConfig,
+        Refund $refund,
+        CaptureReference $captureReference
+    ) {
+        $this->refund = $refund;
+        $this->captureReference = $captureReference;
+
+        parent::__construct($requestConfig);
+    }
+
+    public function getRefund(): ?Refund
     {
         return $this->refund;
     }
@@ -40,14 +60,26 @@ class RefundRequest extends Request
         return $this;
     }
 
-    public function getTransactionReference(): TransactionReference
+    public function getCaptureReference(): ?CaptureReference
     {
-        return $this->transactionReference;
+        return $this->captureReference;
     }
 
-    public function setTransactionReference(TransactionReference $transactionReference): self
+    public function setCaptureReference(CaptureReference $captureReference): self
     {
-        $this->transactionReference = $transactionReference;
+        $this->captureReference = $captureReference;
+
+        return $this;
+    }
+
+    public function getPendingNotification(): ?PendingNotification
+    {
+        return $this->pendingNotification;
+    }
+
+    public function setPendingNotification(PendingNotification $pendingNotification): self
+    {
+        $this->pendingNotification = $pendingNotification;
 
         return $this;
     }
