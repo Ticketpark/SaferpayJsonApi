@@ -28,7 +28,6 @@ class ThreeDs
      */
     protected $xid;
 
-
     /**
      * @var string
      * @SerializedName("VerificationValue")

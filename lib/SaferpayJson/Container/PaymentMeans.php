@@ -46,11 +46,11 @@ class PaymentMeans
     protected $bankAccount;
 
     /**
-     * @var Alias
-     * @SerializedName("Alias")
-     * @Type("Ticketpark\SaferpayJson\Container\Alias")
+     * @var Twint
+     * @SerializedName("Twint")
+     * @Type("Ticketpark\SaferpayJson\Container\Twint")
      */
-    protected $alias;
+    protected $twint;
 
     public function getBrand(): Brand
     {
@@ -112,14 +112,14 @@ class PaymentMeans
         return $this;
     }
 
-    public function getAlias(): Alias
+    public function getTwint(): ?Twint
     {
-        return $this->alias;
+        return $this->twint;
     }
 
-    public function setAlias(Alias $alias): self
+    public function setTwint(Twint $twint): self
     {
-        $this->alias = $alias;
+        $this->twint = $twint;
 
         return $this;
     }

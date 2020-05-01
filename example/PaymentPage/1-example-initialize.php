@@ -8,7 +8,6 @@ use Ticketpark\SaferpayJson\Response\ErrorResponse;
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
-
 // -----------------------------
 // Step 1:
 // Initialize the required payment page data

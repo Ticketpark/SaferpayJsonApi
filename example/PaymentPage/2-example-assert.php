@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-use \Ticketpark\SaferpayJson\Container;
-use \Ticketpark\SaferpayJson\Request\PaymentPage\AssertRequest;
-use \Ticketpark\SaferpayJson\Response\ErrorResponse;
+use Ticketpark\SaferpayJson\Request\RequestConfig;
+use Ticketpark\SaferpayJson\Request\PaymentPage\AssertRequest;
+use Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
@@ -11,21 +11,32 @@ require_once __DIR__ . '/../credentials.php';
 
 $token = 'xxx';
 
+// -----------------------------
 // Step 1:
 // Prepare the assert request
-// See http://saferpay.github.io/jsonapi/1.2/#Payment_v1_PaymentPage_Assert
+// See http://saferpay.github.io/jsonapi/#Payment_v1_PaymentPage_Assert
 
-$requestHeader = (new Container\RequestHeader())
-    ->setCustomerId($customerId)
-    ->setRequestId(uniqid());
+$requestConfig = new RequestConfig(
+    $apiKey,
+    $apiSecret,
+    $customerId,
+    true
+);
 
-$response = (new AssertRequest($apiKey, $apiSecret))
-    ->setRequestHeader($requestHeader)
-    ->setToken($token)
-    ->execute();
-
+// -----------------------------
 // Step 2:
-// Check for successful response
+// Create the request with required data
+
+$assertRequest = new AssertRequest(
+    $requestConfig,
+    $token,
+);
+
+// -----------------------------
+// Step 3:
+// Execute and check for successful response
+
+$response = $assertRequest->execute();
 
 if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
@@ -33,6 +44,7 @@ if ($response instanceof ErrorResponse) {
 
 echo 'The transaction has been successful! Transaction id: ' . $response->getTransaction()->getId();
 
-// Step 3:
+// -----------------------------
+// Step 4:
 // Capture the transaction to get the cash flowing.
 // See ../Transaction/1-example-capture.php

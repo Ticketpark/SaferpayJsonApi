@@ -43,11 +43,11 @@ class AssertResponse extends Response
     protected $registrationResult;
 
     /**
-     * @var ThreeDs
-     * @SerializedName("ThreeDs")
-     * @Type("Ticketpark\SaferpayJson\Container\ThreeDs")
+     * @var Liability
+     * @SerializedName("Liability")
+     * @Type("Ticketpark\SaferpayJson\Container\Liability")
      */
-    protected $threeDs;
+    protected $liability;
 
     /**
      * @var Dcc
@@ -55,6 +55,13 @@ class AssertResponse extends Response
      * @Type("Ticketpark\SaferpayJson\Container\Dcc")
      */
     protected $dcc;
+
+    /**
+     * @var MastercardIssuerInstallments
+     * @SerializedName("MastercardIssuerInstallments")
+     * @Type("Ticketpark\SaferpayJson\Container\MastercardIssuerInstallments")
+     */
+    protected $mastercardIssuerInstallments;
 
     public function getTransaction(): Transaction
     {
@@ -94,16 +101,6 @@ class AssertResponse extends Response
     public function setRegistrationResult(RegistrationResult $registrationResult): void
     {
         $this->registrationResult = $registrationResult;
-    }
-
-    public function getThreeDs(): ThreeDs
-    {
-        return $this->threeDs;
-    }
-
-    public function setThreeDs(ThreeDs $threeDs): void
-    {
-        $this->threeDs = $threeDs;
     }
 
     public function getDcc(): Dcc

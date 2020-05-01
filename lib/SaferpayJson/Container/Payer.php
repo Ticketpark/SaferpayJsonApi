@@ -16,6 +16,13 @@ class Payer
 
     /**
      * @var string
+     * @SerializedName("IpLocation")
+     * @Type("string")
+     */
+    protected $ipLocation;
+
+    /**
+     * @var string
      * @SerializedName("LanguageCode")
      * @Type("string")
      */
@@ -43,6 +50,18 @@ class Payer
     public function setIpAddress(string $ipAddress): self
     {
         $this->ipAddress = $ipAddress;
+
+        return $this;
+    }
+
+    public function getIpLocation(): ?string
+    {
+        return $this->ipLocation;
+    }
+
+    public function setIpLocation(string $ipLocation): self
+    {
+        $this->ipLocation = $ipLocation;
 
         return $this;
     }

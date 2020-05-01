@@ -30,6 +30,13 @@ class Transaction
 
     /**
      * @var string
+     * @SerializedName("CaptureId")
+     * @Type("string")
+     */
+    protected $captureId;
+
+    /**
+     * @var string
      * @SerializedName("Date")
      * @Type("string")
      */
@@ -58,10 +65,39 @@ class Transaction
 
     /**
      * @var string
+     * @SerializedName("SixTransactionReference")
+     * @Type("string")
+     */
+    protected $sixTransactionReference;
+
+    /**
+     * @var string
      * @SerializedName("AcquirerReference")
      * @Type("string")
      */
     protected $acquirerReference;
+
+    /**
+     * @var string
+     * @SerializedName("ApprovalCode")
+     * @Type("string")
+     */
+    protected $approvalCode;
+
+    /**
+     * @var DirectDebit
+     * @SerializedName("DirectDebit")
+     * @Type("Ticketpark\SaferpayJson\Container\DirectDebit")
+     */
+    protected $directDebit;
+
+    /**
+     * @var Invoice
+     * @SerializedName("Invoice")
+     * @Type("Ticketpark\SaferpayJson\Container\Invoice")
+     */
+    protected $invoice;
+
 
     public function getType(): string
     {
@@ -93,6 +129,18 @@ class Transaction
     public function setId(string $id): self
     {
         $this->id = $id;
+        return $this;
+    }
+
+    public function getCaptureId(): ?string
+    {
+        return $this->captureId;
+    }
+
+    public function setCaptureId(string $captureId): self
+    {
+        $this->captureId = $captureId;
+
         return $this;
     }
 
@@ -152,6 +200,54 @@ class Transaction
     public function setAcquirerReference(string $acquirerReference): self
     {
         $this->acquirerReference = $acquirerReference;
+
+        return $this;
+    }
+
+    public function getSixTransactionReference(): ?string
+    {
+        return $this->sixTransactionReference;
+    }
+
+    public function setSixTransactionReference(string $sixTransactionReference): self
+    {
+        $this->sixTransactionReference = $sixTransactionReference;
+
+        return $this;
+    }
+
+    public function getApprovalCode(): ?string
+    {
+        return $this->approvalCode;
+    }
+
+    public function setApprovalCode(string $approvalCode): self
+    {
+        $this->approvalCode = $approvalCode;
+
+        return $this;
+    }
+
+    public function getDirectDebit(): ?DirectDebit
+    {
+        return $this->directDebit;
+    }
+
+    public function setDirectDebit(DirectDebit $directDebit): self
+    {
+        $this->directDebit = $directDebit;
+
+        return $this;
+    }
+
+    public function getInvoice(): ?Invoice
+    {
+        return $this->invoice;
+    }
+
+    public function setInvoice(Invoice $invoice): self
+    {
+        $this->invoice = $invoice;
 
         return $this;
     }

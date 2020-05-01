@@ -5,6 +5,7 @@ namespace Ticketpark\SaferpayJson\Request\PaymentPage;
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
+use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\PaymentPage\AssertResponse;
 
 class AssertRequest extends Request
@@ -19,6 +20,15 @@ class AssertRequest extends Request
      * @SerializedName("Token")
      */
     protected $token;
+
+    public function __construct(
+        RequestConfig $requestConfig,
+        string $token
+    ) {
+        $this->token = $token;
+
+        parent::__construct($requestConfig);
+    }
 
     public function getToken(): string
     {

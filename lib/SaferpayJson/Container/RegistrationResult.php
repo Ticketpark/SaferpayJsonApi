@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Container\Alias;
 use Ticketpark\SaferpayJson\Container\Error;
+use Ticketpark\SaferpayJson\Container\Error;
 
 class RegistrationResult
 {
@@ -29,6 +30,13 @@ class RegistrationResult
      * @Type("Ticketpark\SaferpayJson\Container\Error")
      */
     protected $error;
+
+    /**
+     * @var AuthenticationResult
+     * @SerializedName("AuthenticationResult")
+     * @Type("Ticketpark\SaferpayJson\Container\AuthenticationResult")
+     */
+    protected $authenticationResult;
 
     public function isSuccess(): bool
     {
