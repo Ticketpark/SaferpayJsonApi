@@ -11,24 +11,35 @@ require_once __DIR__ . '/../credentials.php';
 
 $transactionId = 'xxx';
 
+// -----------------------------
 // Step 1:
-// Prepare the cancel request
-// https://saferpay.github.io/jsonapi/1.2/#Payment_v1_Transaction_Cancel
+// Prepare the capture request
+// https://saferpay.github.io/jsonapi/1.2/#Payment_v1_Transaction_Capture
 
-$requestHeader = (new Container\RequestHeader())
-    ->setCustomerId($customerId)
-    ->setRequestId(uniqid());
+$requestConfig = new RequestConfig(
+    $apiKey,
+    $apiSecret,
+    $customerId,
+    true
+);
 
 $transactionReference = (new Container\TransactionReference())
     ->setTransactionId($transactionId);
 
-$response = (new CancelRequest($apiKey, $apiSecret))
-    ->setRequestHeader($requestHeader)
-    ->setTransactionReference($transactionReference)
-    ->execute();
-
+// -----------------------------
 // Step 2:
-// Check for successful response
+// Create the request with required data
+
+$cancelRequest = new CancelRequest(
+    $requestConfig,
+    $transactionReference
+);
+
+// -----------------------------
+// Step 3:
+// Execute and check for successful response
+
+$response = $cancelRequest->execute();
 
 if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());

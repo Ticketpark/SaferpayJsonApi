@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
+use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\Transaction\CancelResponse;
 
 class CancelRequest extends Request
@@ -20,6 +21,15 @@ class CancelRequest extends Request
      * @SerializedName("TransactionReference")
      */
     protected $transactionReference;
+
+    public function __construct(
+        RequestConfig $requestConfig,
+        TransactionReference $transactionReference
+    ) {
+        $this->transactionReference = $transactionReference;
+
+        parent::__construct($requestConfig);
+    }
 
     public function getTransactionReference(): TransactionReference
     {

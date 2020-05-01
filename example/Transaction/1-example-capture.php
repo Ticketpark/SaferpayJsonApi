@@ -10,7 +10,7 @@ require_once __DIR__ . '/../credentials.php';
 
 // A transaction id you received with a successful assert request (see ../PaymentPage/2-example-assert.php)
 
-$transactionId = 'Y4EMlvbGhK3YUAS7l7fObQn8YKAb';
+$transactionId = 'xxx';
 
 // -----------------------------
 // Step 1:
@@ -46,6 +46,6 @@ if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
 
-echo 'The transaction has successfully been captured! Capture-Status: ' . $response->getStatus();
+echo 'The transaction has successfully been captured! Capture-Id: ' . $response->getCaptureId();
 
 // You have now fully completed a successful payment :)
