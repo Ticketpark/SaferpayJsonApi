@@ -9,6 +9,9 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 class CaptureResponse extends Response
 {
+    const STATUS_PENDING = 'PENDING';
+    const STATUS_CAPTURED = 'CAPTURED';
+
     /**
      * @var string
      * @SerializedName("TransactionId")
@@ -18,10 +21,17 @@ class CaptureResponse extends Response
 
     /**
      * @var string
-     * @SerializedName("OrderId")
+     * @SerializedName("CaptureId")
      * @Type("string")
      */
-    protected $orderId;
+    protected $captureId;
+
+    /**
+     * @var string
+     * @SerializedName("Statis")
+     * @Type("string")
+     */
+    protected $status;
 
     /**
      * @var string
@@ -37,43 +47,63 @@ class CaptureResponse extends Response
      */
     protected $invoice;
 
-    public function getTransactionId(): string
+    public function getTransactionId(): ?string
     {
         return $this->transactionId;
     }
 
-    public function setTransactionId(string $transactionId): void
+    public function setTransactionId(string $transactionId): self
     {
         $this->transactionId = $transactionId;
+
+        return $this;
     }
 
-    public function getOrderId(): string
+    public function getCaptureId(): ?string
     {
-        return $this->orderId;
+        return $this->captureId;
     }
 
-    public function setOrderId(string $orderId): void
+    public function setCaptureId(string $captureId): self
     {
-        $this->orderId = $orderId;
+        $this->captureId = $captureId;
+
+        return $this;
     }
 
-    public function getDate(): string
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getDate(): ?string
     {
         return $this->date;
     }
 
-    public function setDate(string $date): void
+    public function setDate(string $date): self
     {
         $this->date = $date;
+
+        return $this;
     }
 
-    public function getInvoice(): Invoice
+    public function getInvoice(): ?Invoice
     {
         return $this->invoice;
     }
 
-    public function setInvoice(Invoice $invoice): void
+    public function setInvoice(Invoice $invoice): self
     {
         $this->invoice = $invoice;
+
+        return $this;
     }
 }

@@ -8,7 +8,7 @@ use JMS\Serializer\Annotation\Type;
 class MastercardIssuerInstallments
 {
     /**
-     * @var array<InstallmentPlans>
+     * @var array<InstallmentPlan>
      * @SerializedName("InstallmentPlans")
      * @Type("array")
      */
@@ -27,6 +27,13 @@ class MastercardIssuerInstallments
      * @Type("string")
      */
     protected $receiptFreeText;
+
+    /**
+     * @var ChosenPlan
+     * @SerializedName("ChosenPlan")
+     * @Type("array")
+     */
+    protected $chosenPlan;
 
     public function getInstallmentPlans(): ?array
     {
@@ -60,6 +67,18 @@ class MastercardIssuerInstallments
     public function setReceiptFreeText(string $receiptFreeText): self
     {
         $this->receiptFreeText = $receiptFreeText;
+
+        return $this;
+    }
+
+    public function getChosenPlan(): ?ChosenPlan
+    {
+        return $this->chosenPlan;
+    }
+
+    public function setChosenPlan(ChosenPlan $chosenPlan): self
+    {
+        $this->chosenPlan = $chosenPlan;
 
         return $this;
     }

@@ -1,39 +1,51 @@
 <?php declare(strict_types=1);
 
-use \Ticketpark\SaferpayJson\Container;
-use \Ticketpark\SaferpayJson\Request\Response\ErrorResponse;
-use \Ticketpark\SaferpayJson\Request\Transaction\CaptureRequest;
+use Ticketpark\SaferpayJson\Container;
+use Ticketpark\SaferpayJson\Request\RequestConfig;
+use Ticketpark\SaferpayJson\Request\Transaction\CaptureRequest;
+use Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
 // A transaction id you received with a successful assert request (see ../PaymentPage/2-example-assert.php)
 
-$transactionId = 'xxx';
+$transactionId = 'Y4EMlvbGhK3YUAS7l7fObQn8YKAb';
 
+// -----------------------------
 // Step 1:
 // Prepare the capture request
 // https://saferpay.github.io/jsonapi/1.2/#Payment_v1_Transaction_Capture
 
-$requestHeader = (new Container\RequestHeader())
-    ->setCustomerId($customerId)
-    ->setRequestId(uniqid());
+$requestConfig = new RequestConfig(
+    $apiKey,
+    $apiSecret,
+    $customerId,
+    true
+);
 
 $transactionReference = (new Container\TransactionReference())
     ->setTransactionId($transactionId);
 
-$response = (new CaptureRequest($apiKey, $apiSecret))
-    ->setRequestHeader($requestHeader)
-    ->setTransactionReference($transactionReference)
-    ->execute();
-
+// -----------------------------
 // Step 2:
-// Check for successful response
+// Create the request with required data
+
+$captureRequest = new CaptureRequest(
+    $requestConfig,
+    $transactionReference
+);
+
+// -----------------------------
+// Step 3:
+// Execute and check for successful response
+
+$response = $captureRequest->execute();
 
 if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
 
-echo 'The transaction has successfully been captured! Transaction-ID: ' . $response->getTransactionId();
+echo 'The transaction has successfully been captured! Capture-Status: ' . $response->getStatus();
 
 // You have now fully completed a successful payment :)

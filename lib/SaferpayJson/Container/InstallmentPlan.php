@@ -26,7 +26,7 @@ class InstallmentPlan
      * @SerializedName("InstallmentFee")
      * @Type("Ticketpark\SaferpayJson\Container\InstallmentFee")
      */
-    protected $InstallmentFee;
+    protected $installmentFee;
 
     /**
      * @var string
@@ -82,12 +82,12 @@ class InstallmentPlan
 
     public function getInstallmentFee(): ?InstallmentFee
     {
-        return $this->InstallmentFee;
+        return $this->installmentFee;
     }
 
-    public function setInstallmentFee(InstallmentFee $InstallmentFee): self
+    public function setInstallmentFee(InstallmentFee $installmentFee): self
     {
-        $this->InstallmentFee = $InstallmentFee;
+        $this->installmentFee = $installmentFee;
 
         return $this;
     }
