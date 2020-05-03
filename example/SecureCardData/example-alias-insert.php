@@ -68,4 +68,4 @@ echo 'Redirect to: ' . $response->getRedirect()->getRedirectUrl() ."<br>\n";
 // -----------------------------
 // Step 7:
 // On success page and notification url, assert that the payment has been successful.
-// -> see example-alias-assert.php
+// -> see example-alias-insert-assert.php

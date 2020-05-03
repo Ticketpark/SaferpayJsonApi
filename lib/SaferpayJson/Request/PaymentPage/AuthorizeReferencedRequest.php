@@ -3,7 +3,7 @@
 namespace Ticketpark\SaferpayJson\Request\PaymentPage;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Container\Authentication;
+use Ticketpark\SaferpayJson\Container\HolderAuthentication;
 use Ticketpark\SaferpayJson\Container\Payment;
 use Ticketpark\SaferpayJson\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Request;
@@ -37,7 +37,7 @@ class AuthorizeReferencedRequest extends Request
     protected $transactionReference;
 
     /**
-     * @var Authentication
+     * @var HolderAuthentication
      * @SerializedName("Authentication")
      */
     protected $authentication;
@@ -98,12 +98,12 @@ class AuthorizeReferencedRequest extends Request
         return $this;
     }
 
-    public function getAuthentication(): ?Authentication
+    public function getAuthentication(): ?HolderAuthentication
     {
         return $this->authentication;
     }
 
-    public function setAuthentication(Authentication $authentication): self
+    public function setAuthentication(HolderAuthentication $authentication): self
     {
         $this->authentication = $authentication;
 

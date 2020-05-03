@@ -8,7 +8,7 @@ use Ticketpark\SaferpayJson\Container\Alias;
 use Ticketpark\SaferpayJson\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Response\Response;
 
-class AssertInsertResponse extends Response
+class AliasAssertInsertResponse extends Response
 {
     /**
      * @var Alias
@@ -23,6 +23,13 @@ class AssertInsertResponse extends Response
      * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
      */
     protected $paymentMeans;
+
+    /**
+     * @var CheckResult
+     * @SerializedName("CheckResult")
+     * @Type("Ticketpark\SaferpayJson\Container\CheckResult")
+     */
+    protected $checkResult;
 
     public function getAlias(): Alias
     {

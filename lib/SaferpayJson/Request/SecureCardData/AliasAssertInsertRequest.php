@@ -5,12 +5,13 @@ namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
-use Ticketpark\SaferpayJson\Response\SecureCardData\AssertInsertResponse;
+use Ticketpark\SaferpayJson\Request\RequestConfig;
+use Ticketpark\SaferpayJson\Response\SecureCardData\AliasAssertInsertResponse;
 
-class AssertInsertRequest extends Request
+class AliasAssertInsertRequest extends Request
 {
     const API_PATH = '/Payment/v1/Alias/AssertInsert';
-    const RESPONSE_CLASS = AssertInsertResponse::class;
+    const RESPONSE_CLASS = AliasAssertInsertResponse::class;
 
     use RequestCommonsTrait;
 
@@ -19,6 +20,13 @@ class AssertInsertRequest extends Request
      * @SerializedName("Token")
      */
     protected $token;
+
+    public function __construct(RequestConfig $requestConfig, string $token)
+    {
+        $this->token = $token;
+
+        parent::__construct($requestConfig);
+    }
 
     public function getToken(): string
     {
