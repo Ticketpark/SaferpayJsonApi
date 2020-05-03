@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 use \Ticketpark\SaferpayJson\Container;
-use Ticketpark\SaferpayJson\Request\SecureAliasStore\AssertInsertRequest;
+use Ticketpark\SaferpayJson\Request\SecureCardData\AssertInsertRequest;
 use \Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';

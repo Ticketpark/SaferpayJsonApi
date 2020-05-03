@@ -2,8 +2,8 @@
 
 namespace Ticketpark\SaferpayJson\Tests\SecureAliasStore;
 
-use Ticketpark\SaferpayJson\Request\SecureAliasStore\AssertInsertRequest;
-use Ticketpark\SaferpayJson\Response\SecureAliasStore\AssertInsertResponse;
+use Ticketpark\SaferpayJson\Request\SecureCardData\AssertInsertRequest;
+use Ticketpark\SaferpayJson\Response\SecureCardData\AssertInsertResponse;
 use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
 
 class AssertInsertRequestTest extends CommonRequestTest

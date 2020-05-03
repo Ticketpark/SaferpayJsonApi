@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Ticketpark\SaferpayJson\Request\SecureAliasStore;
+namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
-use Ticketpark\SaferpayJson\Response\SecureAliasStore\AssertInsertResponse;
+use Ticketpark\SaferpayJson\Response\SecureCardData\AssertInsertResponse;
 
 class AssertInsertRequest extends Request
 {

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Ticketpark\SaferpayJson\Response\SecureAliasStore;
+namespace Ticketpark\SaferpayJson\Response\SecureCardData;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
