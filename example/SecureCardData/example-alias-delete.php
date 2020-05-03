@@ -1,20 +1,20 @@
 <?php declare(strict_types=1);
 
 use Ticketpark\SaferpayJson\Request\RequestConfig;
-use Ticketpark\SaferpayJson\Request\SecureCardData\AliasAssertInsertRequest;
-use \Ticketpark\SaferpayJson\Response\ErrorResponse;
+use Ticketpark\SaferpayJson\Request\SecureCardData\AliasDeleteRequest;
+use Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
-// A token you received after initializing an insert (see example-alias-insert.php)
+// An alias id you received after inserting (see example-alias-insert-assert.php)
 
-$token = 'xxx';
+$aliasId = 'xxx';
 
 // -----------------------------
 // Step 1:
 // Prepare the assert request
-// See https://saferpay.github.io/jsonapi/#Payment_v1_Alias_AssertInsert
+// See https://saferpay.github.io/jsonapi/#Payment_v1_Alias_Update
 
 $requestConfig = new RequestConfig(
     $apiKey,
@@ -27,9 +27,9 @@ $requestConfig = new RequestConfig(
 // Step 2:
 // Create the request with required data
 
-$assertRequest = new AliasAssertInsertRequest(
+$assertRequest = new AliasDeleteRequest(
     $requestConfig,
-    $token
+    $aliasId
 );
 
 // -----------------------------
@@ -42,4 +42,7 @@ if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
 
-echo 'The insert has been successful! Alias id: ' . $response->getAlias()->getId()."<br>\n";
+echo "The alias has successfully been deleted.<br>\n";
+
+// Note that no error is returned if the provided alias id did not exist.
+// This is by design by the Saferpay API.

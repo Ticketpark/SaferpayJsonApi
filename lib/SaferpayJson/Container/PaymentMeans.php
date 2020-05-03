@@ -52,6 +52,20 @@ class PaymentMeans
      */
     protected $twint;
 
+    /**
+     * @var SaferpayFields
+     * @SerializedName("SaferpayFields")
+     * @Type("Ticketpark\SaferpayJson\Container\SaferpayFields")
+     */
+    protected $saferpayFields;
+
+    /**
+     * @var Alias
+     * @SerializedName("Alias")
+     * @Type("Ticketpark\SaferpayJson\Container\Alias")
+     */
+    protected $alias;
+
     public function getBrand(): Brand
     {
         return $this->brand;
@@ -120,6 +134,30 @@ class PaymentMeans
     public function setTwint(Twint $twint): self
     {
         $this->twint = $twint;
+
+        return $this;
+    }
+
+    public function getSaferpayFields(): ?SaferpayFields
+    {
+        return $this->saferpayFields;
+    }
+
+    public function setSaferpayFields(SaferpayFields $saferpayFields): self
+    {
+        $this->saferpayFields = $saferpayFields;
+
+        return $this;
+    }
+
+    public function getAlias(): ?Alias
+    {
+        return $this->alias;
+    }
+
+    public function setAlias(Alias $alias): self
+    {
+        $this->alias = $alias;
 
         return $this;
     }

@@ -21,6 +21,13 @@ class Alias
      */
     protected $lifetime;
 
+    /**
+     * @var string
+     * @SerializedName("VerificationCode")
+     * @Type("string")
+     */
+    protected $verificationCode;
+
     public function getId(): string
     {
         return $this->id;
@@ -41,6 +48,18 @@ class Alias
     public function setLifetime(int $lifetime): self
     {
         $this->lifetime = $lifetime;
+
+        return $this;
+    }
+
+    public function getVerificationCode(): ?string
+    {
+        return $this->verificationCode;
+    }
+
+    public function setVerificationCode(string $verificationCode): self
+    {
+        $this->verificationCode = $verificationCode;
 
         return $this;
     }

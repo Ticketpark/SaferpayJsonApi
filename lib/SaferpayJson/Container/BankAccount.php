@@ -42,6 +42,11 @@ class BankAccount
      */
     protected $countryCode;
 
+    public function __construct(string $iban)
+    {
+        $this->iban = $iban;
+    }
+
     public function getIban(): string
     {
         return $this->iban;
