@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
+use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Request\SecureCardData\AliasDeleteRequest;
-use Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
@@ -36,10 +36,10 @@ $assertRequest = new AliasDeleteRequest(
 // Step 3:
 // Execute and check for successful response
 
-$response = $assertRequest->execute();
-
-if ($response instanceof ErrorResponse) {
-    die($response->getErrorMessage());
+try {
+    $response = $assertRequest->execute();
+} catch (SaferpayErrorResponseException $e) {
+    die ($e->getErrorResponse()->getErrorMessage());
 }
 
 echo "The alias has successfully been deleted.<br>\n";

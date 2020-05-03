@@ -6,56 +6,41 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Response\Response;
 
-class CancelResponse extends Response
+final class CancelResponse extends Response
 {
     /**
      * @var string
      * @SerializedName("TransactionId")
      * @Type("string")
      */
-    protected $transactionId;
+    private $transactionId;
 
     /**
      * @var string
      * @SerializedName("OrderId")
      * @Type("string")
      */
-    protected $orderId;
+    private $orderId;
 
     /**
      * @var string
      * @SerializedName("Date")
      * @Type("string")
      */
-    protected $date;
+    private $date;
 
-    public function getTransactionId(): string
+    public function getTransactionId(): ?string
     {
         return $this->transactionId;
     }
 
-    public function setTransactionId(string $transactionId): void
-    {
-        $this->transactionId = $transactionId;
-    }
-
-    public function getOrderId(): string
+    public function getOrderId(): ?string
     {
         return $this->orderId;
     }
 
-    public function setOrderId(string $orderId): void
-    {
-        $this->orderId = $orderId;
-    }
-
-    public function getDate(): string
+    public function getDate(): ?string
     {
         return $this->date;
-    }
-
-    public function setDate(string $date): void
-    {
-        $this->date = $date;
     }
 }

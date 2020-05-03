@@ -131,7 +131,7 @@ class Payment
         return $this;
     }
 
-    public function getRecurring(): Recurring
+    public function getRecurring(): ?Recurring
     {
         return $this->recurring;
     }

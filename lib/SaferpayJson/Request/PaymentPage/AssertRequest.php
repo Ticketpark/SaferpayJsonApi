@@ -8,7 +8,7 @@ use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\PaymentPage\AssertResponse;
 
-class AssertRequest extends Request
+final class AssertRequest extends Request
 {
     const API_PATH = '/Payment/v1/PaymentPage/Assert';
     const RESPONSE_CLASS = AssertResponse::class;
@@ -19,7 +19,7 @@ class AssertRequest extends Request
      * @var string
      * @SerializedName("Token")
      */
-    protected $token;
+    private $token;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -40,5 +40,13 @@ class AssertRequest extends Request
         $this->token = $token;
 
         return $this;
+    }
+
+    public function execute(): AssertResponse
+    {
+        /** @var AssertResponse $response */
+        $response = $this->doExecute();
+
+        return $response;
     }
 }

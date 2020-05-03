@@ -9,7 +9,7 @@ use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\Transaction\CancelResponse;
 
-class CancelRequest extends Request
+final class CancelRequest extends Request
 {
     const API_PATH = '/Payment/v1/Transaction/Cancel';
     const RESPONSE_CLASS = CancelResponse::class;
@@ -20,7 +20,7 @@ class CancelRequest extends Request
      * @var TransactionReference
      * @SerializedName("TransactionReference")
      */
-    protected $transactionReference;
+    private $transactionReference;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -41,5 +41,13 @@ class CancelRequest extends Request
         $this->transactionReference = $transactionReference;
 
         return $this;
+    }
+
+    public function execute(): CancelResponse
+    {
+        /** @var CancelResponse $response */
+        $response = $this->doExecute();
+
+        return $response;
     }
 }

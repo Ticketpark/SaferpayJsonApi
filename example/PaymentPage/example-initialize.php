@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
+use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
 use Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Container;
-use Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
@@ -52,10 +52,10 @@ $initializeRequest = new InitializeRequest(
 // Step 3:
 // Execute and check for successful response
 
-$response = $initializeRequest->execute();
-
-if ($response instanceof ErrorResponse) {
-    die($response->getErrorMessage());
+try {
+    $response = $initializeRequest->execute();
+} catch (SaferpayErrorResponseException $e) {
+    die ($e->getErrorResponse()->getErrorMessage());
 }
 
 // -----------------------------

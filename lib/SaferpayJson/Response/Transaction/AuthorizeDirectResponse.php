@@ -10,58 +10,44 @@ use Ticketpark\SaferpayJson\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Container\Transaction;
 use Ticketpark\SaferpayJson\Response\Response;
 
-/**
- * Class AuthorizeDirectResponse
- * @package Ticketpark\SaferpayJson\Transaction
- */
-class AuthorizeDirectResponse extends Response
+final class AuthorizeDirectResponse extends Response
 {
     /**
      * @var Transaction
      * @SerializedName("Transaction")
      * @Type("Ticketpark\SaferpayJson\Container\Transaction")
      */
-    protected $transaction;
+    private $transaction;
 
     /**
      * @var PaymentMeans
      * @SerializedName("PaymentMeans")
      * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
      */
-    protected $paymentMeans;
+    private $paymentMeans;
 
     /**
      * @var RegisterAlias
      * @SerializedName("RegisterAlias")
      * @Type("Ticketpark\SaferpayJson\Container\RegisterAlias")
      */
-    protected $registerAlias;
+    private $registerAlias;
 
     /**
      * @var Payer
      * @SerializedName("Payer")
      * @Type("Ticketpark\SaferpayJson\Container\Payer")
      */
-    protected $payer;
+    private $payer;
 
-    public function getTransaction(): Transaction
+    public function getTransaction(): ?Transaction
     {
         return $this->transaction;
     }
 
-    public function setTransaction(Transaction $transaction): void
-    {
-        $this->transaction = $transaction;
-    }
-
-    public function getPaymentMeans(): PaymentMeans
+    public function getPaymentMeans(): ?PaymentMeans
     {
         return $this->paymentMeans;
-    }
-
-    public function setPaymentMeans(PaymentMeans $paymentMeans): void
-    {
-        $this->paymentMeans = $paymentMeans;
     }
 
     public function getRegisterAlias(): ?RegisterAlias
@@ -69,22 +55,8 @@ class AuthorizeDirectResponse extends Response
         return $this->registerAlias;
     }
 
-    public function setRegisterAlias(RegisterAlias $registerAlias): self
-    {
-        $this->registerAlias = $registerAlias;
-
-        return $this;
-    }
-
     public function getPayer(): ?Payer
     {
         return $this->payer;
-    }
-
-    public function setPayer(Payer $payer): self
-    {
-        $this->payer = $payer;
-
-        return $this;
     }
 }

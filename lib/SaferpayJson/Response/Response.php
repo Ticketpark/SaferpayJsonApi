@@ -6,7 +6,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Container\ResponseHeader;
 
-abstract class Response implements ResponseInterface
+abstract class Response
 {
     /**
      * @var ResponseHeader
@@ -20,7 +20,7 @@ abstract class Response implements ResponseInterface
         return $this->responseHeader;
     }
 
-    public function setResponseHeader(ResponseHeader $responseHeader): ResponseInterface
+    public function setResponseHeader(ResponseHeader $responseHeader): self
     {
         $this->responseHeader = $responseHeader;
 

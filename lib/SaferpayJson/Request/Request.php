@@ -4,6 +4,7 @@ namespace Ticketpark\SaferpayJson\Request;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\SerializedName;
@@ -11,16 +12,16 @@ use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use Ticketpark\SaferpayJson\Exception\HttpRequestException;
 use Ticketpark\SaferpayJson\Container\RequestHeader;
+use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
-use Ticketpark\SaferpayJson\Response\ResponseInterface;
+use Ticketpark\SaferpayJson\Response\Response;
 
 abstract class Request
 {
-    const ROOT_URL = 'https://www.saferpay.com/api/';
+    private const ROOT_URL = 'https://www.saferpay.com/api/';
+    private const ROOT_URL_TEST = 'https://test.saferpay.com/api/';
 
-    const ROOT_URL_TEST = 'https://test.saferpay.com/api/';
-
-    const ERROR_RESPONSE_CLASS = ErrorResponse::class;
+    private const ERROR_RESPONSE_CLASS = ErrorResponse::class;
 
     /**
      * @var RequestConfig
@@ -37,6 +38,7 @@ abstract class Request
 
     abstract public function getApiPath(): string;
     abstract public function getResponseClass(): string;
+    abstract public function execute(): Response;
 
     public function __construct(RequestConfig $requestConfig)
     {
@@ -48,34 +50,17 @@ abstract class Request
         return $this->requestConfig;
     }
 
-    public function setRequestConfig(RequestConfig $requestConfig): self
-    {
-        $this->requestConfig = $requestConfig;
-
-        return $this;
-    }
-
     public function getRequestHeader(): RequestHeader
     {
-        if (null === $this->requestHeader) {
-            return new RequestHeader(
-                $this->requestConfig->getCustomerId()
-            );
-        }
-
-        return $this->requestHeader;
+        return new RequestHeader(
+            $this->requestConfig->getCustomerId()
+        );
     }
 
-    public function setRequestHeader(RequestHeader $requestHeader): self
-    {
-        $this->requestHeader = $requestHeader;
-
-        return $this;
-    }
-
-    public function execute(): ResponseInterface
+    protected function doExecute(): Response
     {
         try {
+            /** @var GuzzleResponse $response */
             $response = $this->requestConfig->getClient()->post(
                 $this->getUrl(),
                 [
@@ -85,6 +70,7 @@ abstract class Request
             );
         } catch (\Exception $e) {
             if ($e instanceof ClientException) {
+                /** @var GuzzleResponse $response */
                 $response = $e->getResponse();
             } else {
                 throw new HttpRequestException($e->getMessage());
@@ -94,11 +80,15 @@ abstract class Request
         $statusCode = $response->getStatusCode();
 
         if ($statusCode >= 400 && $statusCode < 500) {
-            return $this->getSerializer()->deserialize(
+
+            /** @var ErrorResponse $errorResponse */
+            $errorResponse = $this->getSerializer()->deserialize(
                 (string) $response->getBody(),
                 self::ERROR_RESPONSE_CLASS,
                 'json'
             );
+
+            throw new SaferpayErrorResponseException($errorResponse);
         }
 
         if (200 !== $statusCode) {
@@ -108,11 +98,14 @@ abstract class Request
             ));
         }
 
-        return $this->getSerializer()->deserialize(
+        /** @var Response $response */
+        $response = $this->getSerializer()->deserialize(
             (string) $response->getBody(),
             $this->getResponseClass(),
             'json'
         );
+
+        return $response;
     }
 
     private function getUrl(): string

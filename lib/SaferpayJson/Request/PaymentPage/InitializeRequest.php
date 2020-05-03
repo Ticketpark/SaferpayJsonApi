@@ -18,7 +18,7 @@ use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\PaymentPage\InitializeResponse;
 
-class InitializeRequest extends Request
+final class InitializeRequest extends Request
 {
     const API_PATH = '/Payment/v1/PaymentPage/Initialize';
     const RESPONSE_CLASS = InitializeResponse::class;
@@ -58,100 +58,100 @@ class InitializeRequest extends Request
     use RequestCommonsTrait;
 
     /**
-     * @var string|null
-     * @SerializedName("ConfigSet")
-     */
-    protected $configSet;
-
-    /**
      * @var string
      * @SerializedName("TerminalId")
      */
-    protected $terminalId;
+    private $terminalId;
 
     /**
      * @var Payment
      * @SerializedName("Payment")
      */
-    protected $payment;
+    private $payment;
+    
+    /**
+     * @var ReturnUrls
+     * @SerializedName("ReturnUrls")
+     */
+    private $returnUrls;
+
+    /**
+     * @var string|null
+     * @SerializedName("ConfigSet")
+     */
+    private $configSet;
 
     /**
      * @var array<string>|null
      * @SerializedName("PaymentMethods")
      */
-    protected $paymentMethods;
+    private $paymentMethods;
 
     /**
      * @var PaymentMethodsOptions|null
      * @SerializedName("PaymentMethodsOptions")
      */
-    protected $paymentMethodsOptions;
+    private $paymentMethodsOptions;
 
     /**
      * @var HolderAuthentication|null
      * @SerializedName("Authentication")
      */
-    protected $authentication;
+    private $authentication;
 
     /**
      * @var array<string>|null
      * @SerializedName("Wallets")
      */
-    protected $wallets;
+    private $wallets;
 
     /**
      * @var Payer|null
      * @SerializedName("Payer")
      */
-    protected $payer;
+    private $payer;
 
     /**
      * @var RegisterAlias|null
      * @SerializedName("RegisterAlias")
      */
-    protected $registerAlias;
-
-    /**
-     * @var ReturnUrls
-     * @SerializedName("ReturnUrls")
-     */
-    protected $returnUrls;
+    private $registerAlias;
 
     /**
      * @var Notification|null
      * @SerializedName("Notification")
      */
-    protected $notification;
+    private $notification;
 
     /**
      * @var Styling|null
      * @SerializedName("Styling")
      */
-    protected $styling;
+    private $styling;
 
     /**
      * @var AddressForm|null
      * @SerializedName("BillingAddressForm")
      */
-    protected $billingAddressForm;
+    private $billingAddressForm;
 
     /**
      * @var AddressForm|null
      * @SerializedName("DeliveryAddressForm")
      */
-    protected $deliveryAddressForm;
+    private $deliveryAddressForm;
 
     /**
      * @var CardForm|null
      * @SerializedName("CardForm")
      */
-    protected $cardForm;
+    private $cardForm;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Condition")
      */
-    protected $condition;
+    private $condition;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -164,18 +164,6 @@ class InitializeRequest extends Request
         $this->returnUrls = $returnUrls;
 
         parent::__construct($requestConfig);
-    }
-
-    public function getConfigSet(): ?string
-    {
-        return $this->configSet;
-    }
-
-    public function setConfigSet(string $configSet): self
-    {
-        $this->configSet = $configSet;
-
-        return $this;
     }
 
     public function getTerminalId(): string
@@ -202,78 +190,6 @@ class InitializeRequest extends Request
         return $this;
     }
 
-    public function getPaymentMethods(): array
-    {
-        return $this->paymentMethods;
-    }
-
-    public function setPaymentMethods(array $paymentMethods): self
-    {
-        $this->paymentMethods = $paymentMethods;
-
-        return $this;
-    }
-
-    public function getPaymentMethodsOptions(): ?PaymentMethodsOptions
-    {
-        return $this->paymentMethodsOptions;
-    }
-
-    public function setPaymentMethodsOptions(PaymentMethodsOptions $paymentMethodsOptions): self
-    {
-        $this->paymentMethodsOptions = $paymentMethodsOptions;
-
-        return $this;
-    }
-
-    public function getAuthentication(): ?HolderAuthentication
-    {
-        return $this->authentication;
-    }
-
-    public function setAuthentication(HolderAuthentication $authentication): self
-    {
-        $this->authentication = $authentication;
-
-        return $this;
-    }
-
-    public function getWallets(): ?array
-    {
-        return $this->wallets;
-    }
-
-    public function setWallets(array $wallets): self
-    {
-        $this->wallets = $wallets;
-
-        return $this;
-    }
-
-    public function getPayer(): Payer
-    {
-        return $this->payer;
-    }
-
-    public function setPayer(Payer $payer): self
-    {
-        $this->payer = $payer;
-
-        return $this;
-    }
-
-    public function getRegisterAlias(): ?RegisterAlias
-    {
-        return $this->registerAlias;
-    }
-
-    public function setRegisterAlias(RegisterAlias $registerAlias): self
-    {
-        $this->registerAlias = $registerAlias;
-
-        return $this;
-    }
-
     public function getReturnUrls(): ReturnUrls
     {
         return $this->returnUrls;
@@ -286,12 +202,96 @@ class InitializeRequest extends Request
         return $this;
     }
 
-    public function getNotification(): Notification
+    public function getConfigSet(): ?string
+    {
+        return $this->configSet;
+    }
+
+    public function setConfigSet(?string $configSet): self
+    {
+        $this->configSet = $configSet;
+
+        return $this;
+    }
+
+    public function getPaymentMethods(): ?array
+    {
+        return $this->paymentMethods;
+    }
+
+    public function setPaymentMethods(?array $paymentMethods): self
+    {
+        $this->paymentMethods = $paymentMethods;
+
+        return $this;
+    }
+
+    public function getPaymentMethodsOptions(): ?PaymentMethodsOptions
+    {
+        return $this->paymentMethodsOptions;
+    }
+
+    public function setPaymentMethodsOptions(?PaymentMethodsOptions $paymentMethodsOptions): self
+    {
+        $this->paymentMethodsOptions = $paymentMethodsOptions;
+
+        return $this;
+    }
+
+    public function getAuthentication(): ?HolderAuthentication
+    {
+        return $this->authentication;
+    }
+
+    public function setAuthentication(?HolderAuthentication $authentication): self
+    {
+        $this->authentication = $authentication;
+
+        return $this;
+    }
+
+    public function getWallets(): ?array
+    {
+        return $this->wallets;
+    }
+
+    public function setWallets(?array $wallets): self
+    {
+        $this->wallets = $wallets;
+
+        return $this;
+    }
+
+    public function getPayer(): ?Payer
+    {
+        return $this->payer;
+    }
+
+    public function setPayer(?Payer $payer): self
+    {
+        $this->payer = $payer;
+
+        return $this;
+    }
+
+    public function getRegisterAlias(): ?RegisterAlias
+    {
+        return $this->registerAlias;
+    }
+
+    public function setRegisterAlias(?RegisterAlias $registerAlias): self
+    {
+        $this->registerAlias = $registerAlias;
+
+        return $this;
+    }
+
+    public function getNotification(): ?Notification
     {
         return $this->notification;
     }
 
-    public function setNotification(Notification $notification): self
+    public function setNotification(?Notification $notification): self
     {
         $this->notification = $notification;
 
@@ -303,7 +303,7 @@ class InitializeRequest extends Request
         return $this->styling;
     }
 
-    public function setStyling(Styling $styling): self
+    public function setStyling(?Styling $styling): self
     {
         $this->styling = $styling;
 
@@ -315,7 +315,7 @@ class InitializeRequest extends Request
         return $this->billingAddressForm;
     }
 
-    public function setBillingAddressForm(AddressForm $billingAddressForm): self
+    public function setBillingAddressForm(?AddressForm $billingAddressForm): self
     {
         $this->billingAddressForm = $billingAddressForm;
 
@@ -327,7 +327,7 @@ class InitializeRequest extends Request
         return $this->deliveryAddressForm;
     }
 
-    public function setDeliveryAddressForm(AddressForm $deliveryAddressForm): self
+    public function setDeliveryAddressForm(?AddressForm $deliveryAddressForm): self
     {
         $this->deliveryAddressForm = $deliveryAddressForm;
 
@@ -339,7 +339,7 @@ class InitializeRequest extends Request
         return $this->cardForm;
     }
 
-    public function setCardForm(CardForm $cardForm): self
+    public function setCardForm(?CardForm $cardForm): self
     {
         $this->cardForm = $cardForm;
 
@@ -351,10 +351,18 @@ class InitializeRequest extends Request
         return $this->condition;
     }
 
-    public function setCondition(string $condition): self
+    public function setCondition(?string $condition): self
     {
         $this->condition = $condition;
 
         return $this;
+    }
+
+    public function execute(): InitializeResponse
+    {
+        /** @var InitializeResponse $response */
+        $response = $this->doExecute();
+
+        return $response;
     }
 }

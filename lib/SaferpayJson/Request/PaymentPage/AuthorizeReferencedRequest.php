@@ -11,7 +11,7 @@ use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\PaymentPage\AuthorizeReferencedResponse;
 
-class AuthorizeReferencedRequest extends Request
+final class AuthorizeReferencedRequest extends Request
 {
     const API_PATH = '/Payment/v1/Transaction/AuthorizeReferenced';
     const RESPONSE_CLASS = AuthorizeReferencedResponse::class;
@@ -22,31 +22,31 @@ class AuthorizeReferencedRequest extends Request
      * @var string
      * @SerializedName("TerminalId")
      */
-    protected $terminalId;
+    private $terminalId;
 
     /**
      * @var Payment
      * @SerializedName("Payment")
      */
-    protected $payment;
+    private $payment;
 
     /**
      * @var TransactionReference
      * @SerializedName("TransactionReference")
      */
-    protected $transactionReference;
+    private $transactionReference;
 
     /**
-     * @var HolderAuthentication
+     * @var HolderAuthentication|null
      * @SerializedName("Authentication")
      */
-    protected $authentication;
+    private $authentication;
 
     /**
-     * @var bool
+     * @var bool|null
      * @SerializedName("SuppressDcc")
      */
-    protected $suppressDcc;
+    private $suppressDcc;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -73,18 +73,6 @@ class AuthorizeReferencedRequest extends Request
         return $this;
     }
 
-    public function getTransactionReference(): TransactionReference
-    {
-        return $this->transactionReference;
-    }
-
-    public function setTransactionReference(TransactionReference $transactionReference): self
-    {
-        $this->transactionReference = $transactionReference;
-
-        return $this;
-    }
-
     public function getPayment(): Payment
     {
         return $this->payment;
@@ -97,12 +85,24 @@ class AuthorizeReferencedRequest extends Request
         return $this;
     }
 
+    public function getTransactionReference(): TransactionReference
+    {
+        return $this->transactionReference;
+    }
+
+    public function setTransactionReference(TransactionReference $transactionReference): self
+    {
+        $this->transactionReference = $transactionReference;
+
+        return $this;
+    }
+
     public function getAuthentication(): ?HolderAuthentication
     {
         return $this->authentication;
     }
 
-    public function setAuthentication(HolderAuthentication $authentication): self
+    public function setAuthentication(?HolderAuthentication $authentication): self
     {
         $this->authentication = $authentication;
 
@@ -114,10 +114,18 @@ class AuthorizeReferencedRequest extends Request
         return $this->suppressDcc;
     }
 
-    public function setSuppressDcc(bool $suppressDcc): self
+    public function setSuppressDcc(?bool $suppressDcc): self
     {
         $this->suppressDcc = $suppressDcc;
 
         return $this;
+    }
+
+    public function execute(): AuthorizeReferencedResponse
+    {
+        /** @var AuthorizeReferencedResponse $response */
+        $response = $this->doExecute();
+
+        return $response;
     }
 }

@@ -12,7 +12,7 @@ use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\SecureCardData\AliasInsertDirectResponse;
 
-class AliasInsertDirectRequest extends Request
+final class AliasInsertDirectRequest extends Request
 {
     const API_PATH = '/Payment/v1/Alias/InsertDirect';
     const RESPONSE_CLASS = AliasInsertDirectResponse::class;
@@ -23,21 +23,21 @@ class AliasInsertDirectRequest extends Request
      * @var RegisterAlias
      * @SerializedName("RegisterAlias")
      */
-    protected $registerAlias;
+    private $registerAlias;
 
     /**
      * @var PaymentMeans
      * @SerializedName("PaymentMeans")
      * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
      */
-    protected $paymentMeans;
+    private $paymentMeans;
 
     /**
-     * @var Check
+     * @var Check|null
      * @SerializedName("Check")
      * @Type("Ticketpark\SaferpayJson\Container\Check")
      */
-    protected $check;
+    private $check;
 
     public function __construct(RequestConfig $requestConfig, RegisterAlias $registerAlias, PaymentMeans $paymentMeans)
     {
@@ -47,7 +47,7 @@ class AliasInsertDirectRequest extends Request
         parent::__construct($requestConfig);
     }
 
-    public function getRegisterAlias(): ?RegisterAlias
+    public function getRegisterAlias(): RegisterAlias
     {
         return $this->registerAlias;
     }
@@ -59,7 +59,7 @@ class AliasInsertDirectRequest extends Request
         return $this;
     }
 
-    public function getPaymentMeans(): ?PaymentMeans
+    public function getPaymentMeans(): PaymentMeans
     {
         return $this->paymentMeans;
     }
@@ -76,10 +76,18 @@ class AliasInsertDirectRequest extends Request
         return $this->check;
     }
 
-    public function setCheck(Check $check): self
+    public function setCheck(?Check $check): self
     {
         $this->check = $check;
 
         return $this;
+    }
+
+    public function execute(): AliasInsertDirectResponse
+    {
+        /** @var AliasInsertDirectResponse $response */
+        $response = $this->doExecute();
+
+        return $response;
     }
 }

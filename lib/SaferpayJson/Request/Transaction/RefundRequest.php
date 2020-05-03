@@ -12,7 +12,7 @@ use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\Transaction\RefundResponse;
 
-class RefundRequest extends Request
+final class RefundRequest extends Request
 {
     const API_PATH = '/Payment/v1/Transaction/Refund';
     const RESPONSE_CLASS = RefundResponse::class;
@@ -23,19 +23,19 @@ class RefundRequest extends Request
      * @var Refund
      * @SerializedName("Refund")
      */
-    protected $refund;
+    private $refund;
 
     /**
      * @var CaptureReference
      * @SerializedName("CaptureReference")
      */
-    protected $captureReference;
+    private $captureReference;
 
     /**
-     * @var PendingNotification
+     * @var PendingNotification|null
      * @SerializedName("PendingNotification")
      */
-    protected $pendingNotification;
+    private $pendingNotification;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -77,10 +77,18 @@ class RefundRequest extends Request
         return $this->pendingNotification;
     }
 
-    public function setPendingNotification(PendingNotification $pendingNotification): self
+    public function setPendingNotification(?PendingNotification $pendingNotification): self
     {
         $this->pendingNotification = $pendingNotification;
 
         return $this;
+    }
+
+    public function execute(): RefundResponse
+    {
+        /** @var RefundResponse $response */
+        $response = $this->doExecute();
+
+        return $response;
     }
 }

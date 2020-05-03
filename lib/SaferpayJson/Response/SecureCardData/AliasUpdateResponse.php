@@ -8,43 +8,29 @@ use Ticketpark\SaferpayJson\Container\Alias;
 use Ticketpark\SaferpayJson\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Response\Response;
 
-class AliasUpdateResponse extends Response
+final class AliasUpdateResponse extends Response
 {
     /**
      * @var Alias
      * @SerializedName("Alias")
      * @Type("Ticketpark\SaferpayJson\Container\Alias")
      */
-    protected $alias;
+    private $alias;
 
     /**
      * @var PaymentMeans
      * @SerializedName("PaymentMeans")
      * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
      */
-    protected $paymentMeans;
+    private $paymentMeans;
 
     public function getAlias(): ?Alias
     {
         return $this->alias;
     }
 
-    public function setAlias(Alias $alias): self
-    {
-        $this->alias = $alias;
-
-        return $this;
-    }
-
     public function getPaymentMeans(): ?PaymentMeans
     {
         return $this->paymentMeans;
-    }
-
-    public function setPaymentMeans(PaymentMeans $paymentMeans): self
-    {
-        $this->paymentMeans = $paymentMeans;
-
-        return $this;
     }
 }

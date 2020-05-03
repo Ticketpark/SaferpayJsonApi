@@ -10,108 +10,82 @@ use Ticketpark\SaferpayJson\Container\MastercardIssuerInstallments;
 use Ticketpark\SaferpayJson\Container\Payer;
 use Ticketpark\SaferpayJson\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Container\RegistrationResult;
-use Ticketpark\SaferpayJson\Container\ThreeDs;
 use Ticketpark\SaferpayJson\Container\Transaction;
 use Ticketpark\SaferpayJson\Response\Response;
 
-class AssertResponse extends Response
+final class AssertResponse extends Response
 {
     /**
      * @var Transaction
      * @SerializedName("Transaction")
      * @Type("Ticketpark\SaferpayJson\Container\Transaction")
      */
-    protected $transaction;
+    private $transaction;
 
     /**
      * @var PaymentMeans
      * @SerializedName("PaymentMeans")
      * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
      */
-    protected $paymentMeans;
+    private $paymentMeans;
 
     /**
      * @var Payer
      * @SerializedName("Payer")
      * @Type("Ticketpark\SaferpayJson\Container\Payer")
      */
-    protected $payer;
+    private $payer;
 
     /**
      * @var RegistrationResult
      * @SerializedName("RegistrationResult")
      * @Type("Ticketpark\SaferpayJson\Container\RegistrationResult")
      */
-    protected $registrationResult;
+    private $registrationResult;
 
     /**
      * @var Liability
      * @SerializedName("Liability")
      * @Type("Ticketpark\SaferpayJson\Container\Liability")
      */
-    protected $liability;
+    private $liability;
 
     /**
      * @var Dcc
      * @SerializedName("Dcc")
      * @Type("Ticketpark\SaferpayJson\Container\Dcc")
      */
-    protected $dcc;
+    private $dcc;
 
     /**
      * @var MastercardIssuerInstallments
      * @SerializedName("MastercardIssuerInstallments")
      * @Type("Ticketpark\SaferpayJson\Container\MastercardIssuerInstallments")
      */
-    protected $mastercardIssuerInstallments;
+    private $mastercardIssuerInstallments;
 
-    public function getTransaction(): Transaction
+    public function getTransaction(): ?Transaction
     {
         return $this->transaction;
     }
 
-    public function setTransaction(Transaction $transaction): void
-    {
-        $this->transaction = $transaction;
-    }
-
-    public function getPaymentMeans(): PaymentMeans
+    public function getPaymentMeans(): ?PaymentMeans
     {
         return $this->paymentMeans;
     }
 
-    public function setPaymentMeans(PaymentMeans $paymentMeans): void
-    {
-        $this->paymentMeans = $paymentMeans;
-    }
-
-    public function getPayer(): Payer
+    public function getPayer(): ?Payer
     {
         return $this->payer;
     }
 
-    public function setPayer(Payer $payer): void
-    {
-        $this->payer = $payer;
-    }
-
-    public function getRegistrationResult(): RegistrationResult
+    public function getRegistrationResult(): ?RegistrationResult
     {
         return $this->registrationResult;
     }
 
-    public function setRegistrationResult(RegistrationResult $registrationResult): void
-    {
-        $this->registrationResult = $registrationResult;
-    }
-
-    public function getDcc(): Dcc
+    public function getDcc(): ?Dcc
     {
         return $this->dcc;
-    }
-
-    public function setDcc(Dcc $dcc): void
-    {
-        $this->dcc = $dcc;
     }
 }

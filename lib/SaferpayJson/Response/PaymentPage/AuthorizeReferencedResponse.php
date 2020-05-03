@@ -10,44 +10,39 @@ use Ticketpark\SaferpayJson\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Container\Transaction;
 use Ticketpark\SaferpayJson\Response\Response;
 
-class AuthorizeReferencedResponse extends Response
+final class AuthorizeReferencedResponse extends Response
 {
     /**
      * @var Transaction
      * @SerializedName("Transaction")
      * @Type("Ticketpark\SaferpayJson\Container\Transaction")
      */
-    protected $transaction;
+    private $transaction;
 
     /**
      * @var PaymentMeans
      * @SerializedName("PaymentMeans")
      * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
      */
-    protected $paymentMeans;
+    private $paymentMeans;
 
     /**
      * @var Payer
      * @SerializedName("Payer")
      * @Type("Ticketpark\SaferpayJson\Container\Payer")
      */
-    protected $payer;
+    private $payer;
 
     /**
      * @var Dcc
      * @SerializedName("Dcc")
      * @Type("Ticketpark\SaferpayJson\Container\Dcc")
      */
-    protected $dcc;
+    private $dcc;
 
     public function getTransaction(): Transaction
     {
         return $this->transaction;
-    }
-
-    public function setTransaction(Transaction $transaction): void
-    {
-        $this->transaction = $transaction;
     }
 
     public function getPaymentMeans(): PaymentMeans
@@ -55,32 +50,13 @@ class AuthorizeReferencedResponse extends Response
         return $this->paymentMeans;
     }
 
-    public function setPaymentMeans(PaymentMeans $paymentMeans): void
-    {
-        $this->paymentMeans = $paymentMeans;
-    }
-
     public function getPayer(): ?Payer
     {
         return $this->payer;
     }
 
-    public function setPayer(Payer $payer): self
-    {
-        $this->payer = $payer;
-
-        return $this;
-    }
-
     public function getDcc(): ?Dcc
     {
         return $this->dcc;
-    }
-
-    public function setDcc(Dcc $dcc): self
-    {
-        $this->dcc = $dcc;
-
-        return $this;
     }
 }

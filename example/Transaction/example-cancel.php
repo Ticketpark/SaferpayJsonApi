@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
+use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
 use \Ticketpark\SaferpayJson\Container;
-use \Ticketpark\SaferpayJson\Request\Response\ErrorResponse;
 use \Ticketpark\SaferpayJson\Request\Transaction\CancelRequest;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -39,10 +39,10 @@ $cancelRequest = new CancelRequest(
 // Step 3:
 // Execute and check for successful response
 
-$response = $cancelRequest->execute();
-
-if ($response instanceof ErrorResponse) {
-    die($response->getErrorMessage());
+try {
+    $response = $cancelRequest->execute();
+} catch (SaferpayErrorResponseException $e) {
+    die ($e->getErrorResponse()->getErrorMessage());
 }
 
 echo 'The transaction has successfully been canceled! Transaction-ID: ' . $response->getTransactionId();

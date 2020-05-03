@@ -14,7 +14,7 @@ use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\Transaction\CaptureResponse;
 
-class CaptureRequest extends Request
+final class CaptureRequest extends Request
 {
     const API_PATH = '/Payment/v1/Transaction/Capture';
     const RESPONSE_CLASS = CaptureResponse::class;
@@ -25,37 +25,37 @@ class CaptureRequest extends Request
      * @var TransactionReference
      * @SerializedName("TransactionReference")
      */
-    protected $transactionReference;
+    private $transactionReference;
 
     /**
-     * @var Amount
+     * @var Amount|null
      * @SerializedName("Amount")
      */
-    protected $amount;
+    private $amount;
 
     /**
-     * @var Billpay
+     * @var Billpay|null
      * @SerializedName("Billpay")
      */
-    protected $billpay;
+    private $billpay;
 
     /**
-     * @var PendingNotification
+     * @var PendingNotification|null
      * @SerializedName("PendingNotification")
      */
-    protected $pendingNotification;
+    private $pendingNotification;
 
     /**
-     * @var Marketplace
+     * @var Marketplace|null
      * @SerializedName("Marketplace")
      */
-    protected $marketplace;
+    private $marketplace;
 
     /**
-     * @var MastercardIssuerInstallments
+     * @var MastercardIssuerInstallments|null
      * @SerializedName("MastercardIssuerInstallments")
      */
-    protected $mastercardIssuerInstallments;
+    private $mastercardIssuerInstallments;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -83,7 +83,7 @@ class CaptureRequest extends Request
         return $this->amount;
     }
 
-    public function setAmount(Amount $amount): self
+    public function setAmount(?Amount $amount): self
     {
         $this->amount = $amount;
 
@@ -95,7 +95,7 @@ class CaptureRequest extends Request
         return $this->billpay;
     }
 
-    public function setBillpay(Billpay $billpay): self
+    public function setBillpay(?Billpay $billpay): self
     {
         $this->billpay = $billpay;
 
@@ -107,7 +107,7 @@ class CaptureRequest extends Request
         return $this->pendingNotification;
     }
 
-    public function setPendingNotification(PendingNotification $pendingNotification): self
+    public function setPendingNotification(?PendingNotification $pendingNotification): self
     {
         $this->pendingNotification = $pendingNotification;
 
@@ -119,7 +119,7 @@ class CaptureRequest extends Request
         return $this->marketplace;
     }
 
-    public function setMarketplace(Marketplace $marketplace): self
+    public function setMarketplace(?Marketplace $marketplace): self
     {
         $this->marketplace = $marketplace;
 
@@ -131,10 +131,18 @@ class CaptureRequest extends Request
         return $this->mastercardIssuerInstallments;
     }
 
-    public function setMastercardIssuerInstallments(MastercardIssuerInstallments $mastercardIssuerInstallments): self
+    public function setMastercardIssuerInstallments(?MastercardIssuerInstallments $mastercardIssuerInstallments): self
     {
         $this->mastercardIssuerInstallments = $mastercardIssuerInstallments;
 
         return $this;
+    }
+
+    public function execute(): CaptureResponse
+    {
+        /** @var CaptureResponse $response */
+        $response = $this->doExecute();
+
+        return $response;
     }
 }

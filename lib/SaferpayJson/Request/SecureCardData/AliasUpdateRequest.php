@@ -10,7 +10,7 @@ use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\SecureCardData\AliasUpdateResponse;
 
-class AliasUpdateRequest extends Request
+final class AliasUpdateRequest extends Request
 {
     const API_PATH = '/Payment/v1/Alias/Update';
     const RESPONSE_CLASS = AliasUpdateResponse::class;
@@ -21,13 +21,13 @@ class AliasUpdateRequest extends Request
      * @var UpdateAlias
      * @SerializedName("UpdateAlias")
      */
-    protected $updateAlias;
+    private $updateAlias;
 
     /**
      * @var UpdatePaymentMeans
      * @SerializedName("UpdatePaymentMeans")
      */
-    protected $updatePaymentMeans;
+    private $updatePaymentMeans;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -62,5 +62,13 @@ class AliasUpdateRequest extends Request
         $this->updatePaymentMeans = $updatePaymentMeans;
 
         return $this;
+    }
+
+    public function execute(): AliasUpdateResponse
+    {
+        /** @var AliasUpdateResponse $response */
+        $response = $this->doExecute();
+
+        return $response;
     }
 }

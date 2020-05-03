@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
+use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Request\SecureCardData\AliasAssertInsertRequest;
-use \Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
@@ -36,10 +36,10 @@ $assertRequest = new AliasAssertInsertRequest(
 // Step 3:
 // Execute and check for successful response
 
+try {
 $response = $assertRequest->execute();
-
-if ($response instanceof ErrorResponse) {
-    die($response->getErrorMessage());
+} catch (SaferpayErrorResponseException $e) {
+    die ($e->getErrorResponse()->getErrorMessage());
 }
 
 echo 'The insert has been successful! Alias id: ' . $response->getAlias()->getId()."<br>\n";

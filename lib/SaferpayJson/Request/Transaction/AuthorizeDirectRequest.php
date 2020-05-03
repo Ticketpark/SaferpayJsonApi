@@ -16,7 +16,7 @@ use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeDirectResponse;
  * Class AuthorizeDirectRequest
  * @package Ticketpark\SaferpayJson\Transaction
  */
-class AuthorizeDirectRequest extends Request
+final class AuthorizeDirectRequest extends Request
 {
     const API_PATH = '/Payment/v1/Transaction/AuthorizeDirect';
     const RESPONSE_CLASS = AuthorizeDirectResponse::class;
@@ -24,34 +24,35 @@ class AuthorizeDirectRequest extends Request
     use RequestCommonsTrait;
 
     /**
+     * @var string
+     * @SerializedName("TerminalId")
+     */
+    private $terminalId;
+
+    /**
      * @var Payment
      * @SerializedName("Payment")
      */
-    protected $payment;
+    private $payment;
 
     /**
      * @var PaymentMeans
      * @SerializedName("PaymentMeans")
      */
-    protected $paymentMeans;
+    private $paymentMeans;
 
     /**
-     * @var RegisterAlias
+     * @var RegisterAlias|null
      * @SerializedName("RegisterAlias")
      */
-    protected $registerAlias;
+    private $registerAlias;
 
     /**
-     * @var Payer
+     * @var Payer|null
      * @SerializedName("Payer")
      */
-    protected $payer;
+    private $payer;
 
-    /**
-     * @var string
-     * @SerializedName("TerminalId")
-     */
-    protected $terminalId;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -64,6 +65,18 @@ class AuthorizeDirectRequest extends Request
         $this->paymentMeans = $paymentMeans;
 
         parent::__construct($requestConfig);
+    }
+
+    public function getTerminalId(): string
+    {
+        return $this->terminalId;
+    }
+
+    public function setTerminalId(string $terminalId): self
+    {
+        $this->terminalId = $terminalId;
+
+        return $this;
     }
 
     public function getPayment(): Payment
@@ -90,24 +103,12 @@ class AuthorizeDirectRequest extends Request
         return $this;
     }
 
-    public function getTerminalId(): string
-    {
-        return $this->terminalId;
-    }
-
-    public function setTerminalId(string $terminalId): self
-    {
-        $this->terminalId = $terminalId;
-
-        return $this;
-    }
-
     public function getRegisterAlias(): ?RegisterAlias
     {
         return $this->registerAlias;
     }
 
-    public function setRegisterAlias(RegisterAlias $registerAlias): self
+    public function setRegisterAlias(?RegisterAlias $registerAlias): self
     {
         $this->registerAlias = $registerAlias;
 
@@ -119,10 +120,18 @@ class AuthorizeDirectRequest extends Request
         return $this->payer;
     }
 
-    public function setPayer(Payer $payer): self
+    public function setPayer(?Payer $payer): self
     {
         $this->payer = $payer;
 
         return $this;
+    }
+
+    public function execute(): AuthorizeDirectResponse
+    {
+        /** @var AuthorizeDirectResponse $response */
+        $response = $this->doExecute();
+
+        return $response;
     }
 }

@@ -8,7 +8,7 @@ use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\SecureCardData\AliasAssertInsertResponse;
 
-class AliasAssertInsertRequest extends Request
+final class AliasAssertInsertRequest extends Request
 {
     const API_PATH = '/Payment/v1/Alias/AssertInsert';
     const RESPONSE_CLASS = AliasAssertInsertResponse::class;
@@ -19,7 +19,7 @@ class AliasAssertInsertRequest extends Request
      * @var string
      * @SerializedName("Token")
      */
-    protected $token;
+    private $token;
 
     public function __construct(RequestConfig $requestConfig, string $token)
     {
@@ -38,5 +38,13 @@ class AliasAssertInsertRequest extends Request
         $this->token = $token;
 
         return $this;
+    }
+
+    public function execute(): AliasAssertInsertResponse
+    {
+        /** @var AliasAssertInsertResponse $response */
+        $response = $this->doExecute();
+
+        return $response;
     }
 }

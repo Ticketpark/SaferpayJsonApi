@@ -19,7 +19,7 @@ class RequestHeader
     protected $customerId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("RequestId")
      */
     protected $requestId;
@@ -31,7 +31,7 @@ class RequestHeader
     protected $retryIndicator = 0;
 
     /**
-     * @var ClientInfo
+     * @var ClientInfo|null
      * @SerializedName("ClientInfo")
      */
     protected $clientInfo;
@@ -52,35 +52,14 @@ class RequestHeader
         return $this->specVersion;
     }
 
-    public function setSpecVersion(string $specVersion): self
-    {
-        $this->specVersion = $specVersion;
-
-        return $this;
-    }
-
     public function getCustomerId(): string
     {
         return $this->customerId;
     }
 
-    public function setCustomerId(string $customerId): self
-    {
-        $this->customerId = $customerId;
-
-        return $this;
-    }
-
-    public function getRequestId(): string
+    public function getRequestId(): ?string
     {
         return $this->requestId;
-    }
-
-    public function setRequestId(string $requestId): self
-    {
-        $this->requestId = $requestId;
-
-        return $this;
     }
 
     public function getRetryIndicator(): int
@@ -88,19 +67,12 @@ class RequestHeader
         return $this->retryIndicator;
     }
 
-    public function setRetryIndicator(int $retryIndicator): self
-    {
-        $this->retryIndicator = $retryIndicator;
-
-        return $this;
-    }
-
     public function getClientInfo(): ?ClientInfo
     {
         return $this->clientInfo;
     }
 
-    public function setClientInfo(ClientInfo $clientInfo): self
+    public function setClientInfo(?ClientInfo $clientInfo): self
     {
         $this->clientInfo = $clientInfo;
 

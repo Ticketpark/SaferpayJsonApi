@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
+use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
 use Ticketpark\SaferpayJson\Container;
-use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Request\Transaction\RefundRequest;
 
@@ -48,10 +48,10 @@ $refundRequest = new RefundRequest(
 // Step 3:
 // Execute and check for successful response
 
-$response = $refundRequest->execute();
-
-if ($response instanceof ErrorResponse) {
-    die($response->getErrorMessage());
+try {
+    $response = $refundRequest->execute();
+} catch (SaferpayErrorResponseException $e) {
+    die ($e->getErrorResponse()->getErrorMessage());
 }
 
 echo 'The transaction has successfully been refunded! Transaction-ID: ' . $response->getTransaction()->getId();

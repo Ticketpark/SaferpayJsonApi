@@ -15,7 +15,7 @@ use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\SecureCardData\AliasInsertResponse;
 
-class AliasInsertRequest extends Request
+final class AliasInsertRequest extends Request
 {
     const API_PATH = '/Payment/v1/Alias/Insert';
     const RESPONSE_CLASS = AliasInsertResponse::class;
@@ -45,57 +45,57 @@ class AliasInsertRequest extends Request
      * @var RegisterAlias
      * @SerializedName("RegisterAlias")
      */
-    protected $registerAlias;
+    private $registerAlias;
 
     /**
      * @var string
      * @SerializedName("Type")
      * @Type("string")
      */
-    protected $type;
+    private $type;
 
     /**
      * @var ReturnUrls
      * @SerializedName("ReturnUrls")
      */
-    protected $returnUrls;
+    private $returnUrls;
 
     /**
-     * @var Styling
+     * @var Styling|null
      * @SerializedName("Styling")
      */
-    protected $styling;
+    private $styling;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("LanguageCode")
      * @Type("string")
      */
-    protected $languageCode;
+    private $languageCode;
 
     /**
-     * @var Check
+     * @var Check|null
      * @SerializedName("Check")
      */
-    protected $check;
+    private $check;
 
     /**
-     * @var array<string>
+     * @var array<string>|null
      * @SerializedName("PaymentMethods")
      */
-    protected $paymentMethods;
+    private $paymentMethods;
 
     /**
-     * @var CardForm
+     * @var CardForm|null
      * @SerializedName("CardForm")
      */
-    protected $cardForm;
+    private $cardForm;
 
     /**
-     * @var PaymentMeans
+     * @var PaymentMeans|null
      * @SerializedName("PaymentMeans")
      */
-    protected $paymentMeans;
+    private $paymentMeans;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -151,7 +151,7 @@ class AliasInsertRequest extends Request
         return $this->styling;
     }
 
-    public function setStyling(Styling $styling): self
+    public function setStyling(?Styling $styling): self
     {
         $this->styling = $styling;
 
@@ -163,7 +163,7 @@ class AliasInsertRequest extends Request
         return $this->check;
     }
 
-    public function setCheck(Check $check): self
+    public function setCheck(?Check $check): self
     {
         $this->check = $check;
 
@@ -175,7 +175,7 @@ class AliasInsertRequest extends Request
         return $this->languageCode;
     }
 
-    public function setLanguageCode(string $languageCode): self
+    public function setLanguageCode(?string $languageCode): self
     {
         $this->languageCode = $languageCode;
 
@@ -187,7 +187,7 @@ class AliasInsertRequest extends Request
         return $this->paymentMethods;
     }
 
-    public function setPaymentMethods(array $paymentMethods): self
+    public function setPaymentMethods(?array $paymentMethods): self
     {
         $this->paymentMethods = $paymentMethods;
 
@@ -199,7 +199,7 @@ class AliasInsertRequest extends Request
         return $this->cardForm;
     }
 
-    public function setCardForm(CardForm $cardForm): self
+    public function setCardForm(?CardForm $cardForm): self
     {
         $this->cardForm = $cardForm;
 
@@ -211,10 +211,18 @@ class AliasInsertRequest extends Request
         return $this->paymentMeans;
     }
 
-    public function setPaymentMeans(PaymentMeans $paymentMeans): self
+    public function setPaymentMeans(?PaymentMeans $paymentMeans): self
     {
         $this->paymentMeans = $paymentMeans;
 
         return $this;
+    }
+
+    public function execute(): AliasInsertResponse
+    {
+        /** @var AliasInsertResponse $response */
+        $response = $this->doExecute();
+
+        return $response;
     }
 }

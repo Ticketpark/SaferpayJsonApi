@@ -4,7 +4,7 @@ namespace Ticketpark\SaferpayJson\Request;
 
 use GuzzleHttp\Client;
 
-class RequestConfig
+final class RequestConfig
 {
     /**
      * @var string

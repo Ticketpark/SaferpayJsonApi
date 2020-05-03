@@ -4,13 +4,14 @@ namespace Ticketpark\SaferpayJson\Tests\Request;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
-use Ticketpark\SaferpayJson\Response\ResponseInterface;
+use Ticketpark\SaferpayJson\Response\Response;
 
 abstract class CommonRequestTest extends TestCase
 {
@@ -24,10 +25,10 @@ abstract class CommonRequestTest extends TestCase
 
     public function testErrorResponse(): void
     {
-        $this->successful = false;
-        $response = $this->executeRequest();
+        $this->expectException(SaferpayErrorResponseException::class);
 
-        $this->assertInstanceOf(ErrorResponse::class, $response);
+        $this->successful = false;
+        $this->executeRequest();
     }
 
     public function doTestSuccessfulResponse(string $responseClass): void
@@ -52,7 +53,7 @@ abstract class CommonRequestTest extends TestCase
         return $requestConfig;
     }
 
-    private function executeRequest(): ResponseInterface
+    private function executeRequest(): Response
     {
         $initializer = $this->getInstance();
 
@@ -75,7 +76,7 @@ abstract class CommonRequestTest extends TestCase
 
     private function getResponseMock(): MockObject
     {
-        $response = $this->getMockBuilder(Response::class)
+        $response = $this->getMockBuilder(GuzzleResponse::class)
             ->disableOriginalConstructor()
             ->onlyMethods([
                 'getStatusCode',

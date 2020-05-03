@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
+use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
 use Ticketpark\SaferpayJson\Container;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Request\Transaction\CaptureRequest;
-use Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
@@ -40,12 +40,10 @@ $captureRequest = new CaptureRequest(
 // Step 3:
 // Execute and check for successful response
 
-$response = $captureRequest->execute();
-
-if ($response instanceof ErrorResponse) {
-    var_dump($response); exit;
-
-    die($response->getErrorMessage());
+try {
+    $response = $captureRequest->execute();
+} catch (SaferpayErrorResponseException $e) {
+    die ($e->getErrorResponse()->getErrorMessage());
 }
 
 echo 'The transaction has successfully been captured! Capture-Id: ' . $response->getCaptureId()."\n";

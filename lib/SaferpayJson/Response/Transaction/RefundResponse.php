@@ -9,56 +9,41 @@ use Ticketpark\SaferpayJson\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Container\Transaction;
 use Ticketpark\SaferpayJson\Response\Response;
 
-class RefundResponse extends Response
+final class RefundResponse extends Response
 {
     /**
      * @var Transaction
      * @SerializedName("Transaction")
      * @Type("Ticketpark\SaferpayJson\Container\Transaction")
      */
-    protected $transaction;
+    private $transaction;
 
     /**
      * @var PaymentMeans
      * @SerializedName("PaymentMeans")
      * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
      */
-    protected $paymentMeans;
+    private $paymentMeans;
 
     /**
      * @var Dcc
      * @SerializedName("Dcc")
      * @Type("Ticketpark\SaferpayJson\Container\Dcc")
      */
-    protected $dcc;
+    private $dcc;
 
-    public function getTransaction(): Transaction
+    public function getTransaction(): ?Transaction
     {
         return $this->transaction;
     }
 
-    public function setTransaction(Transaction $transaction): void
-    {
-        $this->transaction = $transaction;
-    }
-
-    public function getPaymentMeans(): PaymentMeans
+    public function getPaymentMeans(): ?PaymentMeans
     {
         return $this->paymentMeans;
     }
 
-    public function setPaymentMeans(PaymentMeans $paymentMeans): void
-    {
-        $this->paymentMeans = $paymentMeans;
-    }
-
-    public function getDcc(): Dcc
+    public function getDcc(): ?Dcc
     {
         return $this->dcc;
-    }
-
-    public function setDcc(Dcc $dcc): void
-    {
-        $this->dcc = $dcc;
     }
 }
