@@ -5,31 +5,31 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class AuthenticationResult
+final class AuthenticationResult
 {
     const RESULT_OK = 'OK';
     const RESULT_NOT_SUPPORTED = 'NOT_SUPPORTED';
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Result")
      * @Type("string")
      */
-    protected $result;
+    private $result;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Message")
      * @Type("string")
      */
-    protected $message;
+    private $message;
 
     public function getResult(): ?string
     {
         return $this->result;
     }
 
-    public function setResult(string $result): self
+    public function setResult(?string $result): self
     {
         $this->result = $result;
 
@@ -41,7 +41,7 @@ class AuthenticationResult
         return $this->message;
     }
 
-    public function setMessage(string $message): self
+    public function setMessage(?string $message): self
     {
         $this->message = $message;
 

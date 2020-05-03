@@ -4,38 +4,38 @@ namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-class CaptureReference
+final class CaptureReference
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("CaptureId")
      */
-    protected $captureId;
+    private $captureId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("TransactionId")
      */
-    protected $transactionId;
+    private $transactionId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("OrderId")
      */
-    protected $orderId;
+    private $orderId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("OrderPartId")
      */
-    protected $orderPartId;
+    private $orderPartId;
 
     public function getCaptureId(): ?string
     {
         return $this->captureId;
     }
 
-    public function setCaptureId(string $captureId): self
+    public function setCaptureId(?string $captureId): self
     {
         $this->captureId = $captureId;
 
@@ -47,7 +47,7 @@ class CaptureReference
         return $this->transactionId;
     }
 
-    public function setTransactionId(string $transactionId): self
+    public function setTransactionId(?string $transactionId): self
     {
         $this->transactionId = $transactionId;
 
@@ -59,7 +59,7 @@ class CaptureReference
         return $this->orderId;
     }
 
-    public function setOrderId(string $orderId): self
+    public function setOrderId(?string $orderId): self
     {
         $this->orderId = $orderId;
 
@@ -71,7 +71,7 @@ class CaptureReference
         return $this->orderPartId;
     }
 
-    public function setOrderPartId(string $orderPartId): self
+    public function setOrderPartId(?string $orderPartId): self
     {
         $this->orderPartId = $orderPartId;
 

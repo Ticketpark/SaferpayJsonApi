@@ -4,13 +4,13 @@ namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-class Recurring
+final class Recurring
 {
     /**
      * @var bool
      * @SerializedName("Initial")
      */
-    protected $initial;
+    private $initial;
 
     public function __construct(bool $initial = true)
     {
@@ -20,12 +20,5 @@ class Recurring
     public function isInitial(): bool
     {
         return $this->initial;
-    }
-
-    public function setInitial(bool $initial): self
-    {
-        $this->initial = $initial;
-
-        return $this;
     }
 }

@@ -5,26 +5,26 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class PaymentMethodsOptions
+final class PaymentMethodsOptions
 {
     /**
-     * @var Alipay
+     * @var Alipay|null
      * @SerializedName("Alipay")
      */
-    protected $alipay;
+    private $alipay;
 
     /**
-     * @var Ideal
+     * @var Ideal|null
      * @SerializedName("Ideal")
      */
-    protected $ideal;
+    private $ideal;
 
     public function getAlipay(): ?Alipay
     {
         return $this->alipay;
     }
 
-    public function setAlipay(Alipay $alipay): self
+    public function setAlipay(?Alipay $alipay): self
     {
         $this->alipay = $alipay;
 
@@ -36,7 +36,7 @@ class PaymentMethodsOptions
         return $this->ideal;
     }
 
-    public function setIdeal(Ideal $ideal): self
+    public function setIdeal(?Ideal $ideal): self
     {
         $this->ideal = $ideal;
 

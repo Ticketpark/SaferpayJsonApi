@@ -4,37 +4,37 @@ namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-class RequestHeader
+final class RequestHeader
 {
     /**
      * @var string
      * @SerializedName("SpecVersion")
      */
-    protected $specVersion = '1.17';
+    private $specVersion = '1.17';
 
     /**
      * @var string
      * @SerializedName("CustomerId")
      */
-    protected $customerId;
+    private $customerId;
 
     /**
      * @var string|null
      * @SerializedName("RequestId")
      */
-    protected $requestId;
+    private $requestId;
 
     /**
      * @var int
      * @SerializedName("RetryIndicator")
      */
-    protected $retryIndicator = 0;
+    private $retryIndicator = 0;
 
     /**
      * @var ClientInfo|null
      * @SerializedName("ClientInfo")
      */
-    protected $clientInfo;
+    private $clientInfo;
 
     public function __construct(string $customerId, string $requestId = null, int $retryIndicator = 0)
     {

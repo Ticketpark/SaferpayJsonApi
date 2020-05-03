@@ -5,10 +5,10 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class Billpay
+final class Billpay
 {
     /**
-     * @var int
+     * @var int|null
      * @SerializedName("DelayInDays")
      */
     private $delayInDays;
@@ -18,7 +18,7 @@ class Billpay
         return $this->delayInDays;
     }
 
-    public function setDelayInDays(int $delayInDays): self
+    public function setDelayInDays(?int $delayInDays): self
     {
         $this->delayInDays = $delayInDays;
 

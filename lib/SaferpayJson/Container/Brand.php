@@ -5,40 +5,40 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class Brand
+final class Brand
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("PaymentMethod")
      * @Type("string")
      */
-    protected $paymentMethod;
+    private $paymentMethod;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Name")
      * @Type("string")
      */
-    protected $name;
+    private $name;
 
-    public function getPaymentMethod(): string
+    public function getPaymentMethod(): ?string
     {
         return $this->paymentMethod;
     }
 
-    public function setPaymentMethod(string $paymentMethod): self
+    public function setPaymentMethod(?string $paymentMethod): self
     {
         $this->paymentMethod = $paymentMethod;
 
         return $this;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 

@@ -5,21 +5,21 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class Dcc
+final class Dcc
 {
     /**
-     * @var Amount
+     * @var Amount|null
      * @SerializedName("PayerAmount")
      * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */
     private $payerAmount;
 
-    public function getPayerAmount(): Amount
+    public function getPayerAmount(): ?Amount
     {
         return $this->payerAmount;
     }
 
-    public function setPayerAmount(Amount $payerAmount): self
+    public function setPayerAmount(?Amount $payerAmount): self
     {
         $this->payerAmount = $payerAmount;
 

@@ -5,20 +5,20 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class Options
+final class Options
 {
     /**
-     * @var bool
+     * @var bool|null
      * @SerializedName("PreAuth")
      */
-    protected $preAuth;
+    private $preAuth;
 
     public function isPreAuth(): ?bool
     {
         return $this->preAuth;
     }
 
-    public function setPreAuth(bool $preAuth): self
+    public function setPreAuth(?bool $preAuth): self
     {
         $this->preAuth = $preAuth;
 

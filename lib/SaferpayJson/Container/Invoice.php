@@ -6,59 +6,59 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Container\Payee;
 
-class Invoice
+final class Invoice
 {
     /**
-     * @var Payee
+     * @var Payee|null
      * @SerializedName("Payee")
      * @Type("Ticketpark\SaferpayJson\Container\Payee")
      */
-    protected $payee;
+    private $payee;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("ReasonForTransfer")
      * @Type("string")
      */
-    protected $reasonForTransfer;
+    private $reasonForTransfer;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("DueDate")
      * @Type("string")
      */
-    protected $dueDate;
+    private $dueDate;
 
-    public function getPayee(): Payee
+    public function getPayee(): ?Payee
     {
         return $this->payee;
     }
 
-    public function setPayee(Payee $payee): self
+    public function setPayee(?Payee $payee): self
     {
         $this->payee = $payee;
 
         return $this;
     }
 
-    public function getReasonForTransfer(): string
+    public function getReasonForTransfer(): ?string
     {
         return $this->reasonForTransfer;
     }
 
-    public function setReasonForTransfer(string $reasonForTransfer): self
+    public function setReasonForTransfer(?string $reasonForTransfer): self
     {
         $this->reasonForTransfer = $reasonForTransfer;
 
         return $this;
     }
 
-    public function getDueDate(): string
+    public function getDueDate(): ?string
     {
         return $this->dueDate;
     }
 
-    public function setDueDate(string $dueDate): self
+    public function setDueDate(?string $dueDate): self
     {
         $this->dueDate = $dueDate;
 

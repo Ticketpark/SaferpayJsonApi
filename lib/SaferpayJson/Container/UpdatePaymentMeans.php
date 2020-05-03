@@ -5,13 +5,13 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class UpdatePaymentMeans
+final class UpdatePaymentMeans
 {
     /**
      * @var Card
      * @SerializedName("Card")
      */
-    protected $card;
+    private $card;
 
     public function __construct(Card $card)
     {
@@ -21,12 +21,5 @@ class UpdatePaymentMeans
     public function getCard(): ?Card
     {
         return $this->card;
-    }
-
-    public function setCard(Card $card): self
-    {
-        $this->card = $card;
-
-        return $this;
     }
 }

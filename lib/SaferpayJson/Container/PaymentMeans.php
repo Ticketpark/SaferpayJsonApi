@@ -8,118 +8,118 @@ use Ticketpark\SaferpayJson\Container\BankAccount;
 use Ticketpark\SaferpayJson\Container\Brand;
 use Ticketpark\SaferpayJson\Container\Card;
 
-class PaymentMeans
+final class PaymentMeans
 {
     /**
-     * @var Brand
+     * @var Brand|null
      * @SerializedName("Brand")
      * @Type("Ticketpark\SaferpayJson\Container\Brand")
      */
-    protected $brand;
+    private $brand;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("DisplayText")
      * @Type("string")
      */
-    protected $displayText;
+    private $displayText;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Wallet")
      * @Type("string")
      */
-    protected $wallet;
+    private $wallet;
 
     /**
-     * @var Card
+     * @var Card|null
      * @SerializedName("Card")
      * @Type("Ticketpark\SaferpayJson\Container\Card")
      */
-    protected $card;
+    private $card;
 
     /**
-     * @var BankAccount
+     * @var BankAccount|null
      * @SerializedName("BankAccount")
      * @Type("Ticketpark\SaferpayJson\Container\BankAccount")
      */
-    protected $bankAccount;
+    private $bankAccount;
 
     /**
-     * @var Twint
+     * @var Twint|null
      * @SerializedName("Twint")
      * @Type("Ticketpark\SaferpayJson\Container\Twint")
      */
-    protected $twint;
+    private $twint;
 
     /**
-     * @var SaferpayFields
+     * @var SaferpayFields|null
      * @SerializedName("SaferpayFields")
      * @Type("Ticketpark\SaferpayJson\Container\SaferpayFields")
      */
-    protected $saferpayFields;
+    private $saferpayFields;
 
     /**
-     * @var Alias
+     * @var Alias|null
      * @SerializedName("Alias")
      * @Type("Ticketpark\SaferpayJson\Container\Alias")
      */
-    protected $alias;
+    private $alias;
 
-    public function getBrand(): Brand
+    public function getBrand(): ?Brand
     {
         return $this->brand;
     }
 
-    public function setBrand(Brand $brand): self
+    public function setBrand(?Brand $brand): self
     {
         $this->brand = $brand;
 
         return $this;
     }
 
-    public function getDisplayText(): string
+    public function getDisplayText(): ?string
     {
         return $this->displayText;
     }
 
-    public function setDisplayText(string $displayText): self
+    public function setDisplayText(?string $displayText): self
     {
         $this->displayText = $displayText;
 
         return $this;
     }
 
-    public function getWallet(): string
+    public function getWallet(): ?string
     {
         return $this->wallet;
     }
 
-    public function setWallet(string $wallet): self
+    public function setWallet(?string $wallet): self
     {
         $this->wallet = $wallet;
 
         return $this;
     }
 
-    public function getCard(): Card
+    public function getCard(): ?Card
     {
         return $this->card;
     }
 
-    public function setCard(Card $card): self
+    public function setCard(?Card $card): self
     {
         $this->card = $card;
 
         return $this;
     }
 
-    public function getBankAccount(): BankAccount
+    public function getBankAccount(): ?BankAccount
     {
         return $this->bankAccount;
     }
 
-    public function setBankAccount(BankAccount $bankAccount): self
+    public function setBankAccount(?BankAccount $bankAccount): self
     {
         $this->bankAccount = $bankAccount;
 
@@ -131,7 +131,7 @@ class PaymentMeans
         return $this->twint;
     }
 
-    public function setTwint(Twint $twint): self
+    public function setTwint(?Twint $twint): self
     {
         $this->twint = $twint;
 
@@ -143,7 +143,7 @@ class PaymentMeans
         return $this->saferpayFields;
     }
 
-    public function setSaferpayFields(SaferpayFields $saferpayFields): self
+    public function setSaferpayFields(?SaferpayFields $saferpayFields): self
     {
         $this->saferpayFields = $saferpayFields;
 
@@ -155,7 +155,7 @@ class PaymentMeans
         return $this->alias;
     }
 
-    public function setAlias(Alias $alias): self
+    public function setAlias(?Alias $alias): self
     {
         $this->alias = $alias;
 

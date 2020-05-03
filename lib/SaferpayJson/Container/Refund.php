@@ -5,64 +5,64 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class Refund
+final class Refund
 {
     /**
-     * @var Amount
+     * @var Amount|null
      * @SerializedName("Amount")
      * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */
-    protected $amount;
+    private $amount;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("OrderId")
      * @Type("string")
      */
-    protected $orderId;
+    private $orderId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Description")
      * @Type("string")
      */
-    protected $description;
+    private $description;
 
-    public function __construct(Amount $amount)
+    public function __construct(?Amount $amount)
     {
         $this->amount = $amount;
     }
 
-    public function getAmount(): Amount
+    public function getAmount(): ?Amount
     {
         return $this->amount;
     }
 
-    public function setAmount(Amount $amount): self
+    public function setAmount(?Amount $amount): self
     {
         $this->amount = $amount;
 
         return $this;
     }
 
-    public function getOrderId(): string
+    public function getOrderId(): ?string
     {
         return $this->orderId;
     }
 
-    public function setOrderId(string $orderId): self
+    public function setOrderId(?string $orderId): self
     {
         $this->orderId = $orderId;
 
         return $this;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 

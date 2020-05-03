@@ -5,56 +5,56 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class CustomPlan
+final class CustomPlan
 {
     /**
-     * @var int
+     * @var int|null
      * @SerializedName("MinimumNumberOfInstallments")
      * @Type("int")
      */
-    protected $minimumNumberOfInstallments;
+    private $minimumNumberOfInstallments;
 
     /**
-     * @var int
+     * @var int|null
      * @SerializedName("MaximumNumberOfInstallments")
      * @Type("int")
      */
-    protected $maximumNumberOfInstallments;
+    private $maximumNumberOfInstallments;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("InterestRate")
      * @Type("string")
      */
-    protected $interestRate;
+    private $interestRate;
 
     /**
-     * @var Amount
+     * @var Amount|null
      * @SerializedName("InstallmentFee")
      * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */
-    protected $installmentFee;
+    private $installmentFee;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("AnnualPercentageRate")
      * @Type("string")
      */
-    protected $annualPercentageRate;
+    private $annualPercentageRate;
 
     /**
-     * @var Amount
+     * @var Amount|null
      * @SerializedName("TotalAmountDue")
      * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */
-    protected $totalAmountDue;
+    private $totalAmountDue;
 
     public function getMinimumNumberOfInstallments(): ?int
     {
         return $this->minimumNumberOfInstallments;
     }
 
-    public function setMinimumNumberOfInstallments(int $minimumNumberOfInstallments): self
+    public function setMinimumNumberOfInstallments(?int $minimumNumberOfInstallments): self
     {
         $this->minimumNumberOfInstallments = $minimumNumberOfInstallments;
 
@@ -66,7 +66,7 @@ class CustomPlan
         return $this->maximumNumberOfInstallments;
     }
 
-    public function setMaximumNumberOfInstallments(int $maximumNumberOfInstallments): self
+    public function setMaximumNumberOfInstallments(?int $maximumNumberOfInstallments): self
     {
         $this->maximumNumberOfInstallments = $maximumNumberOfInstallments;
 
@@ -78,7 +78,7 @@ class CustomPlan
         return $this->interestRate;
     }
 
-    public function setInterestRate(string $interestRate): self
+    public function setInterestRate(?string $interestRate): self
     {
         $this->interestRate = $interestRate;
 
@@ -90,7 +90,7 @@ class CustomPlan
         return $this->installmentFee;
     }
 
-    public function setInstallmentFee(Amount $installmentFee): self
+    public function setInstallmentFee(?Amount $installmentFee): self
     {
         $this->installmentFee = $installmentFee;
 
@@ -102,7 +102,7 @@ class CustomPlan
         return $this->annualPercentageRate;
     }
 
-    public function setAnnualPercentageRate(string $annualPercentageRate): self
+    public function setAnnualPercentageRate(?string $annualPercentageRate): self
     {
         $this->annualPercentageRate = $annualPercentageRate;
 
@@ -114,7 +114,7 @@ class CustomPlan
         return $this->totalAmountDue;
     }
 
-    public function setTotalAmountDue(Amount $totalAmountDue): self
+    public function setTotalAmountDue(?Amount $totalAmountDue): self
     {
         $this->totalAmountDue = $totalAmountDue;
 

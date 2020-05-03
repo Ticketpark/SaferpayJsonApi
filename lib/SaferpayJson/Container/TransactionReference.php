@@ -4,38 +4,38 @@ namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-class TransactionReference
+final class TransactionReference
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("TransactionId")
      */
-    protected $transactionId;
+    private $transactionId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("OrderId")
      */
-    protected $orderId;
+    private $orderId;
 
-    public function getTransactionId(): string
+    public function getTransactionId(): ?string
     {
         return $this->transactionId;
     }
 
-    public function setTransactionId(string $transactionId): self
+    public function setTransactionId(?string $transactionId): self
     {
         $this->transactionId = $transactionId;
 
         return $this;
     }
 
-    public function getOrderId(): string
+    public function getOrderId(): ?string
     {
         return $this->orderId;
     }
 
-    public function setOrderId(string $orderId): self
+    public function setOrderId(?string $orderId): self
     {
         $this->orderId = $orderId;
 

@@ -21,7 +21,7 @@ class AliasInsertRequestTest extends CommonRequestTest
     {
         return new AliasInsertRequest(
             $this->getRequestConfig(),
-            new RegisterAlias(),
+            new RegisterAlias(RegisterAlias::ID_GENERATOR_RANDOM),
             AliasInsertRequest::TYPE_CARD,
             new ReturnUrls('success-url', 'fail-url')
         );

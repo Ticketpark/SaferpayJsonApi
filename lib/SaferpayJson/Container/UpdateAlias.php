@@ -5,20 +5,20 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class UpdateAlias
+final class UpdateAlias
 {
     /**
      * @var string
      * @SerializedName("Id")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @var int
+     * @var int|null
      * @SerializedName("Lifetime")
      * @Type("integer")
      */
-    protected $lifetime;
+    private $lifetime;
 
     public function __construct(string $id)
     {
@@ -30,19 +30,12 @@ class UpdateAlias
         return $this->id;
     }
 
-    public function setId(string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
     public function getLifetime(): ?int
     {
         return $this->lifetime;
     }
 
-    public function setLifetime(int $lifetime): self
+    public function setLifetime(?int $lifetime): self
     {
         $this->lifetime = $lifetime;
 

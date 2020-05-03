@@ -5,63 +5,63 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class InstallmentPlan
+final class InstallmentPlan
 {
     /**
-     * @var int
+     * @var int|null
      * @SerializedName("NumberOfInstallments")
      * @Type("int")
      */
-    protected $numberOfInstallments;
+    private $numberOfInstallments;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("InterestRate")
      * @Type("string")
      */
-    protected $interestRate;
+    private $interestRate;
 
     /**
-     * @var Amount
+     * @var Amount|null
      * @SerializedName("InstallmentFee")
      * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */
-    protected $installmentFee;
+    private $installmentFee;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("AnnualPercentageRate")
      * @Type("string")
      */
-    protected $annualPercentageRate;
+    private $annualPercentageRate;
 
     /**
-     * @var Amount
+     * @var Amount|null
      * @SerializedName("FirstInstallmentAmount")
      * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */
-    protected $firstInstallmentAmount;
+    private $firstInstallmentAmount;
 
     /**
-     * @var Amount
+     * @var Amount|null
      * @SerializedName("SubsequentInstallmentAmount")
      * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */
-    protected $subsequentInstallmentAmount;
+    private $subsequentInstallmentAmount;
 
     /**
-     * @var Amount
+     * @var Amount|null
      * @SerializedName("TotalAmountDue")
      * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */
-    protected $totalAmountDue;
+    private $totalAmountDue;
 
     public function getNumberOfInstallments(): ?int
     {
         return $this->numberOfInstallments;
     }
 
-    public function setNumberOfInstallments(int $numberOfInstallments): self
+    public function setNumberOfInstallments(?int $numberOfInstallments): self
     {
         $this->numberOfInstallments = $numberOfInstallments;
 
@@ -73,7 +73,7 @@ class InstallmentPlan
         return $this->interestRate;
     }
 
-    public function setInterestRate(string $interestRate): self
+    public function setInterestRate(?string $interestRate): self
     {
         $this->interestRate = $interestRate;
 
@@ -85,7 +85,7 @@ class InstallmentPlan
         return $this->installmentFee;
     }
 
-    public function setInstallmentFee(Amount $installmentFee): self
+    public function setInstallmentFee(?Amount $installmentFee): self
     {
         $this->installmentFee = $installmentFee;
 
@@ -97,7 +97,7 @@ class InstallmentPlan
         return $this->annualPercentageRate;
     }
 
-    public function setAnnualPercentageRate(string $annualPercentageRate): self
+    public function setAnnualPercentageRate(?string $annualPercentageRate): self
     {
         $this->annualPercentageRate = $annualPercentageRate;
 
@@ -109,7 +109,7 @@ class InstallmentPlan
         return $this->firstInstallmentAmount;
     }
 
-    public function setFirstInstallmentAmount(Amount $firstInstallmentAmount): self
+    public function setFirstInstallmentAmount(?Amount $firstInstallmentAmount): self
     {
         $this->firstInstallmentAmount = $firstInstallmentAmount;
 
@@ -121,7 +121,7 @@ class InstallmentPlan
         return $this->subsequentInstallmentAmount;
     }
 
-    public function setSubsequentInstallmentAmount(Amount $subsequentInstallmentAmount): self
+    public function setSubsequentInstallmentAmount(?Amount $subsequentInstallmentAmount): self
     {
         $this->subsequentInstallmentAmount = $subsequentInstallmentAmount;
 
@@ -133,7 +133,7 @@ class InstallmentPlan
         return $this->totalAmountDue;
     }
 
-    public function setTotalAmountDue(Amount $totalAmountDue): self
+    public function setTotalAmountDue(?Amount $totalAmountDue): self
     {
         $this->totalAmountDue = $totalAmountDue;
 

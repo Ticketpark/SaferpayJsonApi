@@ -5,40 +5,40 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class Error
+final class Error
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("ErrorName")
      * @Type("string")
      */
-    protected $errorName;
+    private $errorName;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("ErrorMessage")
      * @Type("string")
      */
-    protected $errorMessage;
+    private $errorMessage;
 
-    public function getErrorName(): string
+    public function getErrorName(): ?string
     {
         return $this->errorName;
     }
 
-    public function setErrorName(string $errorName): self
+    public function setErrorName(?string $errorName): self
     {
         $this->errorName = $errorName;
 
         return $this;
     }
 
-    public function getErrorMessage(): string
+    public function getErrorMessage(): ?string
     {
         return $this->errorMessage;
     }
 
-    public function setErrorMessage(string $errorMessage): self
+    public function setErrorMessage(?string $errorMessage): self
     {
         $this->errorMessage = $errorMessage;
 

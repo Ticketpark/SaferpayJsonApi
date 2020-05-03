@@ -5,65 +5,65 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class RegistrationResult
+final class RegistrationResult
 {
     /**
-     * @var bool
+     * @var bool|null
      * @SerializedName("Success")
      * @Type("boolean")
      */
-    protected $success;
+    private $success;
 
     /**
-     * @var Alias
+     * @var Alias|null
      * @SerializedName("Alias")
      * @Type("Ticketpark\SaferpayJson\Container\Alias")
      */
-    protected $alias;
+    private $alias;
 
     /**
-     * @var Error
+     * @var Error|null
      * @SerializedName("Error")
      * @Type("Ticketpark\SaferpayJson\Container\Error")
      */
-    protected $error;
+    private $error;
 
     /**
-     * @var AuthenticationResult
+     * @var AuthenticationResult|null
      * @SerializedName("AuthenticationResult")
      * @Type("Ticketpark\SaferpayJson\Container\AuthenticationResult")
      */
-    protected $authenticationResult;
+    private $authenticationResult;
 
-    public function isSuccess(): bool
+    public function isSuccess(): ?bool
     {
         return $this->success;
     }
 
-    public function setSuccess(bool $success): self
+    public function setSuccess(?bool $success): self
     {
         $this->success = $success;
         return $this;
     }
 
-    public function getAlias(): Alias
+    public function getAlias(): ?Alias
     {
         return $this->alias;
     }
 
-    public function setAlias(Alias $alias): self
+    public function setAlias(?Alias $alias): self
     {
         $this->alias = $alias;
 
         return $this;
     }
 
-    public function getError(): Error
+    public function getError(): ?Error
     {
         return $this->error;
     }
 
-    public function setError(Error $error): self
+    public function setError(?Error $error): self
     {
         $this->error = $error;
 
@@ -75,7 +75,7 @@ class RegistrationResult
         return $this->authenticationResult;
     }
 
-    public function setAuthenticationResult(AuthenticationResult $authenticationResult): self
+    public function setAuthenticationResult(?AuthenticationResult $authenticationResult): self
     {
         $this->authenticationResult = $authenticationResult;
 

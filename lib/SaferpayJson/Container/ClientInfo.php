@@ -5,28 +5,28 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class ClientInfo
+final class ClientInfo
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("ShopInfo")
      * @Type("string")
      */
-    protected $shopInfo;
+    private $shopInfo;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("OsInfo")
      * @Type("string")
      */
-    protected $osInfo;
+    private $osInfo;
 
     public function getShopInfo(): ?string
     {
         return $this->shopInfo;
     }
 
-    public function setShopInfo(string $shopInfo): self
+    public function setShopInfo(?string $shopInfo): self
     {
         $this->shopInfo = $shopInfo;
 
@@ -38,7 +38,7 @@ class ClientInfo
         return $this->osInfo;
     }
 
-    public function setOsInfo(string $osInfo): self
+    public function setOsInfo(?string $osInfo): self
     {
         $this->osInfo = $osInfo;
 

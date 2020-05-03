@@ -5,21 +5,21 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class Twint
+final class Twint
 {
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      * @SerializedName("CertificateExpirationDate")
      * @Type("DateTime")
      */
-    protected $certificateExpirationDate;
+    private $certificateExpirationDate;
 
     public function getCertificateExpirationDate(): ?\DateTime
     {
         return $this->certificateExpirationDate;
     }
 
-    public function setCertificateExpirationDate(\DateTime $certificateExpirationDate): self
+    public function setCertificateExpirationDate(?\DateTime $certificateExpirationDate): self
     {
         $this->certificateExpirationDate = $certificateExpirationDate;
 

@@ -4,55 +4,55 @@ namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-class Payment
+final class Payment
 {
     /**
      * @var Amount
      * @SerializedName("Amount")
      */
-    protected $amount;
+    private $amount;
 
     /**
      * @var string|null
      * @SerializedName("OrderId")
      */
-    protected $orderId;
+    private $orderId;
 
     /**
      * @var string|null
      * @SerializedName("PayerNote")
      */
-    protected $payerNote;
+    private $payerNote;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Description")
      */
-    protected $description;
+    private $description;
 
     /**
      * @var string|null
      * @SerializedName("MandateId")
      */
-    protected $mandateId;
+    private $mandateId;
 
     /**
      * @var Options|null
      * @SerializedName("Options")
      */
-    protected $options;
+    private $options;
 
     /**
      * @var Recurring|null
      * @SerializedName("Recurring")
      */
-    protected $recurring;
+    private $recurring;
 
     /**
      * @var Installment|null
      * @SerializedName("Installment")
      */
-    protected $installment;
+    private $installment;
 
     public function __construct(Amount $amount)
     {
@@ -95,12 +95,12 @@ class Payment
         return $this;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 

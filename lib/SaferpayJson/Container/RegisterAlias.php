@@ -5,7 +5,7 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class RegisterAlias
+final class RegisterAlias
 {
     const ID_GENERATOR_MANUAL = 'MANUAL';
     const ID_GENERATOR_RANDOM = 'RANDOM';
@@ -16,23 +16,23 @@ class RegisterAlias
      * @SerializedName("IdGenerator")
      * @Type("string")
      */
-    protected $idGenerator;
+    private $idGenerator;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Id")
      * @Type("string")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @var int
+     * @var int|null
      * @SerializedName("Lifetime")
      * @Type("integer")
      */
-    protected $lifetime;
+    private $lifetime;
 
-    public function __construct(string $idGenerator = self::ID_GENERATOR_RANDOM)
+    public function __construct(string $idGenerator)
     {
         $this->idGenerator = $idGenerator;
     }
@@ -42,31 +42,24 @@ class RegisterAlias
         return $this->idGenerator;
     }
 
-    public function setIdGenerator(string $idGenerator): self
-    {
-        $this->idGenerator = $idGenerator;
-
-        return $this;
-    }
-
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function setId(string $id): self
+    public function setId(?string $id): self
     {
         $this->id = $id;
 
         return $this;
     }
 
-    public function getLifetime(): int
+    public function getLifetime(): ?int
     {
         return $this->lifetime;
     }
 
-    public function setLifetime(int $lifetime): self
+    public function setLifetime(?int $lifetime): self
     {
         $this->lifetime = $lifetime;
 

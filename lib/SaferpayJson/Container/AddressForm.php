@@ -5,7 +5,7 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class AddressForm
+final class AddressForm
 {
     const MANDATORY_FIELD_CITY = 'CITY';
     const MANDATORY_FIELD_COMPANY = 'COMPANY';
@@ -23,13 +23,13 @@ class AddressForm
      * @var bool
      * @SerializedName("Display")
      */
-    protected $display;
+    private $display;
 
     /**
-     * @var array<string>
+     * @var array<string>|null
      * @SerializedName("MandatoryFields")
      */
-    protected $mandatoryFields = [];
+    private $mandatoryFields = [];
 
     public function __construct(bool $display = true)
     {
@@ -41,19 +41,12 @@ class AddressForm
         return $this->display;
     }
 
-    public function setDisplay(bool $display): self
-    {
-        $this->display = $display;
-
-        return $this;
-    }
-
-    public function getMandatoryFields(): array
+    public function getMandatoryFields(): ?array
     {
         return $this->mandatoryFields;
     }
 
-    public function setMandatoryFields(array $mandatoryFields): self
+    public function setMandatoryFields(?array $mandatoryFields): self
     {
         $this->mandatoryFields = $mandatoryFields;
 

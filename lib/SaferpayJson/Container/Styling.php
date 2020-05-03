@@ -4,7 +4,7 @@ namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-class Styling
+final class Styling
 {
     const THEME_DEFAULT = 'DEFAULT';
     const THEME_SIX = 'SIX';
@@ -14,20 +14,20 @@ class Styling
      * @var string|null
      * @SerializedName("CssUrl")
      */
-    protected $cssUrl;
+    private $cssUrl;
 
     /**
      * @var string|null
      * @SerializedName("Theme")
      */
-    protected $theme;
+    private $theme;
 
     public function getCssUrl(): ?string
     {
         return $this->cssUrl;
     }
 
-    public function setCssUrl(string $cssUrl): self
+    public function setCssUrl(?string $cssUrl): self
     {
         $this->cssUrl = $cssUrl;
 
@@ -39,7 +39,7 @@ class Styling
         return $this->theme;
     }
 
-    public function setTheme(string $theme): self
+    public function setTheme(?string $theme): self
     {
         $this->theme = $theme;
 

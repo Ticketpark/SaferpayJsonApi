@@ -5,128 +5,127 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class Transaction
+final class Transaction
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Type")
      * @Type("string")
      */
-    protected $type;
+    private $type;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Status")
      * @Type("string")
      */
-    protected $status;
+    private $status;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Id")
      * @Type("string")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("CaptureId")
      * @Type("string")
      */
-    protected $captureId;
+    private $captureId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Date")
      * @Type("string")
      */
-    protected $date;
+    private $date;
 
     /**
-     * @var Amount
+     * @var Amount|null
      * @SerializedName("Amount")
      * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */
-    protected $amount;
+    private $amount;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("OrderId")
      * @Type("string")
      */
-    protected $orderId;
+    private $orderId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("AcquirerName")
      * @Type("string")
      */
-    protected $acquirerName;
+    private $acquirerName;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("SixTransactionReference")
      * @Type("string")
      */
-    protected $sixTransactionReference;
+    private $sixTransactionReference;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("AcquirerReference")
      * @Type("string")
      */
-    protected $acquirerReference;
+    private $acquirerReference;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("ApprovalCode")
      * @Type("string")
      */
-    protected $approvalCode;
+    private $approvalCode;
 
     /**
-     * @var DirectDebit
+     * @var DirectDebit|null
      * @SerializedName("DirectDebit")
      * @Type("Ticketpark\SaferpayJson\Container\DirectDebit")
      */
-    protected $directDebit;
+    private $directDebit;
 
     /**
-     * @var Invoice
+     * @var Invoice|null
      * @SerializedName("Invoice")
      * @Type("Ticketpark\SaferpayJson\Container\Invoice")
      */
-    protected $invoice;
+    private $invoice;
 
-
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
 
-    public function setType(string $type): self
+    public function setType(?string $type): self
     {
         $this->type = $type;
         return $this;
     }
 
-    public function getStatus(): string
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    public function setStatus(string $status): self
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
         return $this;
     }
 
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function setId(string $id): self
+    public function setId(?string $id): self
     {
         $this->id = $id;
         return $this;
@@ -137,67 +136,67 @@ class Transaction
         return $this->captureId;
     }
 
-    public function setCaptureId(string $captureId): self
+    public function setCaptureId(?string $captureId): self
     {
         $this->captureId = $captureId;
 
         return $this;
     }
 
-    public function getDate(): string
+    public function getDate(): ?string
     {
         return $this->date;
     }
 
-    public function setDate(string $date): self
+    public function setDate(?string $date): self
     {
         $this->date = $date;
 
         return $this;
     }
 
-    public function getAmount(): Amount
+    public function getAmount(): ?Amount
     {
         return $this->amount;
     }
 
-    public function setAmount(Amount $amount): self
+    public function setAmount(?Amount $amount): self
     {
         $this->amount = $amount;
 
         return $this;
     }
 
-    public function getOrderId(): string
+    public function getOrderId(): ?string
     {
         return $this->orderId;
     }
 
-    public function setOrderId(string $orderId): self
+    public function setOrderId(?string $orderId): self
     {
         $this->orderId = $orderId;
 
         return $this;
     }
 
-    public function getAcquirerName(): string
+    public function getAcquirerName(): ?string
     {
         return $this->acquirerName;
     }
 
-    public function setAcquirerName(string $acquirerName): self
+    public function setAcquirerName(?string $acquirerName): self
     {
         $this->acquirerName = $acquirerName;
 
         return $this;
     }
 
-    public function getAcquirerReference(): string
+    public function getAcquirerReference(): ?string
     {
         return $this->acquirerReference;
     }
 
-    public function setAcquirerReference(string $acquirerReference): self
+    public function setAcquirerReference(?string $acquirerReference): self
     {
         $this->acquirerReference = $acquirerReference;
 
@@ -209,7 +208,7 @@ class Transaction
         return $this->sixTransactionReference;
     }
 
-    public function setSixTransactionReference(string $sixTransactionReference): self
+    public function setSixTransactionReference(?string $sixTransactionReference): self
     {
         $this->sixTransactionReference = $sixTransactionReference;
 
@@ -221,7 +220,7 @@ class Transaction
         return $this->approvalCode;
     }
 
-    public function setApprovalCode(string $approvalCode): self
+    public function setApprovalCode(?string $approvalCode): self
     {
         $this->approvalCode = $approvalCode;
 
@@ -233,7 +232,7 @@ class Transaction
         return $this->directDebit;
     }
 
-    public function setDirectDebit(DirectDebit $directDebit): self
+    public function setDirectDebit(?DirectDebit $directDebit): self
     {
         $this->directDebit = $directDebit;
 
@@ -245,7 +244,7 @@ class Transaction
         return $this->invoice;
     }
 
-    public function setInvoice(Invoice $invoice): self
+    public function setInvoice(?Invoice $invoice): self
     {
         $this->invoice = $invoice;
 

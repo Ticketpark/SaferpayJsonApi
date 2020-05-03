@@ -4,25 +4,25 @@ namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-class ReturnUrls
+final class ReturnUrls
 {
     /**
      * @var string
      * @SerializedName("Success")
      */
-    protected $success;
+    private $success;
 
     /**
      * @var string
      * @SerializedName("Fail")
      */
-    protected $fail;
+    private $fail;
 
     /**
      * @var string|null
      * @SerializedName("Abort")
      */
-    protected $abort;
+    private $abort;
 
     public function __construct(string $success, string $fail, string $abort = null)
     {
@@ -36,23 +36,9 @@ class ReturnUrls
         return $this->success;
     }
 
-    public function setSuccess(string $success): self
-    {
-        $this->success = $success;
-
-        return $this;
-    }
-
     public function getFail(): string
     {
         return $this->fail;
-    }
-
-    public function setFail(string $fail): self
-    {
-        $this->fail = $fail;
-
-        return $this;
     }
 
     public function getAbort(): ?string

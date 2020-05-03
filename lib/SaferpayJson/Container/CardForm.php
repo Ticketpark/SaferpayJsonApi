@@ -5,7 +5,7 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class CardForm
+final class CardForm
 {
     const HOLDER_NAME_NONE = 'NONE';
     const HOLDER_NAME_MANDATORY = 'MANDATORY';
@@ -14,7 +14,7 @@ class CardForm
      * @var string
      * @SerializedName("HolderName")
      */
-    protected $holderName;
+    private $holderName;
 
     public function __construct(string $holderName)
     {
@@ -24,12 +24,5 @@ class CardForm
     public function getHolderName(): string
     {
         return $this->holderName;
-    }
-
-    public function setHolderName(string $holderName): self
-    {
-        $this->holderName = $holderName;
-
-        return $this;
     }
 }

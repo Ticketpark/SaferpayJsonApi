@@ -5,47 +5,47 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class Alias
+final class Alias
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Id")
      * @Type("string")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @var int
+     * @var int|null
      * @SerializedName("Lifetime")
      * @Type("integer")
      */
-    protected $lifetime;
+    private $lifetime;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("VerificationCode")
      * @Type("string")
      */
-    protected $verificationCode;
+    private $verificationCode;
 
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function setId(string $id): self
+    public function setId(?string $id): self
     {
         $this->id = $id;
 
         return $this;
     }
 
-    public function getLifetime(): int
+    public function getLifetime(): ?int
     {
         return $this->lifetime;
     }
 
-    public function setLifetime(int $lifetime): self
+    public function setLifetime(?int $lifetime): self
     {
         $this->lifetime = $lifetime;
 
@@ -57,7 +57,7 @@ class Alias
         return $this->verificationCode;
     }
 
-    public function setVerificationCode(string $verificationCode): self
+    public function setVerificationCode(?string $verificationCode): self
     {
         $this->verificationCode = $verificationCode;
 

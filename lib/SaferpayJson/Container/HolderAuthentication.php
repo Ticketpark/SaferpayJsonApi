@@ -5,38 +5,38 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class HolderAuthentication
+final class HolderAuthentication
 {
     const RESULT_OK = 'OK';
     const RESULT_NOT_SUPPORTED = 'NOT_SUPPORTED';
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Result")
      * @Type("string")
      */
-    protected $result;
+    private $result;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Message")
      * @Type("string")
      */
-    protected $message;
+    private $message;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Xid")
      * @Type("string")
      */
-    protected $xid;
+    private $xid;
 
     public function getResult(): ?string
     {
         return $this->result;
     }
 
-    public function setResult(string $result): self
+    public function setResult(?string $result): self
     {
         $this->result = $result;
 
@@ -48,7 +48,7 @@ class HolderAuthentication
         return $this->message;
     }
 
-    public function setMessage(string $message): self
+    public function setMessage(?string $message): self
     {
         $this->message = $message;
 
@@ -60,7 +60,7 @@ class HolderAuthentication
         return $this->xid;
     }
 
-    public function setXid(string $xid): self
+    public function setXid(?string $xid): self
     {
         $this->xid = $xid;
 

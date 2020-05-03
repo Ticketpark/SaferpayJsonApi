@@ -5,43 +5,29 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class ResponseHeader
+final class ResponseHeader
 {
     /**
      * @var string
      * @SerializedName("SpecVersion")
      * @Type("string")
      */
-    protected $specVersion;
+    private $specVersion;
 
     /**
      * @var string
      * @SerializedName("RequestId")
      * @Type("string")
      */
-    protected $requestId;
+    private $requestId;
 
     public function getSpecVersion(): string
     {
         return $this->specVersion;
     }
 
-    public function setSpecVersion(string $specVersion): self
-    {
-        $this->specVersion = $specVersion;
-
-        return $this;
-    }
-
     public function getRequestId(): string
     {
         return $this->requestId;
-    }
-
-    public function setRequestId(string $requestId): self
-    {
-        $this->requestId = $requestId;
-
-        return $this;
     }
 }

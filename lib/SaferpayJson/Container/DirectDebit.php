@@ -5,28 +5,28 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class DirectDebit
+final class DirectDebit
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("MandateId")
      * @Type("string")
      */
-    protected $mandateId;
+    private $mandateId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("CreditorId")
      * @Type("string")
      */
-    protected $creditorId;
+    private $creditorId;
 
     public function getMandateId(): ?string
     {
         return $this->mandateId;
     }
 
-    public function setMandateId(string $mandateId): self
+    public function setMandateId(?string $mandateId): self
     {
         $this->mandateId = $mandateId;
 
@@ -38,7 +38,7 @@ class DirectDebit
         return $this->creditorId;
     }
 
-    public function setCreditorId(string $creditorId): self
+    public function setCreditorId(?string $creditorId): self
     {
         $this->creditorId = $creditorId;
 

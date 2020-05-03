@@ -5,35 +5,35 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class CheckResult
+final class CheckResult
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Result")
      * @Type("string")
      */
-    protected $result;
+    private $result;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Message")
      * @Type("string")
      */
-    protected $message;
+    private $message;
 
     /**
-     * @var HolderAuthentication
+     * @var HolderAuthentication|null
      * @SerializedName("Authentication")
      * @Type("Ticketpark\SaferpayJson\Container\HolderAuthentication")
      */
-    protected $authentication;
+    private $authentication;
 
     public function getResult(): ?string
     {
         return $this->result;
     }
 
-    public function setResult(string $result): self
+    public function setResult(?string $result): self
     {
         $this->result = $result;
 
@@ -45,7 +45,7 @@ class CheckResult
         return $this->message;
     }
 
-    public function setMessage(string $message): self
+    public function setMessage(?string $message): self
     {
         $this->message = $message;
 
@@ -57,7 +57,7 @@ class CheckResult
         return $this->authentication;
     }
 
-    public function setAuthentication(HolderAuthentication $authentication): self
+    public function setAuthentication(?HolderAuthentication $authentication): self
     {
         $this->authentication = $authentication;
 

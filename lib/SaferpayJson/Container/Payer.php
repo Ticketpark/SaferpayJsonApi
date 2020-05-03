@@ -5,49 +5,49 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class Payer
+final class Payer
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("IpAddress")
      * @Type("string")
      */
-    protected $ipAddress;
+    private $ipAddress;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("IpLocation")
      * @Type("string")
      */
-    protected $ipLocation;
+    private $ipLocation;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("LanguageCode")
      * @Type("string")
      */
-    protected $languageCode;
+    private $languageCode;
 
     /**
-     * @var Address
+     * @var Address|null
      * @SerializedName("DeliveryAddress")
      * @Type("Ticketpark\SaferpayJson\Container\Address")
      */
-    protected $deliveryAddress;
+    private $deliveryAddress;
 
     /**
-     * @var Address
+     * @var Address|null
      * @SerializedName("BillingAddress")
      * @Type("Ticketpark\SaferpayJson\Container\Address")
      */
-    protected $billingAddress;
+    private $billingAddress;
 
-    public function getIpAddress(): string
+    public function getIpAddress(): ?string
     {
         return $this->ipAddress;
     }
 
-    public function setIpAddress(string $ipAddress): self
+    public function setIpAddress(?string $ipAddress): self
     {
         $this->ipAddress = $ipAddress;
 
@@ -59,43 +59,43 @@ class Payer
         return $this->ipLocation;
     }
 
-    public function setIpLocation(string $ipLocation): self
+    public function setIpLocation(?string $ipLocation): self
     {
         $this->ipLocation = $ipLocation;
 
         return $this;
     }
 
-    public function getLanguageCode(): string
+    public function getLanguageCode(): ?string
     {
         return $this->languageCode;
     }
 
-    public function setLanguageCode(string $languageCode): self
+    public function setLanguageCode(?string $languageCode): self
     {
         $this->languageCode = $languageCode;
 
         return $this;
     }
 
-    public function getDeliveryAddress(): Address
+    public function getDeliveryAddress(): ?Address
     {
         return $this->deliveryAddress;
     }
 
-    public function setDeliveryAddress(Address $deliveryAddress): self
+    public function setDeliveryAddress(?Address $deliveryAddress): self
     {
         $this->deliveryAddress = $deliveryAddress;
 
         return $this;
     }
 
-    public function getBillingAddress(): Address
+    public function getBillingAddress(): ?Address
     {
         return $this->billingAddress;
     }
 
-    public function setBillingAddress(Address $billingAddress): self
+    public function setBillingAddress(?Address $billingAddress): self
     {
         $this->billingAddress = $billingAddress;
 

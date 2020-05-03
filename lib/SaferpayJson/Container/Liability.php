@@ -5,35 +5,35 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class Liability
+final class Liability
 {
     /**
-     * @var bool
+     * @var bool|null
      * @SerializedName("LiabilityShift")
      * @Type("boolean")
      */
-    protected $liabilityShift;
+    private $liabilityShift;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("LiableEntity")
      * @Type("string")
      */
-    protected $liableEntity;
+    private $liableEntity;
 
     /**
-     * @var ThreeDs
+     * @var ThreeDs|null
      * @SerializedName("ThreeDs")
      * @Type("Ticketpark\SaferpayJson\Container\ThreeDs")
      */
-    protected $threeDs;
+    private $threeDs;
 
     public function isLiabilityShift(): ?bool
     {
         return $this->liabilityShift;
     }
 
-    public function setLiabilityShift(bool $liabilityShift): self
+    public function setLiabilityShift(?bool $liabilityShift): self
     {
         $this->liabilityShift = $liabilityShift;
 
@@ -45,7 +45,7 @@ class Liability
         return $this->liableEntity;
     }
 
-    public function setLiableEntity(string $liableEntity): self
+    public function setLiableEntity(?string $liableEntity): self
     {
         $this->liableEntity = $liableEntity;
 
@@ -57,7 +57,7 @@ class Liability
         return $this->threeDs;
     }
 
-    public function setThreeDs(ThreeDs $threeDs): self
+    public function setThreeDs(?ThreeDs $threeDs): self
     {
         $this->threeDs = $threeDs;
 

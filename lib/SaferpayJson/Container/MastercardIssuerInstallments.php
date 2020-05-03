@@ -5,42 +5,42 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class MastercardIssuerInstallments
+final class MastercardIssuerInstallments
 {
     /**
-     * @var array<InstallmentPlan>
+     * @var array<InstallmentPlan>|null
      * @SerializedName("InstallmentPlans")
      * @Type("array")
      */
-    protected $installmentPlans;
+    private $installmentPlans;
 
     /**
-     * @var CustomPlan
+     * @var CustomPlan|null
      * @SerializedName("CustomPlan")
      * @Type("Ticketpark\SaferpayJson\Container\CustomPlan")
      */
-    protected $customPlan;
+    private $customPlan;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("ReceiptFreeText")
      * @Type("string")
      */
-    protected $receiptFreeText;
+    private $receiptFreeText;
 
     /**
-     * @var ChosenPlan
+     * @var ChosenPlan|null
      * @SerializedName("ChosenPlan")
      * @Type("array")
      */
-    protected $chosenPlan;
+    private $chosenPlan;
 
     public function getInstallmentPlans(): ?array
     {
         return $this->installmentPlans;
     }
 
-    public function setInstallmentPlans(array $installmentPlans): self
+    public function setInstallmentPlans(?array $installmentPlans): self
     {
         $this->installmentPlans = $installmentPlans;
 
@@ -52,7 +52,7 @@ class MastercardIssuerInstallments
         return $this->customPlan;
     }
 
-    public function setCustomPlan(CustomPlan $customPlan): self
+    public function setCustomPlan(?CustomPlan $customPlan): self
     {
         $this->customPlan = $customPlan;
 
@@ -64,7 +64,7 @@ class MastercardIssuerInstallments
         return $this->receiptFreeText;
     }
 
-    public function setReceiptFreeText(string $receiptFreeText): self
+    public function setReceiptFreeText(?string $receiptFreeText): self
     {
         $this->receiptFreeText = $receiptFreeText;
 
@@ -76,7 +76,7 @@ class MastercardIssuerInstallments
         return $this->chosenPlan;
     }
 
-    public function setChosenPlan(ChosenPlan $chosenPlan): self
+    public function setChosenPlan(?ChosenPlan $chosenPlan): self
     {
         $this->chosenPlan = $chosenPlan;
 

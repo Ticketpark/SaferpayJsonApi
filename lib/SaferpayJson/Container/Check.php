@@ -4,29 +4,29 @@ namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-class Check
+final class Check
 {
     const TYPE_ONLINE = 'ONLINE';
     const TYPE_ONLINE_STRONG = 'ONLINE_STRONG';
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Type")
      */
-    protected $type;
+    private $type;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("TerminalId")
      */
-    protected $terminalId;
+    private $terminalId;
 
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    public function setType(string $type): self
+    public function setType(?string $type): self
     {
         $this->type = $type;
 
@@ -38,7 +38,7 @@ class Check
         return $this->terminalId;
     }
 
-    public function setTerminalId(string $terminalId): self
+    public function setTerminalId(?string $terminalId): self
     {
         $this->terminalId = $terminalId;
 

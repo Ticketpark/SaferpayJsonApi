@@ -5,28 +5,28 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\SerializedName;
 
-class Redirect
+final class Redirect
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("RedirectUrl")
      * @Type("string")
      */
-    protected $redirectUrl;
+    private $redirectUrl;
 
     /**
-     * @var bool
+     * @var bool|null
      * @SerializedName("PaymentMeansRequired")
      * @Type("bool")
      */
-    protected $paymentMeansRequired;
+    private $paymentMeansRequired;
 
     public function getRedirectUrl(): ?string
     {
         return $this->redirectUrl;
     }
 
-    public function setRedirectUrl(string $redirectUrl): self
+    public function setRedirectUrl(?string $redirectUrl): self
     {
         $this->redirectUrl = $redirectUrl;
 
@@ -38,7 +38,7 @@ class Redirect
         return $this->paymentMeansRequired;
     }
 
-    public function setPaymentMeansRequired(bool $paymentMeansRequired): self
+    public function setPaymentMeansRequired(?bool $paymentMeansRequired): self
     {
         $this->paymentMeansRequired = $paymentMeansRequired;
 

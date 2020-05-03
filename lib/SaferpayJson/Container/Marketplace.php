@@ -4,32 +4,32 @@ namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-class Marketplace
+final class Marketplace
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("SubmerchantId")
      */
-    protected $submerchantId;
+    private $submerchantId;
 
     /**
-     * @var Amount
+     * @var Amount|null
      * @SerializedName("Fee")
      */
-    protected $fee;
+    private $fee;
 
     /**
-     * @var Amount
+     * @var Amount|null
      * @SerializedName("FeeRefund")
      */
-    protected $feeRefund;
+    private $feeRefund;
 
     public function getSubmerchantId(): ?string
     {
         return $this->submerchantId;
     }
 
-    public function setSubmerchantId(string $submerchantId): self
+    public function setSubmerchantId(?string $submerchantId): self
     {
         $this->submerchantId = $submerchantId;
 
@@ -41,7 +41,7 @@ class Marketplace
         return $this->fee;
     }
 
-    public function setFee(Amount $fee): self
+    public function setFee(?Amount $fee): self
     {
         $this->fee = $fee;
 
@@ -53,7 +53,7 @@ class Marketplace
         return $this->feeRefund;
     }
 
-    public function setFeeRefund(Amount $feeRefund): self
+    public function setFeeRefund(?Amount $feeRefund): self
     {
         $this->feeRefund = $feeRefund;
 

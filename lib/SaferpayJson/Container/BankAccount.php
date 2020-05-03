@@ -5,101 +5,101 @@ namespace Ticketpark\SaferpayJson\Container;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class BankAccount
+final class BankAccount
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Iban")
      * @Type("string")
      */
-    protected $iban;
+    private $iban;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("HolderName")
      * @Type("string")
      */
-    protected $holderName;
+    private $holderName;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("BIC")
      * @Type("string")
      */
-    protected $bic;
+    private $bic;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("BankName")
      * @Type("string")
      */
-    protected $bankName;
+    private $bankName;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("CountryCode")
      * @Type("string")
      */
-    protected $countryCode;
+    private $countryCode;
 
-    public function __construct(string $iban)
+    public function __construct(?string $iban)
     {
         $this->iban = $iban;
     }
 
-    public function getIban(): string
+    public function getIban(): ?string
     {
         return $this->iban;
     }
 
-    public function setIban(string $iban): self
+    public function setIban(?string $iban): self
     {
         $this->iban = $iban;
         return $this;
     }
 
-    public function getHolderName(): string
+    public function getHolderName(): ?string
     {
         return $this->holderName;
     }
 
-    public function setHolderName(string $holderName): self
+    public function setHolderName(?string $holderName): self
     {
         $this->holderName = $holderName;
 
         return $this;
     }
 
-    public function getBic(): string
+    public function getBic(): ?string
     {
         return $this->bic;
     }
 
-    public function setBic(string $bic): self
+    public function setBic(?string $bic): self
     {
         $this->bic = $bic;
 
         return $this;
     }
 
-    public function getBankName(): string
+    public function getBankName(): ?string
     {
         return $this->bankName;
     }
 
-    public function setBankName(string $bankName): self
+    public function setBankName(?string $bankName): self
     {
         $this->bankName = $bankName;
 
         return $this;
     }
 
-    public function getCountryCode(): string
+    public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
 
-    public function setCountryCode(string $countryCode): self
+    public function setCountryCode(?string $countryCode): self
     {
         $this->countryCode = $countryCode;
 

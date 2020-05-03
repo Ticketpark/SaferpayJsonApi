@@ -4,32 +4,32 @@ namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-class Notification
+final class Notification
 {
     /**
-     * @var array<string>
+     * @var array<string>|null
      * @SerializedName("MerchantEmails")
      */
-    protected $merchantEmails = [];
+    private $merchantEmails = [];
 
     /**
      * @var string|null
      * @SerializedName("PayerEmail")
      */
-    protected $payerEmail;
+    private $payerEmail;
 
     /**
      * @var string|null
      * @SerializedName("NotifyUrl")
      */
-    protected $notifyUrl;
+    private $notifyUrl;
 
-    public function getMerchantEmails(): array
+    public function getMerchantEmails(): ?array
     {
         return $this->merchantEmails;
     }
 
-    public function setMerchantEmails(array $merchantEmails): self
+    public function setMerchantEmails(?array $merchantEmails): self
     {
         $this->merchantEmails = $merchantEmails;
 
