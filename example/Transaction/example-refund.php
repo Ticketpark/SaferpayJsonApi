@@ -8,7 +8,7 @@ use Ticketpark\SaferpayJson\Request\Transaction\RefundRequest;
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
-// A capture id you receive with a successful capture request (see ../PaymentPage/3-example-capture.php)
+// A capture id you receive with a successful capture request (see ../PaymentPage/example-capture.php)
 
 $captureId = 'xxx';
 

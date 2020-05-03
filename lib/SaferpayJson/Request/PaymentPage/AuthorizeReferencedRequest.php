@@ -3,10 +3,12 @@
 namespace Ticketpark\SaferpayJson\Request\PaymentPage;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Container\Authentication;
 use Ticketpark\SaferpayJson\Container\Payment;
 use Ticketpark\SaferpayJson\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
+use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\PaymentPage\AuthorizeReferencedResponse;
 
 class AuthorizeReferencedRequest extends Request
@@ -33,6 +35,32 @@ class AuthorizeReferencedRequest extends Request
      * @SerializedName("TransactionReference")
      */
     protected $transactionReference;
+
+    /**
+     * @var Authentication
+     * @SerializedName("Authentication")
+     */
+    protected $authentication;
+
+    /**
+     * @var bool
+     * @SerializedName("SuppressDcc")
+     */
+    protected $suppressDcc;
+
+    public function __construct(
+        RequestConfig $requestConfig,
+        string $terminalId,
+        Payment $payment,
+        TransactionReference $transactionReference
+    )
+    {
+        $this->terminalId = $terminalId;
+        $this->payment = $payment;
+        $this->transactionReference = $transactionReference;
+
+        parent::__construct($requestConfig);
+    }
 
     public function getTerminalId(): string
     {
@@ -66,6 +94,30 @@ class AuthorizeReferencedRequest extends Request
     public function setPayment(Payment $payment): self
     {
         $this->payment = $payment;
+
+        return $this;
+    }
+
+    public function getAuthentication(): ?Authentication
+    {
+        return $this->authentication;
+    }
+
+    public function setAuthentication(Authentication $authentication): self
+    {
+        $this->authentication = $authentication;
+
+        return $this;
+    }
+
+    public function isSuppressDcc(): ?bool
+    {
+        return $this->suppressDcc;
+    }
+
+    public function setSuppressDcc(bool $suppressDcc): self
+    {
+        $this->suppressDcc = $suppressDcc;
 
         return $this;
     }

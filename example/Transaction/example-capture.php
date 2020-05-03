@@ -1,13 +1,14 @@
 <?php declare(strict_types=1);
 
-use \Ticketpark\SaferpayJson\Container;
-use \Ticketpark\SaferpayJson\Request\Response\ErrorResponse;
-use \Ticketpark\SaferpayJson\Request\Transaction\CancelRequest;
+use Ticketpark\SaferpayJson\Container;
+use Ticketpark\SaferpayJson\Request\RequestConfig;
+use Ticketpark\SaferpayJson\Request\Transaction\CaptureRequest;
+use Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
-// A transaction id you received with a successful assert request (see ../PaymentPage/2-example-assert.php)
+// A transaction id you received with a successful assert request (see ../PaymentPage/example-assert.php)
 
 $transactionId = 'xxx';
 
@@ -30,7 +31,7 @@ $transactionReference = (new Container\TransactionReference())
 // Step 2:
 // Create the request with required data
 
-$cancelRequest = new CancelRequest(
+$captureRequest = new CaptureRequest(
     $requestConfig,
     $transactionReference
 );
@@ -39,10 +40,14 @@ $cancelRequest = new CancelRequest(
 // Step 3:
 // Execute and check for successful response
 
-$response = $cancelRequest->execute();
+$response = $captureRequest->execute();
 
 if ($response instanceof ErrorResponse) {
+    var_dump($response); exit;
+
     die($response->getErrorMessage());
 }
 
-echo 'The transaction has successfully been canceled! Transaction-ID: ' . $response->getTransactionId();
+echo 'The transaction has successfully been captured! Capture-Id: ' . $response->getCaptureId()."\n";
+
+// You have now fully completed a successful payment :)

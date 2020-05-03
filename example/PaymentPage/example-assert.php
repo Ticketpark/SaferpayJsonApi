@@ -7,7 +7,7 @@ use Ticketpark\SaferpayJson\Response\ErrorResponse;
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
 
-// A token you received after initializing a payment page (see 1-example-assert.php)
+// A token you received after initializing a payment page (see example-assert.php)
 
 $token = 'xxx';
 
@@ -42,9 +42,9 @@ if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
 
-echo 'The transaction has been successful! Transaction id: ' . $response->getTransaction()->getId();
+echo 'The transaction has been successful! Transaction id: ' . $response->getTransaction()->getId()."\n";
 
 // -----------------------------
 // Step 4:
 // Capture the transaction to get the cash flowing.
-// See ../Transaction/1-example-capture.php
+// See ../Transaction/example-capture.php

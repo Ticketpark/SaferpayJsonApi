@@ -25,10 +25,8 @@ $amount = new Container\Amount(
     'CHF'
 );
 
-$payment = new Container\Payment(
-    $amount,
-    'Order No. 12839'
-);
+$payment = new Container\Payment($amount);
+$payment->setDescription('Order No. 12839');
 
 $returnUrls = new Container\ReturnUrls(
     'http://www.mysite.ch/success?orderId=12839',
@@ -78,4 +76,4 @@ echo 'Redirect to: ' . $response->getRedirectUrl() ."<br>\n";
 // -----------------------------
 // Step 7:
 // On success page and notification url, assert that the payment has been successful.
-// -> see 2-example-assert.php
+// -> see example-assert.php

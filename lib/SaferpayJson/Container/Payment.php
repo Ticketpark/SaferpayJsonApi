@@ -54,10 +54,9 @@ class Payment
      */
     protected $installment;
 
-    public function __construct(Amount $amount, string $description)
+    public function __construct(Amount $amount)
     {
         $this->amount = $amount;
-        $this->description = $description;
     }
 
     public function getAmount(): Amount
