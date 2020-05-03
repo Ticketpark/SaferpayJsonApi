@@ -53,8 +53,7 @@ class AuthorizeReferencedRequest extends Request
         string $terminalId,
         Payment $payment,
         TransactionReference $transactionReference
-    )
-    {
+    ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;
         $this->transactionReference = $transactionReference;

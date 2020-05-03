@@ -33,8 +33,7 @@ class AliasUpdateRequest extends Request
         RequestConfig $requestConfig,
         UpdateAlias $updateAlias,
         UpdatePaymentMeans $updatePaymentMeans
-    )
-    {
+    ) {
         $this->updateAlias = $updateAlias;
         $this->updatePaymentMeans = $updatePaymentMeans;
 

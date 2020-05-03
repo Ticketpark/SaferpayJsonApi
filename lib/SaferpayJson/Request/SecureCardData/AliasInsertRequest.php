@@ -102,8 +102,7 @@ class AliasInsertRequest extends Request
         RegisterAlias $registerAlias,
         string $type,
         ReturnUrls $returnUrls
-    )
-    {
+    ) {
         $this->registerAlias = $registerAlias;
         $this->type = $type;
         $this->returnUrls = $returnUrls;
