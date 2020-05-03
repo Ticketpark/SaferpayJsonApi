@@ -4,9 +4,6 @@ namespace Ticketpark\SaferpayJson\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Container\Alias;
-use Ticketpark\SaferpayJson\Container\Error;
-use Ticketpark\SaferpayJson\Container\Error;
 
 class RegistrationResult
 {
@@ -69,6 +66,18 @@ class RegistrationResult
     public function setError(Error $error): self
     {
         $this->error = $error;
+
+        return $this;
+    }
+
+    public function getAuthenticationResult(): ?AuthenticationResult
+    {
+        return $this->authenticationResult;
+    }
+
+    public function setAuthenticationResult(AuthenticationResult $authenticationResult): self
+    {
+        $this->authenticationResult = $authenticationResult;
 
         return $this;
     }

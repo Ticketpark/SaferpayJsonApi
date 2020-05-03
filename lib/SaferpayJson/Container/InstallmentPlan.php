@@ -22,9 +22,9 @@ class InstallmentPlan
     protected $interestRate;
 
     /**
-     * @var InstallmentFee
+     * @var Amount
      * @SerializedName("InstallmentFee")
-     * @Type("Ticketpark\SaferpayJson\Container\InstallmentFee")
+     * @Type("Ticketpark\SaferpayJson\Container\Amount")
      */
     protected $installmentFee;
 
@@ -80,12 +80,12 @@ class InstallmentPlan
         return $this;
     }
 
-    public function getInstallmentFee(): ?InstallmentFee
+    public function getInstallmentFee(): ?Amount
     {
         return $this->installmentFee;
     }
 
-    public function setInstallmentFee(InstallmentFee $installmentFee): self
+    public function setInstallmentFee(Amount $installmentFee): self
     {
         $this->installmentFee = $installmentFee;
 

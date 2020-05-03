@@ -8,6 +8,7 @@ use GuzzleHttp\Psr7\Response;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\ResponseInterface;
 
@@ -19,28 +20,41 @@ abstract class CommonRequestTest extends TestCase
     /** @var ?string */
     private $successfulResponseClass;
 
-    public function doTestErrorResponse(string $requestClass): void
+    abstract protected function getInstance();
+
+    public function testErrorResponse(): void
     {
         $this->successful = false;
-        $this->successfulResponseClass = null;
-        $response = $this->executeRequest($requestClass);
+        $response = $this->executeRequest();
 
         $this->assertInstanceOf(ErrorResponse::class, $response);
     }
 
-    public function doTestSuccessfulResponse(string $requestClass, string $responseClass): void
+    public function doTestSuccessfulResponse(string $responseClass): void
     {
         $this->successful = true;
         $this->successfulResponseClass = $responseClass;
-        $response = $this->executeRequest($requestClass);
+        $response = $this->executeRequest();
 
         $this->assertInstanceOf($responseClass, $response);
     }
 
-    private function executeRequest(string $requestClass): ResponseInterface
+    protected function getRequestConfig(): RequestConfig
     {
-        $initializer = new $requestClass('key', 'secret');
-        $initializer->setClient($this->getClientMock());
+        $requestConfig = new RequestConfig(
+            'apiKey',
+            'apiSecret',
+            'customerId'
+        );
+
+        $requestConfig->setClient($this->getClientMock());
+
+        return $requestConfig;
+    }
+
+    private function executeRequest(): ResponseInterface
+    {
+        $initializer = $this->getInstance();
 
         return $initializer->execute();
     }

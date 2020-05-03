@@ -5,6 +5,7 @@ namespace Ticketpark\SaferpayJson\Response\SecureCardData;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Container\Alias;
+use Ticketpark\SaferpayJson\Container\CheckResult;
 use Ticketpark\SaferpayJson\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Response\Response;
 

@@ -5,6 +5,8 @@ namespace Ticketpark\SaferpayJson\Response\PaymentPage;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Container\Dcc;
+use Ticketpark\SaferpayJson\Container\Liability;
+use Ticketpark\SaferpayJson\Container\MastercardIssuerInstallments;
 use Ticketpark\SaferpayJson\Container\Payer;
 use Ticketpark\SaferpayJson\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Container\RegistrationResult;

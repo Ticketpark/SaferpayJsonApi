@@ -3,6 +3,7 @@ namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use Ticketpark\SaferpayJson\Container\Payer;
 use Ticketpark\SaferpayJson\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Container\Payment;
@@ -52,8 +53,12 @@ class AuthorizeDirectRequest extends Request
      */
     protected $terminalId;
 
-    public function __construct(RequestConfig $requestConfig, string $terminalId, Payment $payment, PaymentMeans $paymentMeans)
-    {
+    public function __construct(
+        RequestConfig $requestConfig,
+        string $terminalId,
+        Payment $payment,
+        PaymentMeans $paymentMeans
+    ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;
         $this->paymentMeans = $paymentMeans;

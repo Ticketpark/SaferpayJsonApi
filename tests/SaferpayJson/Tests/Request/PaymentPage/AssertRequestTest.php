@@ -8,16 +8,18 @@ use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
 
 class AssertRequestTest extends CommonRequestTest
 {
-    public function testErrorResponse(): void
-    {
-        parent::doTestErrorResponse(AssertRequest::class);
-    }
-
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            AssertRequest::class,
             AssertResponse::class
+        );
+    }
+
+    protected function getInstance()
+    {
+        return new AssertRequest(
+            $this->getRequestConfig(),
+            'someTokenId'
         );
     }
 }
