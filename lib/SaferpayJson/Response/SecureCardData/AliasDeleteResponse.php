@@ -4,6 +4,6 @@ namespace Ticketpark\SaferpayJson\Response\SecureCardData;
 
 use Ticketpark\SaferpayJson\Response\Response;
 
-class DeleteResponse extends Response
+class AliasDeleteResponse extends Response
 {
 }

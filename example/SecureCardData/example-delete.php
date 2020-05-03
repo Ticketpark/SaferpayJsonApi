@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 use \Ticketpark\SaferpayJson\Container;
-use Ticketpark\SaferpayJson\Request\SecureCardData\DeleteRequest;
+use Ticketpark\SaferpayJson\Request\SecureCardData\AliasDeleteRequest;
 use \Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -19,7 +19,7 @@ $requestHeader = (new Container\RequestHeader())
     ->setCustomerId($customerId)
     ->setRequestId(uniqid());
 
-$response = (new DeleteRequest($apiKey, $apiSecret))
+$response = (new AliasDeleteRequest($apiKey, $apiSecret))
     ->setRequestHeader($requestHeader)
     ->setAliasId($aliasId)
     ->execute();

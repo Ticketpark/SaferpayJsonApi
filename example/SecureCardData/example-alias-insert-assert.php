@@ -42,4 +42,4 @@ if ($response instanceof ErrorResponse) {
     die($response->getErrorMessage());
 }
 
-echo 'The insert has been successful! Insert alias: ' . $response->getAlias()->getId()."<br>\n";
+echo 'The insert has been successful! Alias id: ' . $response->getAlias()->getId()."<br>\n";

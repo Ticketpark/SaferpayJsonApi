@@ -5,12 +5,12 @@ namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
-use Ticketpark\SaferpayJson\Response\SecureCardData\DeleteResponse;
+use Ticketpark\SaferpayJson\Response\SecureCardData\AliasDeleteResponse;
 
-class DeleteRequest extends Request
+class AliasDeleteRequest extends Request
 {
     const API_PATH = '/Payment/v1/Alias/Delete';
-    const RESPONSE_CLASS = DeleteResponse::class;
+    const RESPONSE_CLASS = AliasDeleteResponse::class;
 
     use RequestCommonsTrait;
 
