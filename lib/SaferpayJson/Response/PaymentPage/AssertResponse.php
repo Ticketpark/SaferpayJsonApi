@@ -93,4 +93,9 @@ final class AssertResponse extends Response
     {
         return $this->dcc;
     }
+
+    public function getMastercardIssuerInstallments(): ?MastercardIssuerInstallments
+    {
+        return $this->mastercardIssuerInstallments;
+    }
 }
