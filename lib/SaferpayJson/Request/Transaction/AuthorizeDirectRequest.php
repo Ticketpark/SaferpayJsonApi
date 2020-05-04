@@ -106,6 +106,18 @@ final class AuthorizeDirectRequest extends Request
         return $this;
     }
 
+    public function getAuthentication(): ?Authentication
+    {
+        return $this->authentication;
+    }
+
+    public function setAuthentication(?Authentication $authentication): self
+    {
+        $this->authentication = $authentication;
+
+        return $this;
+    }
+
     public function getRegisterAlias(): ?RegisterAlias
     {
         return $this->registerAlias;

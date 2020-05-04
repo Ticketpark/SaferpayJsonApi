@@ -9,21 +9,21 @@ use Ticketpark\SaferpayJson\Response\Response;
 final class InitializeResponse extends Response
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Token")
      * @Type("string")
      */
     private $token;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      * @SerializedName("Expiration")
      * @Type("string")
      */
     private $expiration;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("RedirectUrl")
      * @Type("string")
      */

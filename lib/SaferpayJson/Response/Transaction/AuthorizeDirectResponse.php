@@ -13,28 +13,28 @@ use Ticketpark\SaferpayJson\Response\Response;
 final class AuthorizeDirectResponse extends Response
 {
     /**
-     * @var Transaction
+     * @var Transaction|null
      * @SerializedName("Transaction")
      * @Type("Ticketpark\SaferpayJson\Response\Container\Transaction")
      */
     private $transaction;
 
     /**
-     * @var PaymentMeans
+     * @var PaymentMeans|null
      * @SerializedName("PaymentMeans")
      * @Type("Ticketpark\SaferpayJson\Response\Container\PaymentMeans")
      */
     private $paymentMeans;
 
     /**
-     * @var RegisterAlias
+     * @var RegisterAlias|null
      * @SerializedName("RegisterAlias")
      * @Type("Ticketpark\SaferpayJson\Response\Container\RegisterAlias")
      */
     private $registerAlias;
 
     /**
-     * @var Payer
+     * @var Payer|null
      * @SerializedName("Payer")
      * @Type("Ticketpark\SaferpayJson\Response\Container\Payer")
      */

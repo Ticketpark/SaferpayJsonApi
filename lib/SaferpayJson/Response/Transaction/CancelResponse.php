@@ -9,21 +9,21 @@ use Ticketpark\SaferpayJson\Response\Response;
 final class CancelResponse extends Response
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("TransactionId")
      * @Type("string")
      */
     private $transactionId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("OrderId")
      * @Type("string")
      */
     private $orderId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Date")
      * @Type("string")
      */

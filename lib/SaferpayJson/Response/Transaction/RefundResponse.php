@@ -12,21 +12,21 @@ use Ticketpark\SaferpayJson\Response\Response;
 final class RefundResponse extends Response
 {
     /**
-     * @var Transaction
+     * @var Transaction|null
      * @SerializedName("Transaction")
      * @Type("Ticketpark\SaferpayJson\Response\Container\Transaction")
      */
     private $transaction;
 
     /**
-     * @var PaymentMeans
+     * @var PaymentMeans|null
      * @SerializedName("PaymentMeans")
      * @Type("Ticketpark\SaferpayJson\Response\Container\PaymentMeans")
      */
     private $paymentMeans;
 
     /**
-     * @var Dcc
+     * @var Dcc|null
      * @SerializedName("Dcc")
      * @Type("Ticketpark\SaferpayJson\Response\Container\Dcc")
      */

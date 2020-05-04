@@ -11,14 +11,14 @@ use Ticketpark\SaferpayJson\Response\Response;
 final class AliasUpdateResponse extends Response
 {
     /**
-     * @var Alias
+     * @var Alias|null
      * @SerializedName("Alias")
      * @Type("Ticketpark\SaferpayJson\Response\Container\Alias")
      */
     private $alias;
 
     /**
-     * @var PaymentMeans
+     * @var PaymentMeans|null
      * @SerializedName("PaymentMeans")
      * @Type("Ticketpark\SaferpayJson\Response\Container\PaymentMeans")
      */

@@ -13,35 +13,35 @@ final class CaptureResponse extends Response
     const STATUS_CAPTURED = 'CAPTURED';
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("TransactionId")
      * @Type("string")
      */
     private $transactionId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("CaptureId")
      * @Type("string")
      */
     private $captureId;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Statis")
      * @Type("string")
      */
     private $status;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Date")
      * @Type("string")
      */
     private $date;
 
     /**
-     * @var Invoice
+     * @var Invoice|null
      * @SerializedName("Invoice")
      * @Type("Ticketpark\SaferpayJson\Response\Container\Invoice")
      */

@@ -16,49 +16,49 @@ use Ticketpark\SaferpayJson\Response\Response;
 final class AssertResponse extends Response
 {
     /**
-     * @var Transaction
+     * @var Transaction|null
      * @SerializedName("Transaction")
      * @Type("Ticketpark\SaferpayJson\Response\Container\Transaction")
      */
     private $transaction;
 
     /**
-     * @var PaymentMeans
+     * @var PaymentMeans|null
      * @SerializedName("PaymentMeans")
      * @Type("Ticketpark\SaferpayJson\Response\Container\PaymentMeans")
      */
     private $paymentMeans;
 
     /**
-     * @var Payer
+     * @var Payer|null
      * @SerializedName("Payer")
      * @Type("Ticketpark\SaferpayJson\Response\Container\Payer")
      */
     private $payer;
 
     /**
-     * @var RegistrationResult
+     * @var RegistrationResult|null
      * @SerializedName("RegistrationResult")
      * @Type("Ticketpark\SaferpayJson\Response\Container\RegistrationResult")
      */
     private $registrationResult;
 
     /**
-     * @var Liability
+     * @var Liability|null
      * @SerializedName("Liability")
      * @Type("Ticketpark\SaferpayJson\Response\Container\Liability")
      */
     private $liability;
 
     /**
-     * @var Dcc
+     * @var Dcc|null
      * @SerializedName("Dcc")
      * @Type("Ticketpark\SaferpayJson\Response\Container\Dcc")
      */
     private $dcc;
 
     /**
-     * @var MastercardIssuerInstallments
+     * @var MastercardIssuerInstallments|null
      * @SerializedName("MastercardIssuerInstallments")
      * @Type("Ticketpark\SaferpayJson\Response\Container\MastercardIssuerInstallments")
      */
@@ -82,6 +82,11 @@ final class AssertResponse extends Response
     public function getRegistrationResult(): ?RegistrationResult
     {
         return $this->registrationResult;
+    }
+
+    public function getLiability(): ?Liability
+    {
+        return $this->liability;
     }
 
     public function getDcc(): ?Dcc

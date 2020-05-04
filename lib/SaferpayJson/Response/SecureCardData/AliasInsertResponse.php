@@ -10,28 +10,28 @@ use Ticketpark\SaferpayJson\Response\Response;
 final class AliasInsertResponse extends Response
 {
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Token")
      * @Type("string")
      */
     private $token;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      * @SerializedName("Expiration")
      * @Type("string")
      */
     private $expiration;
 
     /**
-     * @var bool
+     * @var bool|null
      * @SerializedName("RedirectRequired")
      * @Type("bool")
      */
     private $redirectRequired;
 
     /**
-     * @var Redirect
+     * @var Redirect|null
      * @SerializedName("Redirect")
      * @Type("Ticketpark\SaferpayJson\Response\Container\Redirect")
      */
