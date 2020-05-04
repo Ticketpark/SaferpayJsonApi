@@ -8,7 +8,7 @@ use JMS\Serializer\Annotation\Type;
 final class BankAccount
 {
     /**
-     * @var string|null
+     * @var string
      * @SerializedName("Iban")
      */
     private $iban;
@@ -36,15 +36,9 @@ final class BankAccount
         $this->iban = $iban;
     }
 
-    public function getIban(): ?string
+    public function getIban(): string
     {
         return $this->iban;
-    }
-
-    public function setIban(?string $iban): self
-    {
-        $this->iban = $iban;
-        return $this;
     }
 
     public function getHolderName(): ?string

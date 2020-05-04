@@ -31,7 +31,7 @@ final class AddressForm
      */
     private $mandatoryFields = [];
 
-    public function __construct(bool $display = true)
+    public function __construct(bool $display)
     {
         $this->display = $display;
     }

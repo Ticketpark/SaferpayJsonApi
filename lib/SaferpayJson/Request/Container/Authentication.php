@@ -34,6 +34,7 @@ final class Authentication
     public function setExemption(?string $exemption): self
     {
         $this->exemption = $exemption;
+
         return $this;
     }
 
@@ -45,6 +46,7 @@ final class Authentication
     public function setThreeDsChallenge(?string $threeDsChallenge): self
     {
         $this->threeDsChallenge = $threeDsChallenge;
+
         return $this;
     }
 }
