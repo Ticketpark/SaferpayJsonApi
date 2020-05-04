@@ -14,7 +14,7 @@ $transactionId = 'xxx';
 // -----------------------------
 // Step 1:
 // Prepare the capture request
-// https://saferpay.github.io/jsonapi/1.2/#Payment_v1_Transaction_Capture
+// https://saferpay.github.io/jsonapi/#Payment_v1_Transaction_Cancel
 
 $requestConfig = new RequestConfig(
     $apiKey,
