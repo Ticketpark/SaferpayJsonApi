@@ -31,7 +31,7 @@ final class BankAccount
      */
     private $bankName;
 
-    public function __construct(?string $iban)
+    public function __construct(string $iban)
     {
         $this->iban = $iban;
     }
