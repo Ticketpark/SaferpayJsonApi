@@ -106,14 +106,14 @@ abstract class Request
             ));
         }
 
-        /** @var Response $response */
-        $response = $this->getSerializer()->deserialize(
+        /** @var Response $libraryResponse */
+        $libraryResponse = $this->getSerializer()->deserialize(
             (string) $response->getBody(),
             $this->getResponseClass(),
             'json'
         );
 
-        return $response;
+        return $libraryResponse;
     }
 
     private function getUrl(): string
