@@ -28,7 +28,7 @@ final class CaptureResponse extends Response
 
     /**
      * @var string|null
-     * @SerializedName("Statis")
+     * @SerializedName("Status")
      * @Type("string")
      */
     private $status;
