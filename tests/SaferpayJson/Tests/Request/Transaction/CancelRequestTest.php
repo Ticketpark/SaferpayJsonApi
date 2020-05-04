@@ -2,7 +2,7 @@
 
 namespace Ticketpark\SaferpayJson\Tests\Transaction;
 
-use Ticketpark\SaferpayJson\Container\TransactionReference;
+use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
 use Ticketpark\SaferpayJson\Request\Transaction\CancelRequest;
 use Ticketpark\SaferpayJson\Response\Transaction\CancelResponse;

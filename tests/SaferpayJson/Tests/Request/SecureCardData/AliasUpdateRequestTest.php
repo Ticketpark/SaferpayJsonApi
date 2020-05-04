@@ -2,9 +2,9 @@
 
 namespace Ticketpark\SaferpayJson\Tests\SecureAliasStore;
 
-use Ticketpark\SaferpayJson\Container\Card;
-use Ticketpark\SaferpayJson\Container\UpdateAlias;
-use Ticketpark\SaferpayJson\Container\UpdatePaymentMeans;
+use Ticketpark\SaferpayJson\Request\Container\Card;
+use Ticketpark\SaferpayJson\Request\Container\UpdateAlias;
+use Ticketpark\SaferpayJson\Request\Container\UpdatePaymentMeans;
 use Ticketpark\SaferpayJson\Request\SecureCardData\AliasUpdateRequest;
 use Ticketpark\SaferpayJson\Response\SecureCardData\AliasUpdateResponse;
 use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;

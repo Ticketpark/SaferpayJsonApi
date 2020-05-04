@@ -2,9 +2,9 @@
 
 namespace Ticketpark\SaferpayJson\Tests\PaymentPage;
 
-use Ticketpark\SaferpayJson\Container\Amount;
-use Ticketpark\SaferpayJson\Container\Payment;
-use Ticketpark\SaferpayJson\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Request\Container\Amount;
+use Ticketpark\SaferpayJson\Request\Container\Payment;
+use Ticketpark\SaferpayJson\Request\Container\ReturnUrls;
 use Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
 use Ticketpark\SaferpayJson\Response\PaymentPage\InitializeResponse;
 use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;

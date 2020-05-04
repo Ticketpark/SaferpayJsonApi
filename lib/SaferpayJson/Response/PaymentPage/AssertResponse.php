@@ -4,13 +4,13 @@ namespace Ticketpark\SaferpayJson\Response\PaymentPage;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Container\Dcc;
-use Ticketpark\SaferpayJson\Container\Liability;
-use Ticketpark\SaferpayJson\Container\MastercardIssuerInstallments;
-use Ticketpark\SaferpayJson\Container\Payer;
-use Ticketpark\SaferpayJson\Container\PaymentMeans;
-use Ticketpark\SaferpayJson\Container\RegistrationResult;
-use Ticketpark\SaferpayJson\Container\Transaction;
+use Ticketpark\SaferpayJson\Response\Container\Dcc;
+use Ticketpark\SaferpayJson\Response\Container\Liability;
+use Ticketpark\SaferpayJson\Response\Container\MastercardIssuerInstallments;
+use Ticketpark\SaferpayJson\Response\Container\Payer;
+use Ticketpark\SaferpayJson\Response\Container\PaymentMeans;
+use Ticketpark\SaferpayJson\Response\Container\RegistrationResult;
+use Ticketpark\SaferpayJson\Response\Container\Transaction;
 use Ticketpark\SaferpayJson\Response\Response;
 
 final class AssertResponse extends Response
@@ -18,49 +18,49 @@ final class AssertResponse extends Response
     /**
      * @var Transaction
      * @SerializedName("Transaction")
-     * @Type("Ticketpark\SaferpayJson\Container\Transaction")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\Transaction")
      */
     private $transaction;
 
     /**
      * @var PaymentMeans
      * @SerializedName("PaymentMeans")
-     * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\PaymentMeans")
      */
     private $paymentMeans;
 
     /**
      * @var Payer
      * @SerializedName("Payer")
-     * @Type("Ticketpark\SaferpayJson\Container\Payer")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\Payer")
      */
     private $payer;
 
     /**
      * @var RegistrationResult
      * @SerializedName("RegistrationResult")
-     * @Type("Ticketpark\SaferpayJson\Container\RegistrationResult")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\RegistrationResult")
      */
     private $registrationResult;
 
     /**
      * @var Liability
      * @SerializedName("Liability")
-     * @Type("Ticketpark\SaferpayJson\Container\Liability")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\Liability")
      */
     private $liability;
 
     /**
      * @var Dcc
      * @SerializedName("Dcc")
-     * @Type("Ticketpark\SaferpayJson\Container\Dcc")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\Dcc")
      */
     private $dcc;
 
     /**
      * @var MastercardIssuerInstallments
      * @SerializedName("MastercardIssuerInstallments")
-     * @Type("Ticketpark\SaferpayJson\Container\MastercardIssuerInstallments")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\MastercardIssuerInstallments")
      */
     private $mastercardIssuerInstallments;
 

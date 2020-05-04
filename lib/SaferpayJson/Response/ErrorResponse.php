@@ -7,22 +7,27 @@ use JMS\Serializer\Annotation\Type;
 
 class ErrorResponse extends Response
 {
+    const BEHAVIOUR_ABORT = 'ABORT';
+    const BEHAVIOUR_OTHER_MEANS = 'OTHER_MEANS';
+    const BEHAVIOUR_RETRY = 'RETRY';
+    const BEHAVIOUR_RETRY_LATER = 'RETRY_LATER';
+
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("Behavior")
      * @Type("string")
      */
     private $behaviour;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("ErrorName")
      * @Type("string")
      */
     private $errorName;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("ErrorMessage")
      * @Type("string")
      */
@@ -36,7 +41,7 @@ class ErrorResponse extends Response
     private $transactionId;
 
     /**
-     * @var array
+     * @var array|null
      * @SerializedName("ErrorDetail")
      * @Type("array")
      */
@@ -57,23 +62,23 @@ class ErrorResponse extends Response
     private $processorResult;
 
     /**
-     * @var string
+     * @var string|null
      * @SerializedName("ProcessorMessage")
      * @Type("string")
      */
     private $processorMessage;
 
-    public function getBehaviour(): string
+    public function getBehaviour(): ?string
     {
         return $this->behaviour;
     }
 
-    public function getErrorName(): string
+    public function getErrorName(): ?string
     {
         return $this->errorName;
     }
 
-    public function getErrorMessage(): string
+    public function getErrorMessage(): ?string
     {
         return $this->errorMessage;
     }
@@ -83,7 +88,7 @@ class ErrorResponse extends Response
         return $this->transactionId;
     }
 
-    public function getErrorDetail(): array
+    public function getErrorDetail(): ?array
     {
         return $this->errorDetail;
     }

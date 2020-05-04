@@ -3,12 +3,12 @@
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Container\Amount;
-use Ticketpark\SaferpayJson\Container\Billpay;
-use Ticketpark\SaferpayJson\Container\Marketplace;
-use Ticketpark\SaferpayJson\Container\MastercardIssuerInstallments;
-use Ticketpark\SaferpayJson\Container\PendingNotification;
-use Ticketpark\SaferpayJson\Container\TransactionReference;
+use Ticketpark\SaferpayJson\Request\Container\Amount;
+use Ticketpark\SaferpayJson\Request\Container\Billpay;
+use Ticketpark\SaferpayJson\Request\Container\Marketplace;
+use Ticketpark\SaferpayJson\Request\Container\MastercardIssuerInstallments;
+use Ticketpark\SaferpayJson\Request\Container\PendingNotification;
+use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;

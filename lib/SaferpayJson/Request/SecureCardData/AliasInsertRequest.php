@@ -4,12 +4,12 @@ namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Container\CardForm;
-use Ticketpark\SaferpayJson\Container\Check;
-use Ticketpark\SaferpayJson\Container\PaymentMeans;
-use Ticketpark\SaferpayJson\Container\RegisterAlias;
-use Ticketpark\SaferpayJson\Container\ReturnUrls;
-use Ticketpark\SaferpayJson\Container\Styling;
+use Ticketpark\SaferpayJson\Request\Container\CardForm;
+use Ticketpark\SaferpayJson\Request\Container\Check;
+use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
+use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
+use Ticketpark\SaferpayJson\Request\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Request\Container\Styling;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;

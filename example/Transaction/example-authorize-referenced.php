@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
-use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
-use Ticketpark\SaferpayJson\Container;
+use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
+use Ticketpark\SaferpayJson\Request\Container;
 use Ticketpark\SaferpayJson\Request\PaymentPage\AuthorizeReferencedRequest;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 
@@ -51,7 +51,7 @@ $authorizeReferencedRequest = new AuthorizeReferencedRequest(
 
 try {
 $response = $authorizeReferencedRequest->execute();
-} catch (SaferpayErrorResponseException $e) {
+} catch (SaferpayErrorException $e) {
     die ($e->getErrorResponse()->getErrorMessage());
 }
 

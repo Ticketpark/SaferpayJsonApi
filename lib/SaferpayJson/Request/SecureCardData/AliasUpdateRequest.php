@@ -3,8 +3,8 @@
 namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Container\UpdateAlias;
-use Ticketpark\SaferpayJson\Container\UpdatePaymentMeans;
+use Ticketpark\SaferpayJson\Request\Container\UpdateAlias;
+use Ticketpark\SaferpayJson\Request\Container\UpdatePaymentMeans;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;

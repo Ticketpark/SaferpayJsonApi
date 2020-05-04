@@ -4,7 +4,7 @@ namespace Ticketpark\SaferpayJson\Response\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Container\Invoice;
+use Ticketpark\SaferpayJson\Response\Container\Invoice;
 use Ticketpark\SaferpayJson\Response\Response;
 
 final class CaptureResponse extends Response
@@ -43,7 +43,7 @@ final class CaptureResponse extends Response
     /**
      * @var Invoice
      * @SerializedName("Invoice")
-     * @Type("Ticketpark\SaferpayJson\Container\Invoice")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\Invoice")
      */
     private $invoice;
 

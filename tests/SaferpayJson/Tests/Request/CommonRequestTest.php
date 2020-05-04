@@ -8,7 +8,7 @@ use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
+use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\Response;
@@ -25,7 +25,7 @@ abstract class CommonRequestTest extends TestCase
 
     public function testErrorResponse(): void
     {
-        $this->expectException(SaferpayErrorResponseException::class);
+        $this->expectException(SaferpayErrorException::class);
 
         $this->successful = false;
         $this->executeRequest();

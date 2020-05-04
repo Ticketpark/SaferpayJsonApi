@@ -3,19 +3,16 @@ namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Container\Payer;
-use Ticketpark\SaferpayJson\Container\RegisterAlias;
+use Ticketpark\SaferpayJson\Request\Container\Authentication;
+use Ticketpark\SaferpayJson\Request\Container\Payer;
+use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\Request;
-use Ticketpark\SaferpayJson\Container\Payment;
-use Ticketpark\SaferpayJson\Container\PaymentMeans;
+use Ticketpark\SaferpayJson\Request\Container\Payment;
+use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeDirectResponse;
 
-/**
- * Class AuthorizeDirectRequest
- * @package Ticketpark\SaferpayJson\Transaction
- */
 final class AuthorizeDirectRequest extends Request
 {
     const API_PATH = '/Payment/v1/Transaction/AuthorizeDirect';
@@ -40,6 +37,12 @@ final class AuthorizeDirectRequest extends Request
      * @SerializedName("PaymentMeans")
      */
     private $paymentMeans;
+
+    /**
+     * @var Authentication|null
+     * @SerializedName("Authentication")
+     */
+    private $authentication;
 
     /**
      * @var RegisterAlias|null

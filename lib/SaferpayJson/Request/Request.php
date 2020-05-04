@@ -10,9 +10,9 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\VirtualProperty;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
-use Ticketpark\SaferpayJson\Exception\HttpRequestException;
-use Ticketpark\SaferpayJson\Container\RequestHeader;
-use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
+use Ticketpark\SaferpayJson\Request\Exception\HttpRequestException;
+use Ticketpark\SaferpayJson\Request\Container\RequestHeader;
+use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\Response;
 
@@ -96,7 +96,7 @@ abstract class Request
                 'json'
             );
 
-            throw new SaferpayErrorResponseException($errorResponse);
+            throw new SaferpayErrorException($errorResponse);
         }
 
         if (200 !== $statusCode) {

@@ -2,8 +2,8 @@
 
 namespace Ticketpark\SaferpayJson\Tests\SecureAliasStore;
 
-use Ticketpark\SaferpayJson\Container\RegisterAlias;
-use Ticketpark\SaferpayJson\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
+use Ticketpark\SaferpayJson\Request\Container\ReturnUrls;
 use Ticketpark\SaferpayJson\Request\SecureCardData\AliasInsertRequest;
 use Ticketpark\SaferpayJson\Response\SecureCardData\AliasInsertResponse;
 use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;

@@ -3,16 +3,16 @@
 namespace Ticketpark\SaferpayJson\Request\PaymentPage;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Container\AddressForm;
-use Ticketpark\SaferpayJson\Container\HolderAuthentication;
-use Ticketpark\SaferpayJson\Container\CardForm;
-use Ticketpark\SaferpayJson\Container\Notification;
-use Ticketpark\SaferpayJson\Container\Payer;
-use Ticketpark\SaferpayJson\Container\Payment;
-use Ticketpark\SaferpayJson\Container\PaymentMethodsOptions;
-use Ticketpark\SaferpayJson\Container\RegisterAlias;
-use Ticketpark\SaferpayJson\Container\ReturnUrls;
-use Ticketpark\SaferpayJson\Container\Styling;
+use Ticketpark\SaferpayJson\Request\Container\AddressForm;
+use Ticketpark\SaferpayJson\Request\Container\Authentication;
+use Ticketpark\SaferpayJson\Request\Container\CardForm;
+use Ticketpark\SaferpayJson\Request\Container\Notification;
+use Ticketpark\SaferpayJson\Request\Container\Payer;
+use Ticketpark\SaferpayJson\Request\Container\Payment;
+use Ticketpark\SaferpayJson\Request\Container\PaymentMethodsOptions;
+use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
+use Ticketpark\SaferpayJson\Request\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Request\Container\Styling;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -94,7 +94,7 @@ final class InitializeRequest extends Request
     private $paymentMethodsOptions;
 
     /**
-     * @var HolderAuthentication|null
+     * @var Authentication|null
      * @SerializedName("Authentication")
      */
     private $authentication;
@@ -238,12 +238,12 @@ final class InitializeRequest extends Request
         return $this;
     }
 
-    public function getAuthentication(): ?HolderAuthentication
+    public function getAuthentication(): ?Authentication
     {
         return $this->authentication;
     }
 
-    public function setAuthentication(?HolderAuthentication $authentication): self
+    public function setAuthentication(?Authentication $authentication): self
     {
         $this->authentication = $authentication;
 

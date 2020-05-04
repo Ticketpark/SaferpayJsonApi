@@ -4,8 +4,8 @@ namespace Ticketpark\SaferpayJson\Response\SecureCardData;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Container\Alias;
-use Ticketpark\SaferpayJson\Container\PaymentMeans;
+use Ticketpark\SaferpayJson\Response\Container\Alias;
+use Ticketpark\SaferpayJson\Response\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Response\Response;
 
 final class AliasUpdateResponse extends Response
@@ -13,14 +13,14 @@ final class AliasUpdateResponse extends Response
     /**
      * @var Alias
      * @SerializedName("Alias")
-     * @Type("Ticketpark\SaferpayJson\Container\Alias")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\Alias")
      */
     private $alias;
 
     /**
      * @var PaymentMeans
      * @SerializedName("PaymentMeans")
-     * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\PaymentMeans")
      */
     private $paymentMeans;
 

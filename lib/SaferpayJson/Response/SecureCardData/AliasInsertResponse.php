@@ -4,7 +4,7 @@ namespace Ticketpark\SaferpayJson\Response\SecureCardData;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Container\Redirect;
+use Ticketpark\SaferpayJson\Response\Container\Redirect;
 use Ticketpark\SaferpayJson\Response\Response;
 
 final class AliasInsertResponse extends Response
@@ -33,7 +33,7 @@ final class AliasInsertResponse extends Response
     /**
      * @var Redirect
      * @SerializedName("Redirect")
-     * @Type("Ticketpark\SaferpayJson\Container\Redirect")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\Redirect")
      */
     private $redirect;
 

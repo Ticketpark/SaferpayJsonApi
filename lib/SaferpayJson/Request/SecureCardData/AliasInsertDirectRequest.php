@@ -4,9 +4,9 @@ namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Container\Check;
-use Ticketpark\SaferpayJson\Container\PaymentMeans;
-use Ticketpark\SaferpayJson\Container\RegisterAlias;
+use Ticketpark\SaferpayJson\Request\Container\Check;
+use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
+use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -28,14 +28,14 @@ final class AliasInsertDirectRequest extends Request
     /**
      * @var PaymentMeans
      * @SerializedName("PaymentMeans")
-     * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
+     * @Type("Ticketpark\SaferpayJson\Request\Container\PaymentMeans")
      */
     private $paymentMeans;
 
     /**
      * @var Check|null
      * @SerializedName("Check")
-     * @Type("Ticketpark\SaferpayJson\Container\Check")
+     * @Type("Ticketpark\SaferpayJson\Request\Container\Check")
      */
     private $check;
 

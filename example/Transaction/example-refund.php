@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
-use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
-use Ticketpark\SaferpayJson\Container;
+use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
+use Ticketpark\SaferpayJson\Request\Container;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Request\Transaction\RefundRequest;
 
@@ -50,7 +50,7 @@ $refundRequest = new RefundRequest(
 
 try {
     $response = $refundRequest->execute();
-} catch (SaferpayErrorResponseException $e) {
+} catch (SaferpayErrorException $e) {
     die ($e->getErrorResponse()->getErrorMessage());
 }
 

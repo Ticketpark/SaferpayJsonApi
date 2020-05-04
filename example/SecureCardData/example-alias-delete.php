@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-use Ticketpark\SaferpayJson\Exception\SaferpayErrorResponseException;
+use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Request\SecureCardData\AliasDeleteRequest;
 
@@ -38,7 +38,7 @@ $assertRequest = new AliasDeleteRequest(
 
 try {
     $response = $assertRequest->execute();
-} catch (SaferpayErrorResponseException $e) {
+} catch (SaferpayErrorException $e) {
     die ($e->getErrorResponse()->getErrorMessage());
 }
 

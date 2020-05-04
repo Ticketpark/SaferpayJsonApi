@@ -4,9 +4,9 @@ namespace Ticketpark\SaferpayJson\Response\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Container\Dcc;
-use Ticketpark\SaferpayJson\Container\PaymentMeans;
-use Ticketpark\SaferpayJson\Container\Transaction;
+use Ticketpark\SaferpayJson\Response\Container\Dcc;
+use Ticketpark\SaferpayJson\Response\Container\PaymentMeans;
+use Ticketpark\SaferpayJson\Response\Container\Transaction;
 use Ticketpark\SaferpayJson\Response\Response;
 
 final class RefundResponse extends Response
@@ -14,21 +14,21 @@ final class RefundResponse extends Response
     /**
      * @var Transaction
      * @SerializedName("Transaction")
-     * @Type("Ticketpark\SaferpayJson\Container\Transaction")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\Transaction")
      */
     private $transaction;
 
     /**
      * @var PaymentMeans
      * @SerializedName("PaymentMeans")
-     * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\PaymentMeans")
      */
     private $paymentMeans;
 
     /**
      * @var Dcc
      * @SerializedName("Dcc")
-     * @Type("Ticketpark\SaferpayJson\Container\Dcc")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\Dcc")
      */
     private $dcc;
 

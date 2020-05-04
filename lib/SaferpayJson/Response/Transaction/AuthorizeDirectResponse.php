@@ -4,10 +4,10 @@ namespace Ticketpark\SaferpayJson\Response\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Container\Payer;
-use Ticketpark\SaferpayJson\Container\PaymentMeans;
-use Ticketpark\SaferpayJson\Container\RegisterAlias;
-use Ticketpark\SaferpayJson\Container\Transaction;
+use Ticketpark\SaferpayJson\Response\Container\Payer;
+use Ticketpark\SaferpayJson\Response\Container\PaymentMeans;
+use Ticketpark\SaferpayJson\Response\Container\RegisterAlias;
+use Ticketpark\SaferpayJson\Response\Container\Transaction;
 use Ticketpark\SaferpayJson\Response\Response;
 
 final class AuthorizeDirectResponse extends Response
@@ -15,28 +15,28 @@ final class AuthorizeDirectResponse extends Response
     /**
      * @var Transaction
      * @SerializedName("Transaction")
-     * @Type("Ticketpark\SaferpayJson\Container\Transaction")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\Transaction")
      */
     private $transaction;
 
     /**
      * @var PaymentMeans
      * @SerializedName("PaymentMeans")
-     * @Type("Ticketpark\SaferpayJson\Container\PaymentMeans")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\PaymentMeans")
      */
     private $paymentMeans;
 
     /**
      * @var RegisterAlias
      * @SerializedName("RegisterAlias")
-     * @Type("Ticketpark\SaferpayJson\Container\RegisterAlias")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\RegisterAlias")
      */
     private $registerAlias;
 
     /**
      * @var Payer
      * @SerializedName("Payer")
-     * @Type("Ticketpark\SaferpayJson\Container\Payer")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\Payer")
      */
     private $payer;
 
