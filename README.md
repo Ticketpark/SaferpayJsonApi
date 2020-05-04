@@ -32,11 +32,8 @@ https://saferpay.github.io/jsonapi/
 This library is currently based on v1.17 of the Saferpay JSON API.
 
 ## Contribution
-You are welcome to contribute to this repo.
+You are [welcome to contribute](/.github/contributing.md) to this repo.
 
-* Follow [Symfony coding standards](http://symfony.com/doc/current/contributing/code/standards.html)
-* Write useful commit messages
-* Be nice and respect others
 
 ## History
 
