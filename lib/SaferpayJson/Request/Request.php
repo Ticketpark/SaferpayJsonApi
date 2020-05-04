@@ -5,9 +5,9 @@ namespace Ticketpark\SaferpayJson\Request;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
-use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\VirtualProperty;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use Ticketpark\SaferpayJson\Exception\HttpRequestException;
@@ -20,7 +20,6 @@ abstract class Request
 {
     private const ROOT_URL = 'https://www.saferpay.com/api/';
     private const ROOT_URL_TEST = 'https://test.saferpay.com/api/';
-
     private const ERROR_RESPONSE_CLASS = ErrorResponse::class;
 
     /**
@@ -30,31 +29,40 @@ abstract class Request
     private $requestConfig;
 
     /**
-     * @var RequestHeader
-     * @SerializedName("RequestHeader")
-     * @Accessor(getter="getRequestHeader")
+     * We want the implementation to define the exact return type hint of the response.
+     * In PHP 7.4 the return type hint here in the abstraction would therefore be Ticketpark\SaferpayJson\Response\Response,
+     * as all other responses inherit from that class.
+     * In PHP 7.3 this is not yet allowed. Therefore the return type is omitted and only provided as a PhpDoc in
+     * order to satisfy static code analysis by PhpStan.
+     *
+     * @link https://wiki.php.net/rfc/covariant-returns-and-contravariant-parameters
+     * @link https://stitcher.io/blog/new-in-php-74#improved-type-variance-rfc
+     * @return mixed
      */
-    private $requestHeader;
+    abstract public function execute();
 
     abstract public function getApiPath(): string;
     abstract public function getResponseClass(): string;
-    abstract public function execute(): Response;
 
     public function __construct(RequestConfig $requestConfig)
     {
         $this->requestConfig = $requestConfig;
     }
 
-    public function getRequestConfig(): RequestConfig
-    {
-        return $this->requestConfig;
-    }
-
+    /**
+     * @SerializedName("RequestHeader")
+     * @VirtualProperty
+     */
     public function getRequestHeader(): RequestHeader
     {
         return new RequestHeader(
             $this->requestConfig->getCustomerId()
         );
+    }
+
+    public function getRequestConfig(): RequestConfig
+    {
+        return $this->requestConfig;
     }
 
     protected function doExecute(): Response
