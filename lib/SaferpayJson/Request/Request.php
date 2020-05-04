@@ -77,12 +77,12 @@ abstract class Request
                 ]
             );
         } catch (\Exception $e) {
-            if ($e instanceof ClientException) {
-                /** @var GuzzleResponse $response */
-                $response = $e->getResponse();
-            } else {
+            if (!$e instanceof ClientException) {
                 throw new HttpRequestException($e->getMessage());
             }
+
+            /** @var GuzzleResponse $response */
+            $response = $e->getResponse();
         }
 
         $statusCode = $response->getStatusCode();
