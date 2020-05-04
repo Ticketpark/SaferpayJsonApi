@@ -2,7 +2,7 @@
 
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Request\Container;
-use Ticketpark\SaferpayJson\Request\PaymentPage\AuthorizeReferencedRequest;
+use Ticketpark\SaferpayJson\Request\Transaction\AuthorizeReferencedRequest;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
