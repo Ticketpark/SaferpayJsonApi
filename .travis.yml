@@ -10,6 +10,7 @@ env:
     - PREFER_LOWEST=""
 
 install:
+  - composer validate --strict
   - composer update --prefer-source $PREFER_LOWEST
 
 script:
