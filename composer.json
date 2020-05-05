@@ -28,8 +28,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Ticketpark\\SaferpayJson\\": "lib/SaferpayJson",
-            "Ticketpark\\SaferpayJson\\Tests\\": "tests/SaferpayJson/Tests"
+            "Ticketpark\\SaferpayJson\\": "lib/SaferpayJson/",
+            "Ticketpark\\SaferpayJson\\Tests\\": "tests/SaferpayJson/Tests/"
         }
     }
 }
