@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Ticketpark\SaferpayJson\Tests\PaymentPage;
+namespace Ticketpark\SaferpayJson\Tests\Request\PaymentPage;
 
 use Ticketpark\SaferpayJson\Request\PaymentPage\AssertRequest;
 use Ticketpark\SaferpayJson\Response\PaymentPage\AssertResponse;
