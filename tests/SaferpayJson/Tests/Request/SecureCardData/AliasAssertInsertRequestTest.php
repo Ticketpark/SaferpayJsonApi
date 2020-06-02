@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Ticketpark\SaferpayJson\Tests\SecureAliasStore;
+namespace Ticketpark\SaferpayJson\Tests\Request\SecureCardData;
 
 use Ticketpark\SaferpayJson\Request\SecureCardData\AliasAssertInsertRequest;
 use Ticketpark\SaferpayJson\Response\SecureCardData\AliasAssertInsertResponse;

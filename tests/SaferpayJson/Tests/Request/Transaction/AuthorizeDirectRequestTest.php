@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace Ticketpark\SaferpayJson\Tests\Transaction;
+namespace Ticketpark\SaferpayJson\Tests\Request\Transaction;
 
 use Ticketpark\SaferpayJson\Request\Container\Amount;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
