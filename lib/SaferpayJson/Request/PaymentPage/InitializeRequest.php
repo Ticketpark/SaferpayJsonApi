@@ -20,7 +20,8 @@ use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\PaymentPage\InitializeResponse;
 
-final class InitializeRequest extends Request {
+final class InitializeRequest extends Request
+{
     const API_PATH = '/Payment/v1/PaymentPage/Initialize';
     const RESPONSE_CLASS = InitializeResponse::class;
 
@@ -171,7 +172,8 @@ final class InitializeRequest extends Request {
         string $terminalId,
         Payment $payment,
         ReturnUrls $returnUrls
-    ) {
+    )
+    {
         $this->terminalId = $terminalId;
         $this->payment = $payment;
         $this->returnUrls = $returnUrls;
@@ -179,188 +181,225 @@ final class InitializeRequest extends Request {
         parent::__construct($requestConfig);
     }
 
-    public function getTerminalId(): string {
+    public function getTerminalId(): string
+    {
         return $this->terminalId;
     }
 
-    public function setTerminalId(string $terminalId): self {
+    public function setTerminalId(string $terminalId): self
+    {
         $this->terminalId = $terminalId;
 
         return $this;
     }
 
-    public function getPayment(): Payment {
+    public function getPayment(): Payment
+    {
         return $this->payment;
     }
 
-    public function setPayment(Payment $payment): self {
+    public function setPayment(Payment $payment): self
+    {
         $this->payment = $payment;
 
         return $this;
     }
 
-    public function getReturnUrls(): ReturnUrls {
+    public function getReturnUrls(): ReturnUrls
+    {
         return $this->returnUrls;
     }
 
-    public function setReturnUrls(ReturnUrls $returnUrls): self {
+    public function setReturnUrls(ReturnUrls $returnUrls): self
+    {
         $this->returnUrls = $returnUrls;
 
         return $this;
     }
 
-    public function getConfigSet(): ?string {
+    public function getConfigSet(): ?string
+    {
         return $this->configSet;
     }
 
-    public function setConfigSet(?string $configSet): self {
+    public function setConfigSet(?string $configSet): self
+    {
         $this->configSet = $configSet;
 
         return $this;
     }
 
-    public function getPaymentMethods(): ?array {
+    public function getPaymentMethods(): ?array
+    {
         return $this->paymentMethods;
     }
 
-    public function setPaymentMethods(?array $paymentMethods): self {
+    public function setPaymentMethods(?array $paymentMethods): self
+    {
         $this->paymentMethods = $paymentMethods;
 
         return $this;
     }
 
-    public function getPaymentMethodsOptions(): ?PaymentMethodsOptions {
+    public function getPaymentMethodsOptions(): ?PaymentMethodsOptions
+    {
         return $this->paymentMethodsOptions;
     }
 
-    public function setPaymentMethodsOptions(?PaymentMethodsOptions $paymentMethodsOptions): self {
+    public function setPaymentMethodsOptions(?PaymentMethodsOptions $paymentMethodsOptions): self
+    {
         $this->paymentMethodsOptions = $paymentMethodsOptions;
 
         return $this;
     }
 
-    public function getAuthentication(): ?Authentication {
+    public function getAuthentication(): ?Authentication
+    {
         return $this->authentication;
     }
 
-    public function setAuthentication(?Authentication $authentication): self {
+    public function setAuthentication(?Authentication $authentication): self
+    {
         $this->authentication = $authentication;
 
         return $this;
     }
 
-    public function getWallets(): ?array {
+    public function getWallets(): ?array
+    {
         return $this->wallets;
     }
 
-    public function setWallets(?array $wallets): self {
+    public function setWallets(?array $wallets): self
+    {
         $this->wallets = $wallets;
 
         return $this;
     }
 
-    public function getPayer(): ?Payer {
+    public function getPayer(): ?Payer
+    {
         return $this->payer;
     }
 
-    public function setPayer(?Payer $payer): self {
+    public function setPayer(?Payer $payer): self
+    {
         $this->payer = $payer;
 
         return $this;
     }
 
-    public function getRegisterAlias(): ?RegisterAlias {
+    public function getRegisterAlias(): ?RegisterAlias
+    {
         return $this->registerAlias;
     }
 
-    public function setRegisterAlias(?RegisterAlias $registerAlias): self {
+    public function setRegisterAlias(?RegisterAlias $registerAlias): self
+    {
         $this->registerAlias = $registerAlias;
 
         return $this;
     }
 
-    public function getNotification(): ?Notification {
+    public function getNotification(): ?Notification
+    {
         return $this->notification;
     }
 
-    public function setNotification(?Notification $notification): self {
+    public function setNotification(?Notification $notification): self
+    {
         $this->notification = $notification;
 
         return $this;
     }
 
-    public function getStyling(): ?Styling {
+    public function getStyling(): ?Styling
+    {
         return $this->styling;
     }
 
-    public function setStyling(?Styling $styling): self {
+    public function setStyling(?Styling $styling): self
+    {
         $this->styling = $styling;
 
         return $this;
     }
 
-    public function getBillingAddressForm(): ?AddressForm {
+    public function getBillingAddressForm(): ?AddressForm
+    {
         return $this->billingAddressForm;
     }
 
-    public function setBillingAddressForm(?AddressForm $billingAddressForm): self {
+    public function setBillingAddressForm(?AddressForm $billingAddressForm): self
+    {
         $this->billingAddressForm = $billingAddressForm;
 
         return $this;
     }
 
-    public function getDeliveryAddressForm(): ?AddressForm {
+    public function getDeliveryAddressForm(): ?AddressForm
+    {
         return $this->deliveryAddressForm;
     }
 
-    public function setDeliveryAddressForm(?AddressForm $deliveryAddressForm): self {
+    public function setDeliveryAddressForm(?AddressForm $deliveryAddressForm): self
+    {
         $this->deliveryAddressForm = $deliveryAddressForm;
 
         return $this;
     }
 
-    public function getCardForm(): ?CardForm {
+    public function getCardForm(): ?CardForm
+    {
         return $this->cardForm;
     }
 
-    public function setCardForm(?CardForm $cardForm): self {
+    public function setCardForm(?CardForm $cardForm): self
+    {
         $this->cardForm = $cardForm;
 
         return $this;
     }
 
-    public function getCondition(): ?string {
+    public function getCondition(): ?string
+    {
         return $this->condition;
     }
 
-    public function setCondition(?string $condition): self {
+    public function setCondition(?string $condition): self
+    {
         $this->condition = $condition;
 
         return $this;
     }
 
-    public function getOrder(): ?Order {
+    public function getOrder(): ?Order
+    {
         return $this->order;
     }
 
-    public function setOrder(?Order $order): self {
+    public function setOrder(?Order $order): self
+    {
         $this->order = $order;
 
         return $this;
     }
 
-    public function getRiskFactors(): ?RiskFactors {
+    public function getRiskFactors(): ?RiskFactors
+    {
         return $this->riskFactors;
     }
 
-    public function setRiskFactors(?RiskFactors $riskFactors): self {
+    public function setRiskFactors(?RiskFactors $riskFactors): self
+    {
         $this->riskFactors = $riskFactors;
 
         return $this;
     }
 
 
-    public function execute(): InitializeResponse {
+    public function execute(): InitializeResponse
+    {
         /** @var InitializeResponse $response */
         $response = $this->doExecute();
 

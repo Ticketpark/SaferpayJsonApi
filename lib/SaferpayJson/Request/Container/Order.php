@@ -13,16 +13,17 @@ final class Order
      */
     private $items = [];
 
-    public function getItems(): ?array {
+    public function getItems(): ?array
+    {
         return $this->items;
     }
 
-    public function setItems(?array $items): self {
+    public function setItems(?array $items): self
+    {
         $this->items = $items;
 
         return $this;
     }
-
 
 
 }

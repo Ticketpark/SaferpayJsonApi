@@ -90,152 +90,172 @@ final class OrderItem
     private $discountAmount;
 
 
-    public function getType(): ?string {
+    public function getType(): ?string
+    {
         return $this->type;
     }
 
 
-    public function setType(?string $type): self {
+    public function setType(?string $type): self
+    {
         $this->type = $type;
 
         return $this;
     }
 
 
-    public function getId(): ?string {
+    public function getId(): ?string
+    {
         return $this->id;
     }
 
 
-    public function setId(?string $id): self {
+    public function setId(?string $id): self
+    {
         $this->id = $id;
 
         return $this;
     }
 
 
-    public function getVariantId(): ?string {
+    public function getVariantId(): ?string
+    {
         return $this->variantId;
     }
 
 
-    public function setVariantId(?string $variantId): self {
+    public function setVariantId(?string $variantId): self
+    {
         $this->variantId = $variantId;
 
         return $this;
     }
 
 
-    public function getName(): ?string {
+    public function getName(): ?string
+    {
         return $this->name;
     }
 
 
-    public function setName(?string $name): self {
+    public function setName(?string $name): self
+    {
         $this->name = $name;
 
         return $this;
     }
 
 
-    public function getCategoryName(): ?string {
+    public function getCategoryName(): ?string
+    {
         return $this->categoryName;
     }
 
 
-    public function setCategoryName(?string $categoryName): self {
+    public function setCategoryName(?string $categoryName): self
+    {
         $this->categoryName = $categoryName;
 
         return $this;
     }
 
 
-    public function getDescription(): ?string {
+    public function getDescription(): ?string
+    {
         return $this->description;
     }
 
 
-    public function setDescription(?string $description): self {
+    public function setDescription(?string $description): self
+    {
         $this->description = $description;
 
         return $this;
     }
 
 
-    public function getQuantity(): ?string {
+    public function getQuantity(): ?string
+    {
         return $this->quantity;
     }
 
 
-    public function setQuantity(?string $quantity): self {
+    public function setQuantity(?string $quantity): self
+    {
         $this->quantity = $quantity;
 
         return $this;
     }
 
 
-    public function getUnitPrice(): ?string {
+    public function getUnitPrice(): ?string
+    {
         return $this->unitPrice;
     }
 
 
-    public function setUnitPrice(?string $unitPrice): self {
+    public function setUnitPrice(?string $unitPrice): self
+    {
         $this->unitPrice = $unitPrice;
 
         return $this;
     }
 
 
-    public function getIsPreOrder(): ?string {
+    public function getIsPreOrder(): ?string
+    {
         return $this->isPreOrder;
     }
 
 
-    public function setIsPreOrder(?string $isPreOrder): self {
+    public function setIsPreOrder(?string $isPreOrder): self
+    {
         $this->isPreOrder = $isPreOrder;
 
         return $this;
     }
 
 
-    public function getTaxRate(): ?string {
+    public function getTaxRate(): ?string
+    {
         return $this->taxRate;
     }
 
 
-    public function setTaxRate(?string $taxRate): self {
+    public function setTaxRate(?string $taxRate): self
+    {
         $this->taxRate = $taxRate;
 
         return $this;
     }
 
 
-    public function getTaxAmount(): ?string {
+    public function getTaxAmount(): ?string
+    {
         return $this->taxAmount;
     }
 
 
-    public function setTaxAmount(?string $taxAmount): self {
+    public function setTaxAmount(?string $taxAmount): self
+    {
         $this->taxAmount = $taxAmount;
 
         return $this;
     }
 
 
-    public function getDiscountAmount(): ?string {
+    public function getDiscountAmount(): ?string
+    {
         return $this->discountAmount;
     }
 
 
-    public function setDiscountAmount(?string $discountAmount): self {
+    public function setDiscountAmount(?string $discountAmount): self
+    {
         $this->discountAmount = $discountAmount;
 
         return $this;
     }
-
-
-
-
 
 
 }

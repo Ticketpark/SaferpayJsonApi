@@ -34,44 +34,46 @@ final class RiskFactors
     private $passwordLastChangeDate;
 
 
-    public function getDeliveryType(): ?string {
+    public function getDeliveryType(): ?string
+    {
         return $this->deliveryType;
     }
 
 
-    public function setDeliveryType(?string $deliveryType): self {
+    public function setDeliveryType(?string $deliveryType): self
+    {
         $this->deliveryType = $deliveryType;
 
         return $this;
     }
 
 
-    public function getAccountCreationDate(): ?string {
+    public function getAccountCreationDate(): ?string
+    {
         return $this->accountCreationDate;
     }
 
 
-    public function setAccountCreationDate(?string $accountCreationDate): self {
+    public function setAccountCreationDate(?string $accountCreationDate): self
+    {
         $this->accountCreationDate = $accountCreationDate;
 
         return $this;
     }
 
 
-    public function getPasswordLastChangeDate(): ?string {
+    public function getPasswordLastChangeDate(): ?string
+    {
         return $this->passwordLastChangeDate;
     }
 
 
-    public function setPasswordLastChangeDate(?string $passwordLastChangeDate): self {
+    public function setPasswordLastChangeDate(?string $passwordLastChangeDate): self
+    {
         $this->passwordLastChangeDate = $passwordLastChangeDate;
 
         return $this;
     }
-
-
-
-
 
 
 }
