@@ -256,6 +256,4 @@ final class OrderItem
 
         return $this;
     }
-
-
 }

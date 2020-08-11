@@ -172,8 +172,7 @@ final class InitializeRequest extends Request
         string $terminalId,
         Payment $payment,
         ReturnUrls $returnUrls
-    )
-    {
+    ){
         $this->terminalId = $terminalId;
         $this->payment = $payment;
         $this->returnUrls = $returnUrls;

@@ -24,6 +24,4 @@ final class Order
 
         return $this;
     }
-
-
 }

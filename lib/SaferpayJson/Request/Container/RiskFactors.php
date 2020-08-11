@@ -74,6 +74,4 @@ final class RiskFactors
 
         return $this;
     }
-
-
 }
