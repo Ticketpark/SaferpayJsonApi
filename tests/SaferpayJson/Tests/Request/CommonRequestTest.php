@@ -62,9 +62,11 @@ abstract class CommonRequestTest extends TestCase
 
     private function getClientMock(): MockObject
     {
+        $mockMethod = $this->getMockMethodBasedOnGuzzleVersion();
+
         $browser = $this->getMockBuilder(Client::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['post'])
+            ->$mockMethod(['post'])
             ->getMock();
 
         $browser->expects($this->once())
@@ -109,5 +111,12 @@ abstract class CommonRequestTest extends TestCase
         $response = new $class();
 
         return $serializer->serialize($response, 'json');
+    }
+
+    private function getMockMethodBasedOnGuzzleVersion()
+    {
+        $reflection = new \ReflectionClass(Client::class);
+
+        return count($reflection->getTraits()) ? 'onlyMethods' : 'addMethods';
     }
 }
