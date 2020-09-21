@@ -68,6 +68,7 @@ abstract class Request
     protected function doExecute(): Response
     {
         try {
+            /** @var GuzzleResponse $response */
             $response = $this->requestConfig->getClient()->post(
                 $this->getUrl(),
                 [
@@ -80,6 +81,7 @@ abstract class Request
                 throw new HttpRequestException($e->getMessage());
             }
 
+            /** @var GuzzleResponse $response */
             $response = $e->getResponse();
         }
 
