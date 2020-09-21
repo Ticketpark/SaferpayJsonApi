@@ -7,11 +7,13 @@ use Ticketpark\SaferpayJson\Request\Container\AddressForm;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\CardForm;
 use Ticketpark\SaferpayJson\Request\Container\Notification;
+use Ticketpark\SaferpayJson\Request\Container\Order;
 use Ticketpark\SaferpayJson\Request\Container\Payer;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMethodsOptions;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
 use Ticketpark\SaferpayJson\Request\Container\Styling;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
@@ -68,7 +70,7 @@ final class InitializeRequest extends Request
      * @SerializedName("Payment")
      */
     private $payment;
-    
+
     /**
      * @var ReturnUrls
      * @SerializedName("ReturnUrls")
@@ -152,6 +154,18 @@ final class InitializeRequest extends Request
      * @SerializedName("Condition")
      */
     private $condition;
+
+    /**
+     * @var Order|null
+     * @SerializedName("Order")
+     */
+    private $order;
+
+    /**
+     * @var RiskFactors|null
+     * @SerializedName("RiskFactors")
+     */
+    private $riskFactors;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -357,6 +371,31 @@ final class InitializeRequest extends Request
 
         return $this;
     }
+
+    public function getOrder(): ?Order
+    {
+        return $this->order;
+    }
+
+    public function setOrder(?Order $order): self
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    public function getRiskFactors(): ?RiskFactors
+    {
+        return $this->riskFactors;
+    }
+
+    public function setRiskFactors(?RiskFactors $riskFactors): self
+    {
+        $this->riskFactors = $riskFactors;
+
+        return $this;
+    }
+
 
     public function execute(): InitializeResponse
     {
