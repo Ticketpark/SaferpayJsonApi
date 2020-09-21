@@ -9,6 +9,12 @@ final class Payer
 {
     /**
      * @var string|null
+     * @SerializedName("Id")
+     */
+    private $id;
+
+    /**
+     * @var string|null
      * @SerializedName("IpAddress")
      * @Type("string")
      */
@@ -34,6 +40,11 @@ final class Payer
      * @Type("Ticketpark\SaferpayJson\Response\Container\Address")
      */
     private $billingAddress;
+
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
 
     public function getIpAddress(): ?string
     {
