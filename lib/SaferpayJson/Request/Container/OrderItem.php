@@ -16,7 +16,6 @@ final class OrderItem
     const TYPE_SALESTAX = 'SALESTAX';
     const TYPE_SURCHARGE = 'SURCHARGE';
 
-
     /**
      * @var string|null
      * @SerializedName("Type")
