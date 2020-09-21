@@ -36,7 +36,7 @@ You are [welcome to contribute](/.github/contributing.md) to this repo.
 
 
 ## History
-
+* v?.? upgrade to guzzle v7
 * v3 added more major refactoring and based on current version of Saferpay API
 * v2.3 added support for PHP 7.4
 * v2 added type-hints with major refactoring and required PHP 7.3

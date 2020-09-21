@@ -64,7 +64,7 @@ abstract class CommonRequestTest extends TestCase
     {
         $browser = $this->getMockBuilder(Client::class)
             ->disableOriginalConstructor()
-            ->addMethods(['post'])
+            ->onlyMethods(['post'])
             ->getMock();
 
         $browser->expects($this->once())
