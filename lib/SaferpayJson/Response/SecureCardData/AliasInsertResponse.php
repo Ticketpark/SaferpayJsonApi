@@ -42,7 +42,7 @@ final class AliasInsertResponse extends Response
         return $this->token;
     }
 
-    public function getExpiration(): ?\DateTime
+    public function getExpiration(): ?string
     {
         return $this->expiration;
     }
