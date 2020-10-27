@@ -18,7 +18,7 @@ final class InitializeResponse extends Response
     /**
      * @var \DateTime|null
      * @SerializedName("Expiration")
-     * @Type("string")
+     * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
     private $expiration;
 
@@ -34,7 +34,7 @@ final class InitializeResponse extends Response
         return $this->token;
     }
 
-    public function getExpiration(): ?string
+    public function getExpiration(): ?\DateTime
     {
         return $this->expiration;
     }
