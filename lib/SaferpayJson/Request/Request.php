@@ -42,6 +42,10 @@ abstract class Request
     abstract public function execute();
 
     abstract public function getApiPath(): string;
+
+    /**
+     * @phpstan-return  class-string
+     */
     abstract public function getResponseClass(): string;
 
     public function __construct(RequestConfig $requestConfig)
