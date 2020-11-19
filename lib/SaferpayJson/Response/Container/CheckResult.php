@@ -24,7 +24,7 @@ final class CheckResult
     /**
      * @var HolderAuthentication|null
      * @SerializedName("Authentication")
-     * @Type("Ticketpark\SaferpayJson\Container\HolderAuthentication")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\HolderAuthentication")
      */
     private $authentication;
 
