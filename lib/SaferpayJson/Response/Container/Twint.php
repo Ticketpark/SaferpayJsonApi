@@ -10,7 +10,7 @@ final class Twint
     /**
      * @var \DateTime|null
      * @SerializedName("CertificateExpirationDate")
-     * @Type("DateTime")
+     * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
     private $certificateExpirationDate;
 
