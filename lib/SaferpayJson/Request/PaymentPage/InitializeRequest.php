@@ -167,6 +167,12 @@ final class InitializeRequest extends Request
      */
     private $riskFactors;
 
+    /**
+     * @var string|null
+     * @SerializedName("LanguageCode")
+     */
+    private $languageCode;
+
     public function __construct(
         RequestConfig $requestConfig,
         string $terminalId,
@@ -392,6 +398,18 @@ final class InitializeRequest extends Request
     public function setRiskFactors(?RiskFactors $riskFactors): self
     {
         $this->riskFactors = $riskFactors;
+
+        return $this;
+    }
+
+    public function getLanguageCode(): ?string
+    {
+        return $this->languageCode;
+    }
+
+    public function setLanguageCode(?string $languageCode): self
+    {
+        $this->languageCode = $languageCode;
 
         return $this;
     }
