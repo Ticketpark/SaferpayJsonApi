@@ -5,6 +5,7 @@ namespace Ticketpark\SaferpayJson\Tests\Request;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
+use GuzzleHttp\Psr7\Utils as GuzzleUtils;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -98,7 +99,7 @@ abstract class CommonRequestTest extends TestCase
 
         $response->expects($this->any())
             ->method('getBody')
-            ->will($this->returnValue($content));
+            ->willReturn($this->getBodyContent($content));
 
         return $response;
     }
@@ -118,5 +119,14 @@ abstract class CommonRequestTest extends TestCase
         $reflection = new \ReflectionClass(Client::class);
 
         return count($reflection->getTraits()) ? 'onlyMethods' : 'addMethods';
+    }
+
+    private function getBodyContent(string $content)
+    {
+        if (class_exists(GuzzleUtils::class)) {
+            return GuzzleUtils::streamFor($content);
+        }
+
+        return $content;
     }
 }
