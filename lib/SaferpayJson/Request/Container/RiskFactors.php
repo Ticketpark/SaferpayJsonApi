@@ -33,6 +33,12 @@ final class RiskFactors
      */
     private $passwordLastChangeDate;
 
+    /**
+     * @var PayerProfile|null
+     * @SerializedName("PayerProfile")
+     */
+    private $payerProfile;
+
 
     public function getDeliveryType(): ?string
     {
@@ -71,6 +77,25 @@ final class RiskFactors
     public function setPasswordLastChangeDate(?string $passwordLastChangeDate): self
     {
         $this->passwordLastChangeDate = $passwordLastChangeDate;
+
+        return $this;
+    }
+
+    /**
+     * @return PayerProfile|null
+     */
+    public function getPayerProfile(): ?PayerProfile
+    {
+        return $this->payerProfile;
+    }
+
+    /**
+     * @param PayerProfile|null $payerProfile
+     * @return RiskFactors
+     */
+    public function setPayerProfile(?PayerProfile $payerProfile): self
+    {
+        $this->payerProfile = $payerProfile;
 
         return $this;
     }
