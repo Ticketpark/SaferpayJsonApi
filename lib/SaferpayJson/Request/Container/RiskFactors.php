@@ -20,20 +20,6 @@ final class RiskFactors
     private $deliveryType;
 
     /**
-     * @var string|null
-     * @SerializedName("AccountCreationDate")
-     * @Type("string")
-     */
-    private $accountCreationDate;
-
-    /**
-     * @var string|null
-     * @SerializedName("PasswordLastChangeDate")
-     * @Type("string")
-     */
-    private $passwordLastChangeDate;
-
-    /**
      * @var PayerProfile|null
      * @SerializedName("PayerProfile")
      */
@@ -49,34 +35,6 @@ final class RiskFactors
     public function setDeliveryType(?string $deliveryType): self
     {
         $this->deliveryType = $deliveryType;
-
-        return $this;
-    }
-
-
-    public function getAccountCreationDate(): ?string
-    {
-        return $this->accountCreationDate;
-    }
-
-
-    public function setAccountCreationDate(?string $accountCreationDate): self
-    {
-        $this->accountCreationDate = $accountCreationDate;
-
-        return $this;
-    }
-
-
-    public function getPasswordLastChangeDate(): ?string
-    {
-        return $this->passwordLastChangeDate;
-    }
-
-
-    public function setPasswordLastChangeDate(?string $passwordLastChangeDate): self
-    {
-        $this->passwordLastChangeDate = $passwordLastChangeDate;
 
         return $this;
     }
