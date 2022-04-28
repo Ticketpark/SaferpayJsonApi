@@ -1,7 +1,4 @@
-<?php
-/**
- * @copyright Copyright (c) 2022 Biceps
- */
+<?php declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Container;
 
