@@ -5,6 +5,7 @@ namespace Ticketpark\SaferpayJson\Response\PaymentPage;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Response\Container\Dcc;
+use Ticketpark\SaferpayJson\Response\Container\FraudPrevention;
 use Ticketpark\SaferpayJson\Response\Container\Liability;
 use Ticketpark\SaferpayJson\Response\Container\MastercardIssuerInstallments;
 use Ticketpark\SaferpayJson\Response\Container\Payer;
@@ -64,6 +65,14 @@ final class AssertResponse extends Response
      */
     private $mastercardIssuerInstallments;
 
+
+    /**
+     * @var FraudPrevention|null
+     * @SerializedName("FraudPrevention")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\FraudPrevention")
+     */
+    private $fraudPrevention;
+
     public function getTransaction(): ?Transaction
     {
         return $this->transaction;
@@ -97,5 +106,10 @@ final class AssertResponse extends Response
     public function getMastercardIssuerInstallments(): ?MastercardIssuerInstallments
     {
         return $this->mastercardIssuerInstallments;
+    }
+
+    public function getFraudPrevention(): ?FraudPrevention
+    {
+        return $this->fraudPrevention;
     }
 }
