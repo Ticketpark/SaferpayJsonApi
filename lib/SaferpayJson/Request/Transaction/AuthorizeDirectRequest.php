@@ -1,4 +1,7 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
@@ -15,10 +18,9 @@ use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeDirectResponse;
 
 final class AuthorizeDirectRequest extends Request
 {
-    const API_PATH = '/Payment/v1/Transaction/AuthorizeDirect';
-    const RESPONSE_CLASS = AuthorizeDirectResponse::class;
-
     use RequestCommonsTrait;
+    public const API_PATH = '/Payment/v1/Transaction/AuthorizeDirect';
+    public const RESPONSE_CLASS = AuthorizeDirectResponse::class;
 
     /**
      * @var string

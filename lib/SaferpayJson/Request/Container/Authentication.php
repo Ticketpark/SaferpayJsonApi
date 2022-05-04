@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Container;
 
@@ -7,12 +9,12 @@ use JMS\Serializer\Annotation\Type;
 
 final class Authentication
 {
-    const EXEMPTION_LOW_VALUE = 'LOW_VALUE';
-    const EXEMPTION_TRANSACTION_RISK_ANALYSIS = 'TRANSACTION_RISK_ANALYSIS';
-    const EXEMPTION_RECURRING = 'RECURRING';
+    public const EXEMPTION_LOW_VALUE = 'LOW_VALUE';
+    public const EXEMPTION_TRANSACTION_RISK_ANALYSIS = 'TRANSACTION_RISK_ANALYSIS';
+    public const EXEMPTION_RECURRING = 'RECURRING';
 
-    const THREEDSCHALLENGE_FORCE = 'FORCE';
-    const THREEDSCHALLENGE_AVOID = 'AVOID';
+    public const THREEDSCHALLENGE_FORCE = 'FORCE';
+    public const THREEDSCHALLENGE_AVOID = 'AVOID';
 
     /**
      * @var string|null

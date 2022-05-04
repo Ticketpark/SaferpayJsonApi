@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
@@ -14,10 +16,9 @@ use Ticketpark\SaferpayJson\Response\Transaction\RefundResponse;
 
 final class RefundRequest extends Request
 {
-    const API_PATH = '/Payment/v1/Transaction/Refund';
-    const RESPONSE_CLASS = RefundResponse::class;
-
     use RequestCommonsTrait;
+    public const API_PATH = '/Payment/v1/Transaction/Refund';
+    public const RESPONSE_CLASS = RefundResponse::class;
 
     /**
      * @var Refund

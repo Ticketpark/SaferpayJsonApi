@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Response\Container;
 
@@ -6,8 +8,8 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class FraudPrevention
 {
-    const APPROVED = 'APPROVED';
-    const MANUAL_REVIEW = 'MANUAL_REVIEW';
+    public const APPROVED = 'APPROVED';
+    public const MANUAL_REVIEW = 'MANUAL_REVIEW';
 
     /**
      * @var string|null

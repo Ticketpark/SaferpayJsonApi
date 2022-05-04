@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
@@ -11,10 +13,9 @@ use Ticketpark\SaferpayJson\Response\Transaction\CancelResponse;
 
 final class CancelRequest extends Request
 {
-    const API_PATH = '/Payment/v1/Transaction/Cancel';
-    const RESPONSE_CLASS = CancelResponse::class;
-
     use RequestCommonsTrait;
+    public const API_PATH = '/Payment/v1/Transaction/Cancel';
+    public const RESPONSE_CLASS = CancelResponse::class;
 
     /**
      * @var TransactionReference

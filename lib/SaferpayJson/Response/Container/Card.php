@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Response\Container;
 
@@ -7,10 +9,10 @@ use JMS\Serializer\Annotation\Type;
 
 final class Card
 {
-    const HOLDER_SEGMENT_UNSPECIFIED = 'UNSPECIFIED';
-    const HOLDER_SEGMENT_CONSUMER = 'CONSUMER';
-    const HOLDER_SEGMENT_CORPORATE = 'CORPORATE';
-    const HOLDER_SEGMENT_CORPORATE_AND_CONSUMER = 'CORPORATE_AND_CONSUMER';
+    public const HOLDER_SEGMENT_UNSPECIFIED = 'UNSPECIFIED';
+    public const HOLDER_SEGMENT_CONSUMER = 'CONSUMER';
+    public const HOLDER_SEGMENT_CORPORATE = 'CORPORATE';
+    public const HOLDER_SEGMENT_CORPORATE_AND_CONSUMER = 'CORPORATE_AND_CONSUMER';
 
     /**
      * @var string|null

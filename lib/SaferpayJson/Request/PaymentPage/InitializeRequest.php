@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\PaymentPage;
 
@@ -22,42 +24,41 @@ use Ticketpark\SaferpayJson\Response\PaymentPage\InitializeResponse;
 
 final class InitializeRequest extends Request
 {
-    const API_PATH = '/Payment/v1/PaymentPage/Initialize';
-    const RESPONSE_CLASS = InitializeResponse::class;
-
-    const PAYMENT_METHOD_ALIPAY = "ALIPAY";
-    const PAYMENT_METHOD_AMEX = "AMEX";
-    const PAYMENT_METHOD_BANCONTACT = "BANCONTACT";
-    const PAYMENT_METHOD_BONUS = "BONUS";
-    const PAYMENT_METHOD_DINERS = "DINERS";
-    const PAYMENT_METHOD_DIRECTDEBIT = "DIRECTDEBIT";
-    const PAYMENT_METHOD_EPRZELEWY = "EPRZELEWY";
-    const PAYMENT_METHOD_EPS = "EPS";
-    const PAYMENT_METHOD_GIROPAY = "GIROPAY";
-    const PAYMENT_METHOD_IDEAL = "IDEAL";
-    const PAYMENT_METHOD_INVOICE = "INVOICE";
-    const PAYMENT_METHOD_JCB = "JCB";
-    const PAYMENT_METHOD_MAESTRO = "MAESTRO";
-    const PAYMENT_METHOD_MASTERCARD = "MASTERCARD";
-    const PAYMENT_METHOD_MYONE = "MYONE";
-    const PAYMENT_METHOD_PAYPAL = "PAYPAL";
-    const PAYMENT_METHOD_PAYDIREKT = "PAYDIREKT";
-    const PAYMENT_METHOD_POSTCARD = "POSTCARD";
-    const PAYMENT_METHOD_POSTFINANCE = "POSTFINANCE";
-    const PAYMENT_METHOD_SAFERPAYTEST = "SAFERPAYTEST";
-    const PAYMENT_METHOD_SOFORT = "SOFORT";
-    const PAYMENT_METHOD_TWINT = "TWINT";
-    const PAYMENT_METHOD_UNIONPAY = "UNIONPAY";
-    const PAYMENT_METHOD_VISA = "VISA";
-    const PAYMENT_METHOD_VPAY = "VPAY";
-
-    const WALLET_MASTERPASS = "MASTERPASS";
-    const WALLET_APPLEPAY = "APPLEPAY";
-
-    const CONDITION_WITH_LIABILITY_SHIFT = 'WITH_LIABILITY_SHIFT';
-    const CONDITION_IF_ALLOWED_BY_SCHEME = 'IF_ALLOWED_BY_SCHEME';
-
     use RequestCommonsTrait;
+    public const API_PATH = '/Payment/v1/PaymentPage/Initialize';
+    public const RESPONSE_CLASS = InitializeResponse::class;
+
+    public const PAYMENT_METHOD_ALIPAY = "ALIPAY";
+    public const PAYMENT_METHOD_AMEX = "AMEX";
+    public const PAYMENT_METHOD_BANCONTACT = "BANCONTACT";
+    public const PAYMENT_METHOD_BONUS = "BONUS";
+    public const PAYMENT_METHOD_DINERS = "DINERS";
+    public const PAYMENT_METHOD_DIRECTDEBIT = "DIRECTDEBIT";
+    public const PAYMENT_METHOD_EPRZELEWY = "EPRZELEWY";
+    public const PAYMENT_METHOD_EPS = "EPS";
+    public const PAYMENT_METHOD_GIROPAY = "GIROPAY";
+    public const PAYMENT_METHOD_IDEAL = "IDEAL";
+    public const PAYMENT_METHOD_INVOICE = "INVOICE";
+    public const PAYMENT_METHOD_JCB = "JCB";
+    public const PAYMENT_METHOD_MAESTRO = "MAESTRO";
+    public const PAYMENT_METHOD_MASTERCARD = "MASTERCARD";
+    public const PAYMENT_METHOD_MYONE = "MYONE";
+    public const PAYMENT_METHOD_PAYPAL = "PAYPAL";
+    public const PAYMENT_METHOD_PAYDIREKT = "PAYDIREKT";
+    public const PAYMENT_METHOD_POSTCARD = "POSTCARD";
+    public const PAYMENT_METHOD_POSTFINANCE = "POSTFINANCE";
+    public const PAYMENT_METHOD_SAFERPAYTEST = "SAFERPAYTEST";
+    public const PAYMENT_METHOD_SOFORT = "SOFORT";
+    public const PAYMENT_METHOD_TWINT = "TWINT";
+    public const PAYMENT_METHOD_UNIONPAY = "UNIONPAY";
+    public const PAYMENT_METHOD_VISA = "VISA";
+    public const PAYMENT_METHOD_VPAY = "VPAY";
+
+    public const WALLET_MASTERPASS = "MASTERPASS";
+    public const WALLET_APPLEPAY = "APPLEPAY";
+
+    public const CONDITION_WITH_LIABILITY_SHIFT = 'WITH_LIABILITY_SHIFT';
+    public const CONDITION_IF_ALLOWED_BY_SCHEME = 'IF_ALLOWED_BY_SCHEME';
 
     /**
      * @var string
