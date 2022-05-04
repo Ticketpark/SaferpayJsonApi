@@ -25,12 +25,10 @@ final class RiskFactors
      */
     private $payerProfile;
 
-
     public function getDeliveryType(): ?string
     {
         return $this->deliveryType;
     }
-
 
     public function setDeliveryType(?string $deliveryType): self
     {
@@ -39,18 +37,11 @@ final class RiskFactors
         return $this;
     }
 
-    /**
-     * @return PayerProfile|null
-     */
     public function getPayerProfile(): ?PayerProfile
     {
         return $this->payerProfile;
     }
 
-    /**
-     * @param PayerProfile|null $payerProfile
-     * @return RiskFactors
-     */
     public function setPayerProfile(?PayerProfile $payerProfile): self
     {
         $this->payerProfile = $payerProfile;

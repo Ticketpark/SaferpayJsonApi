@@ -15,9 +15,6 @@ final class FraudPrevention
      */
     private $result;
 
-    /**
-     * @return string|null
-     */
     public function getResult(): ?string
     {
         return $this->result;

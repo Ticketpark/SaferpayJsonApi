@@ -73,7 +73,6 @@ final class AssertResponse extends Response
      */
     private $fraudPrevention;
 
-
     public function getTransaction(): ?Transaction
     {
         return $this->transaction;
@@ -109,9 +108,6 @@ final class AssertResponse extends Response
         return $this->mastercardIssuerInstallments;
     }
 
-    /**
-     * @return FraudPrevention|null
-     */
     public function getFraudPrevention(): ?FraudPrevention
     {
         return $this->fraudPrevention;

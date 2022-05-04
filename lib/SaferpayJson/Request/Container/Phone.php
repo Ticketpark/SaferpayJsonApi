@@ -24,18 +24,11 @@ final class Phone
      */
     private $work;
 
-    /**
-     * @return string|null
-     */
     public function getMain(): ?string
     {
         return $this->main;
     }
 
-    /**
-     * @param string|null $main
-     * @return Phone
-     */
     public function setMain(?string $main): self
     {
         $this->main = $main;
@@ -43,18 +36,11 @@ final class Phone
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMobile(): ?string
     {
         return $this->mobile;
     }
 
-    /**
-     * @param string|null $mobile
-     * @return Phone
-     */
     public function setMobile(?string $mobile): self
     {
         $this->mobile = $mobile;
@@ -62,18 +48,11 @@ final class Phone
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getWork(): ?string
     {
         return $this->work;
     }
 
-    /**
-     * @param string|null $work
-     * @return Phone
-     */
     public function setWork(?string $work): self
     {
         $this->work = $work;
