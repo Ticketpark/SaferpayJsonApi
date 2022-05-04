@@ -7,6 +7,11 @@ use JMS\Serializer\Annotation\Type;
 
 final class PayerProfile
 {
+    const GENDER_MALE = "MALE";
+    const GENDER_FEMALE = "FEMALE";
+    const GENDER_DIVERSE = "DIVERSE";
+    const GENDER_COMPANY = "COMPANY";
+
     /**
      * @var bool|null
      * @SerializedName("HasAccount")
