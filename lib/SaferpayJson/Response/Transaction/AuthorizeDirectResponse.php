@@ -43,7 +43,7 @@ final class AuthorizeDirectResponse extends Response
 
     /**
      * @var FraudPrevention|null
-     * @SerializedName("$FraudPrevention")
+     * @SerializedName("FraudPrevention")
      */
     private $fraudPrevention;
 
