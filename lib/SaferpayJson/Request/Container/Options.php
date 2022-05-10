@@ -13,6 +13,12 @@ final class Options
      */
     private $preAuth;
 
+    /**
+     * @var bool|null
+     * @SerializedName("AllowPartialAuthorization")
+     */
+    private $allowPartialAuthorization;
+
     public function isPreAuth(): ?bool
     {
         return $this->preAuth;
@@ -21,6 +27,18 @@ final class Options
     public function setPreAuth(?bool $preAuth): self
     {
         $this->preAuth = $preAuth;
+
+        return $this;
+    }
+
+    public function getAllowPartialAuthorization(): ?bool
+    {
+        return $this->allowPartialAuthorization;
+    }
+
+    public function setAllowPartialAuthorization(?bool $allowPartialAuthorization): self
+    {
+        $this->allowPartialAuthorization = $allowPartialAuthorization;
 
         return $this;
     }
