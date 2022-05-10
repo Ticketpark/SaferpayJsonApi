@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Container;
 
@@ -6,8 +8,8 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Check
 {
-    const TYPE_ONLINE = 'ONLINE';
-    const TYPE_ONLINE_STRONG = 'ONLINE_STRONG';
+    public const TYPE_ONLINE = 'ONLINE';
+    public const TYPE_ONLINE_STRONG = 'ONLINE_STRONG';
 
     /**
      * @var string|null

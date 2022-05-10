@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
@@ -13,10 +15,9 @@ use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeReferencedResponse;
 
 final class AuthorizeReferencedRequest extends Request
 {
-    const API_PATH = '/Payment/v1/Transaction/AuthorizeReferenced';
-    const RESPONSE_CLASS = AuthorizeReferencedResponse::class;
-
     use RequestCommonsTrait;
+    public const API_PATH = '/Payment/v1/Transaction/AuthorizeReferenced';
+    public const RESPONSE_CLASS = AuthorizeReferencedResponse::class;
 
     /**
      * @var string

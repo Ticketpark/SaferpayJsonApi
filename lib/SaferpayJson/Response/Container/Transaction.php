@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Response\Container;
 
@@ -7,12 +9,12 @@ use JMS\Serializer\Annotation\Type;
 
 final class Transaction
 {
-    const TYPE_PAYMENT = 'PAYMENT';
+    public const TYPE_PAYMENT = 'PAYMENT';
 
-    const STATUS_AUTHORIZED = 'AUTHORIZED';
-    const STATUS_CANCELED = 'CANCELED';
-    const STATUS_CAPTURED = 'CAPTURED';
-    const STATUS_PENDING = 'PENDING';
+    public const STATUS_AUTHORIZED = 'AUTHORIZED';
+    public const STATUS_CANCELED = 'CANCELED';
+    public const STATUS_CAPTURED = 'CAPTURED';
+    public const STATUS_PENDING = 'PENDING';
 
     /**
      * @var string|null

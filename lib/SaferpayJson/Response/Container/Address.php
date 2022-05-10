@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Response\Container;
 
@@ -7,10 +9,10 @@ use JMS\Serializer\Annotation\Type;
 
 final class Address
 {
-    const GENDER_MALE = 'MALE';
-    const GENDER_FEMALE = 'FEMALE';
-    const GENDER_DIVERSE = 'DIVERSE';
-    const GENDER_COMPANY = 'COMPANY';
+    public const GENDER_MALE = 'MALE';
+    public const GENDER_FEMALE = 'FEMALE';
+    public const GENDER_DIVERSE = 'DIVERSE';
+    public const GENDER_COMPANY = 'COMPANY';
 
     /**
      * @var string|null

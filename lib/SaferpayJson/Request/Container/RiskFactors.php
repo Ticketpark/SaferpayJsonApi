@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Container;
 
@@ -7,11 +9,11 @@ use JMS\Serializer\Annotation\Type;
 
 final class RiskFactors
 {
-    const DELIVERY_TYPE_EMAIL = "EMAIL";
-    const DELIVERY_TYPE_SHOP = "SHOP";
-    const DELIVERY_TYPE_HOMEDELIVERY = "HOMEDELIVERY";
-    const DELIVERY_TYPE_PICKUP = "PICKUP";
-    const DELIVERY_TYPE_HQ = "HQ";
+    public const DELIVERY_TYPE_EMAIL = "EMAIL";
+    public const DELIVERY_TYPE_SHOP = "SHOP";
+    public const DELIVERY_TYPE_HOMEDELIVERY = "HOMEDELIVERY";
+    public const DELIVERY_TYPE_PICKUP = "PICKUP";
+    public const DELIVERY_TYPE_HQ = "HQ";
 
     /**
      * @var string|null

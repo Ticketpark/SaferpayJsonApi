@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Container;
 
@@ -7,14 +9,14 @@ use JMS\Serializer\Annotation\Type;
 
 final class OrderItem
 {
-    const TYPE_DIGITAL = 'DIGITAL';
-    const TYPE_PHYSICAL = 'PHYSICAL';
-    const TYPE_SERVICE = 'SERVICE';
-    const TYPE_GIFTCARD = 'GIFTCARD';
-    const TYPE_DISCOUNT = 'DISCOUNT';
-    const TYPE_SHIPPINGFEE = 'SHIPPINGFEE';
-    const TYPE_SALESTAX = 'SALESTAX';
-    const TYPE_SURCHARGE = 'SURCHARGE';
+    public const TYPE_DIGITAL = 'DIGITAL';
+    public const TYPE_PHYSICAL = 'PHYSICAL';
+    public const TYPE_SERVICE = 'SERVICE';
+    public const TYPE_GIFTCARD = 'GIFTCARD';
+    public const TYPE_DISCOUNT = 'DISCOUNT';
+    public const TYPE_SHIPPINGFEE = 'SHIPPINGFEE';
+    public const TYPE_SALESTAX = 'SALESTAX';
+    public const TYPE_SURCHARGE = 'SURCHARGE';
 
     /**
      * @var string|null
