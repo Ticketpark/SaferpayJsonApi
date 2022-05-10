@@ -27,6 +27,12 @@ final class RiskFactors
      */
     private $payerProfile;
 
+    /**
+     * @var Order|null
+     * @SerializedName("Order")
+     */
+    private $order;
+
     public function getDeliveryType(): ?string
     {
         return $this->deliveryType;
@@ -47,6 +53,18 @@ final class RiskFactors
     public function setPayerProfile(?PayerProfile $payerProfile): self
     {
         $this->payerProfile = $payerProfile;
+
+        return $this;
+    }
+
+    public function getOrder(): ?Order
+    {
+        return $this->order;
+    }
+
+    public function setOrder(?Order $order): self
+    {
+        $this->order = $order;
 
         return $this;
     }

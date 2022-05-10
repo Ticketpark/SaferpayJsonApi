@@ -6,6 +6,7 @@ namespace Ticketpark\SaferpayJson\Response\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use Ticketpark\SaferpayJson\Response\Container\FraudPrevention;
 use Ticketpark\SaferpayJson\Response\Container\Payer;
 use Ticketpark\SaferpayJson\Response\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Response\Container\RegisterAlias;
@@ -42,6 +43,12 @@ final class AuthorizeDirectResponse extends Response
      */
     private $payer;
 
+    /**
+     * @var FraudPrevention|null
+     * @SerializedName("FraudPrevention")
+     */
+    private $fraudPrevention;
+
     public function getTransaction(): ?Transaction
     {
         return $this->transaction;
@@ -60,5 +67,10 @@ final class AuthorizeDirectResponse extends Response
     public function getPayer(): ?Payer
     {
         return $this->payer;
+    }
+
+    public function getFraudPrevention(): ?FraudPrevention
+    {
+        return $this->fraudPrevention;
     }
 }
