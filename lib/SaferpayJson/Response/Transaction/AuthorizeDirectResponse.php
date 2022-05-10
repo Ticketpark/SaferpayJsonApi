@@ -67,9 +67,6 @@ final class AuthorizeDirectResponse extends Response
         return $this->payer;
     }
 
-    /**
-     * @return FraudPrevention|null
-     */
     public function getFraudPrevention(): ?FraudPrevention
     {
         return $this->fraudPrevention;

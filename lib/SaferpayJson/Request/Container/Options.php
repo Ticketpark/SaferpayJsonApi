@@ -31,18 +31,11 @@ final class Options
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getAllowPartialAuthorization(): ?bool
     {
         return $this->allowPartialAuthorization;
     }
 
-    /**
-     * @param bool|null $allowPartialAuthorization
-     * @return Options
-     */
     public function setAllowPartialAuthorization(?bool $allowPartialAuthorization): self
     {
         $this->allowPartialAuthorization = $allowPartialAuthorization;
