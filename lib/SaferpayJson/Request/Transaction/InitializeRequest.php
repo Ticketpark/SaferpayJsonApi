@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
@@ -118,8 +120,7 @@ final class InitializeRequest extends Request
         string        $terminalId,
         Payment       $payment,
         ReturnUrls    $returnUrls
-    )
-    {
+    ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;
         $this->returnUrls = $returnUrls;
