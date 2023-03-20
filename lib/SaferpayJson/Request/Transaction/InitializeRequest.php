@@ -2,7 +2,6 @@
 
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
-use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\CardForm;
@@ -60,7 +59,7 @@ final class InitializeRequest extends Request
 
     /**
      * @var PaymentMeans|null
-     * @Serializer\SerializedName("PaymentMeans")
+     * @SerializedName("PaymentMeans")
      */
     private $paymentMeans;
     /**
