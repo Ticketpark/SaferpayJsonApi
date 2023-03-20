@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\PaymentPage;
 
@@ -10,10 +12,9 @@ use Ticketpark\SaferpayJson\Response\PaymentPage\AssertResponse;
 
 final class AssertRequest extends Request
 {
-    const API_PATH = '/Payment/v1/PaymentPage/Assert';
-    const RESPONSE_CLASS = AssertResponse::class;
-
     use RequestCommonsTrait;
+    public const API_PATH = '/Payment/v1/PaymentPage/Assert';
+    public const RESPONSE_CLASS = AssertResponse::class;
 
     /**
      * @var string

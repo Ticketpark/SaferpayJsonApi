@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Container;
 
@@ -7,8 +9,8 @@ use JMS\Serializer\Annotation\Type;
 
 final class CardForm
 {
-    const HOLDER_NAME_NONE = 'NONE';
-    const HOLDER_NAME_MANDATORY = 'MANDATORY';
+    public const HOLDER_NAME_NONE = 'NONE';
+    public const HOLDER_NAME_MANDATORY = 'MANDATORY';
 
     /**
      * @var string|null

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Container;
 
@@ -7,9 +9,9 @@ use JMS\Serializer\Annotation\Type;
 
 final class RegisterAlias
 {
-    const ID_GENERATOR_MANUAL = 'MANUAL';
-    const ID_GENERATOR_RANDOM = 'RANDOM';
-    const ID_GENERATOR_RANDOM_UNIQUE = 'RANDOM_UNIQUE';
+    public const ID_GENERATOR_MANUAL = 'MANUAL';
+    public const ID_GENERATOR_RANDOM = 'RANDOM';
+    public const ID_GENERATOR_RANDOM_UNIQUE = 'RANDOM_UNIQUE';
 
     /**
      * @var string

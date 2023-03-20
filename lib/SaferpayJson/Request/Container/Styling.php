@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Container;
 
@@ -6,9 +8,9 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Styling
 {
-    const THEME_DEFAULT = 'DEFAULT';
-    const THEME_SIX = 'SIX';
-    const THEME_NONE = 'NONE';
+    public const THEME_DEFAULT = 'DEFAULT';
+    public const THEME_SIX = 'SIX';
+    public const THEME_NONE = 'NONE';
 
     /**
      * @var string|null

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Response\Container;
 
@@ -7,8 +9,8 @@ use JMS\Serializer\Annotation\Type;
 
 final class AuthenticationResult
 {
-    const RESULT_OK = 'OK';
-    const RESULT_NOT_SUPPORTED = 'NOT_SUPPORTED';
+    public const RESULT_OK = 'OK';
+    public const RESULT_NOT_SUPPORTED = 'NOT_SUPPORTED';
 
     /**
      * @var string|null

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Container;
 
@@ -7,11 +9,11 @@ use JMS\Serializer\Annotation\Type;
 
 final class RiskFactors
 {
-    const DELIVERY_TYPE_EMAIL = "EMAIL";
-    const DELIVERY_TYPE_SHOP = "SHOP";
-    const DELIVERY_TYPE_HOMEDELIVERY = "HOMEDELIVERY";
-    const DELIVERY_TYPE_PICKUP = "PICKUP";
-    const DELIVERY_TYPE_HQ = "HQ";
+    public const DELIVERY_TYPE_EMAIL = "EMAIL";
+    public const DELIVERY_TYPE_SHOP = "SHOP";
+    public const DELIVERY_TYPE_HOMEDELIVERY = "HOMEDELIVERY";
+    public const DELIVERY_TYPE_PICKUP = "PICKUP";
+    public const DELIVERY_TYPE_HQ = "HQ";
 
     /**
      * @var string|null
@@ -20,25 +22,21 @@ final class RiskFactors
     private $deliveryType;
 
     /**
-     * @var string|null
-     * @SerializedName("AccountCreationDate")
-     * @Type("string")
+     * @var PayerProfile|null
+     * @SerializedName("PayerProfile")
      */
-    private $accountCreationDate;
+    private $payerProfile;
 
     /**
-     * @var string|null
-     * @SerializedName("PasswordLastChangeDate")
-     * @Type("string")
+     * @var Order|null
+     * @SerializedName("Order")
      */
-    private $passwordLastChangeDate;
-
+    private $order;
 
     public function getDeliveryType(): ?string
     {
         return $this->deliveryType;
     }
-
 
     public function setDeliveryType(?string $deliveryType): self
     {
@@ -47,30 +45,26 @@ final class RiskFactors
         return $this;
     }
 
-
-    public function getAccountCreationDate(): ?string
+    public function getPayerProfile(): ?PayerProfile
     {
-        return $this->accountCreationDate;
+        return $this->payerProfile;
     }
 
-
-    public function setAccountCreationDate(?string $accountCreationDate): self
+    public function setPayerProfile(?PayerProfile $payerProfile): self
     {
-        $this->accountCreationDate = $accountCreationDate;
+        $this->payerProfile = $payerProfile;
 
         return $this;
     }
 
-
-    public function getPasswordLastChangeDate(): ?string
+    public function getOrder(): ?Order
     {
-        return $this->passwordLastChangeDate;
+        return $this->order;
     }
 
-
-    public function setPasswordLastChangeDate(?string $passwordLastChangeDate): self
+    public function setOrder(?Order $order): self
     {
-        $this->passwordLastChangeDate = $passwordLastChangeDate;
+        $this->order = $order;
 
         return $this;
     }

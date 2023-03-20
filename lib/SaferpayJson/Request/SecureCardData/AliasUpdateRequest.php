@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 
@@ -12,10 +14,9 @@ use Ticketpark\SaferpayJson\Response\SecureCardData\AliasUpdateResponse;
 
 final class AliasUpdateRequest extends Request
 {
-    const API_PATH = '/Payment/v1/Alias/Update';
-    const RESPONSE_CLASS = AliasUpdateResponse::class;
-
     use RequestCommonsTrait;
+    public const API_PATH = '/Payment/v1/Alias/Update';
+    public const RESPONSE_CLASS = AliasUpdateResponse::class;
 
     /**
      * @var UpdateAlias

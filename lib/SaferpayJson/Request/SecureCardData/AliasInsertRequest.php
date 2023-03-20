@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 
@@ -17,29 +19,28 @@ use Ticketpark\SaferpayJson\Response\SecureCardData\AliasInsertResponse;
 
 final class AliasInsertRequest extends Request
 {
-    const API_PATH = '/Payment/v1/Alias/Insert';
-    const RESPONSE_CLASS = AliasInsertResponse::class;
-
-    const PAYMENT_METHOD_AMEX = "AMEX";
-    const PAYMENT_METHOD_BANCONTACT = "BANCONTACT";
-    const PAYMENT_METHOD_BONUS = "BONUS";
-    const PAYMENT_METHOD_DINERS = "DINERS";
-    const PAYMENT_METHOD_DIRECTDEBIT = "DIRECTDEBIT";
-    const PAYMENT_METHOD_JCB = "JCB";
-    const PAYMENT_METHOD_MAESTRO = "MAESTRO";
-    const PAYMENT_METHOD_MASTERCARD = "MASTERCARD";
-    const PAYMENT_METHOD_MYONE = "MYONE";
-    const PAYMENT_METHOD_SAFERPAYTEST = "SAFERPAYTEST";
-    const PAYMENT_METHOD_UNIONPAY = "UNIONPAY";
-    const PAYMENT_METHOD_VISA = "VISA";
-    const PAYMENT_METHOD_VPAY = "VPAY";
-
-    const TYPE_CARD = 'CARD';
-    const TYPE_BANK_ACCOUNT = 'BANK_ACCOUNT';
-    const TYPE_POSTFINANCE = 'POSTFINANCE';
-    const TYPE_TWINT = 'TWINT';
-
     use RequestCommonsTrait;
+    public const API_PATH = '/Payment/v1/Alias/Insert';
+    public const RESPONSE_CLASS = AliasInsertResponse::class;
+
+    public const PAYMENT_METHOD_AMEX = "AMEX";
+    public const PAYMENT_METHOD_BANCONTACT = "BANCONTACT";
+    public const PAYMENT_METHOD_BONUS = "BONUS";
+    public const PAYMENT_METHOD_DINERS = "DINERS";
+    public const PAYMENT_METHOD_DIRECTDEBIT = "DIRECTDEBIT";
+    public const PAYMENT_METHOD_JCB = "JCB";
+    public const PAYMENT_METHOD_MAESTRO = "MAESTRO";
+    public const PAYMENT_METHOD_MASTERCARD = "MASTERCARD";
+    public const PAYMENT_METHOD_MYONE = "MYONE";
+    public const PAYMENT_METHOD_SAFERPAYTEST = "SAFERPAYTEST";
+    public const PAYMENT_METHOD_UNIONPAY = "UNIONPAY";
+    public const PAYMENT_METHOD_VISA = "VISA";
+    public const PAYMENT_METHOD_VPAY = "VPAY";
+
+    public const TYPE_CARD = 'CARD';
+    public const TYPE_BANK_ACCOUNT = 'BANK_ACCOUNT';
+    public const TYPE_POSTFINANCE = 'POSTFINANCE';
+    public const TYPE_TWINT = 'TWINT';
 
     /**
      * @var RegisterAlias
