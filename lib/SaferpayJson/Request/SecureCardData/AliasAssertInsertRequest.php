@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 
@@ -10,10 +12,9 @@ use Ticketpark\SaferpayJson\Response\SecureCardData\AliasAssertInsertResponse;
 
 final class AliasAssertInsertRequest extends Request
 {
-    const API_PATH = '/Payment/v1/Alias/AssertInsert';
-    const RESPONSE_CLASS = AliasAssertInsertResponse::class;
-
     use RequestCommonsTrait;
+    public const API_PATH = '/Payment/v1/Alias/AssertInsert';
+    public const RESPONSE_CLASS = AliasAssertInsertResponse::class;
 
     /**
      * @var string

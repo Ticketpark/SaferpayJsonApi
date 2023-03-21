@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Response;
 
@@ -7,10 +9,10 @@ use JMS\Serializer\Annotation\Type;
 
 class ErrorResponse extends Response
 {
-    const BEHAVIOUR_ABORT = 'ABORT';
-    const BEHAVIOUR_OTHER_MEANS = 'OTHER_MEANS';
-    const BEHAVIOUR_RETRY = 'RETRY';
-    const BEHAVIOUR_RETRY_LATER = 'RETRY_LATER';
+    public const BEHAVIOUR_ABORT = 'ABORT';
+    public const BEHAVIOUR_OTHER_MEANS = 'OTHER_MEANS';
+    public const BEHAVIOUR_RETRY = 'RETRY';
+    public const BEHAVIOUR_RETRY_LATER = 'RETRY_LATER';
 
     /**
      * @var string|null

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Exception;
 
@@ -13,7 +15,12 @@ class SaferpayErrorException extends \Exception
     {
         $this->errorResponse = $errorResponse;
 
-        parent::__construct();
+        parent::__construct(sprintf(
+            '[%s] %s: %s',
+            $errorResponse->getBehaviour(),
+            $errorResponse->getErrorName(),
+            $errorResponse->getErrorMessage()
+        ));
     }
 
     public function getErrorResponse(): ?ErrorResponse

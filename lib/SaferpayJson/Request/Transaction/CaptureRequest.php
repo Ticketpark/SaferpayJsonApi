@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
@@ -16,10 +18,9 @@ use Ticketpark\SaferpayJson\Response\Transaction\CaptureResponse;
 
 final class CaptureRequest extends Request
 {
-    const API_PATH = '/Payment/v1/Transaction/Capture';
-    const RESPONSE_CLASS = CaptureResponse::class;
-
     use RequestCommonsTrait;
+    public const API_PATH = '/Payment/v1/Transaction/Capture';
+    public const RESPONSE_CLASS = CaptureResponse::class;
 
     /**
      * @var TransactionReference

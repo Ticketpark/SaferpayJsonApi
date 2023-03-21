@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request;
 
@@ -92,7 +94,6 @@ abstract class Request
         $statusCode = $response->getStatusCode();
 
         if ($statusCode >= 400 && $statusCode < 500) {
-
             /** @var ErrorResponse $errorResponse */
             $errorResponse = $this->getSerializer()->deserialize(
                 (string) $response->getBody(),

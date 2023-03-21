@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Response\Transaction;
 
@@ -9,8 +11,8 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 final class CaptureResponse extends Response
 {
-    const STATUS_PENDING = 'PENDING';
-    const STATUS_CAPTURED = 'CAPTURED';
+    public const STATUS_PENDING = 'PENDING';
+    public const STATUS_CAPTURED = 'CAPTURED';
 
     /**
      * @var string|null
