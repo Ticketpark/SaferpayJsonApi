@@ -66,7 +66,7 @@ echo 'Payment token: ' . $response->getToken() . "<br>\n";
 // -----------------------------
 // Step 5:
 // Redirect to the payment page
-echo 'Redirect to: ' . $response->getRedirectUrl() ."<br>\n";
+echo 'Redirect to: ' . $response->getRedirect()->getRedirectUrl() ."<br>\n";
 
 // -----------------------------
 // Step 6:

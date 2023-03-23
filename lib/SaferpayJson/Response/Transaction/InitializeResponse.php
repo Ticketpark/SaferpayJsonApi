@@ -26,13 +26,6 @@ final class InitializeResponse extends Response
     private $expiration;
 
     /**
-     * @var string|null
-     * @SerializedName("RedirectUrl")
-     * @Type("string")
-     */
-    private $redirectUrl;
-
-    /**
      * @var bool|null
      * @SerializedName("LiabilityShift")
      * @Type("bool")
@@ -61,11 +54,6 @@ final class InitializeResponse extends Response
     public function getExpiration(): ?\DateTime
     {
         return $this->expiration;
-    }
-
-    public function getRedirectUrl(): ?string
-    {
-        return $this->redirectUrl;
     }
 
     public function getLiabilityShift(): ?bool
