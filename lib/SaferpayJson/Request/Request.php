@@ -20,8 +20,8 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 abstract class Request
 {
-    private const ROOT_URL = 'https://www.saferpay.com/api/';
-    private const ROOT_URL_TEST = 'https://test.saferpay.com/api/';
+    private const ROOT_URL = 'https://www.saferpay.com/api';
+    private const ROOT_URL_TEST = 'https://test.saferpay.com/api';
     private const ERROR_RESPONSE_CLASS = ErrorResponse::class;
 
     /**
