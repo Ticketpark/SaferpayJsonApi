@@ -30,18 +30,7 @@ abstract class Request
      */
     private $requestConfig;
 
-    /**
-     * We want the implementation to define the exact return type hint of the response.
-     * In PHP 7.4 the return type hint here in the abstraction would therefore be Ticketpark\SaferpayJson\Response\Response,
-     * as all other responses inherit from that class.
-     * In PHP 7.3 this is not yet allowed. Therefore the return type is omitted and only provided as a PhpDoc in
-     * order to satisfy static code analysis by PhpStan.
-     *
-     * @link https://wiki.php.net/rfc/covariant-returns-and-contravariant-parameters
-     * @link https://stitcher.io/blog/new-in-php-74#improved-type-variance-rfc
-     * @return mixed
-     */
-    abstract public function execute();
+    abstract public function execute(): Response;
 
     abstract public function getApiPath(): string;
 
@@ -153,7 +142,12 @@ abstract class Request
 
     private function getSerializer(): SerializerInterface
     {
-        AnnotationRegistry::registerLoader('class_exists');
+        // Support for doctrine/annotations 1.x
+        // @phpstan-ignore-next-line
+        if (method_exists(AnnotationRegistry::class, 'registerLoader')) {
+            // @phpstan-ignore-next-line
+            AnnotationRegistry::registerLoader('class_exists');
+        }
 
         return SerializerBuilder::create()->build();
     }

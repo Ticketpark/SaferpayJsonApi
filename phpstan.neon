@@ -3,6 +3,7 @@ parameters:
     paths:
         - lib
     checkMissingIterableValueType: false
+    reportUnmatchedIgnoredErrors: false
     ignoreErrors:
         -
             message: '#Property [a-zA-Z0-9\\]+::\$[a-zA-Z0-9]+ is never written, only read.#'
