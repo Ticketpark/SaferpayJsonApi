@@ -143,7 +143,9 @@ abstract class Request
     private function getSerializer(): SerializerInterface
     {
         // Support for doctrine/annotations 1.x
+        // @phpstan-ignore-next-line
         if (method_exists(AnnotationRegistry::class, 'registerLoader')) {
+            // @phpstan-ignore-next-line
             AnnotationRegistry::registerLoader('class_exists');
         }
 
