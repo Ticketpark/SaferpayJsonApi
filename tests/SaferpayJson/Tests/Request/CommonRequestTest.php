@@ -106,7 +106,11 @@ abstract class CommonRequestTest extends TestCase
 
     private function getFakedApiResponse(string $class): string
     {
-        AnnotationRegistry::registerLoader('class_exists');
+        // Support for doctrine/annotations 1.x
+        if (method_exists(AnnotationRegistry::class, 'registerLoader')) {
+            AnnotationRegistry::registerLoader('class_exists');
+        }
+
         $serializer = SerializerBuilder::create()->build();
 
         $response = new $class();
