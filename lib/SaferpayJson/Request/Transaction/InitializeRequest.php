@@ -23,7 +23,6 @@ use Ticketpark\SaferpayJson\Response\Transaction\InitializeResponse;
 final class InitializeRequest extends Request
 {
     use RequestCommonsTrait;
-
     public const API_PATH = '/Payment/v1/Transaction/Initialize';
     public const RESPONSE_CLASS = InitializeResponse::class;
 
@@ -47,6 +46,7 @@ final class InitializeRequest extends Request
      * @SerializedName("ConfigSet")
      */
     private $configSet;
+
     /**
      * @var string
      * @SerializedName("TerminalId")
@@ -64,16 +64,19 @@ final class InitializeRequest extends Request
      * @SerializedName("PaymentMeans")
      */
     private $paymentMeans;
+
     /**
      * @var Authentication|null
      * @SerializedName("Authentication")
      */
     private $authentication;
+
     /**
      * @var Payer|null
      * @SerializedName("Payer")
      */
     private $payer;
+
     /**
      * @var ReturnUrls
      * @SerializedName("ReturnUrls")
@@ -91,6 +94,7 @@ final class InitializeRequest extends Request
      * @SerializedName("Wallet")
      */
     private $wallet;
+
     /**
      * @var array<string>|null
      * @SerializedName("PaymentMethods")
@@ -136,63 +140,73 @@ final class InitializeRequest extends Request
         return $response;
     }
 
-    public function setConfigSet(?string $configSet): InitializeRequest
+    public function setConfigSet(?string $configSet): self
     {
         $this->configSet = $configSet;
+
         return $this;
     }
 
-    public function setPaymentMeans(?PaymentMeans $paymentMeans): InitializeRequest
+    public function setPaymentMeans(?PaymentMeans $paymentMeans): self
     {
         $this->paymentMeans = $paymentMeans;
+
         return $this;
     }
 
-    public function setAuthentication(?Authentication $authentication): InitializeRequest
+    public function setAuthentication(?Authentication $authentication): self
     {
         $this->authentication = $authentication;
+
         return $this;
     }
 
-    public function setPayer(?Payer $payer): InitializeRequest
+    public function setPayer(?Payer $payer): self
     {
         $this->payer = $payer;
+
         return $this;
     }
 
-    public function setStyling(?Styling $styling): InitializeRequest
+    public function setStyling(?Styling $styling): self
     {
         $this->styling = $styling;
+
         return $this;
     }
 
-    public function setWallet(?Wallet $wallet): InitializeRequest
+    public function setWallet(?Wallet $wallet): self
     {
         $this->wallet = $wallet;
+
         return $this;
     }
 
-    public function setPaymentMethods(?array $paymentMethods): InitializeRequest
+    public function setPaymentMethods(?array $paymentMethods): self
     {
         $this->paymentMethods = $paymentMethods;
+
         return $this;
     }
 
-    public function setOrder(?Order $order): InitializeRequest
+    public function setOrder(?Order $order): self
     {
         $this->order = $order;
+
         return $this;
     }
 
-    public function setRiskFactors(?RiskFactors $riskFactors): InitializeRequest
+    public function setRiskFactors(?RiskFactors $riskFactors): self
     {
         $this->riskFactors = $riskFactors;
+
         return $this;
     }
 
-    public function setCardForm(?CardForm $cardForm): InitializeRequest
+    public function setCardForm(?CardForm $cardForm): self
     {
         $this->cardForm = $cardForm;
+
         return $this;
     }
 
@@ -251,12 +265,10 @@ final class InitializeRequest extends Request
         return $this->order;
     }
 
-
     public function getRiskFactors(): ?RiskFactors
     {
         return $this->riskFactors;
     }
-
 
     public function getCardForm(): ?CardForm
     {

@@ -70,20 +70,27 @@ final class AuthorizeRequest extends Request
         return $this->registerAlias;
     }
 
-    public function setCondition(?string $condition): void
+    public function setCondition(?string $condition): self
     {
         $this->condition = $condition;
+
+        return $this;
     }
 
-    public function setVerificationCode(?string $verificationCode): void
+    public function setVerificationCode(?string $verificationCode): self
     {
         $this->verificationCode = $verificationCode;
+
+        return $this;
     }
 
-    public function setRegisterAlias(?RegisterAlias $registerAlias): void
+    public function setRegisterAlias(?RegisterAlias $registerAlias): self
     {
         $this->registerAlias = $registerAlias;
+
+        return $this;
     }
+
     public function execute(): AuthorizeResponse
     {
         /** @var AuthorizeResponse $response */
