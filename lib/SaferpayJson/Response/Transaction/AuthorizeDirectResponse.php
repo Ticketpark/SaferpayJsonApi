@@ -46,6 +46,7 @@ final class AuthorizeDirectResponse extends Response
     /**
      * @var FraudPrevention|null
      * @SerializedName("FraudPrevention")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\FraudPrevention")
      */
     private $fraudPrevention;
 
