@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0.0|^8.1.0|^8.2.0",
+        "php": "^7.4|^8.0.0|^8.1.0|^8.2.0|^8.3.0",
         "doctrine/annotations": "^1.11|^2.0",
         "jms/serializer": "^3.16",
         "guzzlehttp/guzzle": "^6.3|^7.0"
