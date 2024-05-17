@@ -11,7 +11,7 @@ final class Payer
 {
     /**
      * @var string|null
-     * @SerializedName("Id")
+     * @SerializedName("id")
      */
     private $id;
 
