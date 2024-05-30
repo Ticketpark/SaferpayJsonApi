@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        php: ['7.4', '8.0', '8.1', '8.2']
+        php: ['7.4', '8.0', '8.1', '8.2', '8.3']
         stability: ['prefer-lowest', 'prefer-stable']
 
     name: PHP ${{ matrix.php }} - ${{ matrix.stability }}
@@ -23,20 +23,62 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          tools: composer:v2
+          tools: composer
           coverage: none
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install dependencies
+        run: composer update --${{ matrix.stability }} --prefer-dist  --no-progress
+
+      - name: Execute tests
+        run: vendor/bin/phpunit --verbose
+
+
+  code_checks:
+    runs-on: ubuntu-20.04
+    name: Static code analysis
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer
+          coverage: none
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Check composer files
+        run: composer validate --strict
 
       - name: Check for syntax errors in PHP files
         run: find ./ -type f -name '*.php' -print0 | xargs -0 -L1 -P4 -- php -l
 
-      - name: Check composer files
-        run:  composer validate --strict
-
-      - name: Install dependencies
-        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
-
-      - name: Execute tests
-        run: vendor/bin/phpunit --verbose
 
       - name: Check coding standard
         run: vendor/bin/php-cs-fixer --no-interaction --dry-run --diff -v fix lib/
