@@ -7,8 +7,10 @@ namespace Ticketpark\SaferpayJson\Request\Transaction;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
+use Ticketpark\SaferpayJson\Request\Container\Order;
 use Ticketpark\SaferpayJson\Request\Container\Payer;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
+use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
@@ -21,6 +23,9 @@ final class AuthorizeDirectRequest extends Request
     use RequestCommonsTrait;
     public const API_PATH = '/Payment/v1/Transaction/AuthorizeDirect';
     public const RESPONSE_CLASS = AuthorizeDirectResponse::class;
+
+    public const INITIATOR_MERCHANT = 'MERCHANT';
+    public const INITIATOR_PAYER = 'PAYER';
 
     /**
      * @var string
@@ -58,6 +63,23 @@ final class AuthorizeDirectRequest extends Request
      */
     private $payer;
 
+    /**
+     * @var Order|null
+     * @SerializedName("Order")
+     */
+    private $order;
+
+    /**
+     * @var RiskFactors|null
+     * @SerializedName("RiskFactors")
+     */
+    private $riskFactors;
+
+    /**
+     * @var string|null
+     * @SerializedName("Initiator")
+     */
+    private $initiator;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -141,6 +163,39 @@ final class AuthorizeDirectRequest extends Request
     {
         $this->payer = $payer;
 
+        return $this;
+    }
+
+    public function getOrder(): ?Order
+    {
+        return $this->order;
+    }
+
+    public function setOrder(?Order $order): self
+    {
+        $this->order = $order;
+        return $this;
+    }
+
+    public function getRiskFactors(): ?RiskFactors
+    {
+        return $this->riskFactors;
+    }
+
+    public function setRiskFactors(?RiskFactors $riskFactors): self
+    {
+        $this->riskFactors = $riskFactors;
+        return $this;
+    }
+
+    public function getInitiator(): ?string
+    {
+        return $this->initiator;
+    }
+
+    public function setInitiator(?string $initiator): self
+    {
+        $this->initiator = $initiator;
         return $this;
     }
 
