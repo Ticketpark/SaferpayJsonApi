@@ -32,13 +32,6 @@ final class ThreeDs
 
     /**
      * @var string|null
-     * @SerializedName("VerificationValue")
-     * @Type("string")
-     */
-    private $verificationValue;
-
-    /**
-     * @var string|null
      * @SerializedName("Version")
      * @Type("string")
      */
@@ -64,11 +57,6 @@ final class ThreeDs
     public function getXid(): ?string
     {
         return $this->xid;
-    }
-
-    public function getVerificationValue(): ?string
-    {
-        return $this->verificationValue;
     }
 
     public function getVersion(): ?string

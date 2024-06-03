@@ -6,9 +6,6 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Request\Container\BankAccount;
-use Ticketpark\SaferpayJson\Request\Container\Brand;
-use Ticketpark\SaferpayJson\Request\Container\Card;
 
 final class PaymentMeans
 {
@@ -65,6 +62,13 @@ final class PaymentMeans
      * @Type("Ticketpark\SaferpayJson\Request\Container\Alias")
      */
     private $alias;
+
+    /**
+     * @var SchemeToken|null
+     * @SerializedName("SchemeToken")
+     * @Type("Ticketpark\SaferpayJson\Request\Container\SchemeToken")
+     */
+    private $schemeToken;
 
     public function getBrand(): ?Brand
     {
@@ -159,6 +163,17 @@ final class PaymentMeans
     {
         $this->alias = $alias;
 
+        return $this;
+    }
+
+    public function getSchemeToken(): ?SchemeToken
+    {
+        return $this->schemeToken;
+    }
+
+    public function setSchemeToken(?SchemeToken $schemeToken): self
+    {
+        $this->schemeToken = $schemeToken;
         return $this;
     }
 }
