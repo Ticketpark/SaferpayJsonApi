@@ -98,6 +98,12 @@ final class Address
      */
     private $phone;
 
+    /**
+     * @var string|null
+     * @SerializedName("VatNumber")
+     */
+    private $vatNumber;
+
     public function getFirstName(): ?string
     {
         return $this->firstName;
@@ -263,6 +269,17 @@ final class Address
     {
         $this->phone = $phone;
 
+        return $this;
+    }
+
+    public function getVatNumber(): ?string
+    {
+        return $this->vatNumber;
+    }
+
+    public function setVatNumber(?string $vatNumber): self
+    {
+        $this->vatNumber = $vatNumber;
         return $this;
     }
 }
