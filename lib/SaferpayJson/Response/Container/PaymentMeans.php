@@ -6,9 +6,6 @@ namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Response\Container\BankAccount;
-use Ticketpark\SaferpayJson\Response\Container\Brand;
-use Ticketpark\SaferpayJson\Response\Container\Card;
 
 final class PaymentMeans
 {
@@ -54,6 +51,13 @@ final class PaymentMeans
      */
     private $twint;
 
+    /**
+     * @var PayPal|null
+     * @SerializedName("PayPal")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\PayPal")
+     */
+    private $payPal;
+
     public function getBrand(): ?Brand
     {
         return $this->brand;
@@ -82,5 +86,10 @@ final class PaymentMeans
     public function getTwint(): ?Twint
     {
         return $this->twint;
+    }
+
+    public function getPayPal(): ?PayPal
+    {
+        return $this->payPal;
     }
 }

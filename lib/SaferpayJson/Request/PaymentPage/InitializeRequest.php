@@ -56,6 +56,7 @@ final class InitializeRequest extends Request
 
     public const WALLET_MASTERPASS = "MASTERPASS";
     public const WALLET_APPLEPAY = "APPLEPAY";
+    public const WALLET_GOOGLEPAY = "GOOGLEPAY";
 
     public const CONDITION_WITH_LIABILITY_SHIFT = 'WITH_LIABILITY_SHIFT';
     public const CONDITION_IF_ALLOWED_BY_SCHEME = 'IF_ALLOWED_BY_SCHEME';
