@@ -7,6 +7,7 @@ namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Request\Container\Check;
+use Ticketpark\SaferpayJson\Request\Container\IssuerReference;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\Request;
@@ -39,6 +40,13 @@ final class AliasInsertDirectRequest extends Request
      * @Type("Ticketpark\SaferpayJson\Request\Container\Check")
      */
     private $check;
+
+    /**
+     * @var IssuerReference|null
+     * @SerializedName("IssuerReference")
+     * @Type("Ticketpark\SaferpayJson\Request\Container\IssuerReference")
+     */
+    private $issuerReference;
 
     public function __construct(RequestConfig $requestConfig, RegisterAlias $registerAlias, PaymentMeans $paymentMeans)
     {
@@ -81,6 +89,17 @@ final class AliasInsertDirectRequest extends Request
     {
         $this->check = $check;
 
+        return $this;
+    }
+
+    public function getIssuerReference(): ?IssuerReference
+    {
+        return $this->issuerReference;
+    }
+
+    public function setIssuerReference(?IssuerReference $issuerReference): self
+    {
+        $this->issuerReference = $issuerReference;
         return $this;
     }
 

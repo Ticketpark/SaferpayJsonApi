@@ -30,6 +30,13 @@ final class Liability
      */
     private $threeDs;
 
+    /**
+     * @var string|null
+     * @SerializedName("InPsd2Scope")
+     * @Type("string")
+     */
+    private $inPsd2Scope;
+
     public function isLiabilityShift(): ?bool
     {
         return $this->liabilityShift;
@@ -43,5 +50,10 @@ final class Liability
     public function getThreeDs(): ?ThreeDs
     {
         return $this->threeDs;
+    }
+
+    public function getInPsd2Scope(): ?string
+    {
+        return $this->inPsd2Scope;
     }
 }

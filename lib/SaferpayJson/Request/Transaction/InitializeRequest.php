@@ -11,6 +11,7 @@ use Ticketpark\SaferpayJson\Request\Container\Order;
 use Ticketpark\SaferpayJson\Request\Container\Payer;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
+use Ticketpark\SaferpayJson\Request\Container\RedirectNotifyUrls;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrls;
 use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
 use Ticketpark\SaferpayJson\Request\Container\Styling;
@@ -119,6 +120,12 @@ final class InitializeRequest extends Request
      */
     private $cardForm;
 
+    /**
+     * @var RedirectNotifyUrls|null
+     * @SerializedName("RedirectNotifyUrls")
+     */
+    private $redirectNotifyUrls;
+
     public function __construct(
         RequestConfig $requestConfig,
         string        $terminalId,
@@ -210,6 +217,12 @@ final class InitializeRequest extends Request
         return $this;
     }
 
+    public function setRedirectNotifyUrls(?RedirectNotifyUrls $redirectNotifyUrls): self
+    {
+        $this->redirectNotifyUrls = $redirectNotifyUrls;
+        return $this;
+    }
+
     public function getConfigSet(): ?string
     {
         return $this->configSet;
@@ -273,5 +286,10 @@ final class InitializeRequest extends Request
     public function getCardForm(): ?CardForm
     {
         return $this->cardForm;
+    }
+
+    public function getRedirectNotifyUrls(): ?RedirectNotifyUrls
+    {
+        return $this->redirectNotifyUrls;
     }
 }

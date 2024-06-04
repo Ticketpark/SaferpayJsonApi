@@ -107,6 +107,13 @@ final class Transaction
      */
     private $invoice;
 
+    /**
+     * @var IssuerReference|null
+     * @SerializedName("IssuerReference")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\IssuerReference")
+     */
+    private $issuerReference;
+
     public function getType(): ?string
     {
         return $this->type;
@@ -170,5 +177,10 @@ final class Transaction
     public function getInvoice(): ?Invoice
     {
         return $this->invoice;
+    }
+
+    public function getIssuerReference(): ?IssuerReference
+    {
+        return $this->issuerReference;
     }
 }

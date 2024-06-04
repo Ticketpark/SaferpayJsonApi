@@ -6,6 +6,7 @@ namespace Ticketpark\SaferpayJson\Response;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use Ticketpark\SaferpayJson\Response\Container\Risk;
 
 class ErrorResponse extends Response
 {
@@ -13,6 +14,13 @@ class ErrorResponse extends Response
     public const BEHAVIOUR_OTHER_MEANS = 'OTHER_MEANS';
     public const BEHAVIOUR_RETRY = 'RETRY';
     public const BEHAVIOUR_RETRY_LATER = 'RETRY_LATER';
+
+    /**
+     * @var Risk|null
+     * @SerializedName("Risk")
+     * @Type("Ticketpark\SaferpayJson\Response\Container\Risk")
+     */
+    private $risk;
 
     /**
      * @var string|null
@@ -70,6 +78,18 @@ class ErrorResponse extends Response
      */
     private $processorMessage;
 
+    /**
+     * @var string|null
+     * @SerializedName("PayerMessage")
+     * @Type("string")
+     */
+    private $payerMessage;
+
+    public function getRisk(): ?Risk
+    {
+        return $this->risk;
+    }
+
     public function getBehaviour(): ?string
     {
         return $this->behaviour;
@@ -108,5 +128,10 @@ class ErrorResponse extends Response
     public function getProcessorMessage(): ?string
     {
         return $this->processorMessage;
+    }
+
+    public function getPayerMessage(): ?string
+    {
+        return $this->payerMessage;
     }
 }

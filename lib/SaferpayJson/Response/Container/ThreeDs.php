@@ -32,10 +32,17 @@ final class ThreeDs
 
     /**
      * @var string|null
-     * @SerializedName("VerificationValue")
+     * @SerializedName("Version")
      * @Type("string")
      */
-    private $verificationValue;
+    private $version;
+
+    /**
+     * @var string|null
+     * @SerializedName("AuthenticationType")
+     * @Type("string")
+     */
+    private $authenticationType;
 
     public function isAuthenticated(): ?bool
     {
@@ -52,8 +59,13 @@ final class ThreeDs
         return $this->xid;
     }
 
-    public function getVerificationValue(): ?string
+    public function getVersion(): ?string
     {
-        return $this->verificationValue;
+        return $this->version;
+    }
+
+    public function getAuthenticationType(): ?string
+    {
+        return $this->authenticationType;
     }
 }
