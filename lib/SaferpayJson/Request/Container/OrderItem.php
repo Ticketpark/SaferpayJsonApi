@@ -90,6 +90,18 @@ final class OrderItem
      */
     private $discountAmount;
 
+    /**
+     * @var string|null
+     * @SerializedName("ProductUrl")
+     */
+    private $productUrl;
+
+    /**
+     * @var string|null
+     * @SerializedName("ImageUrl")
+     */
+    private $imageUrl;
+
 
     public function getType(): ?string
     {
@@ -255,6 +267,28 @@ final class OrderItem
     {
         $this->discountAmount = $discountAmount;
 
+        return $this;
+    }
+
+    public function getProductUrl(): ?string
+    {
+        return $this->productUrl;
+    }
+
+    public function setProductUrl(?string $productUrl): self
+    {
+        $this->productUrl = $productUrl;
+        return $this;
+    }
+
+    public function getImageUrl(): ?string
+    {
+        return $this->imageUrl;
+    }
+
+    public function setImageUrl(?string $imageUrl): self
+    {
+        $this->imageUrl = $imageUrl;
         return $this;
     }
 }
