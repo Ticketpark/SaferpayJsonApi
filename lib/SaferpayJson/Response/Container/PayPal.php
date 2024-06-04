@@ -23,6 +23,13 @@ final class PayPal
      */
     private $sellerProtectionStatus;
 
+    /**
+     * @var string|null
+     * @SerializedName("Email")
+     * @Type("string")
+     */
+    private $email;
+
     public function getPayerId(): ?string
     {
         return $this->payerId;
@@ -31,5 +38,10 @@ final class PayPal
     public function getSellerProtectionStatus(): ?string
     {
         return $this->sellerProtectionStatus;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
     }
 }

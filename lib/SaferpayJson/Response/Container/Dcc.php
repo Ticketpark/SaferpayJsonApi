@@ -16,8 +16,32 @@ final class Dcc
      */
     private $payerAmount;
 
+    /**
+     * @var string|null
+     * @SerializedName("Markup")
+     * @Type("string")
+     */
+    private $markup;
+
+    /**
+     * @var string|null
+     * @SerializedName("ExchangeRate")
+     * @Type("string")
+     */
+    private $exchangeRate;
+
     public function getPayerAmount(): ?Amount
     {
         return $this->payerAmount;
+    }
+
+    public function getMarkup(): ?string
+    {
+        return $this->markup;
+    }
+
+    public function getExchangeRate(): ?string
+    {
+        return $this->exchangeRate;
     }
 }
