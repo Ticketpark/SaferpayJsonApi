@@ -70,6 +70,13 @@ final class PaymentMeans
      */
     private $schemeToken;
 
+    /**
+     * @var ApplePay|null
+     * @SerializedName("ApplePay")
+     * @Type("Ticketpark\SaferpayJson\Request\Container\ApplePay")
+     */
+    private $applePay;
+
     public function getBrand(): ?Brand
     {
         return $this->brand;
@@ -174,6 +181,17 @@ final class PaymentMeans
     public function setSchemeToken(?SchemeToken $schemeToken): self
     {
         $this->schemeToken = $schemeToken;
+        return $this;
+    }
+
+    public function getApplePay(): ?ApplePay
+    {
+        return $this->applePay;
+    }
+
+    public function setApplePay(?ApplePay $applePay): self
+    {
+        $this->applePay = $applePay;
         return $this;
     }
 }

@@ -12,14 +12,23 @@ final class PaymentMethodsOptions
     /**
      * @var Alipay|null
      * @SerializedName("Alipay")
+     * @Type("Ticketpark\SaferpayJson\Request\Container\Alipay")
      */
     private $alipay;
 
     /**
      * @var Ideal|null
      * @SerializedName("Ideal")
+     * @Type("Ticketpark\SaferpayJson\Request\Container\Ideal")
      */
     private $ideal;
+
+    /**
+     * @var Klarna|null
+     * @SerializedName("Klarna")
+     * @Type("Ticketpark\SaferpayJson\Request\Container\Klarna")
+     */
+    private $klarna;
 
     public function getAlipay(): ?Alipay
     {
@@ -42,6 +51,17 @@ final class PaymentMethodsOptions
     {
         $this->ideal = $ideal;
 
+        return $this;
+    }
+
+    public function getKlarna(): ?Klarna
+    {
+        return $this->klarna;
+    }
+
+    public function setKlarna(?Klarna $klarna): self
+    {
+        $this->klarna = $klarna;
         return $this;
     }
 }
