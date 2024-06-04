@@ -21,11 +21,15 @@ final class AddressForm
     public const MANDATORY_FIELD_STREET = 'STREET';
     public const MANDATORY_FIELD_ZIP = 'ZIP';
 
+    public const ADDRESS_SOURCE_NONE = 'NONE';
+    public const ADDRESS_SOURCE_SAFERPAY = 'SAFERPAY';
+    public const ADDRESS_SOURCE_PREFER_PAYMENTMETHOD = 'PREFER_PAYMENTMETHOD';
+
     /**
-     * @var bool
-     * @SerializedName("Display")
+     * @var string
+     * @SerializedName("AddressSource")
      */
-    private $display;
+    private $addressSource;
 
     /**
      * @var array<string>|null
@@ -33,14 +37,14 @@ final class AddressForm
      */
     private $mandatoryFields = [];
 
-    public function __construct(bool $display)
+    public function __construct(string $addressSource)
     {
-        $this->display = $display;
+        $this->addressSource = $addressSource;
     }
 
-    public function isDisplay(): bool
+    public function getAddressSource(): string
     {
-        return $this->display;
+        return $this->addressSource;
     }
 
     public function getMandatoryFields(): ?array
