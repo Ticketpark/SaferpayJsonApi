@@ -34,12 +34,6 @@ final class RiskFactors
      */
     private $isB2B;
 
-    /**
-     * @var string|null
-     * @SerializedName("DeviceFingerprint")
-     */
-    private $deviceFingerprint;
-
     public function getDeliveryType(): ?string
     {
         return $this->deliveryType;
@@ -72,17 +66,6 @@ final class RiskFactors
     public function setIsB2B(?bool $isB2B): self
     {
         $this->isB2B = $isB2B;
-        return $this;
-    }
-
-    public function getDeviceFingerprint(): ?string
-    {
-        return $this->deviceFingerprint;
-    }
-
-    public function setDeviceFingerprint(?string $deviceFingerprint): self
-    {
-        $this->deviceFingerprint = $deviceFingerprint;
         return $this;
     }
 }

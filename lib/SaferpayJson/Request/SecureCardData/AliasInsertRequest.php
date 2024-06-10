@@ -11,6 +11,7 @@ use Ticketpark\SaferpayJson\Request\Container\Check;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
+use Ticketpark\SaferpayJson\Request\Container\SecureCardData\Notification;
 use Ticketpark\SaferpayJson\Request\Container\Styling;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
@@ -97,6 +98,12 @@ final class AliasInsertRequest extends Request
      * @SerializedName("PaymentMeans")
      */
     private $paymentMeans;
+
+    /**
+     * @var Notification|null
+     * @SerializedName("Notification")
+     */
+    private $notification;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -225,5 +232,16 @@ final class AliasInsertRequest extends Request
         $response = $this->doExecute();
 
         return $response;
+    }
+
+    public function getNotification(): ?Notification
+    {
+        return $this->notification;
+    }
+
+    public function setNotification(?Notification $notification): self
+    {
+        $this->notification = $notification;
+        return $this;
     }
 }

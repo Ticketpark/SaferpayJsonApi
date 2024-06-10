@@ -45,13 +45,6 @@ final class PaymentMeans
     private $bankAccount;
 
     /**
-     * @var Twint|null
-     * @SerializedName("Twint")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Twint")
-     */
-    private $twint;
-
-    /**
      * @var PayPal|null
      * @SerializedName("PayPal")
      * @Type("Ticketpark\SaferpayJson\Response\Container\PayPal")
@@ -81,11 +74,6 @@ final class PaymentMeans
     public function getBankAccount(): ?BankAccount
     {
         return $this->bankAccount;
-    }
-
-    public function getTwint(): ?Twint
-    {
-        return $this->twint;
     }
 
     public function getPayPal(): ?PayPal

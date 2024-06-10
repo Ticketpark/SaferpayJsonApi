@@ -10,7 +10,7 @@ use Ticketpark\SaferpayJson\Response\Container\Risk;
 
 class ErrorResponse extends Response
 {
-    public const BEHAVIOUR_ABORT = 'ABORT';
+    public const BEHAVIOUR_DO_NOT_RETRY = 'DO_NOT_RETRY';
     public const BEHAVIOUR_OTHER_MEANS = 'OTHER_MEANS';
     public const BEHAVIOUR_RETRY = 'RETRY';
     public const BEHAVIOUR_RETRY_LATER = 'RETRY_LATER';
