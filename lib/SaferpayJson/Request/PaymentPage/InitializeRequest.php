@@ -34,6 +34,7 @@ final class InitializeRequest extends Request
     public const PAYMENT_METHOD_BANCONTACT = "BANCONTACT";
     public const PAYMENT_METHOD_BONUS = "BONUS";
     public const PAYMENT_METHOD_DINERS = "DINERS";
+    public const PAYMENT_METHOD_CARD = "CARD";
     public const PAYMENT_METHOD_DIRECTDEBIT = "DIRECTDEBIT";
     public const PAYMENT_METHOD_EPRZELEWY = "EPRZELEWY";
     public const PAYMENT_METHOD_EPS = "EPS";

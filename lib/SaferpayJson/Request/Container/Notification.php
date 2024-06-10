@@ -22,6 +22,12 @@ final class Notification
 
     /**
      * @var string|null
+     * @SerializedName("PayerDccReceiptEmail")
+     */
+    private $payerDccReceiptEmail;
+
+    /**
+     * @var string|null
      * @SerializedName("SuccessNotifyUrl")
      */
     private $successNotifyUrl;
@@ -53,6 +59,17 @@ final class Notification
     {
         $this->payerEmail = $payerEmail;
 
+        return $this;
+    }
+
+    public function getPayerDccReceiptEmail(): ?string
+    {
+        return $this->payerDccReceiptEmail;
+    }
+
+    public function setPayerDccReceiptEmail(?string $payerDccReceiptEmail): self
+    {
+        $this->payerDccReceiptEmail = $payerDccReceiptEmail;
         return $this;
     }
 

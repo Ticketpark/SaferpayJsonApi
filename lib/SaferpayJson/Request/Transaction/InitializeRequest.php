@@ -15,6 +15,7 @@ use Ticketpark\SaferpayJson\Request\Container\RedirectNotifyUrls;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
 use Ticketpark\SaferpayJson\Request\Container\Styling;
+use Ticketpark\SaferpayJson\Request\Container\Transaction\Notification;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -117,6 +118,12 @@ final class InitializeRequest extends Request
      * @SerializedName("RedirectNotifyUrls")
      */
     private $redirectNotifyUrls;
+
+    /**
+     * @var Notification|null
+     * @SerializedName("Notification")
+     */
+    private $notification;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -271,5 +278,16 @@ final class InitializeRequest extends Request
     public function getRedirectNotifyUrls(): ?RedirectNotifyUrls
     {
         return $this->redirectNotifyUrls;
+    }
+
+    public function getNotification(): ?Notification
+    {
+        return $this->notification;
+    }
+
+    public function setNotification(?Notification $notification): self
+    {
+        $this->notification = $notification;
+        return $this;
     }
 }
