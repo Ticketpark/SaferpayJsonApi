@@ -12,7 +12,7 @@ use Ticketpark\SaferpayJson\Request\Container\Payer;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Request\Container\RedirectNotifyUrls;
-use Ticketpark\SaferpayJson\Request\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
 use Ticketpark\SaferpayJson\Request\Container\Styling;
 use Ticketpark\SaferpayJson\Request\Container\Wallet;
@@ -79,10 +79,10 @@ final class InitializeRequest extends Request
     private $payer;
 
     /**
-     * @var ReturnUrls
-     * @SerializedName("ReturnUrls")
+     * @var ReturnUrl
+     * @SerializedName("ReturnUrl")
      */
-    private $returnUrls;
+    private $returnUrl;
 
     /**
      * @var Styling|null
@@ -130,11 +130,11 @@ final class InitializeRequest extends Request
         RequestConfig $requestConfig,
         string        $terminalId,
         Payment       $payment,
-        ReturnUrls    $returnUrls
+        ReturnUrl    $returnUrl
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;
-        $this->returnUrls = $returnUrls;
+        $this->returnUrl = $returnUrl;
 
         parent::__construct($requestConfig);
     }
@@ -253,9 +253,9 @@ final class InitializeRequest extends Request
         return $this->payer;
     }
 
-    public function getReturnUrls(): ReturnUrls
+    public function getReturnUrl(): ReturnUrl
     {
-        return $this->returnUrls;
+        return $this->returnUrl;
     }
 
     public function getStyling(): ?Styling

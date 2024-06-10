@@ -10,7 +10,7 @@ use Ticketpark\SaferpayJson\Request\Container\CardForm;
 use Ticketpark\SaferpayJson\Request\Container\Check;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
-use Ticketpark\SaferpayJson\Request\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\Container\Styling;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
@@ -56,10 +56,10 @@ final class AliasInsertRequest extends Request
     private $type;
 
     /**
-     * @var ReturnUrls
-     * @SerializedName("ReturnUrls")
+     * @var ReturnUrl
+     * @SerializedName("ReturnUrl")
      */
-    private $returnUrls;
+    private $returnUrl;
 
     /**
      * @var Styling|null
@@ -102,11 +102,11 @@ final class AliasInsertRequest extends Request
         RequestConfig $requestConfig,
         RegisterAlias $registerAlias,
         string $type,
-        ReturnUrls $returnUrls
+        ReturnUrl $returnUrl
     ) {
         $this->registerAlias = $registerAlias;
         $this->type = $type;
-        $this->returnUrls = $returnUrls;
+        $this->returnUrl = $returnUrl;
 
         parent::__construct($requestConfig);
     }
@@ -135,14 +135,14 @@ final class AliasInsertRequest extends Request
         return $this;
     }
 
-    public function getReturnUrls(): ReturnUrls
+    public function getReturnUrl(): ReturnUrl
     {
-        return $this->returnUrls;
+        return $this->returnUrl;
     }
 
-    public function setReturnUrls(ReturnUrls $returnUrls): self
+    public function setReturnUrl(ReturnUrl $returnUrl): self
     {
-        $this->returnUrls = $returnUrls;
+        $this->returnUrl = $returnUrl;
 
         return $this;
     }

@@ -14,7 +14,7 @@ use Ticketpark\SaferpayJson\Request\Container\Payer;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMethodsOptions;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
-use Ticketpark\SaferpayJson\Request\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
 use Ticketpark\SaferpayJson\Request\Container\Styling;
 use Ticketpark\SaferpayJson\Request\Request;
@@ -53,6 +53,7 @@ final class InitializeRequest extends Request
     public const PAYMENT_METHOD_UNIONPAY = "UNIONPAY";
     public const PAYMENT_METHOD_VISA = "VISA";
     public const PAYMENT_METHOD_VPAY = "VPAY";
+    public const PAYMENT_METHOD_PAYCONIQ = "PAYCONIQ";
 
     public const WALLET_MASTERPASS = "MASTERPASS";
     public const WALLET_APPLEPAY = "APPLEPAY";
@@ -74,10 +75,10 @@ final class InitializeRequest extends Request
     private $payment;
 
     /**
-     * @var ReturnUrls
-     * @SerializedName("ReturnUrls")
+     * @var ReturnUrl
+     * @SerializedName("ReturnUrl")
      */
-    private $returnUrls;
+    private $returnUrl;
 
     /**
      * @var string|null
@@ -173,11 +174,11 @@ final class InitializeRequest extends Request
         RequestConfig $requestConfig,
         string $terminalId,
         Payment $payment,
-        ReturnUrls $returnUrls
+        ReturnUrl $returnUrl
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;
-        $this->returnUrls = $returnUrls;
+        $this->returnUrl = $returnUrl;
 
         parent::__construct($requestConfig);
     }
@@ -206,14 +207,14 @@ final class InitializeRequest extends Request
         return $this;
     }
 
-    public function getReturnUrls(): ReturnUrls
+    public function getReturnUrl(): ReturnUrl
     {
-        return $this->returnUrls;
+        return $this->returnUrl;
     }
 
-    public function setReturnUrls(ReturnUrls $returnUrls): self
+    public function setReturnUrl(ReturnUrl $returnUrl): self
     {
-        $this->returnUrls = $returnUrls;
+        $this->returnUrl = $returnUrl;
 
         return $this;
     }
