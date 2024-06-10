@@ -43,12 +43,19 @@ final class SchemeToken
      */
     private $eci;
 
-    public function __construct(string $number, int $expMonth, int $expYear, string $authValue)
+    /**
+     * @var string
+     * @SerializedName("TokenType")
+     */
+    private $tokenType;
+
+    public function __construct(string $number, int $expMonth, int $expYear, string $authValue, string $tokenType)
     {
         $this->number = $number;
         $this->expMonth = $expMonth;
         $this->expYear = $expYear;
         $this->authValue = $authValue;
+        $this->tokenType = $tokenType;
     }
 
     public function getNumber(): string
@@ -80,5 +87,10 @@ final class SchemeToken
     {
         $this->eci = $eci;
         return $this;
+    }
+
+    public function getTokenType(): string
+    {
+        return $this->tokenType;
     }
 }

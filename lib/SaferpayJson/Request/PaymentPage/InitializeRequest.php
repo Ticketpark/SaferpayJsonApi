@@ -51,6 +51,7 @@ final class InitializeRequest extends Request
     public const PAYMENT_METHOD_PAYPAL = "PAYPAL";
     public const PAYMENT_METHOD_POSTCARD = "POSTCARD";
     public const PAYMENT_METHOD_POSTFINANCE = "POSTFINANCE";
+    public const PAYMENT_METHOD_POSTFINANCEPAY = "POSTFINANCEPAY";
     public const PAYMENT_METHOD_SAFERPAYTEST = "SAFERPAYTEST";
     public const PAYMENT_METHOD_SOFORT = "SOFORT";
     public const PAYMENT_METHOD_TWINT = "TWINT";
