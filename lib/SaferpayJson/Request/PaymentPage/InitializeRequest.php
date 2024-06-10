@@ -28,6 +28,7 @@ final class InitializeRequest extends Request
     public const API_PATH = '/Payment/v1/PaymentPage/Initialize';
     public const RESPONSE_CLASS = InitializeResponse::class;
 
+    public const PAYMENT_METHOD_ACCOUNTTOACCOUNT = "ACCOUNTTOACCOUNT";
     public const PAYMENT_METHOD_ALIPAY = "ALIPAY";
     public const PAYMENT_METHOD_AMEX = "AMEX";
     public const PAYMENT_METHOD_BANCONTACT = "BANCONTACT";
@@ -40,11 +41,13 @@ final class InitializeRequest extends Request
     public const PAYMENT_METHOD_IDEAL = "IDEAL";
     public const PAYMENT_METHOD_INVOICE = "INVOICE";
     public const PAYMENT_METHOD_JCB = "JCB";
+    public const PAYMENT_METHOD_KLARNA = "KLARNA";
     public const PAYMENT_METHOD_MAESTRO = "MAESTRO";
     public const PAYMENT_METHOD_MASTERCARD = "MASTERCARD";
     public const PAYMENT_METHOD_MYONE = "MYONE";
-    public const PAYMENT_METHOD_PAYPAL = "PAYPAL";
+    public const PAYMENT_METHOD_PAYCONIQ = "PAYCONIQ";
     public const PAYMENT_METHOD_PAYDIREKT = "PAYDIREKT";
+    public const PAYMENT_METHOD_PAYPAL = "PAYPAL";
     public const PAYMENT_METHOD_POSTCARD = "POSTCARD";
     public const PAYMENT_METHOD_POSTFINANCE = "POSTFINANCE";
     public const PAYMENT_METHOD_SAFERPAYTEST = "SAFERPAYTEST";
@@ -52,9 +55,7 @@ final class InitializeRequest extends Request
     public const PAYMENT_METHOD_TWINT = "TWINT";
     public const PAYMENT_METHOD_UNIONPAY = "UNIONPAY";
     public const PAYMENT_METHOD_VISA = "VISA";
-    public const PAYMENT_METHOD_VPAY = "VPAY";
-    public const PAYMENT_METHOD_PAYCONIQ = "PAYCONIQ";
-    public const PAYMENT_METHOD_ACCOUNTTOACCOUNT = "ACCOUNTTOACCOUNT";
+    public const PAYMENT_METHOD_WLCRYPTOPAYMENTS = "WLCRYPTOPAYMENTS";
 
     public const WALLET_MASTERPASS = "MASTERPASS";
     public const WALLET_APPLEPAY = "APPLEPAY";

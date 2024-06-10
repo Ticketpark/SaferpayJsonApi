@@ -36,7 +36,6 @@ final class AliasInsertRequest extends Request
     public const PAYMENT_METHOD_SAFERPAYTEST = "SAFERPAYTEST";
     public const PAYMENT_METHOD_UNIONPAY = "UNIONPAY";
     public const PAYMENT_METHOD_VISA = "VISA";
-    public const PAYMENT_METHOD_VPAY = "VPAY";
 
     public const TYPE_CARD = 'CARD';
     public const TYPE_BANK_ACCOUNT = 'BANK_ACCOUNT';
