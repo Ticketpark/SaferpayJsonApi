@@ -61,8 +61,8 @@ final class InitializeRequest extends Request
     public const WALLET_APPLEPAY = "APPLEPAY";
     public const WALLET_GOOGLEPAY = "GOOGLEPAY";
 
-    public const CONDITION_WITH_LIABILITY_SHIFT = 'WITH_LIABILITY_SHIFT';
-    public const CONDITION_IF_ALLOWED_BY_SCHEME = 'IF_ALLOWED_BY_SCHEME';
+    public const CONDITION_THREE_DS_AUTHENTICATION_SUCCESSFUL_OR_ATTEMPTED = 'THREE_DS_AUTHENTICATION_SUCCESSFUL_OR_ATTEMPTED';
+    public const CONDITION_NONE = 'NONE';
 
     /**
      * @var string

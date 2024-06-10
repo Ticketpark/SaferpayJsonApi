@@ -36,7 +36,6 @@ final class InitializeRequest extends Request
     public const PAYMENT_METHOD_MAESTRO = "MAESTRO";
     public const PAYMENT_METHOD_MASTERCARD = "MASTERCARD";
     public const PAYMENT_METHOD_MYONE = "MYONE";
-    public const PAYMENT_METHOD_UNIONPAY = "UNIONPAY";
     public const PAYMENT_METHOD_VISA = "VISA";
 
     public const WALLET_MASTERPASS = "MASTERPASS";

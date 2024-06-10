@@ -86,13 +86,6 @@ final class Address
 
     /**
      * @var string|null
-     * @SerializedName("LegalForm")
-     * @Type("string")
-     */
-    private $legalForm;
-
-    /**
-     * @var string|null
      * @SerializedName("Street2")
      * @Type("string")
      */
@@ -166,11 +159,6 @@ final class Address
     public function getDateOfBirth(): ?\DateTime
     {
         return $this->dateOfBirth;
-    }
-
-    public function getLegalForm(): ?string
-    {
-        return $this->legalForm;
     }
 
     public function getStreet2(): ?string

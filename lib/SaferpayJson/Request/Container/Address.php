@@ -76,12 +76,6 @@ final class Address
 
     /**
      * @var string|null
-     * @SerializedName("LegalForm")
-     */
-    private $legalForm;
-
-    /**
-     * @var string|null
      * @SerializedName("Street2")
      */
     private $street2;
@@ -220,18 +214,6 @@ final class Address
     public function setDateOfBirth(?\DateTime $dateOfBirth): self
     {
         $this->dateOfBirth = $dateOfBirth;
-
-        return $this;
-    }
-
-    public function getLegalForm(): ?string
-    {
-        return $this->legalForm;
-    }
-
-    public function setLegalForm(?string $legalForm): self
-    {
-        $this->legalForm = $legalForm;
 
         return $this;
     }
