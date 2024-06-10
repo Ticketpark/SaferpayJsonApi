@@ -57,7 +57,6 @@ final class InitializeRequest extends Request
     public const PAYMENT_METHOD_VISA = "VISA";
     public const PAYMENT_METHOD_WLCRYPTOPAYMENTS = "WLCRYPTOPAYMENTS";
 
-    public const WALLET_MASTERPASS = "MASTERPASS";
     public const WALLET_APPLEPAY = "APPLEPAY";
     public const WALLET_GOOGLEPAY = "GOOGLEPAY";
 

@@ -34,7 +34,6 @@ final class AliasInsertRequest extends Request
     public const PAYMENT_METHOD_MASTERCARD = "MASTERCARD";
     public const PAYMENT_METHOD_MYONE = "MYONE";
     public const PAYMENT_METHOD_SAFERPAYTEST = "SAFERPAYTEST";
-    public const PAYMENT_METHOD_UNIONPAY = "UNIONPAY";
     public const PAYMENT_METHOD_VISA = "VISA";
 
     public const TYPE_CARD = 'CARD';

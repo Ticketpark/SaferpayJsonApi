@@ -15,7 +15,6 @@ use Ticketpark\SaferpayJson\Request\Container\RedirectNotifyUrls;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
 use Ticketpark\SaferpayJson\Request\Container\Styling;
-use Ticketpark\SaferpayJson\Request\Container\Wallet;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -88,12 +87,6 @@ final class InitializeRequest extends Request
      * @SerializedName("Styling")
      */
     private $styling;
-
-    /**
-     * @var Wallet|null
-     * @SerializedName("Wallet")
-     */
-    private $wallet;
 
     /**
      * @var array<string>|null
@@ -181,13 +174,6 @@ final class InitializeRequest extends Request
         return $this;
     }
 
-    public function setWallet(?Wallet $wallet): self
-    {
-        $this->wallet = $wallet;
-
-        return $this;
-    }
-
     public function setPaymentMethods(?array $paymentMethods): self
     {
         $this->paymentMethods = $paymentMethods;
@@ -260,11 +246,6 @@ final class InitializeRequest extends Request
     public function getStyling(): ?Styling
     {
         return $this->styling;
-    }
-
-    public function getWallet(): ?Wallet
-    {
-        return $this->wallet;
     }
 
     public function getPaymentMethods(): ?array
