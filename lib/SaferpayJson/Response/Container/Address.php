@@ -86,13 +86,6 @@ final class Address
 
     /**
      * @var string|null
-     * @SerializedName("LegalForm")
-     * @Type("string")
-     */
-    private $legalForm;
-
-    /**
-     * @var string|null
      * @SerializedName("Street2")
      * @Type("string")
      */
@@ -111,6 +104,12 @@ final class Address
      * @Type("string")
      */
     private $phone;
+
+    /**
+     * @var string|null
+     * @SerializedName("VatNumber")
+     */
+    private $vatNumber;
 
     public function getFirstName(): ?string
     {
@@ -162,11 +161,6 @@ final class Address
         return $this->dateOfBirth;
     }
 
-    public function getLegalForm(): ?string
-    {
-        return $this->legalForm;
-    }
-
     public function getStreet2(): ?string
     {
         return $this->street2;
@@ -180,5 +174,16 @@ final class Address
     public function getPhone(): ?string
     {
         return $this->phone;
+    }
+
+    public function getVatNumber(): ?string
+    {
+        return $this->vatNumber;
+    }
+
+    public function setVatNumber(?string $vatNumber): self
+    {
+        $this->vatNumber = $vatNumber;
+        return $this;
     }
 }

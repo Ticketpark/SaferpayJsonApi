@@ -12,10 +12,10 @@ use Ticketpark\SaferpayJson\Request\Container\Payer;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Request\Container\RedirectNotifyUrls;
-use Ticketpark\SaferpayJson\Request\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
 use Ticketpark\SaferpayJson\Request\Container\Styling;
-use Ticketpark\SaferpayJson\Request\Container\Wallet;
+use Ticketpark\SaferpayJson\Request\Container\Transaction\Notification;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -36,9 +36,8 @@ final class InitializeRequest extends Request
     public const PAYMENT_METHOD_MAESTRO = "MAESTRO";
     public const PAYMENT_METHOD_MASTERCARD = "MASTERCARD";
     public const PAYMENT_METHOD_MYONE = "MYONE";
-    public const PAYMENT_METHOD_UNIONPAY = "UNIONPAY";
     public const PAYMENT_METHOD_VISA = "VISA";
-    public const PAYMENT_METHOD_VPAY = "VPAY";
+    public const PAYMENT_METHOD_WECHATPAY = "WECHATPAY";
 
     public const WALLET_MASTERPASS = "MASTERPASS";
 
@@ -79,22 +78,16 @@ final class InitializeRequest extends Request
     private $payer;
 
     /**
-     * @var ReturnUrls
-     * @SerializedName("ReturnUrls")
+     * @var ReturnUrl
+     * @SerializedName("ReturnUrl")
      */
-    private $returnUrls;
+    private $returnUrl;
 
     /**
      * @var Styling|null
      * @SerializedName("Styling")
      */
     private $styling;
-
-    /**
-     * @var Wallet|null
-     * @SerializedName("Wallet")
-     */
-    private $wallet;
 
     /**
      * @var array<string>|null
@@ -126,15 +119,21 @@ final class InitializeRequest extends Request
      */
     private $redirectNotifyUrls;
 
+    /**
+     * @var Notification|null
+     * @SerializedName("Notification")
+     */
+    private $notification;
+
     public function __construct(
         RequestConfig $requestConfig,
         string        $terminalId,
         Payment       $payment,
-        ReturnUrls    $returnUrls
+        ReturnUrl    $returnUrl
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;
-        $this->returnUrls = $returnUrls;
+        $this->returnUrl = $returnUrl;
 
         parent::__construct($requestConfig);
     }
@@ -178,13 +177,6 @@ final class InitializeRequest extends Request
     public function setStyling(?Styling $styling): self
     {
         $this->styling = $styling;
-
-        return $this;
-    }
-
-    public function setWallet(?Wallet $wallet): self
-    {
-        $this->wallet = $wallet;
 
         return $this;
     }
@@ -253,19 +245,14 @@ final class InitializeRequest extends Request
         return $this->payer;
     }
 
-    public function getReturnUrls(): ReturnUrls
+    public function getReturnUrl(): ReturnUrl
     {
-        return $this->returnUrls;
+        return $this->returnUrl;
     }
 
     public function getStyling(): ?Styling
     {
         return $this->styling;
-    }
-
-    public function getWallet(): ?Wallet
-    {
-        return $this->wallet;
     }
 
     public function getPaymentMethods(): ?array
@@ -291,5 +278,16 @@ final class InitializeRequest extends Request
     public function getRedirectNotifyUrls(): ?RedirectNotifyUrls
     {
         return $this->redirectNotifyUrls;
+    }
+
+    public function getNotification(): ?Notification
+    {
+        return $this->notification;
+    }
+
+    public function setNotification(?Notification $notification): self
+    {
+        $this->notification = $notification;
+        return $this;
     }
 }

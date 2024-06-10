@@ -28,6 +28,12 @@ final class Refund
      */
     private $description;
 
+    /**
+     * @var bool|null
+     * @SerializedName("RestrictRefundAmountToCapturedAmount")
+     */
+    private $restrictRefundAmountToCapturedAmount;
+
     public function __construct(?Amount $amount)
     {
         $this->amount = $amount;
@@ -66,6 +72,17 @@ final class Refund
     {
         $this->description = $description;
 
+        return $this;
+    }
+
+    public function isRestrictRefundAmountToCapturedAmount(): ?bool
+    {
+        return $this->restrictRefundAmountToCapturedAmount;
+    }
+
+    public function setRestrictRefundAmountToCapturedAmount(?bool $restrictRefundAmountToCapturedAmount): self
+    {
+        $this->restrictRefundAmountToCapturedAmount = $restrictRefundAmountToCapturedAmount;
         return $this;
     }
 }

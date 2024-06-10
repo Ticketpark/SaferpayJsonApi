@@ -8,7 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Container\CaptureReference;
 use Ticketpark\SaferpayJson\Request\Container\PendingNotification;
 use Ticketpark\SaferpayJson\Request\Container\Refund;
-use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
+use Ticketpark\SaferpayJson\Request\Container\Transaction\PaymentMethodsOptions;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -37,6 +37,12 @@ final class RefundRequest extends Request
      * @SerializedName("PendingNotification")
      */
     private $pendingNotification;
+
+    /**
+     * @var PaymentMethodsOptions|null
+     * @SerializedName("PaymentMethodsOptions")
+     */
+    private $paymentMethodsOptions;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -82,6 +88,17 @@ final class RefundRequest extends Request
     {
         $this->pendingNotification = $pendingNotification;
 
+        return $this;
+    }
+
+    public function getPaymentMethodsOptions(): ?PaymentMethodsOptions
+    {
+        return $this->paymentMethodsOptions;
+    }
+
+    public function setPaymentMethodsOptions(?PaymentMethodsOptions $paymentMethodsOptions): self
+    {
+        $this->paymentMethodsOptions = $paymentMethodsOptions;
         return $this;
     }
 
