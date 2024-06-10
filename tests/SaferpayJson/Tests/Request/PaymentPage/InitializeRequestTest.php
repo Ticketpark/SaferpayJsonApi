@@ -4,7 +4,7 @@ namespace Ticketpark\SaferpayJson\Tests\Request\PaymentPage;
 
 use Ticketpark\SaferpayJson\Request\Container\Amount;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
-use Ticketpark\SaferpayJson\Request\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
 use Ticketpark\SaferpayJson\Response\PaymentPage\InitializeResponse;
 use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
@@ -26,7 +26,7 @@ class InitializeRequestTest extends CommonRequestTest
             new Payment(
                 new Amount(5000, 'CHF')
             ),
-            new ReturnUrls('success-url', 'fail-url')
+            new ReturnUrl('success-url')
         );
     }
 }
