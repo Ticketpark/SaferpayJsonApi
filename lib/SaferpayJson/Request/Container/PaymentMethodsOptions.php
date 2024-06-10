@@ -10,13 +10,6 @@ use JMS\Serializer\Annotation\Type;
 final class PaymentMethodsOptions
 {
     /**
-     * @var Alipay|null
-     * @SerializedName("Alipay")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Alipay")
-     */
-    private $alipay;
-
-    /**
      * @var Ideal|null
      * @SerializedName("Ideal")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Ideal")
@@ -29,18 +22,6 @@ final class PaymentMethodsOptions
      * @Type("Ticketpark\SaferpayJson\Request\Container\Klarna")
      */
     private $klarna;
-
-    public function getAlipay(): ?Alipay
-    {
-        return $this->alipay;
-    }
-
-    public function setAlipay(?Alipay $alipay): self
-    {
-        $this->alipay = $alipay;
-
-        return $this;
-    }
 
     public function getIdeal(): ?Ideal
     {
