@@ -16,7 +16,6 @@ use Ticketpark\SaferpayJson\Request\Container\PaymentMethodsOptions;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
-use Ticketpark\SaferpayJson\Request\Container\Styling;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -130,12 +129,6 @@ final class InitializeRequest extends Request
      * @SerializedName("Notification")
      */
     private $notification;
-
-    /**
-     * @var Styling|null
-     * @SerializedName("Styling")
-     */
-    private $styling;
 
     /**
      * @var AddressForm|null
@@ -314,18 +307,6 @@ final class InitializeRequest extends Request
     public function setNotification(?Notification $notification): self
     {
         $this->notification = $notification;
-
-        return $this;
-    }
-
-    public function getStyling(): ?Styling
-    {
-        return $this->styling;
-    }
-
-    public function setStyling(?Styling $styling): self
-    {
-        $this->styling = $styling;
 
         return $this;
     }

@@ -10,7 +10,7 @@ use JMS\Serializer\Annotation\Type;
 final class FraudPrevention
 {
     public const APPROVED = 'APPROVED';
-    public const MANUAL_REVIEW = 'MANUAL_REVIEW';
+    public const CHALLENGED = 'CHALLENGED';
 
     /**
      * @var string|null
