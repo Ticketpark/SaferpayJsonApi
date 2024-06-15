@@ -12,9 +12,9 @@ abstract class Response
     /**
      * @SerializedName("ResponseHeader")
      */
-    protected ResponseHeader $responseHeader;
+    protected ?ResponseHeader $responseHeader = null;
 
-    public function getResponseHeader(): ResponseHeader
+    public function getResponseHeader(): ?ResponseHeader
     {
         return $this->responseHeader;
     }
