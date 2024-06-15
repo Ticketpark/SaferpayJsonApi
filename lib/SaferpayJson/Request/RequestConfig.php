@@ -29,7 +29,7 @@ final class RequestConfig
     private $test;
 
     /**
-     * @var \GuzzleHttp\Client
+     * @var Client
      */
     private $client;
 

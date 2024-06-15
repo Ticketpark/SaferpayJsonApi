@@ -8,7 +8,6 @@ use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Container\CaptureReference;
 use Ticketpark\SaferpayJson\Request\Container\PendingNotification;
 use Ticketpark\SaferpayJson\Request\Container\Refund;
-use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
