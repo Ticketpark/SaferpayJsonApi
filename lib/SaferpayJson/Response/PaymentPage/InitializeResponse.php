@@ -13,18 +13,18 @@ final class InitializeResponse extends Response
     /**
      * @SerializedName("Token")
      */
-    private ?string $token;
+    private ?string $token = null;
 
     /**
      * @SerializedName("Expiration")
      * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
-    private ?\DateTime $expiration;
+    private ?\DateTime $expiration = null;
 
     /**
      * @SerializedName("RedirectUrl")
      */
-    private ?string $redirectUrl;
+    private ?string $redirectUrl = null;
 
     public function getToken(): ?string
     {
