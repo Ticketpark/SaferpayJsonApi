@@ -280,6 +280,7 @@ final class Address
     public function setVatNumber(?string $vatNumber): self
     {
         $this->vatNumber = $vatNumber;
+
         return $this;
     }
 }

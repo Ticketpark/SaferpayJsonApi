@@ -79,6 +79,7 @@ final class SchemeToken
     public function setEci(?string $eci): self
     {
         $this->eci = $eci;
+
         return $this;
     }
 }

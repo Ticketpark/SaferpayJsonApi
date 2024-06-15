@@ -199,6 +199,7 @@ final class PaymentMeans
     public function setApplePay(?ApplePay $applePay): self
     {
         $this->applePay = $applePay;
+
         return $this;
     }
 
@@ -210,6 +211,7 @@ final class PaymentMeans
     public function setGooglePay(?GooglePay $googlePay): self
     {
         $this->googlePay = $googlePay;
+
         return $this;
     }
 }

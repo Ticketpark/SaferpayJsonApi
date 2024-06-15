@@ -62,6 +62,7 @@ final class PaymentMethodsOptions
     public function setKlarna(?Klarna $klarna): self
     {
         $this->klarna = $klarna;
+
         return $this;
     }
 }

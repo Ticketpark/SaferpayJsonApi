@@ -41,6 +41,7 @@ final class IssuerReference
     public function setSettlementDate(?string $settlementDate): self
     {
         $this->settlementDate = $settlementDate;
+
         return $this;
     }
 }

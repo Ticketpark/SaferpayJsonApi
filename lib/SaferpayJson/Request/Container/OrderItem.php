@@ -278,6 +278,7 @@ final class OrderItem
     public function setProductUrl(?string $productUrl): self
     {
         $this->productUrl = $productUrl;
+
         return $this;
     }
 
@@ -289,6 +290,7 @@ final class OrderItem
     public function setImageUrl(?string $imageUrl): self
     {
         $this->imageUrl = $imageUrl;
+
         return $this;
     }
 }

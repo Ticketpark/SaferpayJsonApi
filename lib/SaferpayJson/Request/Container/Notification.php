@@ -64,6 +64,7 @@ final class Notification
     public function setSuccessNotifyUrl(?string $successNotifyUrl): self
     {
         $this->successNotifyUrl = $successNotifyUrl;
+
         return $this;
     }
 
@@ -75,6 +76,7 @@ final class Notification
     public function setFailNotifyUrl(?string $failNotifyUrl): self
     {
         $this->failNotifyUrl = $failNotifyUrl;
+
         return $this;
     }
 }

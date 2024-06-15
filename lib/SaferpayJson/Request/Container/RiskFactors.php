@@ -72,6 +72,7 @@ final class RiskFactors
     public function setIsB2B(?bool $isB2B): self
     {
         $this->isB2B = $isB2B;
+
         return $this;
     }
 
@@ -83,6 +84,7 @@ final class RiskFactors
     public function setDeviceFingerprint(?string $deviceFingerprint): self
     {
         $this->deviceFingerprint = $deviceFingerprint;
+
         return $this;
     }
 }

@@ -83,6 +83,7 @@ final class Refund
     public function setRestrictRefundAmountToCapturedAmount(?bool $restrictRefundAmountToCapturedAmount): self
     {
         $this->restrictRefundAmountToCapturedAmount = $restrictRefundAmountToCapturedAmount;
+
         return $this;
     }
 }

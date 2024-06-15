@@ -65,18 +65,21 @@ final class Wallet
     public function setPaymentMethods(?array $paymentMethods): Wallet
     {
         $this->paymentMethods = $paymentMethods;
+
         return $this;
     }
 
     public function setRequestDeliveryAddress(?bool $requestDeliveryAddress): Wallet
     {
         $this->requestDeliveryAddress = $requestDeliveryAddress;
+
         return $this;
     }
 
     public function setEnableAmountAdjustment(?bool $enableAmountAdjustment): Wallet
     {
         $this->enableAmountAdjustment = $enableAmountAdjustment;
+
         return $this;
     }
 
