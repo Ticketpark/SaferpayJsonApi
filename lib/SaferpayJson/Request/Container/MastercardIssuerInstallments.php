@@ -11,7 +11,7 @@ final class MastercardIssuerInstallments
 {
     /**
      * @SerializedName("ChosenPlan")
-     * @Type("array")
+     * @Type("Ticketpark\SaferpayJson\Request\Container\ChosenPlan")
      */
     private ?ChosenPlan $chosenPlan = null;
 
