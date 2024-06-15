@@ -43,60 +43,52 @@ final class AliasInsertRequest extends Request
     public const TYPE_TWINT = 'TWINT';
 
     /**
-     * @var RegisterAlias
      * @SerializedName("RegisterAlias")
      */
-    private $registerAlias;
+    private RegisterAlias $registerAlias;
 
     /**
-     * @var string
      * @SerializedName("Type")
      * @Type("string")
      */
-    private $type;
+    private string $type;
 
     /**
-     * @var ReturnUrls
      * @SerializedName("ReturnUrls")
      */
-    private $returnUrls;
+    private ReturnUrls $returnUrls;
 
     /**
-     * @var Styling|null
      * @SerializedName("Styling")
      */
-    private $styling;
+    private ?Styling $styling = null;
 
     /**
-     * @var string|null
      * @SerializedName("LanguageCode")
      * @Type("string")
      */
-    private $languageCode;
+    private ?string $languageCode = null;
 
     /**
-     * @var Check|null
      * @SerializedName("Check")
      */
-    private $check;
+    private ?Check $check = null;
 
     /**
      * @var array<string>|null
      * @SerializedName("PaymentMethods")
      */
-    private $paymentMethods;
+    private ?array $paymentMethods = null;
 
     /**
-     * @var CardForm|null
      * @SerializedName("CardForm")
      */
-    private $cardForm;
+    private ?CardForm $cardForm = null;
 
     /**
-     * @var PaymentMeans|null
      * @SerializedName("PaymentMeans")
      */
-    private $paymentMeans;
+    private ?PaymentMeans $paymentMeans = null;
 
     public function __construct(
         RequestConfig $requestConfig,

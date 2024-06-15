@@ -16,29 +16,25 @@ final class RiskFactors
     public const DELIVERY_TYPE_HQ = "HQ";
 
     /**
-     * @var string|null
      * @SerializedName("DeliveryType")
      */
-    private $deliveryType;
+    private ?string $deliveryType = null;
 
     /**
-     * @var PayerProfile|null
      * @SerializedName("PayerProfile")
      * @Type("Ticketpark\SaferpayJson\Request\Container\PayerProfile")
      */
-    private $payerProfile;
+    private ?PayerProfile $payerProfile = null;
 
     /**
-     * @var bool|null
      * @SerializedName("IsB2B")
      */
-    private $isB2B;
+    private ?bool $isB2B = null;
 
     /**
-     * @var string|null
      * @SerializedName("DeviceFingerprint")
      */
-    private $deviceFingerprint;
+    private ?string $deviceFingerprint = null;
 
     public function getDeliveryType(): ?string
     {

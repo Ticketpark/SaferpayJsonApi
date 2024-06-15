@@ -12,7 +12,7 @@ final class Order
      * @var array<OrderItem>|null
      * @SerializedName("Items")
      */
-    private $items = [];
+    private ?array $items = [];
 
     public function getItems(): ?array
     {

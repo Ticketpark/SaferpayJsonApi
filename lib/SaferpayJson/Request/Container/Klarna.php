@@ -10,11 +10,10 @@ use JMS\Serializer\Annotation\Type;
 final class Klarna
 {
     /**
-     * @var Attachment
      * @SerializedName("Attachment")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Attachment")
      */
-    private $attachment;
+    private Attachment $attachment;
 
     public function __construct(Attachment $attachment)
     {

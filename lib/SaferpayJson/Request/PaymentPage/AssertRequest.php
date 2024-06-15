@@ -17,10 +17,9 @@ final class AssertRequest extends Request
     public const RESPONSE_CLASS = AssertResponse::class;
 
     /**
-     * @var string
      * @SerializedName("Token")
      */
-    private $token;
+    private string $token;
 
     public function __construct(
         RequestConfig $requestConfig,

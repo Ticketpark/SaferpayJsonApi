@@ -9,10 +9,9 @@ use JMS\Serializer\Annotation\SerializedName;
 final class Billpay
 {
     /**
-     * @var int|null
      * @SerializedName("DelayInDays")
      */
-    private $delayInDays;
+    private ?int $delayInDays = null;
 
     public function getDelayInDays(): ?int
     {

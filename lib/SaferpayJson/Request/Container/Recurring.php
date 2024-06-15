@@ -9,10 +9,9 @@ use JMS\Serializer\Annotation\SerializedName;
 final class Recurring
 {
     /**
-     * @var bool
      * @SerializedName("Initial")
      */
-    private $initial;
+    private bool $initial;
 
     public function __construct(bool $initial = true)
     {

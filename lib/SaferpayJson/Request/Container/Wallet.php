@@ -34,28 +34,25 @@ final class Wallet
     public const PAYMENT_METHOD_KLARNA = "KLARNA";
 
     /**
-     * @var string
      * @SerializedName("Wallet")
      */
-    private $type;
+    private string $type;
 
     /**
      * @var array<string>|null
      * @SerializedName("PaymentMethods")
      */
-    private $paymentMethods;
+    private ?array $paymentMethods = null;
 
     /**
-     * @var bool|null
      * @SerializedName("RequestDeliveryAddress")
      */
-    private $requestDeliveryAddress;
+    private ?bool $requestDeliveryAddress = null;
 
     /**
-     * @var bool|null
      * @SerializedName("EnableAmountAdjustment")
      */
-    private $enableAmountAdjustment;
+    private ?bool $enableAmountAdjustment = null;
 
     public function __construct(string $type)
     {

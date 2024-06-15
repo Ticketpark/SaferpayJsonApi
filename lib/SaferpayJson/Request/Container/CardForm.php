@@ -12,10 +12,9 @@ final class CardForm
     public const HOLDER_NAME_MANDATORY = 'MANDATORY';
 
     /**
-     * @var string|null
      * @SerializedName("HolderName")
      */
-    private $holderName;
+    private ?string $holderName = null;
 
     public function getHolderName(): ?string
     {

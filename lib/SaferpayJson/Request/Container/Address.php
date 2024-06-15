@@ -14,94 +14,79 @@ final class Address
     public const GENDER_COMPANY = 'COMPANY';
 
     /**
-     * @var string|null
      * @SerializedName("FirstName")
      */
-    private $firstName;
+    private ?string $firstName = null;
 
     /**
-     * @var string|null
      * @SerializedName("LastName")
      */
-    private $lastName;
+    private ?string $lastName = null;
 
     /**
-     * @var string|null
      * @SerializedName("Company")
      */
-    private $company;
+    private ?string $company = null;
 
     /**
-     * @var string|null
      * @SerializedName("Gender")
      */
-    private $gender;
+    private ?string $gender = null;
 
     /**
-     * @var string|null
      * @SerializedName("Street")
      */
-    private $street;
+    private ?string $street = null;
 
     /**
-     * @var string|null
      * @SerializedName("Zip")
      */
-    private $zip;
+    private ?string $zip = null;
 
     /**
-     * @var string|null
      * @SerializedName("City")
      */
-    private $city;
+    private ?string $city = null;
 
     /**
-     * @var string|null
      * @SerializedName("CountryCode")
      */
-    private $countryCode;
+    private ?string $countryCode = null;
 
     /**
-     * @var string|null
      * @SerializedName("Email")
      */
-    private $email;
+    private ?string $email = null;
 
     /**
-     * @var \DateTime|null
      * @SerializedName("DateOfBirth")
      */
-    private $dateOfBirth;
+    private ?\DateTime $dateOfBirth = null;
 
     /**
-     * @var string|null
      * @SerializedName("LegalForm")
      */
-    private $legalForm;
+    private ?string $legalForm = null;
 
     /**
-     * @var string|null
      * @SerializedName("Street2")
      */
-    private $street2;
+    private ?string $street2 = null;
 
     /**
-     * @var string|null
      * @SerializedName("CountrySubdivisionCode")
      */
-    private $countrySubdivisionCode;
+    private ?string $countrySubdivisionCode = null;
 
     /**
-     * @var string|null
      * @SerializedName("Phone")
      */
-    private $phone;
+    private ?string $phone = null;
 
     /**
-     * @var string|null
      * @SerializedName("VatNumber")
      */
-    private $vatNumber;
+    private ?string $vatNumber = null;
 
     public function getFirstName(): ?string
     {

@@ -9,10 +9,9 @@ use JMS\Serializer\Annotation\SerializedName;
 final class SaferpayFields
 {
     /**
-     * @var string
      * @SerializedName("Token")
      */
-    private $token;
+    private string $token;
 
     public function __construct(string $token)
     {

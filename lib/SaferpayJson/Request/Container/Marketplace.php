@@ -9,22 +9,19 @@ use JMS\Serializer\Annotation\SerializedName;
 final class Marketplace
 {
     /**
-     * @var string
      * @SerializedName("SubmerchantId")
      */
-    private $submerchantId;
+    private string $submerchantId;
 
     /**
-     * @var Amount|null
      * @SerializedName("Fee")
      */
-    private $fee;
+    private ?Amount $fee = null;
 
     /**
-     * @var Amount|null
      * @SerializedName("FeeRefund")
      */
-    private $feeRefund;
+    private ?Amount $feeRefund = null;
 
     public function __construct(string $submerchantId)
     {

@@ -20,34 +20,29 @@ final class AuthorizeReferencedRequest extends Request
     public const RESPONSE_CLASS = AuthorizeReferencedResponse::class;
 
     /**
-     * @var string
      * @SerializedName("TerminalId")
      */
-    private $terminalId;
+    private string $terminalId;
 
     /**
-     * @var Payment
      * @SerializedName("Payment")
      */
-    private $payment;
+    private Payment $payment;
 
     /**
-     * @var TransactionReference
      * @SerializedName("TransactionReference")
      */
-    private $transactionReference;
+    private TransactionReference $transactionReference;
 
     /**
-     * @var Authentication|null
      * @SerializedName("Authentication")
      */
-    private $authentication;
+    private ?Authentication $authentication = null;
 
     /**
-     * @var bool|null
      * @SerializedName("SuppressDcc")
      */
-    private $suppressDcc;
+    private ?bool $suppressDcc = null;
 
     public function __construct(
         RequestConfig $requestConfig,

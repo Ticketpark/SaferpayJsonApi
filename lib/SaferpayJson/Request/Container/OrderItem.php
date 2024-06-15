@@ -18,88 +18,74 @@ final class OrderItem
     public const TYPE_SURCHARGE = 'SURCHARGE';
 
     /**
-     * @var string|null
      * @SerializedName("Type")
      */
-    private $type;
+    private ?string $type = null;
 
     /**
-     * @var string|null
      * @SerializedName("Id")
      */
-    private $id;
+    private ?string $id = null;
 
     /**
-     * @var string|null
      * @SerializedName("VariantId")
      */
-    private $variantId;
+    private ?string $variantId = null;
 
     /**
-     * @var string|null
      * @SerializedName("Name")
      */
-    private $name;
+    private ?string $name = null;
 
     /**
-     * @var string|null
      * @SerializedName("CategoryName")
      */
-    private $categoryName;
+    private ?string $categoryName = null;
 
     /**
-     * @var string|null
      * @SerializedName("Description")
      */
-    private $description;
+    private ?string $description = null;
 
     /**
-     * @var string|null
      * @SerializedName("Quantity")
      */
-    private $quantity;
+    private ?string $quantity = null;
 
     /**
-     * @var string|null
      * @SerializedName("UnitPrice")
      */
-    private $unitPrice;
+    private ?string $unitPrice = null;
 
     /**
-     * @var string|null
      * @SerializedName("IsPreOrder")
      */
-    private $isPreOrder;
+    private ?string $isPreOrder = null;
 
     /**
-     * @var string|null
      * @SerializedName("TaxRate")
      */
-    private $taxRate;
+    private ?string $taxRate = null;
 
     /**
-     * @var string|null
      * @SerializedName("TaxAmount")
      */
-    private $taxAmount;
+    private ?string $taxAmount = null;
 
     /**
-     * @var string|null
      * @SerializedName("DiscountAmount")
      */
-    private $discountAmount;
+    private ?string $discountAmount = null;
 
     /**
-     * @var string|null
      * @SerializedName("ProductUrl")
      */
-    private $productUrl;
+    private ?string $productUrl = null;
 
     /**
-     * @var string|null
      * @SerializedName("ImageUrl")
      */
-    private $imageUrl;
+    private ?string $imageUrl = null;
 
 
     public function getType(): ?string

@@ -51,11 +51,10 @@ class ErrorResponse extends Response
     private $transactionId;
 
     /**
-     * @var array|null
      * @SerializedName("ErrorDetail")
      * @Type("array")
      */
-    private $errorDetail = [];
+    private array $errorDetail = [];
 
     /**
      * @var string|null

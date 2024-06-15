@@ -9,16 +9,14 @@ use JMS\Serializer\Annotation\SerializedName;
 final class Alias
 {
     /**
-     * @var string
      * @SerializedName("Id")
      */
-    private $id;
+    private string $id;
 
     /**
-     * @var string|null
      * @SerializedName("VerificationCode")
      */
-    private $verificationCode;
+    private ?string $verificationCode = null;
 
     public function __construct(string $id)
     {

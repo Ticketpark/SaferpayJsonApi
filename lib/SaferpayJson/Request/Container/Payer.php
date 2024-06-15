@@ -10,35 +10,30 @@ use JMS\Serializer\Annotation\Type;
 final class Payer
 {
     /**
-     * @var string|null
      * @SerializedName("Id")
      */
-    private $id;
+    private ?string $id = null;
 
     /**
-     * @var string|null
      * @SerializedName("IpAddress")
      */
-    private $ipAddress;
+    private ?string $ipAddress = null;
     /**
-     * @var string|null
      * @SerializedName("LanguageCode")
      */
-    private $languageCode;
+    private ?string $languageCode = null;
 
     /**
-     * @var Address|null
      * @SerializedName("DeliveryAddress")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Address")
      */
-    private $deliveryAddress;
+    private ?Address $deliveryAddress = null;
 
     /**
-     * @var Address|null
      * @SerializedName("BillingAddress")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Address")
      */
-    private $billingAddress;
+    private ?Address $billingAddress = null;
 
     public function getId(): ?string
     {

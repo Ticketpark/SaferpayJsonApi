@@ -9,10 +9,9 @@ use JMS\Serializer\Annotation\SerializedName;
 final class UpdatePaymentMeans
 {
     /**
-     * @var Card
      * @SerializedName("Card")
      */
-    private $card;
+    private Card $card;
 
     public function __construct(Card $card)
     {

@@ -9,28 +9,24 @@ use JMS\Serializer\Annotation\SerializedName;
 final class BankAccount
 {
     /**
-     * @var string
      * @SerializedName("Iban")
      */
-    private $iban;
+    private string $iban;
 
     /**
-     * @var string|null
      * @SerializedName("HolderName")
      */
-    private $holderName;
+    private ?string $holderName = null;
 
     /**
-     * @var string|null
      * @SerializedName("BIC")
      */
-    private $bic;
+    private ?string $bic = null;
 
     /**
-     * @var string|null
      * @SerializedName("BankName")
      */
-    private $bankName;
+    private ?string $bankName = null;
 
     public function __construct(string $iban)
     {

@@ -15,91 +15,77 @@ final class PayerProfile
     public const GENDER_COMPANY = "COMPANY";
 
     /**
-     * @var bool|null
      * @SerializedName("HasAccount")
      */
-    private $hasAccount;
+    private ?bool $hasAccount = null;
 
     /**
-     * @var bool|null
      * @SerializedName("HasPassword")
      */
-    private $hasPassword;
+    private ?bool $hasPassword = null;
 
     /**
-     * @var bool|null
      * @SerializedName("PasswordForgotten")
      */
-    private $passwordForgotten;
+    private ?bool $passwordForgotten = null;
 
     /**
-     * @var string|null
      * @SerializedName("FirstName")
      */
-    private $firstName;
+    private ?string $firstName = null;
 
     /**
-     * @var string|null
      * @SerializedName("LastName")
      */
-    private $lastName;
+    private ?string $lastName = null;
 
     /**
-     * @var string|null
      * @SerializedName("Company")
      */
-    private $company;
+    private ?string $company = null;
 
     /**
-     * @var string|null
      * @SerializedName("DateOfBirth")
      */
-    private $dateOfBirth;
+    private ?string $dateOfBirth = null;
 
     /**
-     * @var \DateTime|null
      * @SerializedName("LastLoginDate")
      * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
-    private $lastLoginDate;
+    private ?\DateTime $lastLoginDate = null;
 
     /**
-     * @var string|null
      * @SerializedName("Gender")
      */
-    private $gender;
+    private ?string $gender = null;
 
     /**
-     * @var \DateTime|null
      * @SerializedName("CreationDate")
      * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
-    private $creationDate;
+    private ?\DateTime $creationDate = null;
 
     /**
-     * @var \DateTime|null
      * @SerializedName("PasswordLastChangeDate")
      * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
-    private $passwordLastChangeDate;
+    private ?\DateTime $passwordLastChangeDate = null;
 
     /**
-     * @var string|null
      * @SerializedName("Email")
      */
-    private $email;
+    private ?string $email = null;
 
     /**
-     * @var string|null
      * @SerializedName("SecondaryEmail")
      */
-    private $secondaryEmail;
+    private ?string $secondaryEmail = null;
 
     /**
-     * @var Phone|null
      * @SerializedName("Phone")
      */
-    private $phone;
+    private ?Phone $phone = null;
 
     public function getHasAccount(): ?bool
     {

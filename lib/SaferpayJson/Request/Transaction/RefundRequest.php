@@ -20,22 +20,19 @@ final class RefundRequest extends Request
     public const RESPONSE_CLASS = RefundResponse::class;
 
     /**
-     * @var Refund
      * @SerializedName("Refund")
      */
-    private $refund;
+    private Refund $refund;
 
     /**
-     * @var CaptureReference
      * @SerializedName("CaptureReference")
      */
-    private $captureReference;
+    private CaptureReference $captureReference;
 
     /**
-     * @var PendingNotification|null
      * @SerializedName("PendingNotification")
      */
-    private $pendingNotification;
+    private ?PendingNotification $pendingNotification = null;
 
     public function __construct(
         RequestConfig $requestConfig,

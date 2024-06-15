@@ -9,10 +9,9 @@ use JMS\Serializer\Annotation\SerializedName;
 final class Alipay
 {
     /**
-     * @var string
      * @SerializedName("LocalWallet")
      */
-    private $localWallet;
+    private string $localWallet;
 
     public function __construct(string $localWallet)
     {

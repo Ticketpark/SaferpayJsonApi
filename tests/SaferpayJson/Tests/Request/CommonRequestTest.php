@@ -16,11 +16,9 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 abstract class CommonRequestTest extends TestCase
 {
-    /** @var bool */
-    private $successful;
+    private ?bool $successful = null;
 
-    /** @var ?string */
-    private $successfulResponseClass;
+    private ?string $successfulResponseClass = null;
 
     abstract protected function getInstance();
 
