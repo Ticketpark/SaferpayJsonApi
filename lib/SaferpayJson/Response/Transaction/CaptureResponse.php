@@ -15,39 +15,30 @@ final class CaptureResponse extends Response
     public const STATUS_CAPTURED = 'CAPTURED';
 
     /**
-     * @var string|null
      * @SerializedName("TransactionId")
-     * @Type("string")
      */
-    private $transactionId;
+    private ?string $transactionId = null;
 
     /**
-     * @var string|null
      * @SerializedName("CaptureId")
-     * @Type("string")
      */
-    private $captureId;
+    private ?string $captureId = null;
 
     /**
-     * @var string|null
      * @SerializedName("Status")
-     * @Type("string")
      */
-    private $status;
+    private ?string $status = null;
 
     /**
-     * @var string|null
      * @SerializedName("Date")
-     * @Type("string")
+     * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
-    private $date;
+    private ?\DateTime $date = null;
 
     /**
-     * @var Invoice|null
      * @SerializedName("Invoice")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Invoice")
      */
-    private $invoice;
+    private ?Invoice $invoice = null;
 
     public function getTransactionId(): ?string
     {
@@ -64,7 +55,7 @@ final class CaptureResponse extends Response
         return $this->status;
     }
 
-    public function getDate(): ?string
+    public function getDate(): ?\DateTime
     {
         return $this->date;
     }

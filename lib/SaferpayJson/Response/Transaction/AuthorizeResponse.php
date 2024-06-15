@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Response\Container\Dcc;
 use Ticketpark\SaferpayJson\Response\Container\FraudPrevention;
 use Ticketpark\SaferpayJson\Response\Container\Liability;
@@ -19,60 +18,44 @@ use Ticketpark\SaferpayJson\Response\Response;
 final class AuthorizeResponse extends Response
 {
     /**
-     * @var Transaction|null
      * @SerializedName("Transaction")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Transaction")
      */
-    private $transaction;
+    private ?Transaction $transaction = null;
 
     /**
-     * @var PaymentMeans|null
      * @SerializedName("PaymentMeans")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\PaymentMeans")
      */
-    private $paymentMeans;
+    private ?PaymentMeans $paymentMeans = null;
 
     /**
-     * @var Payer|null
      * @SerializedName("Payer")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Payer")
      */
-    private $payer;
+    private ?Payer $payer = null;
 
     /**
-     * @var RegistrationResult|null
      * @SerializedName("RegistrationResult")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\RegistrationResult")
      */
-    private $registrationResult;
+    private ?RegistrationResult $registrationResult = null;
 
     /**
-     * @var MastercardIssuerInstallments|null
      * @SerializedName("MastercardIssuerInstallments")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\MastercardIssuerInstallments")
      */
-    private $mastercardIssuerInstallments;
+    private ?MastercardIssuerInstallments $mastercardIssuerInstallments = null;
 
     /**
-     * @var FraudPrevention|null
      * @SerializedName("FraudPrevention")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\FraudPrevention")
      */
-    private $fraudPrevention;
+    private ?FraudPrevention $fraudPrevention = null;
 
     /**
-     * @var Liability|null
      * @SerializedName("Liability")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Liability")
      */
-    private $liability;
+    private ?Liability $liability = null;
 
     /**
-     * @var Dcc|null
      * @SerializedName("Dcc")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Dcc")
      */
-    private $dcc;
+    private ?Dcc $dcc = null;
 
     public function getTransaction(): ?Transaction
     {

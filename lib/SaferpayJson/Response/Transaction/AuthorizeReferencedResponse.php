@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Response\Container\Dcc;
 use Ticketpark\SaferpayJson\Response\Container\Payer;
 use Ticketpark\SaferpayJson\Response\Container\PaymentMeans;
@@ -15,32 +14,24 @@ use Ticketpark\SaferpayJson\Response\Response;
 final class AuthorizeReferencedResponse extends Response
 {
     /**
-     * @var Transaction|null
      * @SerializedName("Transaction")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Transaction")
      */
-    private $transaction;
+    private ?Transaction $transaction = null;
 
     /**
-     * @var PaymentMeans|null
      * @SerializedName("PaymentMeans")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\PaymentMeans")
      */
-    private $paymentMeans;
+    private ?PaymentMeans $paymentMeans = null;
 
     /**
-     * @var Payer|null
      * @SerializedName("Payer")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Payer")
      */
-    private $payer;
+    private ?Payer $payer = null;
 
     /**
-     * @var Dcc|null
      * @SerializedName("Dcc")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Dcc")
      */
-    private $dcc;
+    private ?Dcc $dcc = null;
 
     public function getTransaction(): ?Transaction
     {

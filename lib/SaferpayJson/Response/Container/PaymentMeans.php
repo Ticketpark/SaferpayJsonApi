@@ -5,58 +5,43 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class PaymentMeans
 {
     /**
-     * @var Brand|null
      * @SerializedName("Brand")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Brand")
      */
-    private $brand;
+    private ?Brand $brand = null;
 
     /**
-     * @var string|null
      * @SerializedName("DisplayText")
-     * @Type("string")
      */
-    private $displayText;
+    private ?string $displayText = null;
 
     /**
-     * @var string|null
      * @SerializedName("Wallet")
-     * @Type("string")
      */
-    private $wallet;
+    private ?string $wallet = null;
 
     /**
-     * @var Card|null
      * @SerializedName("Card")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Card")
      */
-    private $card;
+    private ?Card $card = null;
 
     /**
-     * @var BankAccount|null
      * @SerializedName("BankAccount")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\BankAccount")
      */
-    private $bankAccount;
+    private ?BankAccount $bankAccount = null;
 
     /**
-     * @var Twint|null
      * @SerializedName("Twint")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Twint")
      */
-    private $twint;
+    private ?Twint $twint = null;
 
     /**
-     * @var PayPal|null
      * @SerializedName("PayPal")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\PayPal")
      */
-    private $payPal;
+    private ?PayPal $payPal = null;
 
     public function getBrand(): ?Brand
     {

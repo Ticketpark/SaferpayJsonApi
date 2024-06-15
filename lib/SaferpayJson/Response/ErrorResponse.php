@@ -16,39 +16,29 @@ class ErrorResponse extends Response
     public const BEHAVIOUR_RETRY_LATER = 'RETRY_LATER';
 
     /**
-     * @var Risk|null
      * @SerializedName("Risk")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Risk")
      */
-    private $risk;
+    private ?Risk $risk = null;
 
     /**
-     * @var string|null
      * @SerializedName("Behavior")
-     * @Type("string")
      */
-    private $behaviour;
+    private ?string $behaviour = null;
 
     /**
-     * @var string|null
      * @SerializedName("ErrorName")
-     * @Type("string")
      */
-    private $errorName;
+    private ?string $errorName = null;
 
     /**
-     * @var string|null
      * @SerializedName("ErrorMessage")
-     * @Type("string")
      */
-    private $errorMessage;
+    private ?string $errorMessage = null;
 
     /**
-     * @var string|null
      * @SerializedName("TransactionId")
-     * @Type("string")
      */
-    private $transactionId;
+    private ?string $transactionId = null;
 
     /**
      * @SerializedName("ErrorDetail")
@@ -57,32 +47,24 @@ class ErrorResponse extends Response
     private array $errorDetail = [];
 
     /**
-     * @var string|null
      * @SerializedName("ProcessorName")
-     * @Type("string")
      */
-    private $processorName;
+    private ?string $processorName = null;
 
     /**
-     * @var string|null
      * @SerializedName("ProcessorResult")
-     * @Type("string")
      */
-    private $processorResult;
+    private ?string $processorResult = null;
 
     /**
-     * @var string|null
      * @SerializedName("ProcessorMessage")
-     * @Type("string")
      */
-    private $processorMessage;
+    private ?string $processorMessage = null;
 
     /**
-     * @var string|null
      * @SerializedName("PayerMessage")
-     * @Type("string")
      */
-    private $payerMessage;
+    private ?string $payerMessage = null;
 
     public function getRisk(): ?Risk
     {

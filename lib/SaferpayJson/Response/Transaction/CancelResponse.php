@@ -11,25 +11,20 @@ use Ticketpark\SaferpayJson\Response\Response;
 final class CancelResponse extends Response
 {
     /**
-     * @var string|null
      * @SerializedName("TransactionId")
-     * @Type("string")
      */
-    private $transactionId;
+    private ?string $transactionId = null;
 
     /**
-     * @var string|null
      * @SerializedName("OrderId")
-     * @Type("string")
      */
-    private $orderId;
+    private ?string $orderId = null;
 
     /**
-     * @var string|null
      * @SerializedName("Date")
-     * @Type("string")
+     * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
-    private $date;
+    private ?\DateTime $date = null;
 
     public function getTransactionId(): ?string
     {
@@ -41,7 +36,7 @@ final class CancelResponse extends Response
         return $this->orderId;
     }
 
-    public function getDate(): ?string
+    public function getDate(): ?\DateTime
     {
         return $this->date;
     }

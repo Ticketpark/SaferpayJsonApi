@@ -12,32 +12,25 @@ use Ticketpark\SaferpayJson\Response\Response;
 final class AliasInsertResponse extends Response
 {
     /**
-     * @var string|null
      * @SerializedName("Token")
-     * @Type("string")
      */
-    private $token;
+    private ?string $token = null;
 
     /**
-     * @var \DateTime|null
      * @SerializedName("Expiration")
      * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
-    private $expiration;
+    private ?\DateTime $expiration = null;
 
     /**
-     * @var bool|null
      * @SerializedName("RedirectRequired")
-     * @Type("bool")
      */
-    private $redirectRequired;
+    private ?bool $redirectRequired = null;
 
     /**
-     * @var Redirect|null
      * @SerializedName("Redirect")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Redirect")
      */
-    private $redirect;
+    private ?Redirect $redirect = null;
 
     public function getToken(): ?string
     {

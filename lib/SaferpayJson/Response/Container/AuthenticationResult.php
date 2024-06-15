@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class AuthenticationResult
 {
@@ -13,18 +12,14 @@ final class AuthenticationResult
     public const RESULT_NOT_SUPPORTED = 'NOT_SUPPORTED';
 
     /**
-     * @var string|null
      * @SerializedName("Result")
-     * @Type("string")
      */
-    private $result;
+    private ?string $result= null;
 
     /**
-     * @var string|null
      * @SerializedName("Message")
-     * @Type("string")
      */
-    private $message;
+    private ?string $message = null;
 
     public function getResult(): ?string
     {

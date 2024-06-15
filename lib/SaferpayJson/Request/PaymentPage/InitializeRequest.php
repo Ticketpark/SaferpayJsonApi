@@ -382,7 +382,6 @@ final class InitializeRequest extends Request
         return $this;
     }
 
-
     public function execute(): InitializeResponse
     {
         /** @var InitializeResponse $response */

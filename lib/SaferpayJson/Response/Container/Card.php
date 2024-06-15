@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Card
 {
@@ -15,53 +14,39 @@ final class Card
     public const HOLDER_SEGMENT_CORPORATE_AND_CONSUMER = 'CORPORATE_AND_CONSUMER';
 
     /**
-     * @var string|null
      * @SerializedName("MaskedNumber")
-     * @Type("string")
      */
-    private $maskedNumber;
+    private ?string $maskedNumber = null;
 
     /**
-     * @var int|null
      * @SerializedName("ExpYear")
-     * @Type("integer")
      */
-    private $expYear;
+    private ?int $expYear = null;
 
     /**
-     * @var int|null
      * @SerializedName("ExpMonth")
-     * @Type("integer")
      */
-    private $expMonth;
+    private ?int $expMonth = null;
 
     /**
-     * @var string|null
      * @SerializedName("HolderName")
-     * @Type("string")
      */
-    private $holderName;
+    private ?string $holderName = null;
 
     /**
-     * @var string|null
      * @SerializedName("HolderSegment")
-     * @Type("string")
      */
-    private $holderSegment;
+    private ?string $holderSegment = null;
 
     /**
-     * @var string|null
      * @SerializedName("CountryCode")
-     * @Type("string")
      */
-    private $countryCode;
+    private ?string $countryCode = null;
 
     /**
-     * @var string|null
      * @SerializedName("HashValue")
-     * @Type("string")
      */
-    private $hashValue;
+    private ?string $hashValue = null;
 
     public function getMaskedNumber(): ?string
     {

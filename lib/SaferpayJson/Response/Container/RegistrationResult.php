@@ -5,37 +5,28 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class RegistrationResult
 {
     /**
-     * @var bool|null
      * @SerializedName("Success")
-     * @Type("boolean")
      */
-    private $success;
+    private ?bool $success = null;
 
     /**
-     * @var Alias|null
      * @SerializedName("Alias")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Alias")
      */
-    private $alias;
+    private ?Alias $alias = null;
 
     /**
-     * @var Error|null
      * @SerializedName("Error")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Error")
      */
-    private $error;
+    private ?Error $error = null;
 
     /**
-     * @var AuthenticationResult|null
      * @SerializedName("AuthenticationResult")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\AuthenticationResult")
      */
-    private $authenticationResult;
+    private ?AuthenticationResult $authenticationResult = null;
 
     public function isSuccess(): ?bool
     {
