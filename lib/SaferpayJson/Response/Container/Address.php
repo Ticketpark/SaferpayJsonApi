@@ -192,10 +192,4 @@ final class Address
     {
         return $this->vatNumber;
     }
-
-    public function setVatNumber(?string $vatNumber): self
-    {
-        $this->vatNumber = $vatNumber;
-        return $this;
-    }
 }
