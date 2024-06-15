@@ -18,10 +18,9 @@ final class CancelRequest extends Request
     public const RESPONSE_CLASS = CancelResponse::class;
 
     /**
-     * @var TransactionReference
      * @SerializedName("TransactionReference")
      */
-    private $transactionReference;
+    private TransactionReference $transactionReference;
 
     public function __construct(
         RequestConfig $requestConfig,

@@ -10,17 +10,15 @@ use JMS\Serializer\Annotation\Type;
 final class Amount
 {
     /**
-     * @var int
      * @SerializedName("Value")
      * @Type("integer")
      */
-    private $value;
+    private int $value;
 
     /**
-     * @var string
      * @SerializedName("CurrencyCode")
      */
-    private $currencyCode;
+    private string $currencyCode;
 
     public function __construct(int $value, string $currencyCode)
     {

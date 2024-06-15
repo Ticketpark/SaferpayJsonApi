@@ -9,22 +9,19 @@ use JMS\Serializer\Annotation\SerializedName;
 final class ReturnUrls
 {
     /**
-     * @var string
      * @SerializedName("Success")
      */
-    private $success;
+    private string $success;
 
     /**
-     * @var string
      * @SerializedName("Fail")
      */
-    private $fail;
+    private string $fail;
 
     /**
-     * @var string|null
      * @SerializedName("Abort")
      */
-    private $abort;
+    private ?string $abort = null;
 
     public function __construct(string $success, string $fail, string $abort = null)
     {

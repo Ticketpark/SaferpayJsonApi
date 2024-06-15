@@ -12,19 +12,22 @@ final class Notification
      * @var array<string>|null
      * @SerializedName("MerchantEmails")
      */
-    private $merchantEmails = [];
+    private ?array $merchantEmails = [];
 
     /**
-     * @var string|null
      * @SerializedName("PayerEmail")
      */
-    private $payerEmail;
+    private ?string $payerEmail = null;
 
     /**
-     * @var string|null
-     * @SerializedName("NotifyUrl")
+     * @SerializedName("SuccessNotifyUrl")
      */
-    private $notifyUrl;
+    private ?string $successNotifyUrl = null;
+
+    /**
+     * @SerializedName("FailNotifyUrl")
+     */
+    private ?string $failNotifyUrl = null;
 
     public function getMerchantEmails(): ?array
     {
@@ -50,14 +53,26 @@ final class Notification
         return $this;
     }
 
-    public function getNotifyUrl(): ?string
+    public function getSuccessNotifyUrl(): ?string
     {
-        return $this->notifyUrl;
+        return $this->successNotifyUrl;
     }
 
-    public function setNotifyUrl(string $notifyUrl): self
+    public function setSuccessNotifyUrl(?string $successNotifyUrl): self
     {
-        $this->notifyUrl = $notifyUrl;
+        $this->successNotifyUrl = $successNotifyUrl;
+
+        return $this;
+    }
+
+    public function getFailNotifyUrl(): ?string
+    {
+        return $this->failNotifyUrl;
+    }
+
+    public function setFailNotifyUrl(?string $failNotifyUrl): self
+    {
+        $this->failNotifyUrl = $failNotifyUrl;
 
         return $this;
     }

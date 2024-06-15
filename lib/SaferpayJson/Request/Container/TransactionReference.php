@@ -9,16 +9,14 @@ use JMS\Serializer\Annotation\SerializedName;
 final class TransactionReference
 {
     /**
-     * @var string|null
      * @SerializedName("TransactionId")
      */
-    private $transactionId;
+    private ?string $transactionId = null;
 
     /**
-     * @var string|null
      * @SerializedName("OrderId")
      */
-    private $orderId;
+    private ?string $orderId = null;
 
     public function getTransactionId(): ?string
     {

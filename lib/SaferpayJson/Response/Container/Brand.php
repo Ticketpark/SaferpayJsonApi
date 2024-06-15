@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Brand
 {
@@ -21,33 +20,29 @@ final class Brand
     public const PAYMENT_METHOD_IDEAL = 'IDEAL';
     public const PAYMENT_METHOD_INVOICE = 'INVOICE';
     public const PAYMENT_METHOD_JCB = 'JCB';
+    public const PAYMENT_METHOD_KLARNA = 'KLARNA';
     public const PAYMENT_METHOD_MAESTRO = 'MAESTRO';
     public const PAYMENT_METHOD_MASTERCARD = 'MASTERCARD';
     public const PAYMENT_METHOD_MYONE = 'MYONE';
-    public const PAYMENT_METHOD_PAYPAL = 'PAYPAL';
     public const PAYMENT_METHOD_PAYDIREKT = 'PAYDIREKT';
+    public const PAYMENT_METHOD_PAYPAL = 'PAYPAL';
     public const PAYMENT_METHOD_POSTCARD = 'POSTCARD';
     public const PAYMENT_METHOD_POSTFINANCE = 'POSTFINANCE';
-    public const PAYMENT_METHOD_SAFERPAYTEST = 'SAFERPAYTEST';
     public const PAYMENT_METHOD_SOFORT = 'SOFORT';
     public const PAYMENT_METHOD_TWINT = 'TWINT';
     public const PAYMENT_METHOD_UNIONPAY = 'UNIONPAY';
     public const PAYMENT_METHOD_VISA = 'VISA';
-    public const PAYMENT_METHOD_VPAY = 'VPAY';
+    public const PAYMENT_METHOD_WLCRYPTOPAYMENTS = 'WLCRYPTOPAYMENTS';
 
     /**
-     * @var string|null
      * @SerializedName("PaymentMethod")
-     * @Type("string")
      */
-    private $paymentMethod;
+    private ?string $paymentMethod = null;
 
     /**
-     * @var string|null
      * @SerializedName("Name")
-     * @Type("string")
      */
-    private $name;
+    private ?string $name = null;
 
     public function getPaymentMethod(): ?string
     {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Response\Container;
 
-use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
 
 final class MastercardIssuerInstallments
 {
@@ -14,28 +14,22 @@ final class MastercardIssuerInstallments
      * @SerializedName("InstallmentPlans")
      * @Type("array")
      */
-    private $installmentPlans;
+    private ?array $installmentPlans = null;
 
     /**
-     * @var CustomPlan|null
      * @SerializedName("CustomPlan")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\CustomPlan")
      */
-    private $customPlan;
+    private ?CustomPlan $customPlan = null;
 
     /**
-     * @var string|null
      * @SerializedName("ReceiptFreeText")
-     * @Type("string")
      */
-    private $receiptFreeText;
+    private ?string $receiptFreeText = null;
 
     /**
-     * @var ChosenPlan|null
      * @SerializedName("ChosenPlan")
-     * @Type("array")
      */
-    private $chosenPlan;
+    private ?ChosenPlan $chosenPlan = null;
 
     public function getInstallmentPlans(): ?array
     {

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\Order;
 use Ticketpark\SaferpayJson\Request\Container\Payer;
@@ -28,58 +27,49 @@ final class AuthorizeDirectRequest extends Request
     public const INITIATOR_PAYER = 'PAYER';
 
     /**
-     * @var string
      * @SerializedName("TerminalId")
      */
-    private $terminalId;
+    private string $terminalId;
 
     /**
-     * @var Payment
      * @SerializedName("Payment")
      */
-    private $payment;
+    private Payment $payment;
 
     /**
-     * @var PaymentMeans
      * @SerializedName("PaymentMeans")
      */
-    private $paymentMeans;
+    private PaymentMeans $paymentMeans;
 
     /**
-     * @var Authentication|null
      * @SerializedName("Authentication")
      */
-    private $authentication;
+    private ?Authentication $authentication = null;
 
     /**
-     * @var RegisterAlias|null
      * @SerializedName("RegisterAlias")
      */
-    private $registerAlias;
+    private ?RegisterAlias $registerAlias = null;
 
     /**
-     * @var Payer|null
      * @SerializedName("Payer")
      */
-    private $payer;
+    private ?Payer $payer = null;
 
     /**
-     * @var Order|null
      * @SerializedName("Order")
      */
-    private $order;
+    private ?Order $order = null;
 
     /**
-     * @var RiskFactors|null
      * @SerializedName("RiskFactors")
      */
-    private $riskFactors;
+    private ?RiskFactors $riskFactors = null;
 
     /**
-     * @var string|null
      * @SerializedName("Initiator")
      */
-    private $initiator;
+    private ?string $initiator = null;
 
     public function __construct(
         RequestConfig $requestConfig,

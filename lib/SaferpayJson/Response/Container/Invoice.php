@@ -6,30 +6,24 @@ namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Response\Container\Payee;
 
 final class Invoice
 {
     /**
-     * @var Payee|null
      * @SerializedName("Payee")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Payee")
      */
-    private $payee;
+    private ?Payee $payee = null;
 
     /**
-     * @var string|null
      * @SerializedName("ReasonForTransfer")
-     * @Type("string")
      */
-    private $reasonForTransfer;
+    private ?string $reasonForTransfer = null;
 
     /**
-     * @var string|null
      * @SerializedName("DueDate")
-     * @Type("string")
+     * @Type("DateTime<'Y-m-d'>")
      */
-    private $dueDate;
+    private ?\DateTime $dueDate = null;
 
     public function getPayee(): ?Payee
     {
@@ -41,7 +35,7 @@ final class Invoice
         return $this->reasonForTransfer;
     }
 
-    public function getDueDate(): ?string
+    public function getDueDate(): ?\DateTime
     {
         return $this->dueDate;
     }

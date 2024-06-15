@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Risk
 {
@@ -15,18 +14,14 @@ final class Risk
     public const BLOCKREASON_BLACKLIST_PAYMENT_MEANS_ORIGIN = 'BLACKLIST_PAYMENT_MEANS_ORIGIN';
 
     /**
-     * @var string|null
      * @SerializedName("BlockReason")
-     * @Type("string")
      */
-    private $blockReason;
+    private ?string $blockReason = null;
 
     /**
-     * @var string|null
      * @SerializedName("IpLocation")
-     * @Type("string")
      */
-    private $ipLocation;
+    private ?string $ipLocation = null;
 
     public function getBlockReason(): ?string
     {

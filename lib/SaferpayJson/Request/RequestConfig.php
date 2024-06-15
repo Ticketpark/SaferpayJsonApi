@@ -8,30 +8,11 @@ use GuzzleHttp\Client;
 
 final class RequestConfig
 {
-    /**
-     * @var string
-     */
-    private $apiKey;
-
-    /**
-     * @var string
-     */
-    private $apiSecret;
-
-    /**
-     * @var string
-     */
-    private $customerId;
-
-    /**
-     * @var bool
-     */
-    private $test;
-
-    /**
-     * @var \GuzzleHttp\Client
-     */
-    private $client;
+    private string $apiKey;
+    private string $apiSecret;
+    private string $customerId;
+    private bool $test;
+    private ?Client $client = null;
 
     public function __construct(string $apiKey, string $apiSecret, string $customerId, bool $test = false)
     {

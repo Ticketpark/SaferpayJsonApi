@@ -51,4 +51,4 @@ echo 'The transaction has been successful! Transaction id: ' . $response->getTra
 // -----------------------------
 // Step 4:
 // Capture the transaction to get the cash flowing.
-// See ../Transaction/example-capture.php
+// see: example-capture.php

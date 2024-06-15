@@ -8,7 +8,6 @@ use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Container\CaptureReference;
 use Ticketpark\SaferpayJson\Request\Container\PendingNotification;
 use Ticketpark\SaferpayJson\Request\Container\Refund;
-use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -21,22 +20,19 @@ final class RefundRequest extends Request
     public const RESPONSE_CLASS = RefundResponse::class;
 
     /**
-     * @var Refund
      * @SerializedName("Refund")
      */
-    private $refund;
+    private Refund $refund;
 
     /**
-     * @var CaptureReference
      * @SerializedName("CaptureReference")
      */
-    private $captureReference;
+    private CaptureReference $captureReference;
 
     /**
-     * @var PendingNotification|null
      * @SerializedName("PendingNotification")
      */
-    private $pendingNotification;
+    private ?PendingNotification $pendingNotification = null;
 
     public function __construct(
         RequestConfig $requestConfig,

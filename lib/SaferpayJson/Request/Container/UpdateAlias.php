@@ -10,17 +10,15 @@ use JMS\Serializer\Annotation\Type;
 final class UpdateAlias
 {
     /**
-     * @var string
      * @SerializedName("Id")
      */
-    private $id;
+    private string $id;
 
     /**
-     * @var int|null
      * @SerializedName("Lifetime")
      * @Type("integer")
      */
-    private $lifetime;
+    private ?int $lifetime = null;
 
     public function __construct(string $id)
     {

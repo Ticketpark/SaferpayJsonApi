@@ -34,28 +34,25 @@ final class Wallet
     public const PAYMENT_METHOD_KLARNA = "KLARNA";
 
     /**
-     * @var string
      * @SerializedName("Wallet")
      */
-    private $type;
+    private string $type;
 
     /**
      * @var array<string>|null
      * @SerializedName("PaymentMethods")
      */
-    private $paymentMethods;
+    private ?array $paymentMethods = null;
 
     /**
-     * @var bool|null
      * @SerializedName("RequestDeliveryAddress")
      */
-    private $requestDeliveryAddress;
+    private ?bool $requestDeliveryAddress = null;
 
     /**
-     * @var bool|null
      * @SerializedName("EnableAmountAdjustment")
      */
-    private $enableAmountAdjustment;
+    private ?bool $enableAmountAdjustment = null;
 
     public function __construct(string $type)
     {
@@ -65,18 +62,21 @@ final class Wallet
     public function setPaymentMethods(?array $paymentMethods): Wallet
     {
         $this->paymentMethods = $paymentMethods;
+
         return $this;
     }
 
     public function setRequestDeliveryAddress(?bool $requestDeliveryAddress): Wallet
     {
         $this->requestDeliveryAddress = $requestDeliveryAddress;
+
         return $this;
     }
 
     public function setEnableAmountAdjustment(?bool $enableAmountAdjustment): Wallet
     {
         $this->enableAmountAdjustment = $enableAmountAdjustment;
+
         return $this;
     }
 

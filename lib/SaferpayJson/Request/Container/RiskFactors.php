@@ -16,22 +16,25 @@ final class RiskFactors
     public const DELIVERY_TYPE_HQ = "HQ";
 
     /**
-     * @var string|null
      * @SerializedName("DeliveryType")
      */
-    private $deliveryType;
+    private ?string $deliveryType = null;
 
     /**
-     * @var PayerProfile|null
      * @SerializedName("PayerProfile")
+     * @Type("Ticketpark\SaferpayJson\Request\Container\PayerProfile")
      */
-    private $payerProfile;
+    private ?PayerProfile $payerProfile = null;
 
     /**
-     * @var Order|null
-     * @SerializedName("Order")
+     * @SerializedName("IsB2B")
      */
-    private $order;
+    private ?bool $isB2B = null;
+
+    /**
+     * @SerializedName("DeviceFingerprint")
+     */
+    private ?string $deviceFingerprint = null;
 
     public function getDeliveryType(): ?string
     {
@@ -57,14 +60,26 @@ final class RiskFactors
         return $this;
     }
 
-    public function getOrder(): ?Order
+    public function isIsB2B(): ?bool
     {
-        return $this->order;
+        return $this->isB2B;
     }
 
-    public function setOrder(?Order $order): self
+    public function setIsB2B(?bool $isB2B): self
     {
-        $this->order = $order;
+        $this->isB2B = $isB2B;
+
+        return $this;
+    }
+
+    public function getDeviceFingerprint(): ?string
+    {
+        return $this->deviceFingerprint;
+    }
+
+    public function setDeviceFingerprint(?string $deviceFingerprint): self
+    {
+        $this->deviceFingerprint = $deviceFingerprint;
 
         return $this;
     }

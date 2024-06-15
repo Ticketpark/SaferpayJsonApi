@@ -19,16 +19,14 @@ final class AliasUpdateRequest extends Request
     public const RESPONSE_CLASS = AliasUpdateResponse::class;
 
     /**
-     * @var UpdateAlias
      * @SerializedName("UpdateAlias")
      */
-    private $updateAlias;
+    private UpdateAlias $updateAlias;
 
     /**
-     * @var UpdatePaymentMeans
      * @SerializedName("UpdatePaymentMeans")
      */
-    private $updatePaymentMeans;
+    private UpdatePaymentMeans $updatePaymentMeans;
 
     public function __construct(
         RequestConfig $requestConfig,

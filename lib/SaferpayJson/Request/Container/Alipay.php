@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Alipay
 {
     /**
-     * @var string
      * @SerializedName("LocalWallet")
      */
-    private $localWallet;
+    private string $localWallet;
 
     public function __construct(string $localWallet)
     {

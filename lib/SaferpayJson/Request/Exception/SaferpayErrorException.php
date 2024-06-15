@@ -8,8 +8,7 @@ use Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 class SaferpayErrorException extends \Exception
 {
-    /** @var ErrorResponse */
-    private $errorResponse;
+    private ErrorResponse $errorResponse;
 
     public function __construct(ErrorResponse $errorResponse)
     {
