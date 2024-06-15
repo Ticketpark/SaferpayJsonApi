@@ -11,27 +11,27 @@ final class BankAccount
     /**
      * @SerializedName("Iban")
      */
-    private ?string $iban= null;
+    private ?string $iban = null;
 
     /**
      * @SerializedName("HolderName")
      */
-    private ?string $holderName= null;
+    private ?string $holderName = null;
 
     /**
      * @SerializedName("BIC")
      */
-    private ?string $bic= null;
+    private ?string $bic = null;
 
     /**
      * @SerializedName("BankName")
      */
-    private ?string $bankName= null;
+    private ?string $bankName = null;
 
     /**
      * @SerializedName("CountryCode")
      */
-    private ?string $countryCode= null;
+    private ?string $countryCode = null;
 
     public function getIban(): ?string
     {

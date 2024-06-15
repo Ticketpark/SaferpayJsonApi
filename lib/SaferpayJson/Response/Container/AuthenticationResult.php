@@ -14,7 +14,7 @@ final class AuthenticationResult
     /**
      * @SerializedName("Result")
      */
-    private ?string $result= null;
+    private ?string $result = null;
 
     /**
      * @SerializedName("Message")
