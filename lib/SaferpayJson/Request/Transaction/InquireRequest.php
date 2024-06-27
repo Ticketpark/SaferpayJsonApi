@@ -18,10 +18,9 @@ final class InquireRequest extends Request
     public const RESPONSE_CLASS = InquireResponse::class;
 
     /**
-     * @var TransactionReference
      * @SerializedName("TransactionReference")
      */
-    private $transactionReference;
+    private TransactionReference $transactionReference;
 
     public function __construct(
         RequestConfig $requestConfig,
