@@ -7,6 +7,7 @@ use Ticketpark\SaferpayJson\Request\Transaction\InquireRequest;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../credentials.php';
+
 // A transaction id you received with a successful assert request (see ../PaymentPage/example-assert.php)
 
 $transactionId = 'xxx';
