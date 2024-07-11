@@ -34,7 +34,6 @@ final class PaymentMeans
     private ?BankAccount $bankAccount = null;
 
     /**
-     * @var PayPal|null
      * @SerializedName("PayPal")
      */
     private ?PayPal $payPal = null;

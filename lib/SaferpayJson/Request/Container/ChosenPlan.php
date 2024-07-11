@@ -5,13 +5,11 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class ChosenPlan
 {
     /**
      * @SerializedName("NumberOfInstallments")
-     * @Type("int")
      */
     private int $numberOfInstallments;
 
@@ -22,7 +20,6 @@ final class ChosenPlan
 
     /**
      * @SerializedName("InstallmentFee")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Amount")
      */
     private ?Amount $installmentFee = null;
 
@@ -33,19 +30,16 @@ final class ChosenPlan
 
     /**
      * @SerializedName("FirstInstallmentAmount")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Amount")
      */
     private ?Amount $firstInstallmentAmount = null;
 
     /**
      * @SerializedName("SubsequentInstallmentAmount")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Amount")
      */
     private ?Amount $subsequentInstallmentAmount = null;
 
     /**
      * @SerializedName("TotalAmountDue")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Amount")
      */
     private ?Amount $totalAmountDue = null;
 

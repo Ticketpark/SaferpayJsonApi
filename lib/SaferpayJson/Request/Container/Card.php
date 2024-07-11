@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Card
 {
@@ -16,13 +15,11 @@ final class Card
 
     /**
      * @SerializedName("ExpYear")
-     * @Type("integer")
      */
     private ?int $expYear = null;
 
     /**
      * @SerializedName("ExpMonth")
-     * @Type("integer")
      */
     private ?int $expMonth = null;
 

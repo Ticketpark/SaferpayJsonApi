@@ -5,13 +5,11 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class PaymentMeans
 {
     /**
      * @SerializedName("Brand")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Brand")
      */
     private ?Brand $brand = null;
 
@@ -27,49 +25,41 @@ final class PaymentMeans
 
     /**
      * @SerializedName("Card")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Card")
      */
     private ?Card $card = null;
 
     /**
      * @SerializedName("BankAccount")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\BankAccount")
      */
     private ?BankAccount $bankAccount = null;
 
     /**
      * @SerializedName("Twint")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Twint")
      */
     private ?Twint $twint = null;
 
     /**
      * @SerializedName("SaferpayFields")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\SaferpayFields")
      */
     private ?SaferpayFields $saferpayFields = null;
 
     /**
      * @SerializedName("Alias")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Alias")
      */
     private ?Alias $alias = null;
 
     /**
      * @SerializedName("SchemeToken")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\SchemeToken")
      */
     private ?SchemeToken $schemeToken = null;
 
     /**
      * @SerializedName("ApplePay")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\ApplePay")
      */
     private ?ApplePay $applePay = null;
 
     /**
      * @SerializedName("GooglePay")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\GooglePay")
      */
     private ?GooglePay $googlePay = null;
 

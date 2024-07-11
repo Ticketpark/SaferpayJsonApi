@@ -74,10 +74,9 @@ final class InitializeRequest extends Request
     private Payment $payment;
 
     /**
-     * @var ReturnUrl
      * @SerializedName("ReturnUrl")
      */
-    private ReturnUrls $returnUrls;
+    private ReturnUrl $returnUrl;
 
     /**
      * @SerializedName("ConfigSet")

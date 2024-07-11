@@ -64,7 +64,6 @@ final class Address
     private ?\DateTime $dateOfBirth = null;
 
     /**
-     * @var string|null
      * @SerializedName("Street2")
      */
     private ?string $street2 = null;

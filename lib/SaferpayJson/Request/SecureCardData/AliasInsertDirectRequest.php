@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Request\Container\Check;
 use Ticketpark\SaferpayJson\Request\Container\IssuerReference;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
@@ -28,19 +27,16 @@ final class AliasInsertDirectRequest extends Request
 
     /**
      * @SerializedName("PaymentMeans")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\PaymentMeans")
      */
     private PaymentMeans $paymentMeans;
 
     /**
      * @SerializedName("Check")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Check")
      */
     private ?Check $check = null;
 
     /**
      * @SerializedName("IssuerReference")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\IssuerReference")
      */
     private ?IssuerReference $issuerReference = null;
 

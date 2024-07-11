@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Request\Container\CardForm;
 use Ticketpark\SaferpayJson\Request\Container\Check;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
@@ -50,15 +49,13 @@ final class AliasInsertRequest extends Request
 
     /**
      * @SerializedName("Type")
-     * @Type("string")
      */
     private string $type;
 
     /**
-     * @var ReturnUrl
      * @SerializedName("ReturnUrl")
      */
-    private $returnUrl;
+    private ReturnUrl $returnUrl;
 
     /**
      * @SerializedName("Styling")
@@ -67,7 +64,6 @@ final class AliasInsertRequest extends Request
 
     /**
      * @SerializedName("LanguageCode")
-     * @Type("string")
      */
     private ?string $languageCode = null;
 
@@ -93,10 +89,9 @@ final class AliasInsertRequest extends Request
     private ?PaymentMeans $paymentMeans = null;
 
     /**
-     * @var Notification|null
      * @SerializedName("Notification")
      */
-    private $notification;
+    private ?Notification $notification = null;
 
     public function __construct(
         RequestConfig $requestConfig,

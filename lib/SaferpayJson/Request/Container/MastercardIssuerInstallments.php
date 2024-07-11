@@ -5,13 +5,11 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class MastercardIssuerInstallments
 {
     /**
      * @SerializedName("ChosenPlan")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\ChosenPlan")
      */
     private ?ChosenPlan $chosenPlan = null;
 

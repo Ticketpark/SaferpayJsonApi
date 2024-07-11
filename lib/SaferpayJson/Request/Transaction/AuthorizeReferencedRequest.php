@@ -46,10 +46,9 @@ final class AuthorizeReferencedRequest extends Request
     private ?bool $suppressDcc = null;
 
     /**
-     * @var Notification|null
      * @SerializedName("Notification")
      */
-    private $notification;
+    private ?Notification $notification = null;
 
     public function __construct(
         RequestConfig $requestConfig,

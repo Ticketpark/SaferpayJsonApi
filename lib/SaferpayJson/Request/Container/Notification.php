@@ -9,7 +9,7 @@ use JMS\Serializer\Annotation\SerializedName;
 final class Notification
 {
     /**
-     * @var array<string>|null
+     * @var array<string>
      * @SerializedName("MerchantEmails")
      */
     private ?array $merchantEmails = [];
@@ -23,7 +23,7 @@ final class Notification
      * @var string|null
      * @SerializedName("PayerDccReceiptEmail")
      */
-    private $payerDccReceiptEmail;
+    private ?string $payerDccReceiptEmail = null;
 
     /**
      * @var string|null

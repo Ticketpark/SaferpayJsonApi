@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class SchemeToken
 {
@@ -19,25 +18,21 @@ final class SchemeToken
 
     /**
      * @SerializedName("Number")
-     * @Type("string")
      */
     private string $number;
 
     /**
      * @SerializedName("ExpMonth")
-     * @Type("integer")
      */
     private int $expMonth;
 
     /**
      * @SerializedName("ExpYear")
-     * @Type("integer")
      */
     private int $expYear;
 
     /**
      * @SerializedName("AuthValue")
-     * @Type("string")
      */
     private string $authValue;
 
@@ -47,10 +42,9 @@ final class SchemeToken
     private ?string $eci = null;
 
     /**
-     * @var string
      * @SerializedName("TokenType")
      */
-    private $tokenType;
+    private string $tokenType;
 
     public function __construct(string $number, int $expMonth, int $expYear, string $authValue, string $tokenType)
     {

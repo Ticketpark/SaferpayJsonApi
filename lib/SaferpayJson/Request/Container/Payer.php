@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Payer
 {
@@ -25,13 +24,11 @@ final class Payer
 
     /**
      * @SerializedName("DeliveryAddress")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Address")
      */
     private ?Address $deliveryAddress = null;
 
     /**
      * @SerializedName("BillingAddress")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Address")
      */
     private ?Address $billingAddress = null;
 

@@ -36,10 +36,9 @@ final class RefundRequest extends Request
     private ?PendingNotification $pendingNotification = null;
 
     /**
-     * @var PaymentMethodsOptions|null
      * @SerializedName("PaymentMethodsOptions")
      */
-    private $paymentMethodsOptions;
+    private ?PaymentMethodsOptions $paymentMethodsOptions = null;
 
     public function __construct(
         RequestConfig $requestConfig,

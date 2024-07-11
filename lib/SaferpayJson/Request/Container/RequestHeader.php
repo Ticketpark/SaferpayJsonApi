@@ -21,12 +21,12 @@ final class RequestHeader
     /**
      * @SerializedName("RequestId")
      */
-    private ?string $requestId = null;
+    private ?string $requestId;
 
     /**
      * @SerializedName("RetryIndicator")
      */
-    private int $retryIndicator = 0;
+    private int $retryIndicator;
 
     /**
      * @SerializedName("ClientInfo")

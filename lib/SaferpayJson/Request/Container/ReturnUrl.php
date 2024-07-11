@@ -9,10 +9,9 @@ use JMS\Serializer\Annotation\SerializedName;
 final class ReturnUrl
 {
     /**
-     * @var string
      * @SerializedName("Url")
      */
-    private $url;
+    private string $url;
 
     public function __construct(string $url)
     {

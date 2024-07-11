@@ -72,10 +72,9 @@ final class InitializeRequest extends Request
     private ?Payer $payer = null;
 
     /**
-     * @var ReturnUrl
      * @SerializedName("ReturnUrl")
      */
-    private $returnUrl;
+    private ?ReturnUrl $returnUrl;
 
     /**
      * @SerializedName("Styling")
@@ -109,10 +108,9 @@ final class InitializeRequest extends Request
     private ?RedirectNotifyUrls $redirectNotifyUrls = null;
 
     /**
-     * @var Notification|null
      * @SerializedName("Notification")
      */
-    private $notification;
+    private ?Notification $notification = null;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -234,7 +232,7 @@ final class InitializeRequest extends Request
         return $this->payer;
     }
 
-    public function getReturnUrl(): ReturnUrl
+    public function getReturnUrl(): ?ReturnUrl
     {
         return $this->returnUrl;
     }

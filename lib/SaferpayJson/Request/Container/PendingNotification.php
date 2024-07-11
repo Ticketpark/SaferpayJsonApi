@@ -9,7 +9,7 @@ use JMS\Serializer\Annotation\SerializedName;
 final class PendingNotification
 {
     /**
-     * @var array<string>|null
+     * @var array<string>
      * @SerializedName("MerchantEmails")
      */
     private ?array $merchantEmails = [];
