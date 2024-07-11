@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Billpay
 {
     /**
-     * @var int|null
      * @SerializedName("DelayInDays")
      */
-    private $delayInDays;
+    private ?int $delayInDays = null;
 
     public function getDelayInDays(): ?int
     {

@@ -5,44 +5,33 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class ThreeDs
 {
     /**
-     * @var bool|null
      * @SerializedName("Authenticated")
-     * @Type("boolean")
      */
-    private $authenticated;
+    private ?bool $authenticated = null;
 
     /**
-     * @var bool|null
      * @SerializedName("LiabilityShift")
-     * @Type("boolean")
      */
-    private $liabilityShift;
+    private ?bool $liabilityShift = null;
 
     /**
-     * @var string|null
      * @SerializedName("Xid")
-     * @Type("string")
      */
-    private $xid;
+    private ?string $xid = null;
 
     /**
-     * @var string|null
      * @SerializedName("Version")
-     * @Type("string")
      */
-    private $version;
+    private ?string $version = null;
 
     /**
-     * @var string|null
      * @SerializedName("AuthenticationType")
-     * @Type("string")
      */
-    private $authenticationType;
+    private ?string $authenticationType = null;
 
     public function isAuthenticated(): ?bool
     {

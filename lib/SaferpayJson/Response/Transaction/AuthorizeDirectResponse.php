@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Response\Container\FraudPrevention;
 use Ticketpark\SaferpayJson\Response\Container\Liability;
 use Ticketpark\SaferpayJson\Response\Container\Payer;
@@ -17,46 +16,34 @@ use Ticketpark\SaferpayJson\Response\Response;
 final class AuthorizeDirectResponse extends Response
 {
     /**
-     * @var Transaction|null
      * @SerializedName("Transaction")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Transaction")
      */
-    private $transaction;
+    private ?Transaction $transaction = null;
 
     /**
-     * @var PaymentMeans|null
      * @SerializedName("PaymentMeans")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\PaymentMeans")
      */
-    private $paymentMeans;
+    private ?PaymentMeans $paymentMeans = null;
 
     /**
-     * @var RegisterAlias|null
      * @SerializedName("RegisterAlias")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\RegisterAlias")
      */
-    private $registerAlias;
+    private ?RegisterAlias $registerAlias = null;
 
     /**
-     * @var Payer|null
      * @SerializedName("Payer")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Payer")
      */
-    private $payer;
+    private ?Payer $payer = null;
 
     /**
-     * @var FraudPrevention|null
      * @SerializedName("FraudPrevention")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\FraudPrevention")
      */
-    private $fraudPrevention;
+    private ?FraudPrevention $fraudPrevention = null;
 
     /**
-     * @var Liability|null
      * @SerializedName("Liability")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Liability")
      */
-    private $liability;
+    private ?Liability $liability = null;
 
     public function getTransaction(): ?Transaction
     {

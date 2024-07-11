@@ -9,28 +9,24 @@ use JMS\Serializer\Annotation\SerializedName;
 final class CaptureReference
 {
     /**
-     * @var string|null
      * @SerializedName("CaptureId")
      */
-    private $captureId;
+    private ?string $captureId = null;
 
     /**
-     * @var string|null
      * @SerializedName("TransactionId")
      */
-    private $transactionId;
+    private ?string $transactionId = null;
 
     /**
-     * @var string|null
      * @SerializedName("OrderId")
      */
-    private $orderId;
+    private ?string $orderId = null;
 
     /**
-     * @var string|null
      * @SerializedName("OrderPartId")
      */
-    private $orderPartId;
+    private ?string $orderPartId = null;
 
     public function getCaptureId(): ?string
     {

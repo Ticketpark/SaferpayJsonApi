@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class CardForm
 {
@@ -13,10 +12,9 @@ final class CardForm
     public const HOLDER_NAME_MANDATORY = 'MANDATORY';
 
     /**
-     * @var string|null
      * @SerializedName("HolderName")
      */
-    private $holderName;
+    private ?string $holderName = null;
 
     public function getHolderName(): ?string
     {

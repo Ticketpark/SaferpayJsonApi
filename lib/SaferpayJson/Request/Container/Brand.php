@@ -5,21 +5,18 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Brand
 {
     /**
-     * @var string|null
      * @SerializedName("PaymentMethod")
      */
-    private $paymentMethod;
+    private ?string $paymentMethod = null;
 
     /**
-     * @var string|null
      * @SerializedName("Name")
      */
-    private $name;
+    private ?string $name = null;
 
     public function getPaymentMethod(): ?string
     {

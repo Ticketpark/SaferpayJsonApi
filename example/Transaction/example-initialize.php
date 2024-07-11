@@ -70,9 +70,9 @@ echo 'Redirect to: ' . $response->getRedirect()->getRedirectUrl() ."<br>\n";
 // -----------------------------
 // Step 6:
 // Fill in test payment page. For dummy credit card numbers see
-// https://saferpay.github.io/sndbx/paymentmeans.html
+// https://docs.saferpay.com/home/integration-guide/testing-and-go-live
 
 // -----------------------------
 // Step 7:
-// On success page and notification url, assert that the payment has been successful.
-// TODO: -> see example-assert.php
+// Authorize the transaction:
+// see: example-authorize.php

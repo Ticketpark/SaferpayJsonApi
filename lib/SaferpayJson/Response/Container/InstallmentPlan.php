@@ -5,58 +5,43 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class InstallmentPlan
 {
     /**
-     * @var int|null
      * @SerializedName("NumberOfInstallments")
-     * @Type("int")
      */
-    private $numberOfInstallments;
+    private ?int $numberOfInstallments = null;
 
     /**
-     * @var string|null
      * @SerializedName("InterestRate")
-     * @Type("string")
      */
-    private $interestRate;
+    private ?string $interestRate = null;
 
     /**
-     * @var Amount|null
      * @SerializedName("InstallmentFee")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Amount")
      */
-    private $installmentFee;
+    private ?Amount $installmentFee = null;
 
     /**
-     * @var string|null
      * @SerializedName("AnnualPercentageRate")
-     * @Type("string")
      */
-    private $annualPercentageRate;
+    private ?string $annualPercentageRate = null;
 
     /**
-     * @var Amount|null
      * @SerializedName("FirstInstallmentAmount")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Amount")
      */
-    private $firstInstallmentAmount;
+    private ?Amount $firstInstallmentAmount = null;
 
     /**
-     * @var Amount|null
      * @SerializedName("SubsequentInstallmentAmount")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Amount")
      */
-    private $subsequentInstallmentAmount;
+    private ?Amount $subsequentInstallmentAmount = null;
 
     /**
-     * @var Amount|null
      * @SerializedName("TotalAmountDue")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Amount")
      */
-    private $totalAmountDue;
+    private ?Amount $totalAmountDue = null;
 
     public function getNumberOfInstallments(): ?int
     {

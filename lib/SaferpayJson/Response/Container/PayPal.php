@@ -5,30 +5,23 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class PayPal
 {
     /**
-     * @var string|null
      * @SerializedName("PayerId")
-     * @Type("string")
      */
-    private $payerId;
+    private ?string $payerId = null;
 
     /**
-     * @var string|null
      * @SerializedName("SellerProtectionStatus")
-     * @Type("string")
      */
-    private $sellerProtectionStatus;
+    private ?string $sellerProtectionStatus = null;
 
     /**
-     * @var string|null
      * @SerializedName("Email")
-     * @Type("string")
      */
-    private $email;
+    private ?string $email = null;
 
     public function getPayerId(): ?string
     {

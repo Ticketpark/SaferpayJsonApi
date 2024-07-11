@@ -9,22 +9,19 @@ use JMS\Serializer\Annotation\SerializedName;
 final class Phone
 {
     /**
-     * @var string|null
      * @SerializedName("Main")
      */
-    private $main;
+    private ?string $main = null;
 
     /**
-     * @var string|null
      * @SerializedName("Mobile")
      */
-    private $mobile;
+    private ?string $mobile = null;
 
     /**
-     * @var string|null
      * @SerializedName("Work")
      */
-    private $work;
+    private ?string $work = null;
 
     public function getMain(): ?string
     {

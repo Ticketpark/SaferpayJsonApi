@@ -9,16 +9,14 @@ use JMS\Serializer\Annotation\SerializedName;
 final class Attachment
 {
     /**
-     * @var string
      * @SerializedName("ContentType")
      */
-    private $contentType;
+    private string $contentType;
 
     /**
-     * @var string
      * @SerializedName("Body")
      */
-    private $body;
+    private string $body;
 
     public function __construct(string $contentType, string $body)
     {

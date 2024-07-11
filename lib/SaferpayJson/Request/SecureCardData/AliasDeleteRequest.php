@@ -17,10 +17,9 @@ final class AliasDeleteRequest extends Request
     public const RESPONSE_CLASS = AliasDeleteResponse::class;
 
     /**
-     * @var string
      * @SerializedName("AliasId")
      */
-    private $aliasId;
+    private string $aliasId;
 
     public function __construct(RequestConfig $requestConfig, string $aliasId)
     {

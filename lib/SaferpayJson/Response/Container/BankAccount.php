@@ -5,44 +5,33 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class BankAccount
 {
     /**
-     * @var string|null
      * @SerializedName("Iban")
-     * @Type("string")
      */
-    private $iban;
+    private ?string $iban = null;
 
     /**
-     * @var string|null
      * @SerializedName("HolderName")
-     * @Type("string")
      */
-    private $holderName;
+    private ?string $holderName = null;
 
     /**
-     * @var string|null
      * @SerializedName("BIC")
-     * @Type("string")
      */
-    private $bic;
+    private ?string $bic = null;
 
     /**
-     * @var string|null
      * @SerializedName("BankName")
-     * @Type("string")
      */
-    private $bankName;
+    private ?string $bankName = null;
 
     /**
-     * @var string|null
      * @SerializedName("CountryCode")
-     * @Type("string")
      */
-    private $countryCode;
+    private ?string $countryCode = null;
 
     public function getIban(): ?string
     {

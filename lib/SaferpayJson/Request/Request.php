@@ -25,10 +25,9 @@ abstract class Request
     private const ERROR_RESPONSE_CLASS = ErrorResponse::class;
 
     /**
-     * @var RequestConfig
      * @Exclude
      */
-    private $requestConfig;
+    private RequestConfig $requestConfig;
 
     abstract public function execute(): Response;
 

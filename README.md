@@ -24,10 +24,10 @@ Have a look at the [example folder](/example) for more.
 
 ## Documentation
 
+This library is currently [based on v1.31 of the Saferpay JSON API](https://saferpay.github.io/jsonapi/1.31/index.html).
+
 Find the most current documentation of the Saferpay JSON API here:<br>
 https://saferpay.github.io/jsonapi/
-
-This library is currently based on v1.20 of the Saferpay JSON API.
 
 ## Contribution
 You are [welcome to contribute](/.github/contributing.md) to this repo.

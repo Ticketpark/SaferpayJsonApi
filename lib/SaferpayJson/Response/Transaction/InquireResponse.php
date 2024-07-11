@@ -6,16 +6,13 @@ namespace Ticketpark\SaferpayJson\Response\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Response\Container\Dcc;
-use Ticketpark\SaferpayJson\Response\Container\FraudPrevention;
 use Ticketpark\SaferpayJson\Response\Container\Liability;
-use Ticketpark\SaferpayJson\Response\Container\MastercardIssuerInstallments;
 use Ticketpark\SaferpayJson\Response\Container\Payer;
 use Ticketpark\SaferpayJson\Response\Container\PaymentMeans;
-use Ticketpark\SaferpayJson\Response\Container\RegistrationResult;
 use Ticketpark\SaferpayJson\Response\Container\Transaction;
 use Ticketpark\SaferpayJson\Response\Response;
 
-final class AuthorizeResponse extends Response
+final class InquireResponse extends Response
 {
     /**
      * @SerializedName("Transaction")
@@ -33,21 +30,6 @@ final class AuthorizeResponse extends Response
     private ?Payer $payer = null;
 
     /**
-     * @SerializedName("RegistrationResult")
-     */
-    private ?RegistrationResult $registrationResult = null;
-
-    /**
-     * @SerializedName("MastercardIssuerInstallments")
-     */
-    private ?MastercardIssuerInstallments $mastercardIssuerInstallments = null;
-
-    /**
-     * @SerializedName("FraudPrevention")
-     */
-    private ?FraudPrevention $fraudPrevention = null;
-
-    /**
      * @SerializedName("Liability")
      */
     private ?Liability $liability = null;
@@ -62,28 +44,14 @@ final class AuthorizeResponse extends Response
         return $this->transaction;
     }
 
-    public function getPayer(): ?Payer
-    {
-        return $this->payer;
-    }
     public function getPaymentMeans(): ?PaymentMeans
     {
         return $this->paymentMeans;
     }
 
-    public function getRegistrationResult(): ?RegistrationResult
+    public function getPayer(): ?Payer
     {
-        return $this->registrationResult;
-    }
-
-    public function getMastercardIssuerInstallments(): ?MastercardIssuerInstallments
-    {
-        return $this->mastercardIssuerInstallments;
-    }
-
-    public function getFraudPrevention(): ?FraudPrevention
-    {
-        return $this->fraudPrevention;
+        return $this->payer;
     }
 
     public function getLiability(): ?Liability

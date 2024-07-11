@@ -10,11 +10,10 @@ use JMS\Serializer\Annotation\Type;
 final class MastercardIssuerInstallments
 {
     /**
-     * @var ChosenPlan|null
      * @SerializedName("ChosenPlan")
-     * @Type("array")
+     * @Type("Ticketpark\SaferpayJson\Request\Container\ChosenPlan")
      */
-    private $chosenPlan;
+    private ?ChosenPlan $chosenPlan = null;
 
     public function getChosenPlan(): ?ChosenPlan
     {

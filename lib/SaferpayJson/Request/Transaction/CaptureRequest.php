@@ -23,40 +23,34 @@ final class CaptureRequest extends Request
     public const RESPONSE_CLASS = CaptureResponse::class;
 
     /**
-     * @var TransactionReference
      * @SerializedName("TransactionReference")
      */
-    private $transactionReference;
+    private TransactionReference $transactionReference;
 
     /**
-     * @var Amount|null
      * @SerializedName("Amount")
      */
-    private $amount;
+    private ?Amount $amount = null;
 
     /**
-     * @var Billpay|null
      * @SerializedName("Billpay")
      */
-    private $billpay;
+    private ?Billpay $billpay = null;
 
     /**
-     * @var PendingNotification|null
      * @SerializedName("PendingNotification")
      */
-    private $pendingNotification;
+    private ?PendingNotification $pendingNotification = null;
 
     /**
-     * @var Marketplace|null
      * @SerializedName("Marketplace")
      */
-    private $marketplace;
+    private ?Marketplace $marketplace = null;
 
     /**
-     * @var MastercardIssuerInstallments|null
      * @SerializedName("MastercardIssuerInstallments")
      */
-    private $mastercardIssuerInstallments;
+    private ?MastercardIssuerInstallments $mastercardIssuerInstallments = null;
 
     public function __construct(
         RequestConfig $requestConfig,

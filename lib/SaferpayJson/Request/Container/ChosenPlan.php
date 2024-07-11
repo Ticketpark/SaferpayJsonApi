@@ -10,51 +10,44 @@ use JMS\Serializer\Annotation\Type;
 final class ChosenPlan
 {
     /**
-     * @var int
      * @SerializedName("NumberOfInstallments")
      * @Type("int")
      */
-    private $numberOfInstallments;
+    private int $numberOfInstallments;
 
     /**
-     * @var string|null
      * @SerializedName("InterestRate")
      */
-    private $interestRate;
+    private ?string $interestRate = null;
 
     /**
-     * @var Amount|null
      * @SerializedName("InstallmentFee")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Amount")
      */
-    private $installmentFee;
+    private ?Amount $installmentFee = null;
 
     /**
-     * @var string|null
      * @SerializedName("AnnualPercentageRate")
      */
-    private $annualPercentageRate;
+    private ?string $annualPercentageRate = null;
 
     /**
-     * @var Amount|null
      * @SerializedName("FirstInstallmentAmount")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Amount")
      */
-    private $firstInstallmentAmount;
+    private ?Amount $firstInstallmentAmount = null;
 
     /**
-     * @var Amount|null
      * @SerializedName("SubsequentInstallmentAmount")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Amount")
      */
-    private $subsequentInstallmentAmount;
+    private ?Amount $subsequentInstallmentAmount = null;
 
     /**
-     * @var Amount|null
      * @SerializedName("TotalAmountDue")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Amount")
      */
-    private $totalAmountDue;
+    private ?Amount $totalAmountDue = null;
 
     public function __construct(int $numberOfInstallments)
     {

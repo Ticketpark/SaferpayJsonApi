@@ -18,38 +18,33 @@ final class SchemeToken
     public const TOKEN_TYPE_VTS = "VTS";
 
     /**
-     * @var string
      * @SerializedName("Number")
      * @Type("string")
      */
-    private $number;
+    private string $number;
 
     /**
-     * @var int
      * @SerializedName("ExpMonth")
      * @Type("integer")
      */
-    private $expMonth;
+    private int $expMonth;
 
     /**
-     * @var int
      * @SerializedName("ExpYear")
      * @Type("integer")
      */
-    private $expYear;
+    private int $expYear;
 
     /**
-     * @var string
      * @SerializedName("AuthValue")
      * @Type("string")
      */
-    private $authValue;
+    private string $authValue;
 
     /**
-     * @var string|null
      * @SerializedName("Eci")
      */
-    private $eci;
+    private ?string $eci = null;
 
     /**
      * @var string
@@ -94,6 +89,7 @@ final class SchemeToken
     public function setEci(?string $eci): self
     {
         $this->eci = $eci;
+
         return $this;
     }
 

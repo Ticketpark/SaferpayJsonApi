@@ -16,23 +16,20 @@ final class RiskFactors
     public const DELIVERY_TYPE_HQ = "HQ";
 
     /**
-     * @var string|null
      * @SerializedName("DeliveryType")
      */
-    private $deliveryType;
+    private ?string $deliveryType = null;
 
     /**
-     * @var PayerProfile|null
      * @SerializedName("PayerProfile")
      * @Type("Ticketpark\SaferpayJson\Request\Container\PayerProfile")
      */
-    private $payerProfile;
+    private ?PayerProfile $payerProfile = null;
 
     /**
-     * @var bool|null
      * @SerializedName("IsB2B")
      */
-    private $isB2B;
+    private ?bool $isB2B = null;
 
     /**
      * @var string|null
@@ -72,6 +69,7 @@ final class RiskFactors
     public function setIsB2B(?bool $isB2B): self
     {
         $this->isB2B = $isB2B;
+
         return $this;
     }
 

@@ -5,30 +5,23 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class CheckResult
 {
     /**
-     * @var string|null
      * @SerializedName("Result")
-     * @Type("string")
      */
-    private $result;
+    private ?string $result = null;
 
     /**
-     * @var string|null
      * @SerializedName("Message")
-     * @Type("string")
      */
-    private $message;
+    private ?string $message = null;
 
     /**
-     * @var HolderAuthentication|null
      * @SerializedName("Authentication")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\HolderAuthentication")
      */
-    private $authentication;
+    private ?HolderAuthentication $authentication = null;
 
     public function getResult(): ?string
     {

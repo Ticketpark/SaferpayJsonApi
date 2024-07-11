@@ -9,34 +9,29 @@ use JMS\Serializer\Annotation\SerializedName;
 final class RequestHeader
 {
     /**
-     * @var string
      * @SerializedName("SpecVersion")
      */
-    private $specVersion = '1.40';
+    private string $specVersion = '1.40';
 
     /**
-     * @var string
      * @SerializedName("CustomerId")
      */
-    private $customerId;
+    private string $customerId;
 
     /**
-     * @var string|null
      * @SerializedName("RequestId")
      */
-    private $requestId;
+    private ?string $requestId = null;
 
     /**
-     * @var int
      * @SerializedName("RetryIndicator")
      */
-    private $retryIndicator = 0;
+    private int $retryIndicator = 0;
 
     /**
-     * @var ClientInfo|null
      * @SerializedName("ClientInfo")
      */
-    private $clientInfo;
+    private ?ClientInfo $clientInfo = null;
 
     public function __construct(string $customerId, string $requestId = null, int $retryIndicator = 0)
     {

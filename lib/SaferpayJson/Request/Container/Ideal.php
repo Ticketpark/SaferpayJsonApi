@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Ideal
 {
     /**
-     * @var string
      * @SerializedName("IssuerId")
      */
-    private $issuerId;
+    private string $issuerId;
 
     public function __construct(string $issuerId)
     {

@@ -10,79 +10,68 @@ use JMS\Serializer\Annotation\Type;
 final class PaymentMeans
 {
     /**
-     * @var Brand|null
      * @SerializedName("Brand")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Brand")
      */
-    private $brand;
+    private ?Brand $brand = null;
 
     /**
-     * @var string|null
      * @SerializedName("DisplayText")
      */
-    private $displayText;
+    private ?string $displayText = null;
 
     /**
-     * @var string|null
      * @SerializedName("Wallet")
      */
-    private $wallet;
+    private ?string $wallet = null;
 
     /**
-     * @var Card|null
      * @SerializedName("Card")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Card")
      */
-    private $card;
+    private ?Card $card = null;
 
     /**
-     * @var BankAccount|null
      * @SerializedName("BankAccount")
      * @Type("Ticketpark\SaferpayJson\Request\Container\BankAccount")
      */
-    private $bankAccount;
+    private ?BankAccount $bankAccount = null;
 
     /**
-     * @var Twint|null
      * @SerializedName("Twint")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Twint")
      */
-    private $twint;
+    private ?Twint $twint = null;
 
     /**
-     * @var SaferpayFields|null
      * @SerializedName("SaferpayFields")
      * @Type("Ticketpark\SaferpayJson\Request\Container\SaferpayFields")
      */
-    private $saferpayFields;
+    private ?SaferpayFields $saferpayFields = null;
 
     /**
-     * @var Alias|null
      * @SerializedName("Alias")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Alias")
      */
-    private $alias;
+    private ?Alias $alias = null;
 
     /**
-     * @var SchemeToken|null
      * @SerializedName("SchemeToken")
      * @Type("Ticketpark\SaferpayJson\Request\Container\SchemeToken")
      */
-    private $schemeToken;
+    private ?SchemeToken $schemeToken = null;
 
     /**
-     * @var ApplePay|null
      * @SerializedName("ApplePay")
      * @Type("Ticketpark\SaferpayJson\Request\Container\ApplePay")
      */
-    private $applePay;
+    private ?ApplePay $applePay = null;
 
     /**
-     * @var GooglePay|null
      * @SerializedName("GooglePay")
      * @Type("Ticketpark\SaferpayJson\Request\Container\GooglePay")
      */
-    private $googlePay;
+    private ?GooglePay $googlePay = null;
 
     public function getBrand(): ?Brand
     {
@@ -199,6 +188,7 @@ final class PaymentMeans
     public function setApplePay(?ApplePay $applePay): self
     {
         $this->applePay = $applePay;
+
         return $this;
     }
 
@@ -210,6 +200,7 @@ final class PaymentMeans
     public function setGooglePay(?GooglePay $googlePay): self
     {
         $this->googlePay = $googlePay;
+
         return $this;
     }
 }

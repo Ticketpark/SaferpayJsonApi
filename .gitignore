@@ -5,3 +5,4 @@ vendor
 .phpunit.result.cache
 /.php-cs-fixer.cache
 composer.lock
+/example/credentials.php

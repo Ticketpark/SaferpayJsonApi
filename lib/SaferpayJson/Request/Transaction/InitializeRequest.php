@@ -42,40 +42,34 @@ final class InitializeRequest extends Request
     public const WALLET_MASTERPASS = "MASTERPASS";
 
     /**
-     * @var string|null
      * @SerializedName("ConfigSet")
      */
-    private $configSet;
+    private ?string $configSet = null;
 
     /**
-     * @var string
      * @SerializedName("TerminalId")
      */
-    private $terminalId;
+    private string $terminalId;
 
     /**
-     * @var Payment
      * @SerializedName("Payment")
      */
-    private $payment;
+    private Payment $payment;
 
     /**
-     * @var PaymentMeans|null
      * @SerializedName("PaymentMeans")
      */
-    private $paymentMeans;
+    private ?PaymentMeans $paymentMeans = null;
 
     /**
-     * @var Authentication|null
      * @SerializedName("Authentication")
      */
-    private $authentication;
+    private ?Authentication $authentication = null;
 
     /**
-     * @var Payer|null
      * @SerializedName("Payer")
      */
-    private $payer;
+    private ?Payer $payer = null;
 
     /**
      * @var ReturnUrl
@@ -84,40 +78,35 @@ final class InitializeRequest extends Request
     private $returnUrl;
 
     /**
-     * @var Styling|null
      * @SerializedName("Styling")
      */
-    private $styling;
+    private ?Styling $styling = null;
 
     /**
      * @var array<string>|null
      * @SerializedName("PaymentMethods")
      */
-    private $paymentMethods;
+    private ?array $paymentMethods = null;
 
     /**
-     * @var Order|null
      * @SerializedName("Order")
      */
-    private $order;
+    private ?Order $order = null;
 
     /**
-     * @var RiskFactors|null
      * @SerializedName("RiskFactors")
      */
-    private $riskFactors;
+    private ?RiskFactors $riskFactors = null;
 
     /**
-     * @var CardForm|null
      * @SerializedName("CardForm")
      */
-    private $cardForm;
+    private ?CardForm $cardForm = null;
 
     /**
-     * @var RedirectNotifyUrls|null
      * @SerializedName("RedirectNotifyUrls")
      */
-    private $redirectNotifyUrls;
+    private ?RedirectNotifyUrls $redirectNotifyUrls = null;
 
     /**
      * @var Notification|null

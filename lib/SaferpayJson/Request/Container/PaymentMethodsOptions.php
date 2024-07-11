@@ -14,14 +14,13 @@ final class PaymentMethodsOptions
      * @SerializedName("Ideal")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Ideal")
      */
-    private $ideal;
+    private ?Ideal $ideal = null;
 
     /**
-     * @var Klarna|null
      * @SerializedName("Klarna")
      * @Type("Ticketpark\SaferpayJson\Request\Container\Klarna")
      */
-    private $klarna;
+    private ?Klarna $klarna = null;
 
     public function getIdeal(): ?Ideal
     {
@@ -43,6 +42,7 @@ final class PaymentMethodsOptions
     public function setKlarna(?Klarna $klarna): self
     {
         $this->klarna = $klarna;
+
         return $this;
     }
 }

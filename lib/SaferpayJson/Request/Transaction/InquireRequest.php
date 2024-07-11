@@ -9,13 +9,13 @@ use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
-use Ticketpark\SaferpayJson\Response\Transaction\CancelResponse;
+use Ticketpark\SaferpayJson\Response\Transaction\InquireResponse;
 
-final class CancelRequest extends Request
+final class InquireRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Transaction/Cancel';
-    public const RESPONSE_CLASS = CancelResponse::class;
+    public const API_PATH = '/Payment/v1/Transaction/Inquire';
+    public const RESPONSE_CLASS = InquireResponse::class;
 
     /**
      * @SerializedName("TransactionReference")
@@ -43,9 +43,9 @@ final class CancelRequest extends Request
         return $this;
     }
 
-    public function execute(): CancelResponse
+    public function execute(): InquireResponse
     {
-        /** @var CancelResponse $response */
+        /** @var InquireResponse $response */
         $response = $this->doExecute();
 
         return $response;

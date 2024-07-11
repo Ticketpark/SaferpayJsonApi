@@ -5,21 +5,18 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class ClientInfo
 {
     /**
-     * @var string|null
      * @SerializedName("ShopInfo")
      */
-    private $shopInfo;
+    private ?string $shopInfo = null;
 
     /**
-     * @var string|null
      * @SerializedName("OsInfo")
      */
-    private $osInfo;
+    private ?string $osInfo = null;
 
     public function getShopInfo(): ?string
     {

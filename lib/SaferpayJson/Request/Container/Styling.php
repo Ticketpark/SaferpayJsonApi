@@ -13,22 +13,19 @@ final class Styling
     public const THEME_NONE = 'NONE';
 
     /**
-     * @var string|null
      * @SerializedName("CssUrl")
      */
-    private $cssUrl;
+    private ?string $cssUrl = null;
 
     /**
-     * @var bool|null
      * @SerializedName("ContentSecurityEnabled")
      */
-    private $contentSecurityEnabled;
+    private ?bool $contentSecurityEnabled = null;
 
     /**
-     * @var string|null
      * @SerializedName("Theme")
      */
-    private $theme;
+    private ?string $theme = null;
 
     public function getCssUrl(): ?string
     {

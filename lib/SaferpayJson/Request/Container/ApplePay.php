@@ -9,10 +9,9 @@ use JMS\Serializer\Annotation\SerializedName;
 final class ApplePay
 {
     /**
-     * @var string
      * @SerializedName("PaymentToken")
      */
-    private $paymentToken;
+    private string $paymentToken;
 
     public function __construct(string $paymentToken)
     {

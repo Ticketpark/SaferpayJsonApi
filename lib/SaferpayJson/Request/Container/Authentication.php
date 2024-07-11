@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Authentication
 {
@@ -17,16 +16,14 @@ final class Authentication
     public const THREEDSCHALLENGE_AVOID = 'AVOID';
 
     /**
-     * @var string|null
      * @SerializedName("Exemption")
      */
-    private $exemption;
+    private ?string $exemption = null;
 
     /**
-     * @var string|null
      * @SerializedName("ThreeDsChallenge")
      */
-    private $threeDsChallenge;
+    private ?string $threeDsChallenge = null;
 
     public function getExemption(): ?string
     {

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Transaction
 {
@@ -17,102 +16,74 @@ final class Transaction
     public const STATUS_PENDING = 'PENDING';
 
     /**
-     * @var string|null
      * @SerializedName("Type")
-     * @Type("string")
      */
-    private $type;
+    private ?string $type = null;
 
     /**
-     * @var string|null
      * @SerializedName("Status")
-     * @Type("string")
      */
-    private $status;
+    private ?string $status = null;
 
     /**
-     * @var string|null
      * @SerializedName("Id")
-     * @Type("string")
      */
-    private $id;
+    private ?string $id = null;
 
     /**
-     * @var string|null
      * @SerializedName("CaptureId")
-     * @Type("string")
      */
-    private $captureId;
+    private ?string $captureId = null;
 
     /**
-     * @var string|null
      * @SerializedName("Date")
-     * @Type("string")
      */
-    private $date;
+    private ?string $date = null;
 
     /**
-     * @var Amount|null
      * @SerializedName("Amount")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Amount")
      */
-    private $amount;
+    private ?Amount $amount = null;
 
     /**
-     * @var string|null
      * @SerializedName("OrderId")
-     * @Type("string")
      */
-    private $orderId;
+    private ?string $orderId = null;
 
     /**
-     * @var string|null
      * @SerializedName("AcquirerName")
-     * @Type("string")
      */
-    private $acquirerName;
+    private ?string $acquirerName = null;
 
     /**
-     * @var string|null
      * @SerializedName("AcquirerReference")
-     * @Type("string")
      */
-    private $acquirerReference;
+    private ?string $acquirerReference = null;
 
     /**
-     * @var string|null
      * @SerializedName("SixTransactionReference")
-     * @Type("string")
      */
-    private $sixTransactionReference;
+    private ?string $sixTransactionReference = null;
 
     /**
-     * @var string|null
      * @SerializedName("ApprovalCode")
-     * @Type("string")
      */
-    private $approvalCode;
+    private ?string $approvalCode = null;
 
     /**
-     * @var DirectDebit|null
      * @SerializedName("DirectDebit")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\DirectDebit")
      */
-    private $directDebit;
+    private ?DirectDebit $directDebit = null;
 
     /**
-     * @var Invoice|null
      * @SerializedName("Invoice")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\Invoice")
      */
-    private $invoice;
+    private ?Invoice $invoice = null;
 
     /**
-     * @var IssuerReference|null
      * @SerializedName("IssuerReference")
-     * @Type("Ticketpark\SaferpayJson\Response\Container\IssuerReference")
      */
-    private $issuerReference;
+    private ?IssuerReference $issuerReference = null;
 
     public function getType(): ?string
     {

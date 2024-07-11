@@ -64,106 +64,93 @@ final class InitializeRequest extends Request
     public const CONDITION_NONE = 'NONE';
 
     /**
-     * @var string
      * @SerializedName("TerminalId")
      */
-    private $terminalId;
+    private string $terminalId;
 
     /**
-     * @var Payment
      * @SerializedName("Payment")
      */
-    private $payment;
+    private Payment $payment;
 
     /**
      * @var ReturnUrl
      * @SerializedName("ReturnUrl")
      */
-    private $returnUrl;
+    private ReturnUrls $returnUrls;
 
     /**
-     * @var string|null
      * @SerializedName("ConfigSet")
      */
-    private $configSet;
+    private ?string $configSet = null;
 
     /**
      * @var array<string>|null
      * @SerializedName("PaymentMethods")
      */
-    private $paymentMethods;
+    private ?array $paymentMethods = null;
 
     /**
-     * @var PaymentMethodsOptions|null
      * @SerializedName("PaymentMethodsOptions")
      */
-    private $paymentMethodsOptions;
+    private ?PaymentMethodsOptions $paymentMethodsOptions = null;
 
     /**
-     * @var Authentication|null
      * @SerializedName("Authentication")
      */
-    private $authentication;
+    private ?Authentication $authentication = null;
 
     /**
      * @var array<string>|null
      * @SerializedName("Wallets")
      */
-    private $wallets;
+    private ?array $wallets = null;
 
     /**
-     * @var Payer|null
      * @SerializedName("Payer")
      */
-    private $payer;
+    private ?Payer $payer = null;
 
     /**
-     * @var RegisterAlias|null
      * @SerializedName("RegisterAlias")
      */
-    private $registerAlias;
+    private ?RegisterAlias $registerAlias = null;
 
     /**
-     * @var Notification|null
      * @SerializedName("Notification")
      */
-    private $notification;
+    private ?Notification $notification = null;
 
     /**
      * @var AddressForm|null
      * @SerializedName("BillingAddressForm")
      */
-    private $billingAddressForm;
+    private ?AddressForm $billingAddressForm = null;
 
     /**
-     * @var AddressForm|null
      * @SerializedName("DeliveryAddressForm")
      */
-    private $deliveryAddressForm;
+    private ?AddressForm $deliveryAddressForm = null;
 
     /**
-     * @var CardForm|null
      * @SerializedName("CardForm")
      */
-    private $cardForm;
+    private ?CardForm $cardForm = null;
 
     /**
-     * @var string|null
      * @SerializedName("Condition")
      */
-    private $condition;
+    private ?string $condition = null;
 
     /**
-     * @var Order|null
      * @SerializedName("Order")
      */
-    private $order;
+    private ?Order $order = null;
 
     /**
-     * @var RiskFactors|null
      * @SerializedName("RiskFactors")
      */
-    private $riskFactors;
+    private ?RiskFactors $riskFactors = null;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -381,7 +368,6 @@ final class InitializeRequest extends Request
 
         return $this;
     }
-
 
     public function execute(): InitializeResponse
     {

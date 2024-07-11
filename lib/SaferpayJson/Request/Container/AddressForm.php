@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class AddressForm
 {
@@ -26,16 +25,15 @@ final class AddressForm
     public const ADDRESS_SOURCE_PREFER_PAYMENTMETHOD = 'PREFER_PAYMENTMETHOD';
 
     /**
-     * @var string
      * @SerializedName("AddressSource")
      */
-    private $addressSource;
+    private string $addressSource;
 
     /**
      * @var array<string>|null
      * @SerializedName("MandatoryFields")
      */
-    private $mandatoryFields = [];
+    private ?array $mandatoryFields = [];
 
     public function __construct(string $addressSource)
     {
