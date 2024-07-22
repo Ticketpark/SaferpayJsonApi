@@ -42,6 +42,9 @@ abstract class CommonRequestTest extends TestCase
         ];
     }
 
+    /**
+     * @dataProvider getRequestConfigValidationParams
+     */
     public function testRequestConfigValidation(
         ?string $requestId,
         int     $retryIndicator,
