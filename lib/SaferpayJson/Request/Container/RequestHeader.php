@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request\Container;
 
+use InvalidArgumentException;
 use JMS\Serializer\Annotation\SerializedName;
 
 final class RequestHeader
 {
+    private const MIN_RETRY_INDICATOR = 0;
+    private const MAX_RETRY_INDICATOR = 9;
+
     /**
      * @SerializedName("SpecVersion")
      */
@@ -33,9 +37,19 @@ final class RequestHeader
      */
     private ?ClientInfo $clientInfo = null;
 
-    public function __construct(string $customerId, string $requestId = null, int $retryIndicator = 0)
+    public function __construct(string $customerId, string $requestId = null, int $retryIndicator = self::MIN_RETRY_INDICATOR)
     {
         $this->customerId = $customerId;
+
+        if ($retryIndicator < self::MIN_RETRY_INDICATOR || $retryIndicator > self::MAX_RETRY_INDICATOR) {
+            throw new InvalidArgumentException('Retry indicator range: inclusive between '
+                . self::MIN_RETRY_INDICATOR . '  and ' . self::MAX_RETRY_INDICATOR);
+        }
+
+        if ($retryIndicator > self::MIN_RETRY_INDICATOR && $requestId === null) {
+            throw new InvalidArgumentException('Request id must be set if retry indicator is greater than 0');
+        }
+
         $this->requestId = $requestId;
         $this->retryIndicator = $retryIndicator;
 

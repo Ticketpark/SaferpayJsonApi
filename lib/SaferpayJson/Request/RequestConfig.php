@@ -13,13 +13,23 @@ final class RequestConfig
     private string $customerId;
     private bool $test;
     private ?Client $client = null;
+    private ?string $requestId;
+    private int $retryIndicator;
 
-    public function __construct(string $apiKey, string $apiSecret, string $customerId, bool $test = false)
+    public function __construct(
+        string  $apiKey,
+        string  $apiSecret,
+        string  $customerId,
+        bool    $test = false,
+        ?string $requestId = null,
+        int     $retryIndicator = 0)
     {
         $this->apiKey = $apiKey;
         $this->apiSecret = $apiSecret;
         $this->customerId = $customerId;
         $this->test = $test;
+        $this->requestId = $requestId;
+        $this->retryIndicator = $retryIndicator;
     }
 
     public function getApiKey(): string
@@ -56,5 +66,15 @@ final class RequestConfig
         }
 
         return $this->client;
+    }
+
+    public function getRequestId(): ?string
+    {
+        return $this->requestId;
+    }
+
+    public function getRetryIndicator(): int
+    {
+        return $this->retryIndicator;
     }
 }
