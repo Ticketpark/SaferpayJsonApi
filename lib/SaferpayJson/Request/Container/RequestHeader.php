@@ -37,8 +37,8 @@ final class RequestHeader
     public function __construct(
         string $customerId,
         string $requestId = null,
-        int    $retryIndicator = RequestConfig::MIN_RETRY_INDICATOR)
-    {
+        int    $retryIndicator = RequestConfig::MIN_RETRY_INDICATOR
+    ) {
         $this->customerId = $customerId;
         $this->requestId = $requestId;
         $this->retryIndicator = $retryIndicator;

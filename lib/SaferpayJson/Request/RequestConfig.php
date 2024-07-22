@@ -26,8 +26,8 @@ final class RequestConfig
         string  $customerId,
         bool    $test = false,
         ?string $requestId = null,
-        int     $retryIndicator = 0)
-    {
+        int     $retryIndicator = 0
+    ) {
         $this->apiKey = $apiKey;
         $this->apiSecret = $apiSecret;
         $this->customerId = $customerId;
