@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request;
 
 use GuzzleHttp\Client;
+use InvalidArgumentException;
 
 final class RequestConfig
 {
+    public const MIN_RETRY_INDICATOR = 0;
+    public const MAX_RETRY_INDICATOR = 9;
+
     private string $apiKey;
     private string $apiSecret;
     private string $customerId;
@@ -28,6 +32,16 @@ final class RequestConfig
         $this->apiSecret = $apiSecret;
         $this->customerId = $customerId;
         $this->test = $test;
+
+        if ($retryIndicator < self::MIN_RETRY_INDICATOR || $retryIndicator > self::MAX_RETRY_INDICATOR) {
+            throw new InvalidArgumentException('Retry indicator range: inclusive between '
+                . self::MIN_RETRY_INDICATOR . '  and ' . self::MAX_RETRY_INDICATOR);
+        }
+
+        if ($retryIndicator > self::MIN_RETRY_INDICATOR && $requestId === null) {
+            throw new InvalidArgumentException('Request id must be set if retry indicator is greater than 0');
+        }
+
         $this->requestId = $requestId;
         $this->retryIndicator = $retryIndicator;
     }
