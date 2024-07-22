@@ -6,6 +6,7 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use GuzzleHttp\Psr7\Utils as GuzzleUtils;
+use InvalidArgumentException;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -28,6 +29,36 @@ abstract class CommonRequestTest extends TestCase
 
         $this->successful = false;
         $this->executeRequest();
+    }
+
+    public function getRequestConfigValidationParams(): array
+    {
+        return [
+            'first try' => [null, RequestConfig::MIN_RETRY_INDICATOR],
+            'second try' => [uniqid(), RequestConfig::MIN_RETRY_INDICATOR + 1],
+            'last try' => [uniqid(), RequestConfig::MAX_RETRY_INDICATOR],
+            'try after all retries exceeded' => [uniqid(), RequestConfig::MAX_RETRY_INDICATOR + 1, InvalidArgumentException::class],
+            'retry without previous request id' => [null, RequestConfig::MAX_RETRY_INDICATOR, InvalidArgumentException::class],
+        ];
+    }
+
+    public function testRequestConfigValidation(
+        ?string $requestId,
+        int     $retryIndicator,
+        ?string $expectedException = null): void
+    {
+        if ($expectedException !== null) {
+            $this->expectException($expectedException, $requestId, $retryIndicator);
+        }
+
+        new RequestConfig(
+            'apiKey',
+            'apiSecret',
+            'customerId',
+            false,
+            $requestId,
+            $retryIndicator
+        );
     }
 
     public function doTestSuccessfulResponse(string $responseClass): void
@@ -87,7 +118,7 @@ abstract class CommonRequestTest extends TestCase
 
         $response->expects($this->any())
             ->method('getStatusCode')
-            ->will($this->returnValue($this->successful ? 200: 404));
+            ->will($this->returnValue($this->successful ? 200 : 404));
 
         if ($this->successful) {
             $content = $this->getFakedApiResponse($this->successfulResponseClass);
