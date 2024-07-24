@@ -10,11 +10,11 @@ use JMS\Serializer\Annotation\SerializedName;
 final class MastercardIssuerInstallments
 {
     /**
-     * @var array<InstallmentPlan>|null
+     * @var array<InstallmentPlan>
      * @SerializedName("InstallmentPlans")
      * @Type("array")
      */
-    private ?array $installmentPlans = null;
+    private array $installmentPlans = [];
 
     /**
      * @SerializedName("CustomPlan")

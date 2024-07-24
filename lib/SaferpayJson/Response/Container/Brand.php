@@ -32,7 +32,8 @@ final class Brand
     public const PAYMENT_METHOD_TWINT = 'TWINT';
     public const PAYMENT_METHOD_UNIONPAY = 'UNIONPAY';
     public const PAYMENT_METHOD_VISA = 'VISA';
-    public const PAYMENT_METHOD_WLCRYPTOPAYMENTS = 'WLCRYPTOPAYMENTS';
+    public const PAYMENT_METHOD_VPAY = 'VPAY';
+    public const PAYMENT_METHOD_WECHATPAY = 'WECHATPAY';
 
     /**
      * @SerializedName("PaymentMethod")

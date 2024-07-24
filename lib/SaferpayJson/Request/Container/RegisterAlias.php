@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class RegisterAlias
 {
@@ -25,7 +24,6 @@ final class RegisterAlias
 
     /**
      * @SerializedName("Lifetime")
-     * @Type("integer")
      */
     private ?int $lifetime = null;
 

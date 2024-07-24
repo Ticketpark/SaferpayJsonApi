@@ -11,7 +11,7 @@ final class RequestHeader
     /**
      * @SerializedName("SpecVersion")
      */
-    private string $specVersion = '1.31';
+    private string $specVersion = '1.40';
 
     /**
      * @SerializedName("CustomerId")
@@ -21,12 +21,12 @@ final class RequestHeader
     /**
      * @SerializedName("RequestId")
      */
-    private ?string $requestId = null;
+    private ?string $requestId;
 
     /**
      * @SerializedName("RetryIndicator")
      */
-    private int $retryIndicator = 0;
+    private int $retryIndicator;
 
     /**
      * @SerializedName("ClientInfo")

@@ -14,9 +14,8 @@ use Ticketpark\SaferpayJson\Request\Container\Payer;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMethodsOptions;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
-use Ticketpark\SaferpayJson\Request\Container\ReturnUrls;
+use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
-use Ticketpark\SaferpayJson\Request\Container\Styling;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -28,11 +27,13 @@ final class InitializeRequest extends Request
     public const API_PATH = '/Payment/v1/PaymentPage/Initialize';
     public const RESPONSE_CLASS = InitializeResponse::class;
 
+    public const PAYMENT_METHOD_ACCOUNTTOACCOUNT = "ACCOUNTTOACCOUNT";
     public const PAYMENT_METHOD_ALIPAY = "ALIPAY";
     public const PAYMENT_METHOD_AMEX = "AMEX";
     public const PAYMENT_METHOD_BANCONTACT = "BANCONTACT";
     public const PAYMENT_METHOD_BONUS = "BONUS";
     public const PAYMENT_METHOD_DINERS = "DINERS";
+    public const PAYMENT_METHOD_CARD = "CARD";
     public const PAYMENT_METHOD_DIRECTDEBIT = "DIRECTDEBIT";
     public const PAYMENT_METHOD_EPRZELEWY = "EPRZELEWY";
     public const PAYMENT_METHOD_EPS = "EPS";
@@ -40,26 +41,27 @@ final class InitializeRequest extends Request
     public const PAYMENT_METHOD_IDEAL = "IDEAL";
     public const PAYMENT_METHOD_INVOICE = "INVOICE";
     public const PAYMENT_METHOD_JCB = "JCB";
+    public const PAYMENT_METHOD_KLARNA = "KLARNA";
     public const PAYMENT_METHOD_MAESTRO = "MAESTRO";
     public const PAYMENT_METHOD_MASTERCARD = "MASTERCARD";
     public const PAYMENT_METHOD_MYONE = "MYONE";
-    public const PAYMENT_METHOD_PAYPAL = "PAYPAL";
+    public const PAYMENT_METHOD_PAYCONIQ = "PAYCONIQ";
     public const PAYMENT_METHOD_PAYDIREKT = "PAYDIREKT";
-    public const PAYMENT_METHOD_POSTCARD = "POSTCARD";
-    public const PAYMENT_METHOD_POSTFINANCE = "POSTFINANCE";
+    public const PAYMENT_METHOD_PAYPAL = "PAYPAL";
+    public const PAYMENT_METHOD_POSTFINANCEPAY = "POSTFINANCEPAY";
     public const PAYMENT_METHOD_SAFERPAYTEST = "SAFERPAYTEST";
     public const PAYMENT_METHOD_SOFORT = "SOFORT";
     public const PAYMENT_METHOD_TWINT = "TWINT";
     public const PAYMENT_METHOD_UNIONPAY = "UNIONPAY";
     public const PAYMENT_METHOD_VISA = "VISA";
-    public const PAYMENT_METHOD_VPAY = "VPAY";
+    public const PAYMENT_METHOD_WECHATPAY = "WECHATPAY";
+    public const PAYMENT_METHOD_WLCRYPTOPAYMENTS = "WLCRYPTOPAYMENTS";
 
-    public const WALLET_MASTERPASS = "MASTERPASS";
     public const WALLET_APPLEPAY = "APPLEPAY";
     public const WALLET_GOOGLEPAY = "GOOGLEPAY";
 
-    public const CONDITION_WITH_LIABILITY_SHIFT = 'WITH_LIABILITY_SHIFT';
-    public const CONDITION_IF_ALLOWED_BY_SCHEME = 'IF_ALLOWED_BY_SCHEME';
+    public const CONDITION_THREE_DS_AUTHENTICATION_SUCCESSFUL_OR_ATTEMPTED = 'THREE_DS_AUTHENTICATION_SUCCESSFUL_OR_ATTEMPTED';
+    public const CONDITION_NONE = 'NONE';
 
     /**
      * @SerializedName("TerminalId")
@@ -72,9 +74,9 @@ final class InitializeRequest extends Request
     private Payment $payment;
 
     /**
-     * @SerializedName("ReturnUrls")
+     * @SerializedName("ReturnUrl")
      */
-    private ReturnUrls $returnUrls;
+    private ReturnUrl $returnUrl;
 
     /**
      * @SerializedName("ConfigSet")
@@ -119,11 +121,7 @@ final class InitializeRequest extends Request
     private ?Notification $notification = null;
 
     /**
-     * @SerializedName("Styling")
-     */
-    private ?Styling $styling = null;
-
-    /**
+     * @var AddressForm|null
      * @SerializedName("BillingAddressForm")
      */
     private ?AddressForm $billingAddressForm = null;
@@ -157,11 +155,11 @@ final class InitializeRequest extends Request
         RequestConfig $requestConfig,
         string $terminalId,
         Payment $payment,
-        ReturnUrls $returnUrls
+        ReturnUrl $returnUrl
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;
-        $this->returnUrls = $returnUrls;
+        $this->returnUrl = $returnUrl;
 
         parent::__construct($requestConfig);
     }
@@ -190,14 +188,14 @@ final class InitializeRequest extends Request
         return $this;
     }
 
-    public function getReturnUrls(): ReturnUrls
+    public function getReturnUrl(): ReturnUrl
     {
-        return $this->returnUrls;
+        return $this->returnUrl;
     }
 
-    public function setReturnUrls(ReturnUrls $returnUrls): self
+    public function setReturnUrl(ReturnUrl $returnUrl): self
     {
-        $this->returnUrls = $returnUrls;
+        $this->returnUrl = $returnUrl;
 
         return $this;
     }
@@ -294,18 +292,6 @@ final class InitializeRequest extends Request
     public function setNotification(?Notification $notification): self
     {
         $this->notification = $notification;
-
-        return $this;
-    }
-
-    public function getStyling(): ?Styling
-    {
-        return $this->styling;
-    }
-
-    public function setStyling(?Styling $styling): self
-    {
-        $this->styling = $styling;
 
         return $this;
     }

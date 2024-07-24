@@ -34,11 +34,6 @@ final class PaymentMeans
     private ?BankAccount $bankAccount = null;
 
     /**
-     * @SerializedName("Twint")
-     */
-    private ?Twint $twint = null;
-
-    /**
      * @SerializedName("PayPal")
      */
     private ?PayPal $payPal = null;
@@ -66,11 +61,6 @@ final class PaymentMeans
     public function getBankAccount(): ?BankAccount
     {
         return $this->bankAccount;
-    }
-
-    public function getTwint(): ?Twint
-    {
-        return $this->twint;
     }
 
     public function getPayPal(): ?PayPal

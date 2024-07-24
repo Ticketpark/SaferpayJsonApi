@@ -5,13 +5,11 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Amount
 {
     /**
      * @SerializedName("Value")
-     * @Type("integer")
      */
     private int $value;
 

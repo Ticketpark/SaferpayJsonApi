@@ -66,11 +66,7 @@ final class Address
     private ?\DateTime$dateOfBirth = null;
 
     /**
-     * @SerializedName("LegalForm")
-     */
-    private ?string $legalForm = null;
-
-    /**
+     * @var string|null
      * @SerializedName("Street2")
      */
     private ?string $street2 = null;
@@ -138,11 +134,6 @@ final class Address
     public function getDateOfBirth(): ?\DateTime
     {
         return $this->dateOfBirth;
-    }
-
-    public function getLegalForm(): ?string
-    {
-        return $this->legalForm;
     }
 
     public function getStreet2(): ?string

@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class Refund
 {
     /**
      * @SerializedName("Amount")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\Amount")
      */
-    private ?Amount $amount = null;
+    private ?Amount $amount;
 
     /**
      * @SerializedName("OrderId")

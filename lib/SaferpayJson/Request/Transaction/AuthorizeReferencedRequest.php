@@ -7,6 +7,7 @@ namespace Ticketpark\SaferpayJson\Request\Transaction;
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
+use Ticketpark\SaferpayJson\Request\Container\Transaction\Notification;
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
@@ -43,6 +44,11 @@ final class AuthorizeReferencedRequest extends Request
      * @SerializedName("SuppressDcc")
      */
     private ?bool $suppressDcc = null;
+
+    /**
+     * @SerializedName("Notification")
+     */
+    private ?Notification $notification = null;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -114,6 +120,17 @@ final class AuthorizeReferencedRequest extends Request
     {
         $this->suppressDcc = $suppressDcc;
 
+        return $this;
+    }
+
+    public function getNotification(): ?Notification
+    {
+        return $this->notification;
+    }
+
+    public function setNotification(?Notification $notification): self
+    {
+        $this->notification = $notification;
         return $this;
     }
 

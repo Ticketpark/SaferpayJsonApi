@@ -28,9 +28,8 @@ $amount = new Container\Amount(
 $payment = new Container\Payment($amount);
 $payment->setDescription('Order No. 12840');
 
-$returnUrls = new Container\ReturnUrls(
-    'http://www.mysite.ch/success?orderId=12840',
-    'http://www.mysite.ch/fail'
+$returnUrl = new Container\ReturnUrl(
+    'http://www.mysite.ch/success?orderId=12840'
 );
 
 // -----------------------------
@@ -41,7 +40,7 @@ $initializeRequest = new InitializeRequest(
     $requestConfig,
     $terminalId,
     $payment,
-    $returnUrls
+    $returnUrl
 );
 
 // Note: More data can be provided to InitializeRequest with setters,

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class RiskFactors
 {
@@ -22,7 +21,6 @@ final class RiskFactors
 
     /**
      * @SerializedName("PayerProfile")
-     * @Type("Ticketpark\SaferpayJson\Request\Container\PayerProfile")
      */
     private ?PayerProfile $payerProfile = null;
 
@@ -32,9 +30,9 @@ final class RiskFactors
     private ?bool $isB2B = null;
 
     /**
-     * @SerializedName("DeviceFingerprint")
+     * @SerializedName("DeviceFingerprintTransactionId")
      */
-    private ?string $deviceFingerprint = null;
+    private ?string $deviceFingerprintTransactionId = null;
 
     public function getDeliveryType(): ?string
     {
@@ -72,15 +70,14 @@ final class RiskFactors
         return $this;
     }
 
-    public function getDeviceFingerprint(): ?string
+    public function getDeviceFingerprintTransactionId(): ?string
     {
-        return $this->deviceFingerprint;
+        return $this->deviceFingerprintTransactionId;
     }
 
-    public function setDeviceFingerprint(?string $deviceFingerprint): self
+    public function setDeviceFingerprintTransactionId(?string $deviceFingerprintTransactionId): self
     {
-        $this->deviceFingerprint = $deviceFingerprint;
-
+        $this->deviceFingerprintTransactionId = $deviceFingerprintTransactionId;
         return $this;
     }
 }

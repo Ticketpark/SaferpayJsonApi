@@ -64,11 +64,6 @@ final class Address
     private ?\DateTime $dateOfBirth = null;
 
     /**
-     * @SerializedName("LegalForm")
-     */
-    private ?string $legalForm = null;
-
-    /**
      * @SerializedName("Street2")
      */
     private ?string $street2 = null;
@@ -204,18 +199,6 @@ final class Address
     public function setDateOfBirth(?\DateTime $dateOfBirth): self
     {
         $this->dateOfBirth = $dateOfBirth;
-
-        return $this;
-    }
-
-    public function getLegalForm(): ?string
-    {
-        return $this->legalForm;
-    }
-
-    public function setLegalForm(?string $legalForm): self
-    {
-        $this->legalForm = $legalForm;
 
         return $this;
     }

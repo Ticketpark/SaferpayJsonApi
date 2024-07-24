@@ -5,19 +5,16 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 final class IssuerReference
 {
     /**
      * @SerializedName("TransactionStamp")
-     * @Type("string")
      */
     private string $transactionStamp;
 
     /**
      * @SerializedName("SettlementDate")
-     * @Type("string")
      */
     private ?string $settlementDate = null;
 
