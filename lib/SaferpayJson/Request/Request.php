@@ -50,9 +50,7 @@ abstract class Request
     public function getRequestHeader(): RequestHeader
     {
         return new RequestHeader(
-            $this->requestConfig->getCustomerId(),
-            $this->requestConfig->getRequestId(),
-            $this->requestConfig->getRetryIndicator()
+            $this->requestConfig->getCustomerId()
         );
     }
 
