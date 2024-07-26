@@ -17,33 +17,19 @@ final class RequestConfig
     private string $customerId;
     private bool $test;
     private ?Client $client = null;
-    private ?string $requestId;
-    private int $retryIndicator;
+    private ?string $requestId = null;
+    private int $retryIndicator = self::MIN_RETRY_INDICATOR;
 
     public function __construct(
-        string  $apiKey,
-        string  $apiSecret,
-        string  $customerId,
-        bool    $test = false,
-        ?string $requestId = null,
-        int     $retryIndicator = 0
+        string $apiKey,
+        string $apiSecret,
+        string $customerId,
+        bool   $test = false
     ) {
         $this->apiKey = $apiKey;
         $this->apiSecret = $apiSecret;
         $this->customerId = $customerId;
         $this->test = $test;
-
-        if ($retryIndicator < self::MIN_RETRY_INDICATOR || $retryIndicator > self::MAX_RETRY_INDICATOR) {
-            throw new InvalidArgumentException('Retry indicator range: inclusive between '
-                . self::MIN_RETRY_INDICATOR . '  and ' . self::MAX_RETRY_INDICATOR);
-        }
-
-        if ($retryIndicator > self::MIN_RETRY_INDICATOR && $requestId === null) {
-            throw new InvalidArgumentException('Request id must be set if retry indicator is greater than 0');
-        }
-
-        $this->requestId = $requestId;
-        $this->retryIndicator = $retryIndicator;
     }
 
     public function getApiKey(): string
@@ -82,9 +68,28 @@ final class RequestConfig
         return $this->client;
     }
 
+    public function setRequestId(?string $requestId): self
+    {
+        $this->requestId = $requestId;
+
+        return $this;
+    }
+
     public function getRequestId(): ?string
     {
         return $this->requestId;
+    }
+
+    public function setRetryIndicator(int $retryIndicator): self
+    {
+        if ($retryIndicator < self::MIN_RETRY_INDICATOR || $retryIndicator > self::MAX_RETRY_INDICATOR) {
+            throw new InvalidArgumentException('Retry indicator range: inclusive between '
+                . self::MIN_RETRY_INDICATOR . '  and ' . self::MAX_RETRY_INDICATOR);
+        }
+
+        $this->retryIndicator = $retryIndicator;
+
+        return $this;
     }
 
     public function getRetryIndicator(): int

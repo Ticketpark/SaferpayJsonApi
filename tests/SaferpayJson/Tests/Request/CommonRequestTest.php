@@ -38,7 +38,6 @@ abstract class CommonRequestTest extends TestCase
             'second try' => [uniqid(), RequestConfig::MIN_RETRY_INDICATOR + 1],
             'last try' => [uniqid(), RequestConfig::MAX_RETRY_INDICATOR],
             'try after all retries exceeded' => [uniqid(), RequestConfig::MAX_RETRY_INDICATOR + 1, InvalidArgumentException::class],
-            'retry without previous request id' => [null, RequestConfig::MAX_RETRY_INDICATOR, InvalidArgumentException::class],
         ];
     }
 
@@ -50,18 +49,20 @@ abstract class CommonRequestTest extends TestCase
         int     $retryIndicator,
         ?string $expectedException = null): void
     {
+        $config = new RequestConfig(
+            'apiKey',
+            'apiSecret',
+            'customerId',
+            false
+        );
+
         if ($expectedException !== null) {
             $this->expectException($expectedException, $requestId, $retryIndicator);
         }
 
-        new RequestConfig(
-            'apiKey',
-            'apiSecret',
-            'customerId',
-            false,
-            $requestId,
-            $retryIndicator
-        );
+        $config
+            ->setRequestId($requestId)
+            ->setRetryIndicator($retryIndicator);
     }
 
     public function doTestSuccessfulResponse(string $responseClass): void
