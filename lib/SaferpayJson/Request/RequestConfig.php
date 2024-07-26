@@ -16,6 +16,7 @@ final class RequestConfig
     private string $apiSecret;
     private string $customerId;
     private bool $test;
+
     private ?Client $client = null;
     private ?string $requestId = null;
     private int $retryIndicator = self::MIN_RETRY_INDICATOR;
@@ -83,8 +84,11 @@ final class RequestConfig
     public function setRetryIndicator(int $retryIndicator): self
     {
         if ($retryIndicator < self::MIN_RETRY_INDICATOR || $retryIndicator > self::MAX_RETRY_INDICATOR) {
-            throw new InvalidArgumentException('Retry indicator range: inclusive between '
-                . self::MIN_RETRY_INDICATOR . '  and ' . self::MAX_RETRY_INDICATOR);
+            throw new InvalidArgumentException(sprintf(
+                'Retry indicator range: inclusive between %s and %s.',
+                self::MIN_RETRY_INDICATOR,
+                self::MAX_RETRY_INDICATOR
+            ));
         }
 
         $this->retryIndicator = $retryIndicator;

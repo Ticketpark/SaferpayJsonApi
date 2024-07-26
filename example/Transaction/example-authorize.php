@@ -23,6 +23,13 @@ $requestConfig = new RequestConfig(
     true
 );
 
+// This library also supports retry requests.
+// For more information on how and when Saferpay allows them, see
+// https://docs.saferpay.com/home/integration-guide/licences-and-interfaces/error-handling
+
+# $requestConfig->setRequestId($requestId); // $responseOfPreviousTry->getRequestHeader()->getRequestId();
+# $requestConfig->setRetryIndicator($retryIndicator); // a number between 0 and 9
+
 // -----------------------------
 // Step 2:
 // Create the request with required data
@@ -31,10 +38,6 @@ $authorizeRequest = new AuthorizeRequest(
     $requestConfig,
     $token,
 );
-
-// Note: More data can be provided to InitializeRequest with setters,
-// for example: $authorizeRequest->setCondition()
-// See Saferpay documentation for available options.
 
 // -----------------------------
 // Step 3:
