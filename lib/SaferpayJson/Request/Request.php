@@ -20,8 +20,6 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 abstract class Request
 {
-    private const ROOT_URL = 'https://www.saferpay.com/api';
-    private const ROOT_URL_TEST = 'https://test.saferpay.com/api';
     private const ERROR_RESPONSE_CLASS = ErrorResponse::class;
 
     /**
@@ -113,13 +111,7 @@ abstract class Request
 
     private function getUrl(): string
     {
-        $rootUrl = self::ROOT_URL;
-
-        if ($this->requestConfig->isTest()) {
-            $rootUrl = self::ROOT_URL_TEST;
-        }
-
-        return $rootUrl . $this->getApiPath();
+        return $this->requestConfig->getRootUrl() . $this->getApiPath();
     }
 
     private function getHeaders(): array
