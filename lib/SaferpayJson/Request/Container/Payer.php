@@ -63,7 +63,9 @@ final class Payer
 
     public function setLanguageCode(?string $languageCode): self
     {
-        $this->languageCode = $languageCode;
+        if (preg_match('^[a-z]{2}(-[A-Z]{2})?$', $languageCode)) {
+            $this->languageCode = $languageCode;
+        }
 
         return $this;
     }
