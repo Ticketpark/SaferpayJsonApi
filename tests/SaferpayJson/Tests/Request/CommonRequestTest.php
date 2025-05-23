@@ -57,12 +57,14 @@ abstract class CommonRequestTest extends TestCase
         );
 
         if ($expectedException !== null) {
-            $this->expectException($expectedException, $requestId, $retryIndicator);
+            $this->expectException($expectedException);
         }
 
-        $config
+        $result = $config
             ->setRequestId($requestId)
             ->setRetryIndicator($retryIndicator);
+
+        $this->assertInstanceOf(RequestConfig::class, $result);
     }
 
     public function doTestSuccessfulResponse(string $responseClass): void
