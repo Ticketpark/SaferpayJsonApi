@@ -11,10 +11,13 @@ final class RequestConfig
 {
     public const MIN_RETRY_INDICATOR = 0;
     public const MAX_RETRY_INDICATOR = 9;
+    private const ROOT_URL = 'https://www.saferpay.com/api';
+    private const ROOT_URL_TEST = 'https://test.saferpay.com/api';
 
     private string $apiKey;
     private string $apiSecret;
     private string $customerId;
+    private string $rootUrl;
     private bool $test;
 
     private ?Client $client = null;
@@ -25,12 +28,19 @@ final class RequestConfig
         string $apiKey,
         string $apiSecret,
         string $customerId,
-        bool   $test = false
+        bool   $test = false,
+        string $rootUrl = null
     ) {
         $this->apiKey = $apiKey;
         $this->apiSecret = $apiSecret;
         $this->customerId = $customerId;
         $this->test = $test;
+
+        if (null === $rootUrl) {
+            $this->rootUrl = ($test ? self::ROOT_URL_TEST : self::ROOT_URL);
+        } else {
+            $this->rootUrl = $rootUrl;
+        }
     }
 
     public function getApiKey(): string
@@ -99,5 +109,15 @@ final class RequestConfig
     public function getRetryIndicator(): int
     {
         return $this->retryIndicator;
+    }
+
+    public function getRootUrl(): string
+    {
+        return $this->rootUrl;
+    }
+
+    public function setRootUrl(string $rootUrl): void
+    {
+        $this->rootUrl = $rootUrl;
     }
 }
