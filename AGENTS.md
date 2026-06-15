@@ -109,16 +109,16 @@ Follow the [Saferpay changelog](https://saferpay.github.io/jsonapi/) for the tar
 
 - Branch: `feature/bump-saferpay-api-version-on-1-XX`
 - Commit: `feat: Version bump to 1.XX`
-- PR body (see `.github/pull_request_template.md`):
-
-  ```
-  Closes #<issue>
-
-  - Bump `SpecVersion` to 1.XX
-  - <bullet per meaningful change>
-  ```
+- PR body: see [Pull requests](#pull-requests) and fill in the template bullets (e.g. `Bump SpecVersion to 1.XX`, one bullet per meaningful change).
 
 Do not commit or open PRs unless the user asks.
+
+## Pull requests
+
+Stick to [.github/pull_request_template.md](.github/pull_request_template.md): `Closes #<issue>` followed by bullet points only.
+
+- Never add a test plan section to the PR body.
+- Never add a "created by …" signature to the PR.
 
 ## Adding or changing code
 
