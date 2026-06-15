@@ -87,12 +87,10 @@ final class OrderItem
      */
     private ?string $imageUrl = null;
 
-
     public function getType(): ?string
     {
         return $this->type;
     }
-
 
     public function setType(?string $type): self
     {
@@ -101,12 +99,10 @@ final class OrderItem
         return $this;
     }
 
-
     public function getId(): ?string
     {
         return $this->id;
     }
-
 
     public function setId(?string $id): self
     {
@@ -115,12 +111,10 @@ final class OrderItem
         return $this;
     }
 
-
     public function getVariantId(): ?string
     {
         return $this->variantId;
     }
-
 
     public function setVariantId(?string $variantId): self
     {
@@ -129,12 +123,10 @@ final class OrderItem
         return $this;
     }
 
-
     public function getName(): ?string
     {
         return $this->name;
     }
-
 
     public function setName(?string $name): self
     {
@@ -143,12 +135,10 @@ final class OrderItem
         return $this;
     }
 
-
     public function getCategoryName(): ?string
     {
         return $this->categoryName;
     }
-
 
     public function setCategoryName(?string $categoryName): self
     {
@@ -157,12 +147,10 @@ final class OrderItem
         return $this;
     }
 
-
     public function getDescription(): ?string
     {
         return $this->description;
     }
-
 
     public function setDescription(?string $description): self
     {
@@ -171,12 +159,10 @@ final class OrderItem
         return $this;
     }
 
-
     public function getQuantity(): ?string
     {
         return $this->quantity;
     }
-
 
     public function setQuantity(?string $quantity): self
     {
@@ -185,12 +171,10 @@ final class OrderItem
         return $this;
     }
 
-
     public function getUnitPrice(): ?string
     {
         return $this->unitPrice;
     }
-
 
     public function setUnitPrice(?string $unitPrice): self
     {
@@ -199,12 +183,10 @@ final class OrderItem
         return $this;
     }
 
-
     public function getIsPreOrder(): ?string
     {
         return $this->isPreOrder;
     }
-
 
     public function setIsPreOrder(?string $isPreOrder): self
     {
@@ -213,12 +195,10 @@ final class OrderItem
         return $this;
     }
 
-
     public function getTaxRate(): ?string
     {
         return $this->taxRate;
     }
-
 
     public function setTaxRate(?string $taxRate): self
     {
@@ -227,12 +207,10 @@ final class OrderItem
         return $this;
     }
 
-
     public function getTaxAmount(): ?string
     {
         return $this->taxAmount;
     }
-
 
     public function setTaxAmount(?string $taxAmount): self
     {
@@ -241,12 +219,10 @@ final class OrderItem
         return $this;
     }
 
-
     public function getDiscountAmount(): ?string
     {
         return $this->discountAmount;
     }
-
 
     public function setDiscountAmount(?string $discountAmount): self
     {

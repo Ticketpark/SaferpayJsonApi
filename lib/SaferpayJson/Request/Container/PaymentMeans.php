@@ -167,6 +167,7 @@ final class PaymentMeans
     public function setSchemeToken(?SchemeToken $schemeToken): self
     {
         $this->schemeToken = $schemeToken;
+
         return $this;
     }
 

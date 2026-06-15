@@ -61,12 +61,12 @@ final class Address
 
     /**
      * @SerializedName("DateOfBirth")
+     *
      * @Type("DateTime<'Y-m-d'>")
      */
-    private ?\DateTime$dateOfBirth = null;
+    private ?\DateTime $dateOfBirth = null;
 
     /**
-     * @var string|null
      * @SerializedName("Street2")
      */
     private ?string $street2 = null;

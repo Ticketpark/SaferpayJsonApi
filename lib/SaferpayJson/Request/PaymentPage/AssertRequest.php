@@ -23,7 +23,7 @@ final class AssertRequest extends Request
 
     public function __construct(
         RequestConfig $requestConfig,
-        string $token
+        string $token,
     ) {
         $this->token = $token;
 

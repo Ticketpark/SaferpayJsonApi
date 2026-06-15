@@ -160,9 +160,10 @@ Add `public const` for documented enum values on the request class that uses the
 
 ```bash
 composer install
-vendor/bin/phpunit
-vendor/bin/phpstan analyse
-vendor/bin/php-cs-fixer --no-interaction --dry-run --diff -v fix lib/
+composer test
+composer phpstan
+composer cs-check
+composer cs-fix   # apply coding standard fixes
 ```
 
 Request tests extend `CommonRequestTest`:

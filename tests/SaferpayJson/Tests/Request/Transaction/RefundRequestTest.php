@@ -1,13 +1,15 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request\Transaction;
 
 use Ticketpark\SaferpayJson\Request\Container\Amount;
 use Ticketpark\SaferpayJson\Request\Container\CaptureReference;
 use Ticketpark\SaferpayJson\Request\Container\Refund;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
 use Ticketpark\SaferpayJson\Request\Transaction\RefundRequest;
 use Ticketpark\SaferpayJson\Response\Transaction\RefundResponse;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
 
 class RefundRequestTest extends CommonRequestTest
 {

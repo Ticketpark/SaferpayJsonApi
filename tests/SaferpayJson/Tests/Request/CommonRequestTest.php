@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request;
 
@@ -6,7 +8,6 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use GuzzleHttp\Psr7\Utils as GuzzleUtils;
-use InvalidArgumentException;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -37,7 +38,7 @@ abstract class CommonRequestTest extends TestCase
             'first try' => [null, RequestConfig::MIN_RETRY_INDICATOR],
             'second try' => [uniqid(), RequestConfig::MIN_RETRY_INDICATOR + 1],
             'last try' => [uniqid(), RequestConfig::MAX_RETRY_INDICATOR],
-            'try after all retries exceeded' => [uniqid(), RequestConfig::MAX_RETRY_INDICATOR + 1, InvalidArgumentException::class],
+            'try after all retries exceeded' => [uniqid(), RequestConfig::MAX_RETRY_INDICATOR + 1, \InvalidArgumentException::class],
         ];
     }
 
@@ -46,7 +47,7 @@ abstract class CommonRequestTest extends TestCase
      */
     public function testRequestConfigValidation(
         ?string $requestId,
-        int     $retryIndicator,
+        int $retryIndicator,
         ?string $expectedException = null): void
     {
         $config = new RequestConfig(
@@ -56,7 +57,7 @@ abstract class CommonRequestTest extends TestCase
             false
         );
 
-        if ($expectedException !== null) {
+        if (null !== $expectedException) {
             $this->expectException($expectedException);
         }
 
@@ -118,7 +119,7 @@ abstract class CommonRequestTest extends TestCase
             ->disableOriginalConstructor()
             ->onlyMethods([
                 'getStatusCode',
-                'getBody'
+                'getBody',
             ])
             ->getMock();
 

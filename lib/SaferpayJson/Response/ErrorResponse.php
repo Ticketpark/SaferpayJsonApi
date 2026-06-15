@@ -42,6 +42,7 @@ class ErrorResponse extends Response
 
     /**
      * @SerializedName("ErrorDetail")
+     *
      * @Type("array")
      */
     private array $errorDetail = [];

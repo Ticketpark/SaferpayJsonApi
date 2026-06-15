@@ -54,7 +54,7 @@ final class AuthorizeReferencedRequest extends Request
         RequestConfig $requestConfig,
         string $terminalId,
         Payment $payment,
-        TransactionReference $transactionReference
+        TransactionReference $transactionReference,
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;
@@ -131,6 +131,7 @@ final class AuthorizeReferencedRequest extends Request
     public function setNotification(?Notification $notification): self
     {
         $this->notification = $notification;
+
         return $this;
     }
 

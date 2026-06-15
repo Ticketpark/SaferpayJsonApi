@@ -31,6 +31,7 @@ final class AddressForm
 
     /**
      * @var array<string>|null
+     *
      * @SerializedName("MandatoryFields")
      */
     private ?array $mandatoryFields = [];

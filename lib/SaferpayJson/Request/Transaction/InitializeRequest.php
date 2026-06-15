@@ -27,19 +27,19 @@ final class InitializeRequest extends Request
     public const API_PATH = '/Payment/v1/Transaction/Initialize';
     public const RESPONSE_CLASS = InitializeResponse::class;
 
-    public const PAYMENT_METHOD_AMEX = "AMEX";
-    public const PAYMENT_METHOD_BANCONTACT = "BANCONTACT";
-    public const PAYMENT_METHOD_BONUS = "BONUS";
-    public const PAYMENT_METHOD_DINERS = "DINERS";
-    public const PAYMENT_METHOD_DIRECTDEBIT = "DIRECTDEBIT";
-    public const PAYMENT_METHOD_JCB = "JCB";
-    public const PAYMENT_METHOD_MAESTRO = "MAESTRO";
-    public const PAYMENT_METHOD_MASTERCARD = "MASTERCARD";
-    public const PAYMENT_METHOD_MYONE = "MYONE";
-    public const PAYMENT_METHOD_VISA = "VISA";
-    public const PAYMENT_METHOD_WECHATPAY = "WECHATPAY";
+    public const PAYMENT_METHOD_AMEX = 'AMEX';
+    public const PAYMENT_METHOD_BANCONTACT = 'BANCONTACT';
+    public const PAYMENT_METHOD_BONUS = 'BONUS';
+    public const PAYMENT_METHOD_DINERS = 'DINERS';
+    public const PAYMENT_METHOD_DIRECTDEBIT = 'DIRECTDEBIT';
+    public const PAYMENT_METHOD_JCB = 'JCB';
+    public const PAYMENT_METHOD_MAESTRO = 'MAESTRO';
+    public const PAYMENT_METHOD_MASTERCARD = 'MASTERCARD';
+    public const PAYMENT_METHOD_MYONE = 'MYONE';
+    public const PAYMENT_METHOD_VISA = 'VISA';
+    public const PAYMENT_METHOD_WECHATPAY = 'WECHATPAY';
 
-    public const WALLET_MASTERPASS = "MASTERPASS";
+    public const WALLET_MASTERPASS = 'MASTERPASS';
 
     /**
      * @SerializedName("ConfigSet")
@@ -83,6 +83,7 @@ final class InitializeRequest extends Request
 
     /**
      * @var array<string>|null
+     *
      * @SerializedName("PaymentMethods")
      */
     private ?array $paymentMethods = null;
@@ -114,9 +115,9 @@ final class InitializeRequest extends Request
 
     public function __construct(
         RequestConfig $requestConfig,
-        string        $terminalId,
-        Payment       $payment,
-        ReturnUrl    $returnUrl
+        string $terminalId,
+        Payment $payment,
+        ReturnUrl $returnUrl,
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;
@@ -199,6 +200,7 @@ final class InitializeRequest extends Request
     public function setRedirectNotifyUrls(?RedirectNotifyUrls $redirectNotifyUrls): self
     {
         $this->redirectNotifyUrls = $redirectNotifyUrls;
+
         return $this;
     }
 
@@ -275,6 +277,7 @@ final class InitializeRequest extends Request
     public function setNotification(?Notification $notification): self
     {
         $this->notification = $notification;
+
         return $this;
     }
 }

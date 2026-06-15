@@ -1,12 +1,15 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+
 namespace Ticketpark\SaferpayJson\Tests\Request\Transaction;
 
 use Ticketpark\SaferpayJson\Request\Container\Amount;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
 use Ticketpark\SaferpayJson\Request\Transaction\AuthorizeDirectRequest;
 use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeDirectResponse;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
 
 class AuthorizeDirectRequestTest extends CommonRequestTest
 {

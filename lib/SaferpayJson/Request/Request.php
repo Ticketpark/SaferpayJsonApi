@@ -12,8 +12,8 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\VirtualProperty;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
-use Ticketpark\SaferpayJson\Request\Exception\HttpRequestException;
 use Ticketpark\SaferpayJson\Request\Container\RequestHeader;
+use Ticketpark\SaferpayJson\Request\Exception\HttpRequestException;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\Response;
@@ -43,6 +43,7 @@ abstract class Request
 
     /**
      * @SerializedName("RequestHeader")
+     *
      * @VirtualProperty
      */
     public function getRequestHeader(): RequestHeader
@@ -67,7 +68,7 @@ abstract class Request
                 $this->getUrl(),
                 [
                     'headers' => $this->getHeaders(),
-                    'body' => $this->getContent()
+                    'body' => $this->getContent(),
                 ]
             );
         } catch (\Exception $e) {
@@ -93,10 +94,7 @@ abstract class Request
         }
 
         if (200 !== $statusCode) {
-            throw new HttpRequestException(sprintf(
-                'Unexpected http request response with status code %s.',
-                $response->getStatusCode()
-            ));
+            throw new HttpRequestException(sprintf('Unexpected http request response with status code %s.', $response->getStatusCode()));
         }
 
         /** @var Response $libraryResponse */
@@ -111,19 +109,19 @@ abstract class Request
 
     private function getUrl(): string
     {
-        return $this->requestConfig->getRootUrl() . $this->getApiPath();
+        return $this->requestConfig->getRootUrl().$this->getApiPath();
     }
 
     private function getHeaders(): array
     {
         return [
-            'Content-Type'  => 'application/json; charset=utf-8',
-            'Accept'        => 'application/json',
-            'Authorization' => 'Basic ' . base64_encode(
+            'Content-Type' => 'application/json; charset=utf-8',
+            'Accept' => 'application/json',
+            'Authorization' => 'Basic '.base64_encode(
                 $this->requestConfig->getApiKey()
-                . ':'
-                . $this->requestConfig->getApiSecret()
-            )
+                .':'
+                .$this->requestConfig->getApiSecret()
+            ),
         ];
     }
 

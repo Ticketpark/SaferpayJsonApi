@@ -92,6 +92,7 @@ final class AliasInsertDirectRequest extends Request
     public function setIssuerReference(?IssuerReference $issuerReference): self
     {
         $this->issuerReference = $issuerReference;
+
         return $this;
     }
 

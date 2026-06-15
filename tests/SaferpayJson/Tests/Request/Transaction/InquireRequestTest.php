@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SaferpayJson\Tests\Request\Transaction;
 
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;

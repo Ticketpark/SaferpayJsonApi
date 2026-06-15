@@ -21,6 +21,7 @@ final class Invoice
 
     /**
      * @SerializedName("DueDate")
+     *
      * @Type("DateTime<'Y-m-d'>")
      */
     private ?\DateTime $dueDate = null;

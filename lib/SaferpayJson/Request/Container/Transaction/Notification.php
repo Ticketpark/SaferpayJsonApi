@@ -10,6 +10,7 @@ final class Notification
 {
     /**
      * @var string|null
+     *
      * @SerializedName("PayerDccReceiptEmail")
      */
     private $payerDccReceiptEmail;
@@ -22,6 +23,7 @@ final class Notification
     public function setPayerDccReceiptEmail(?string $payerDccReceiptEmail): self
     {
         $this->payerDccReceiptEmail = $payerDccReceiptEmail;
+
         return $this;
     }
 }

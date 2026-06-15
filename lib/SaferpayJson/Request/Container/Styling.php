@@ -33,8 +33,8 @@ final class Styling
     }
 
     /**
-     * @deprecated This feature will be removed in one of the next versions of the Saferpay API
-     * Consider using payment page config (PPConfig) or Saferpay Fields instead.
+     * @deprecated this feature will be removed in one of the next versions of the Saferpay API
+     * Consider using payment page config (PPConfig) or Saferpay Fields instead
      */
     public function setCssUrl(?string $cssUrl): self
     {
