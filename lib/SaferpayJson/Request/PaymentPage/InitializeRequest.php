@@ -59,6 +59,7 @@ final class InitializeRequest extends Request
 
     public const WALLET_APPLEPAY = "APPLEPAY";
     public const WALLET_GOOGLEPAY = "GOOGLEPAY";
+    public const WALLET_CLICKTOPAY = "CLICKTOPAY";
 
     public const CONDITION_THREE_DS_AUTHENTICATION_SUCCESSFUL_OR_ATTEMPTED = 'THREE_DS_AUTHENTICATION_SUCCESSFUL_OR_ATTEMPTED';
     public const CONDITION_NONE = 'NONE';

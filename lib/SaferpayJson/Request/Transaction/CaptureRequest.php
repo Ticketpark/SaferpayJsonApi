@@ -8,6 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Container\Amount;
 use Ticketpark\SaferpayJson\Request\Container\Billpay;
 use Ticketpark\SaferpayJson\Request\Container\Marketplace;
+use Ticketpark\SaferpayJson\Request\Container\MerchantFundDistributor;
 use Ticketpark\SaferpayJson\Request\Container\MastercardIssuerInstallments;
 use Ticketpark\SaferpayJson\Request\Container\PendingNotification;
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
@@ -51,6 +52,11 @@ final class CaptureRequest extends Request
      * @SerializedName("MastercardIssuerInstallments")
      */
     private ?MastercardIssuerInstallments $mastercardIssuerInstallments = null;
+
+    /**
+     * @SerializedName("MerchantFundDistributor")
+     */
+    private ?MerchantFundDistributor $merchantFundDistributor = null;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -129,6 +135,18 @@ final class CaptureRequest extends Request
     public function setMastercardIssuerInstallments(?MastercardIssuerInstallments $mastercardIssuerInstallments): self
     {
         $this->mastercardIssuerInstallments = $mastercardIssuerInstallments;
+
+        return $this;
+    }
+
+    public function getMerchantFundDistributor(): ?MerchantFundDistributor
+    {
+        return $this->merchantFundDistributor;
+    }
+
+    public function setMerchantFundDistributor(?MerchantFundDistributor $merchantFundDistributor): self
+    {
+        $this->merchantFundDistributor = $merchantFundDistributor;
 
         return $this;
     }
