@@ -48,6 +48,11 @@ final class Card
      */
     private ?string $hashValue = null;
 
+    /**
+     * @SerializedName("TokenPan")
+     */
+    private ?TokenPan $tokenPan = null;
+
     public function getMaskedNumber(): ?string
     {
         return $this->maskedNumber;
@@ -81,5 +86,10 @@ final class Card
     public function getHashValue(): ?string
     {
         return $this->hashValue;
+    }
+
+    public function getTokenPan(): ?TokenPan
+    {
+        return $this->tokenPan;
     }
 }
