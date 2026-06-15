@@ -16,7 +16,7 @@ class RefundRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            RefundResponse::class
+            RefundResponse::class,
         );
     }
 
@@ -25,9 +25,9 @@ class RefundRequestTest extends CommonRequestTest
         return new RefundRequest(
             $this->getRequestConfig(),
             new Refund(
-                new Amount(5000, 'CHF')
+                new Amount(5000, 'CHF'),
             ),
-            new CaptureReference()
+            new CaptureReference(),
         );
     }
 }

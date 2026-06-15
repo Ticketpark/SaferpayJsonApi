@@ -43,7 +43,7 @@ final class RefundRequest extends Request
     public function __construct(
         RequestConfig $requestConfig,
         Refund $refund,
-        CaptureReference $captureReference,
+        CaptureReference $captureReference
     ) {
         $this->refund = $refund;
         $this->captureReference = $captureReference;

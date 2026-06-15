@@ -18,7 +18,7 @@ class SaferpayErrorException extends \Exception
             '[%s] %s: %s',
             $errorResponse->getBehaviour(),
             $errorResponse->getErrorName(),
-            $errorResponse->getErrorMessage()
+            $errorResponse->getErrorMessage(),
         ));
     }
 

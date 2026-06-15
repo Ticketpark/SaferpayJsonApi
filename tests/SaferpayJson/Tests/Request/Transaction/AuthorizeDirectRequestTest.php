@@ -16,7 +16,7 @@ class AuthorizeDirectRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            AuthorizeDirectResponse::class
+            AuthorizeDirectResponse::class,
         );
     }
 
@@ -26,9 +26,9 @@ class AuthorizeDirectRequestTest extends CommonRequestTest
             $this->getRequestConfig(),
             'someTerminalId',
             new Payment(
-                new Amount(5000, 'CHF')
+                new Amount(5000, 'CHF'),
             ),
-            new PaymentMeans()
+            new PaymentMeans(),
         );
     }
 }

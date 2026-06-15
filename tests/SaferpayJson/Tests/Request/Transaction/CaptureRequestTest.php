@@ -14,7 +14,7 @@ class CaptureRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            CaptureResponse::class
+            CaptureResponse::class,
         );
     }
 
@@ -22,7 +22,7 @@ class CaptureRequestTest extends CommonRequestTest
     {
         return new CaptureRequest(
             $this->getRequestConfig(),
-            new TransactionReference()
+            new TransactionReference(),
         );
     }
 }

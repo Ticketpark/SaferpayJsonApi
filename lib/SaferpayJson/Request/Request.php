@@ -50,7 +50,7 @@ abstract class Request
         return new RequestHeader(
             $this->requestConfig->getCustomerId(),
             $this->requestConfig->getRequestId(),
-            $this->requestConfig->getRetryIndicator()
+            $this->requestConfig->getRetryIndicator(),
         );
     }
 
@@ -68,7 +68,7 @@ abstract class Request
                 [
                     'headers' => $this->getHeaders(),
                     'body' => $this->getContent(),
-                ]
+                ],
             );
         } catch (\Exception $e) {
             if (!$e instanceof ClientException) {
@@ -86,7 +86,7 @@ abstract class Request
             $errorResponse = $this->getSerializer()->deserialize(
                 (string) $response->getBody(),
                 self::ERROR_RESPONSE_CLASS,
-                'json'
+                'json',
             );
 
             throw new SaferpayErrorException($errorResponse);
@@ -100,7 +100,7 @@ abstract class Request
         $libraryResponse = $this->getSerializer()->deserialize(
             (string) $response->getBody(),
             $this->getResponseClass(),
-            'json'
+            'json',
         );
 
         return $libraryResponse;
@@ -119,7 +119,7 @@ abstract class Request
             'Authorization' => 'Basic '.base64_encode(
                 $this->requestConfig->getApiKey()
                 .':'
-                .$this->requestConfig->getApiSecret()
+                .$this->requestConfig->getApiSecret(),
             ),
         ];
     }

@@ -53,7 +53,7 @@ abstract class CommonRequestTest extends TestCase
             'apiKey',
             'apiSecret',
             'customerId',
-            false
+            false,
         );
 
         if (null !== $expectedException) {
@@ -81,7 +81,7 @@ abstract class CommonRequestTest extends TestCase
         $requestConfig = new RequestConfig(
             'apiKey',
             'apiSecret',
-            'customerId'
+            'customerId',
         );
 
         $requestConfig->setClient($this->getClientMock());

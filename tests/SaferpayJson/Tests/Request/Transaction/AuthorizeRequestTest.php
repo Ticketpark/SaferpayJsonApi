@@ -14,14 +14,14 @@ class AuthorizeRequestTest extends CommonRequestTest
     {
         return new AuthorizeRequest(
             $this->getRequestConfig(),
-            'someToken123'
+            'someToken123',
         );
     }
 
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            AuthorizeResponse::class
+            AuthorizeResponse::class,
         );
     }
 }

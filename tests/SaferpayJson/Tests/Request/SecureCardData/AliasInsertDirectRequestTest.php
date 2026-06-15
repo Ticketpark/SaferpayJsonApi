@@ -16,7 +16,7 @@ class AliasInsertDirectRequestTest extends CommonRequestTest
         return new AliasInsertDirectRequest(
             $this->getRequestConfig(),
             new RegisterAlias(RegisterAlias::ID_GENERATOR_RANDOM),
-            new PaymentMeans()
+            new PaymentMeans(),
         );
     }
 }

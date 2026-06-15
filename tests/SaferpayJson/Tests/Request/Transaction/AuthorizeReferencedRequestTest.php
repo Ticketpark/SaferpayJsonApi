@@ -16,7 +16,7 @@ class AuthorizeReferencedRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            AuthorizeReferencedResponse::class
+            AuthorizeReferencedResponse::class,
         );
     }
 
@@ -26,9 +26,9 @@ class AuthorizeReferencedRequestTest extends CommonRequestTest
             $this->getRequestConfig(),
             'someTerminalId',
             new Payment(
-                new Amount(5000, 'CHF')
+                new Amount(5000, 'CHF'),
             ),
-            new TransactionReference()
+            new TransactionReference(),
         );
     }
 }

@@ -14,7 +14,7 @@ class CancelRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            CancelResponse::class
+            CancelResponse::class,
         );
     }
 
@@ -22,7 +22,7 @@ class CancelRequestTest extends CommonRequestTest
     {
         return new CancelRequest(
             $this->getRequestConfig(),
-            new TransactionReference()
+            new TransactionReference(),
         );
     }
 }

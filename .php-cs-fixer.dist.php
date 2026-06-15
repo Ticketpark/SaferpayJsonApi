@@ -10,6 +10,9 @@ return (new PhpCsFixer\Config())
     ->setRules([
         '@Symfony' => true,
         'declare_strict_types' => true,
+        'trailing_comma_in_multiline' => [
+            'elements' => ['arrays', 'arguments'],
+        ],
     ])
     ->setFinder($finder)
     ->setRiskyAllowed(true);

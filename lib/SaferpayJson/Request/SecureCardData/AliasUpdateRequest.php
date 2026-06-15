@@ -31,7 +31,7 @@ final class AliasUpdateRequest extends Request
     public function __construct(
         RequestConfig $requestConfig,
         UpdateAlias $updateAlias,
-        UpdatePaymentMeans $updatePaymentMeans,
+        UpdatePaymentMeans $updatePaymentMeans
     ) {
         $this->updateAlias = $updateAlias;
         $this->updatePaymentMeans = $updatePaymentMeans;

@@ -54,7 +54,7 @@ final class AuthorizeReferencedRequest extends Request
         RequestConfig $requestConfig,
         string $terminalId,
         Payment $payment,
-        TransactionReference $transactionReference,
+        TransactionReference $transactionReference
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;

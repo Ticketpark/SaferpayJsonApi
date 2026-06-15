@@ -98,7 +98,7 @@ final class AliasInsertRequest extends Request
         RequestConfig $requestConfig,
         RegisterAlias $registerAlias,
         string $type,
-        ReturnUrl $returnUrl,
+        ReturnUrl $returnUrl
     ) {
         $this->registerAlias = $registerAlias;
         $this->type = $type;

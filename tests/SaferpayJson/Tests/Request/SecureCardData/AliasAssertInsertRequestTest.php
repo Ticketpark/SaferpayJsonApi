@@ -13,7 +13,7 @@ class AliasAssertInsertRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            AliasAssertInsertResponse::class
+            AliasAssertInsertResponse::class,
         );
     }
 
@@ -21,7 +21,7 @@ class AliasAssertInsertRequestTest extends CommonRequestTest
     {
         return new AliasAssertInsertRequest(
             $this->getRequestConfig(),
-            'someToken'
+            'someToken',
         );
     }
 }

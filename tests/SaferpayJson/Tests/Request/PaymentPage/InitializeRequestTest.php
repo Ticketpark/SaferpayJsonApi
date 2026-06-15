@@ -16,7 +16,7 @@ class InitializeRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            InitializeResponse::class
+            InitializeResponse::class,
         );
     }
 
@@ -26,9 +26,9 @@ class InitializeRequestTest extends CommonRequestTest
             $this->getRequestConfig(),
             'someTerminalId',
             new Payment(
-                new Amount(5000, 'CHF')
+                new Amount(5000, 'CHF'),
             ),
-            new ReturnUrl('success-url')
+            new ReturnUrl('success-url'),
         );
     }
 }

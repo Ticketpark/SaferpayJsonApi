@@ -75,7 +75,7 @@ final class AuthorizeDirectRequest extends Request
         RequestConfig $requestConfig,
         string $terminalId,
         Payment $payment,
-        PaymentMeans $paymentMeans,
+        PaymentMeans $paymentMeans
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;

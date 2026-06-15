@@ -13,7 +13,7 @@ class AliasDeleteRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            AliasDeleteResponse::class
+            AliasDeleteResponse::class,
         );
     }
 
@@ -21,7 +21,7 @@ class AliasDeleteRequestTest extends CommonRequestTest
     {
         return new AliasDeleteRequest(
             $this->getRequestConfig(),
-            'someAliasId'
+            'someAliasId',
         );
     }
 }

@@ -16,7 +16,7 @@ class AliasUpdateRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            AliasUpdateResponse::class
+            AliasUpdateResponse::class,
         );
     }
 
@@ -26,8 +26,8 @@ class AliasUpdateRequestTest extends CommonRequestTest
             $this->getRequestConfig(),
             new UpdateAlias('some-id'),
             new UpdatePaymentMeans(
-                new Card()
-            )
+                new Card(),
+            ),
         );
     }
 }

@@ -14,7 +14,7 @@ class InquireRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            InquireResponse::class
+            InquireResponse::class,
         );
     }
 
@@ -22,7 +22,7 @@ class InquireRequestTest extends CommonRequestTest
     {
         return new InquireRequest(
             $this->getRequestConfig(),
-            new TransactionReference()
+            new TransactionReference(),
         );
     }
 }

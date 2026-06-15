@@ -24,7 +24,7 @@ final class InquireRequest extends Request
 
     public function __construct(
         RequestConfig $requestConfig,
-        TransactionReference $transactionReference,
+        TransactionReference $transactionReference
     ) {
         $this->transactionReference = $transactionReference;
 

@@ -156,7 +156,7 @@ final class InitializeRequest extends Request
         RequestConfig $requestConfig,
         string $terminalId,
         Payment $payment,
-        ReturnUrl $returnUrl,
+        ReturnUrl $returnUrl
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;

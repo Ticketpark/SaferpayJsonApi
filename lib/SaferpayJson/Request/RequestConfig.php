@@ -28,7 +28,7 @@ final class RequestConfig
         string $apiSecret,
         string $customerId,
         bool $test = false,
-        ?string $rootUrl = null,
+        ?string $rootUrl = null
     ) {
         $this->apiKey = $apiKey;
         $this->apiSecret = $apiSecret;
