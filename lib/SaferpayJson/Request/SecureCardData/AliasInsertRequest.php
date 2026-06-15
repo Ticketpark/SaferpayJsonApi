@@ -23,19 +23,19 @@ final class AliasInsertRequest extends Request
     public const API_PATH = '/Payment/v1/Alias/Insert';
     public const RESPONSE_CLASS = AliasInsertResponse::class;
 
-    public const PAYMENT_METHOD_AMEX = "AMEX";
-    public const PAYMENT_METHOD_BONUS = "BONUS";
-    public const PAYMENT_METHOD_DINERS = "DINERS";
-    public const PAYMENT_METHOD_DIRECTDEBIT = "DIRECTDEBIT";
-    public const PAYMENT_METHOD_JCB = "JCB";
-    public const PAYMENT_METHOD_MAESTRO = "MAESTRO";
-    public const PAYMENT_METHOD_MASTERCARD = "MASTERCARD";
-    public const PAYMENT_METHOD_MYONE = "MYONE";
-    public const PAYMENT_METHOD_POSTFINANCEPAY = "POSTFINANCEPAY";
-    public const PAYMENT_METHOD_SAFERPAYTEST = "SAFERPAYTEST";
-    public const PAYMENT_METHOD_VISA = "VISA";
-    public const PAYMENT_METHOD_WECHATPAY = "WECHATPAY";
-    public const PAYMENT_METHOD_WLCRYPTOPAYMENTS = "WLCRYPTOPAYMENTS";
+    public const PAYMENT_METHOD_AMEX = 'AMEX';
+    public const PAYMENT_METHOD_BONUS = 'BONUS';
+    public const PAYMENT_METHOD_DINERS = 'DINERS';
+    public const PAYMENT_METHOD_DIRECTDEBIT = 'DIRECTDEBIT';
+    public const PAYMENT_METHOD_JCB = 'JCB';
+    public const PAYMENT_METHOD_MAESTRO = 'MAESTRO';
+    public const PAYMENT_METHOD_MASTERCARD = 'MASTERCARD';
+    public const PAYMENT_METHOD_MYONE = 'MYONE';
+    public const PAYMENT_METHOD_POSTFINANCEPAY = 'POSTFINANCEPAY';
+    public const PAYMENT_METHOD_SAFERPAYTEST = 'SAFERPAYTEST';
+    public const PAYMENT_METHOD_VISA = 'VISA';
+    public const PAYMENT_METHOD_WECHATPAY = 'WECHATPAY';
+    public const PAYMENT_METHOD_WLCRYPTOPAYMENTS = 'WLCRYPTOPAYMENTS';
 
     public const TYPE_CARD = 'CARD';
     public const TYPE_BANK_ACCOUNT = 'BANK_ACCOUNT';
@@ -74,6 +74,7 @@ final class AliasInsertRequest extends Request
 
     /**
      * @var array<string>|null
+     *
      * @SerializedName("PaymentMethods")
      */
     private ?array $paymentMethods = null;
@@ -230,6 +231,7 @@ final class AliasInsertRequest extends Request
     public function setNotification(?Notification $notification): self
     {
         $this->notification = $notification;
+
         return $this;
     }
 }

@@ -95,6 +95,7 @@ final class RefundRequest extends Request
     public function setPaymentMethodsOptions(?PaymentMethodsOptions $paymentMethodsOptions): self
     {
         $this->paymentMethodsOptions = $paymentMethodsOptions;
+
         return $this;
     }
 

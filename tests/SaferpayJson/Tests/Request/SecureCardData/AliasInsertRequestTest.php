@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request\SecureCardData;
 
@@ -13,7 +15,7 @@ class AliasInsertRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            AliasInsertResponse::class
+            AliasInsertResponse::class,
         );
     }
 
@@ -23,7 +25,7 @@ class AliasInsertRequestTest extends CommonRequestTest
             $this->getRequestConfig(),
             new RegisterAlias(RegisterAlias::ID_GENERATOR_RANDOM),
             AliasInsertRequest::TYPE_CARD,
-            new ReturnUrl('success-url')
+            new ReturnUrl('success-url'),
         );
     }
 }

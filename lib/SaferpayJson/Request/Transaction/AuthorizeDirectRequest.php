@@ -8,11 +8,11 @@ use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\Order;
 use Ticketpark\SaferpayJson\Request\Container\Payer;
+use Ticketpark\SaferpayJson\Request\Container\Payment;
+use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
 use Ticketpark\SaferpayJson\Request\Request;
-use Ticketpark\SaferpayJson\Request\Container\Payment;
-use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeDirectResponse;
@@ -164,6 +164,7 @@ final class AuthorizeDirectRequest extends Request
     public function setOrder(?Order $order): self
     {
         $this->order = $order;
+
         return $this;
     }
 
@@ -175,6 +176,7 @@ final class AuthorizeDirectRequest extends Request
     public function setRiskFactors(?RiskFactors $riskFactors): self
     {
         $this->riskFactors = $riskFactors;
+
         return $this;
     }
 
@@ -186,6 +188,7 @@ final class AuthorizeDirectRequest extends Request
     public function setInitiator(?string $initiator): self
     {
         $this->initiator = $initiator;
+
         return $this;
     }
 

@@ -31,6 +31,7 @@ final class CaptureResponse extends Response
 
     /**
      * @SerializedName("Date")
+     *
      * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
     private ?\DateTime $date = null;

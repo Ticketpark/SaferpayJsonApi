@@ -131,6 +131,7 @@ final class AuthorizeReferencedRequest extends Request
     public function setNotification(?Notification $notification): self
     {
         $this->notification = $notification;
+
         return $this;
     }
 

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request\PaymentPage;
 
@@ -11,7 +13,7 @@ class AssertRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            AssertResponse::class
+            AssertResponse::class,
         );
     }
 
@@ -19,7 +21,7 @@ class AssertRequestTest extends CommonRequestTest
     {
         return new AssertRequest(
             $this->getRequestConfig(),
-            'someTokenId'
+            'someTokenId',
         );
     }
 }

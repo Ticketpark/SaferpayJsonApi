@@ -10,6 +10,7 @@ final class Notification
 {
     /**
      * @var string|null
+     *
      * @SerializedName("NotifyUrl")
      */
     private $notifyUrl;
@@ -22,6 +23,7 @@ final class Notification
     public function setNotifyUrl(?string $notifyUrl): self
     {
         $this->notifyUrl = $notifyUrl;
+
         return $this;
     }
 }

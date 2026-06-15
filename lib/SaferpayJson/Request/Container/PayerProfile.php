@@ -9,10 +9,10 @@ use JMS\Serializer\Annotation\Type;
 
 final class PayerProfile
 {
-    public const GENDER_MALE = "MALE";
-    public const GENDER_FEMALE = "FEMALE";
-    public const GENDER_DIVERSE = "DIVERSE";
-    public const GENDER_COMPANY = "COMPANY";
+    public const GENDER_MALE = 'MALE';
+    public const GENDER_FEMALE = 'FEMALE';
+    public const GENDER_DIVERSE = 'DIVERSE';
+    public const GENDER_COMPANY = 'COMPANY';
 
     /**
      * @SerializedName("HasAccount")
@@ -51,6 +51,7 @@ final class PayerProfile
 
     /**
      * @SerializedName("LastLoginDate")
+     *
      * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
     private ?\DateTime $lastLoginDate = null;
@@ -62,12 +63,14 @@ final class PayerProfile
 
     /**
      * @SerializedName("CreationDate")
+     *
      * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
     private ?\DateTime $creationDate = null;
 
     /**
      * @SerializedName("PasswordLastChangeDate")
+     *
      * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
     private ?\DateTime $passwordLastChangeDate = null;

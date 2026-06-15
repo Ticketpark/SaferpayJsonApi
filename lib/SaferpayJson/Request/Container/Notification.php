@@ -10,6 +10,7 @@ final class Notification
 {
     /**
      * @var array<string>
+     *
      * @SerializedName("MerchantEmails")
      */
     private ?array $merchantEmails = [];
@@ -20,13 +21,11 @@ final class Notification
     private ?string $payerEmail = null;
 
     /**
-     * @var string|null
      * @SerializedName("PayerDccReceiptEmail")
      */
     private ?string $payerDccReceiptEmail = null;
 
     /**
-     * @var string|null
      * @SerializedName("SuccessNotifyUrl")
      */
     private ?string $successNotifyUrl = null;
@@ -68,6 +67,7 @@ final class Notification
     public function setPayerDccReceiptEmail(?string $payerDccReceiptEmail): self
     {
         $this->payerDccReceiptEmail = $payerDccReceiptEmail;
+
         return $this;
     }
 

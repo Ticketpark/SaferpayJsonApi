@@ -10,6 +10,7 @@ final class Order
 {
     /**
      * @var array<OrderItem>
+     *
      * @SerializedName("Items")
      */
     private ?array $items = [];

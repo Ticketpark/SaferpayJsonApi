@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request\SecureCardData;
 
@@ -14,7 +16,7 @@ class AliasUpdateRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            AliasUpdateResponse::class
+            AliasUpdateResponse::class,
         );
     }
 
@@ -24,8 +26,8 @@ class AliasUpdateRequestTest extends CommonRequestTest
             $this->getRequestConfig(),
             new UpdateAlias('some-id'),
             new UpdatePaymentMeans(
-                new Card()
-            )
+                new Card(),
+            ),
         );
     }
 }

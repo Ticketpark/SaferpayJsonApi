@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SaferpayJson\Tests\Request\Transaction;
 
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
@@ -12,7 +14,7 @@ class InquireRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            InquireResponse::class
+            InquireResponse::class,
         );
     }
 
@@ -20,7 +22,7 @@ class InquireRequestTest extends CommonRequestTest
     {
         return new InquireRequest(
             $this->getRequestConfig(),
-            new TransactionReference()
+            new TransactionReference(),
         );
     }
 }

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request\PaymentPage;
 
@@ -14,7 +16,7 @@ class InitializeRequestTest extends CommonRequestTest
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            InitializeResponse::class
+            InitializeResponse::class,
         );
     }
 
@@ -24,9 +26,9 @@ class InitializeRequestTest extends CommonRequestTest
             $this->getRequestConfig(),
             'someTerminalId',
             new Payment(
-                new Amount(5000, 'CHF')
+                new Amount(5000, 'CHF'),
             ),
-            new ReturnUrl('success-url')
+            new ReturnUrl('success-url'),
         );
     }
 }

@@ -17,6 +17,7 @@ final class InitializeResponse extends Response
 
     /**
      * @SerializedName("Expiration")
+     *
      * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
      */
     private ?\DateTime $expiration = null;

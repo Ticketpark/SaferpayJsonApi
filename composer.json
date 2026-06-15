@@ -32,5 +32,11 @@
             "Ticketpark\\SaferpayJson\\": "lib/SaferpayJson/",
             "Ticketpark\\SaferpayJson\\Tests\\": "tests/SaferpayJson/Tests/"
         }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "phpstan": "phpstan analyse",
+        "cs-check": "php-cs-fixer --no-interaction --dry-run --diff fix",
+        "cs-fix": "php-cs-fixer --no-interaction fix"
     }
 }

@@ -66,6 +66,7 @@ final class AuthorizeResponse extends Response
     {
         return $this->payer;
     }
+
     public function getPaymentMeans(): ?PaymentMeans
     {
         return $this->paymentMeans;

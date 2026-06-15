@@ -10,6 +10,7 @@ final class PendingNotification
 {
     /**
      * @var array<string>
+     *
      * @SerializedName("MerchantEmails")
      */
     private ?array $merchantEmails = [];

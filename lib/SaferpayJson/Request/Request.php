@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request;
 
-use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\VirtualProperty;
-use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
-use Ticketpark\SaferpayJson\Request\Exception\HttpRequestException;
 use Ticketpark\SaferpayJson\Request\Container\RequestHeader;
+use Ticketpark\SaferpayJson\Request\Exception\HttpRequestException;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\Response;
+use Ticketpark\SaferpayJson\SerializerFactory;
 
 abstract class Request
 {
@@ -43,6 +42,7 @@ abstract class Request
 
     /**
      * @SerializedName("RequestHeader")
+     *
      * @VirtualProperty
      */
     public function getRequestHeader(): RequestHeader
@@ -50,7 +50,7 @@ abstract class Request
         return new RequestHeader(
             $this->requestConfig->getCustomerId(),
             $this->requestConfig->getRequestId(),
-            $this->requestConfig->getRetryIndicator()
+            $this->requestConfig->getRetryIndicator(),
         );
     }
 
@@ -67,8 +67,8 @@ abstract class Request
                 $this->getUrl(),
                 [
                     'headers' => $this->getHeaders(),
-                    'body' => $this->getContent()
-                ]
+                    'body' => $this->getContent(),
+                ],
             );
         } catch (\Exception $e) {
             if (!$e instanceof ClientException) {
@@ -86,24 +86,21 @@ abstract class Request
             $errorResponse = $this->getSerializer()->deserialize(
                 (string) $response->getBody(),
                 self::ERROR_RESPONSE_CLASS,
-                'json'
+                'json',
             );
 
             throw new SaferpayErrorException($errorResponse);
         }
 
         if (200 !== $statusCode) {
-            throw new HttpRequestException(sprintf(
-                'Unexpected http request response with status code %s.',
-                $response->getStatusCode()
-            ));
+            throw new HttpRequestException(sprintf('Unexpected http request response with status code %s.', $response->getStatusCode()));
         }
 
         /** @var Response $libraryResponse */
         $libraryResponse = $this->getSerializer()->deserialize(
             (string) $response->getBody(),
             $this->getResponseClass(),
-            'json'
+            'json',
         );
 
         return $libraryResponse;
@@ -111,19 +108,19 @@ abstract class Request
 
     private function getUrl(): string
     {
-        return $this->requestConfig->getRootUrl() . $this->getApiPath();
+        return $this->requestConfig->getRootUrl().$this->getApiPath();
     }
 
     private function getHeaders(): array
     {
         return [
-            'Content-Type'  => 'application/json; charset=utf-8',
-            'Accept'        => 'application/json',
-            'Authorization' => 'Basic ' . base64_encode(
+            'Content-Type' => 'application/json; charset=utf-8',
+            'Accept' => 'application/json',
+            'Authorization' => 'Basic '.base64_encode(
                 $this->requestConfig->getApiKey()
-                . ':'
-                . $this->requestConfig->getApiSecret()
-            )
+                .':'
+                .$this->requestConfig->getApiSecret(),
+            ),
         ];
     }
 
@@ -134,13 +131,6 @@ abstract class Request
 
     private function getSerializer(): SerializerInterface
     {
-        // Support for doctrine/annotations 1.x
-        // @phpstan-ignore-next-line
-        if (method_exists(AnnotationRegistry::class, 'registerLoader')) {
-            // @phpstan-ignore-next-line
-            AnnotationRegistry::registerLoader('class_exists');
-        }
-
-        return SerializerBuilder::create()->build();
+        return SerializerFactory::get();
     }
 }

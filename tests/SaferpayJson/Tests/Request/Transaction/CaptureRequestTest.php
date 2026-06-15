@@ -1,18 +1,20 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request\Transaction;
 
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
 use Ticketpark\SaferpayJson\Request\Transaction\CaptureRequest;
 use Ticketpark\SaferpayJson\Response\Transaction\CaptureResponse;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
 
 class CaptureRequestTest extends CommonRequestTest
 {
     public function testSuccessfulResponse(): void
     {
         parent::doTestSuccessfulResponse(
-            CaptureResponse::class
+            CaptureResponse::class,
         );
     }
 
@@ -20,7 +22,7 @@ class CaptureRequestTest extends CommonRequestTest
     {
         return new CaptureRequest(
             $this->getRequestConfig(),
-            new TransactionReference()
+            new TransactionReference(),
         );
     }
 }

@@ -8,11 +8,11 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class RiskFactors
 {
-    public const DELIVERY_TYPE_EMAIL = "EMAIL";
-    public const DELIVERY_TYPE_SHOP = "SHOP";
-    public const DELIVERY_TYPE_HOMEDELIVERY = "HOMEDELIVERY";
-    public const DELIVERY_TYPE_PICKUP = "PICKUP";
-    public const DELIVERY_TYPE_HQ = "HQ";
+    public const DELIVERY_TYPE_EMAIL = 'EMAIL';
+    public const DELIVERY_TYPE_SHOP = 'SHOP';
+    public const DELIVERY_TYPE_HOMEDELIVERY = 'HOMEDELIVERY';
+    public const DELIVERY_TYPE_PICKUP = 'PICKUP';
+    public const DELIVERY_TYPE_HQ = 'HQ';
 
     /**
      * @SerializedName("DeliveryType")
@@ -78,6 +78,7 @@ final class RiskFactors
     public function setDeviceFingerprintTransactionId(?string $deviceFingerprintTransactionId): self
     {
         $this->deviceFingerprintTransactionId = $deviceFingerprintTransactionId;
+
         return $this;
     }
 }

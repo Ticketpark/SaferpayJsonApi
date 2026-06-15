@@ -12,14 +12,18 @@ final class PaymentMethodsOptions
 {
     /**
      * @var A2a|null
+     *
      * @SerializedName("A2A")
+     *
      * @Type("Ticketpark\SaferpayJson\Request\Container\A2a")
      */
     private $a2a;
 
     /**
      * @var Ideal|null
+     *
      * @SerializedName("Ideal")
+     *
      * @Type("Ticketpark\SaferpayJson\Request\Container\Transaction\Ideal")
      */
     private $ideal;
@@ -32,6 +36,7 @@ final class PaymentMethodsOptions
     public function setIdeal(?Ideal $ideal): self
     {
         $this->ideal = $ideal;
+
         return $this;
     }
 
@@ -43,6 +48,7 @@ final class PaymentMethodsOptions
     public function setA2a(?A2a $a2a): self
     {
         $this->a2a = $a2a;
+
         return $this;
     }
 }
