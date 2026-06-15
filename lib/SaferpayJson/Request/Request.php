@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request;
 
-use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\VirtualProperty;
-use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use Ticketpark\SaferpayJson\Request\Container\RequestHeader;
 use Ticketpark\SaferpayJson\Request\Exception\HttpRequestException;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\Response;
+use Ticketpark\SaferpayJson\SerializerFactory;
 
 abstract class Request
 {
@@ -132,13 +131,6 @@ abstract class Request
 
     private function getSerializer(): SerializerInterface
     {
-        // Support for doctrine/annotations 1.x
-        // @phpstan-ignore-next-line
-        if (method_exists(AnnotationRegistry::class, 'registerLoader')) {
-            // @phpstan-ignore-next-line
-            AnnotationRegistry::registerLoader('class_exists');
-        }
-
-        return SerializerBuilder::create()->build();
+        return SerializerFactory::get();
     }
 }

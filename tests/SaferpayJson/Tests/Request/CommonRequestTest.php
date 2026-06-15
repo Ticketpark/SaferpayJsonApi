@@ -4,17 +4,16 @@ declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request;
 
-use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use GuzzleHttp\Psr7\Utils as GuzzleUtils;
-use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\Response;
+use Ticketpark\SaferpayJson\SerializerFactory;
 
 abstract class CommonRequestTest extends TestCase
 {
@@ -142,16 +141,9 @@ abstract class CommonRequestTest extends TestCase
 
     private function getFakedApiResponse(string $class): string
     {
-        // Support for doctrine/annotations 1.x
-        if (method_exists(AnnotationRegistry::class, 'registerLoader')) {
-            AnnotationRegistry::registerLoader('class_exists');
-        }
-
-        $serializer = SerializerBuilder::create()->build();
-
         $response = new $class();
 
-        return $serializer->serialize($response, 'json');
+        return SerializerFactory::get()->serialize($response, 'json');
     }
 
     private function getMockMethodBasedOnGuzzleVersion()
