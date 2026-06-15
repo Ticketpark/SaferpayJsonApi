@@ -6,7 +6,6 @@ namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Container\Amount;
-use Ticketpark\SaferpayJson\Request\Container\Billpay;
 use Ticketpark\SaferpayJson\Request\Container\Marketplace;
 use Ticketpark\SaferpayJson\Request\Container\MastercardIssuerInstallments;
 use Ticketpark\SaferpayJson\Request\Container\MerchantFundDistributor;
@@ -32,11 +31,6 @@ final class CaptureRequest extends Request
      * @SerializedName("Amount")
      */
     private ?Amount $amount = null;
-
-    /**
-     * @SerializedName("Billpay")
-     */
-    private ?Billpay $billpay = null;
 
     /**
      * @SerializedName("PendingNotification")
@@ -87,18 +81,6 @@ final class CaptureRequest extends Request
     public function setAmount(?Amount $amount): self
     {
         $this->amount = $amount;
-
-        return $this;
-    }
-
-    public function getBillpay(): ?Billpay
-    {
-        return $this->billpay;
-    }
-
-    public function setBillpay(?Billpay $billpay): self
-    {
-        $this->billpay = $billpay;
 
         return $this;
     }

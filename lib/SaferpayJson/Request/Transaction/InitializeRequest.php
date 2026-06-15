@@ -29,13 +29,12 @@ final class InitializeRequest extends Request
 
     public const PAYMENT_METHOD_AMEX = 'AMEX';
     public const PAYMENT_METHOD_BANCONTACT = 'BANCONTACT';
-    public const PAYMENT_METHOD_BONUS = 'BONUS';
     public const PAYMENT_METHOD_DINERS = 'DINERS';
     public const PAYMENT_METHOD_DIRECTDEBIT = 'DIRECTDEBIT';
     public const PAYMENT_METHOD_JCB = 'JCB';
     public const PAYMENT_METHOD_MAESTRO = 'MAESTRO';
     public const PAYMENT_METHOD_MASTERCARD = 'MASTERCARD';
-    public const PAYMENT_METHOD_MYONE = 'MYONE';
+    public const PAYMENT_METHOD_REKA = 'REKA';
     public const PAYMENT_METHOD_VISA = 'VISA';
     public const PAYMENT_METHOD_WECHATPAY = 'WECHATPAY';
 

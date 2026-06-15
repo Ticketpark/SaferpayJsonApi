@@ -24,6 +24,11 @@ final class Refund
     private ?string $description = null;
 
     /**
+     * @SerializedName("PayerNote")
+     */
+    private ?string $payerNote = null;
+
+    /**
      * @SerializedName("RestrictRefundAmountToCapturedAmount")
      */
     private ?bool $restrictRefundAmountToCapturedAmount = null;
@@ -65,6 +70,18 @@ final class Refund
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPayerNote(): ?string
+    {
+        return $this->payerNote;
+    }
+
+    public function setPayerNote(?string $payerNote): self
+    {
+        $this->payerNote = $payerNote;
 
         return $this;
     }

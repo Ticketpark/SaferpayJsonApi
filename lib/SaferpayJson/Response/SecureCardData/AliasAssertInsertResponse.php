@@ -8,6 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Response\Container\Alias;
 use Ticketpark\SaferpayJson\Response\Container\CheckResult;
 use Ticketpark\SaferpayJson\Response\Container\PaymentMeans;
+use Ticketpark\SaferpayJson\Response\Container\Tokenization;
 use Ticketpark\SaferpayJson\Response\Response;
 
 final class AliasAssertInsertResponse extends Response
@@ -27,6 +28,11 @@ final class AliasAssertInsertResponse extends Response
      */
     private ?CheckResult $checkResult = null;
 
+    /**
+     * @SerializedName("Tokenization")
+     */
+    private ?Tokenization $tokenization = null;
+
     public function getAlias(): ?Alias
     {
         return $this->alias;
@@ -40,5 +46,10 @@ final class AliasAssertInsertResponse extends Response
     public function getCheckResult(): ?CheckResult
     {
         return $this->checkResult;
+    }
+
+    public function getTokenization(): ?Tokenization
+    {
+        return $this->tokenization;
     }
 }

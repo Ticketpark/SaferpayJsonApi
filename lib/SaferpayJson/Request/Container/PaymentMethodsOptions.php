@@ -9,26 +9,9 @@ use JMS\Serializer\Annotation\SerializedName;
 final class PaymentMethodsOptions
 {
     /**
-     * @SerializedName("Ideal")
-     */
-    private ?Ideal $ideal = null;
-
-    /**
      * @SerializedName("Klarna")
      */
     private ?Klarna $klarna = null;
-
-    public function getIdeal(): ?Ideal
-    {
-        return $this->ideal;
-    }
-
-    public function setIdeal(?Ideal $ideal): self
-    {
-        $this->ideal = $ideal;
-
-        return $this;
-    }
 
     public function getKlarna(): ?Klarna
     {
