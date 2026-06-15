@@ -12,7 +12,7 @@ final class RequestHeader
     /**
      * @SerializedName("SpecVersion")
      */
-    private string $specVersion = '1.43';
+    private string $specVersion = '1.44';
 
     /**
      * @SerializedName("CustomerId")
