@@ -21,9 +21,6 @@ final class AuthorizeRequest extends Request
     #[SerializedName('Condition')]
     private ?ThreeDsCondition $condition = null;
 
-    #[SerializedName('VerificationCode')]
-    private ?string $verificationCode = null;
-
     #[SerializedName('RegisterAlias')]
     private ?RegisterAlias $registerAlias = null;
 
@@ -45,11 +42,6 @@ final class AuthorizeRequest extends Request
         return $this->condition;
     }
 
-    public function getVerificationCode(): ?string
-    {
-        return $this->verificationCode;
-    }
-
     public function getRegisterAlias(): ?RegisterAlias
     {
         return $this->registerAlias;
@@ -58,13 +50,6 @@ final class AuthorizeRequest extends Request
     public function setCondition(?ThreeDsCondition $condition): self
     {
         $this->condition = $condition;
-
-        return $this;
-    }
-
-    public function setVerificationCode(?string $verificationCode): self
-    {
-        $this->verificationCode = $verificationCode;
 
         return $this;
     }

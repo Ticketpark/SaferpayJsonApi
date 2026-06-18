@@ -14,9 +14,6 @@ final class Marketplace
     #[SerializedName('FeeRefund')]
     private ?Amount $feeRefund = null;
 
-    #[SerializedName('ForeignRetailer')]
-    private ?ForeignRetailer $foreignRetailer = null;
-
     public function __construct(
         #[SerializedName('SubmerchantId')]
         private readonly string $submerchantId,
@@ -48,18 +45,6 @@ final class Marketplace
     public function setFeeRefund(?Amount $feeRefund): self
     {
         $this->feeRefund = $feeRefund;
-
-        return $this;
-    }
-
-    public function getForeignRetailer(): ?ForeignRetailer
-    {
-        return $this->foreignRetailer;
-    }
-
-    public function setForeignRetailer(?ForeignRetailer $foreignRetailer): self
-    {
-        $this->foreignRetailer = $foreignRetailer;
 
         return $this;
     }

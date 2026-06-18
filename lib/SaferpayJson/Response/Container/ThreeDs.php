@@ -12,9 +12,6 @@ final class ThreeDs
     #[SerializedName('Authenticated')]
     private ?bool $authenticated = null;
 
-    #[SerializedName('LiabilityShift')]
-    private ?bool $liabilityShift = null;
-
     #[SerializedName('Xid')]
     private ?string $xid = null;
 
@@ -27,11 +24,6 @@ final class ThreeDs
     public function isAuthenticated(): ?bool
     {
         return $this->authenticated;
-    }
-
-    public function isLiabilityShift(): ?bool
-    {
-        return $this->liabilityShift;
     }
 
     public function getXid(): ?string

@@ -4,22 +4,18 @@ declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Integration;
 
-use Ticketpark\SaferpayJson\Request\Container\Amount;
-use Ticketpark\SaferpayJson\Request\Container\CaptureReference;
-use Ticketpark\SaferpayJson\Request\Container\Refund;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Enum\PaymentMethod;
-use Ticketpark\SaferpayJson\Request\PaymentPage\AssertRequest;
-use Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
+use Ticketpark\SaferpayJson\Request\Transaction\AuthorizeRequest;
 use Ticketpark\SaferpayJson\Request\Transaction\CaptureRequest;
+use Ticketpark\SaferpayJson\Request\Transaction\InitializeRequest;
 use Ticketpark\SaferpayJson\Request\Transaction\InquireRequest;
-use Ticketpark\SaferpayJson\Request\Transaction\RefundRequest;
 use Ticketpark\SaferpayJson\Response\Enum\TransactionStatus;
 
-final class PaymentPageFlowTest extends IntegrationTestCase
+final class TransactionFlowIntegrationTest extends IntegrationTestCase
 {
-    public function testInitializePaymentPageAssertCaptureRefundAndInquire(): void
+    public function testInitializeAuthorizeCaptureAndInquire(): void
     {
         $credentials = $this->requireCredentials();
         $this->assertPlaywrightIsAvailable();
@@ -27,8 +23,8 @@ final class PaymentPageFlowTest extends IntegrationTestCase
         $returnUrlServer = $this->startReturnUrlServer();
         $requestConfig = $this->createTestRequestConfig($credentials);
 
-        $payment = $this->createTestPayment();
-        $payment->setOrderId('pp-flow-'.uniqid());
+        $payment = $this->createTestPayment(description: 'SaferpayJsonApi Transaction integration test');
+        $payment->setOrderId('txn-flow-'.uniqid());
 
         $initializeRequest = (new InitializeRequest(
             $requestConfig,
@@ -36,19 +32,22 @@ final class PaymentPageFlowTest extends IntegrationTestCase
             $payment,
             new ReturnUrl($returnUrlServer->getSuccessUrl()),
         ))
-            ->setPaymentMethods([PaymentMethod::Visa])
-            ->setPayer($this->createTestPayer());
+            ->setPayer($this->createTestPayer())
+            ->setPaymentMethods([PaymentMethod::Visa, PaymentMethod::Mastercard]);
 
         $initializeResponse = $this->executeIntegrationRequest($initializeRequest);
-        $this->assertPaymentPageInitializeResponse($initializeResponse);
-        $this->completePaymentInBrowser($initializeResponse->getRedirectUrl(), $returnUrlServer->getUrlPrefix());
+        $this->assertTransactionInitializeResponse($initializeResponse);
 
-        $assertResponse = $this->executeIntegrationRequest(
-            new AssertRequest($requestConfig, $initializeResponse->getToken()),
+        $redirectUrl = $initializeResponse->getRedirect()?->getRedirectUrl();
+        $this->assertNotEmpty($redirectUrl);
+        $this->completePaymentInBrowser($redirectUrl, $returnUrlServer->getUrlPrefix());
+
+        $authorizeResponse = $this->executeIntegrationRequest(
+            new AuthorizeRequest($requestConfig, $initializeResponse->getToken()),
         );
-        $this->assertAssertResponse($assertResponse);
+        $this->assertAuthorizeResponse($authorizeResponse);
 
-        $transactionId = $assertResponse->getTransaction()?->getId();
+        $transactionId = $authorizeResponse->getTransaction()?->getId();
         $this->assertNotEmpty($transactionId);
 
         $captureResponse = $this->executeIntegrationRequest(new CaptureRequest(
@@ -64,15 +63,5 @@ final class PaymentPageFlowTest extends IntegrationTestCase
         ));
         $this->assertInquireResponse($inquireResponse, $transactionId, TransactionStatus::Captured);
         $this->assertSame($captureId, $inquireResponse->getTransaction()?->getCaptureId());
-
-        $refund = (new Refund(new Amount(2_000, 'CHF')))
-            ->setDescription('SaferpayJsonApi integration partial refund');
-
-        $refundResponse = $this->executeIntegrationRequest(new RefundRequest(
-            $requestConfig,
-            $refund,
-            (new CaptureReference())->setCaptureId($captureId),
-        ));
-        $this->assertRefundResponse($refundResponse);
     }
 }

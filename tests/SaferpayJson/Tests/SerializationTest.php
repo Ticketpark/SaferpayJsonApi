@@ -6,10 +6,16 @@ namespace Ticketpark\SaferpayJson\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Ticketpark\SaferpayJson\Request\Container\Amount;
+use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\CaptureReference;
+use Ticketpark\SaferpayJson\Request\Container\Card;
+use Ticketpark\SaferpayJson\Request\Container\CardForm;
+use Ticketpark\SaferpayJson\Request\Container\IssuerReference;
+use Ticketpark\SaferpayJson\Request\Container\Payer;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\Refund;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
+use Ticketpark\SaferpayJson\Request\Enum\CardFormVerificationCode;
 use Ticketpark\SaferpayJson\Request\Enum\PaymentMethod;
 use Ticketpark\SaferpayJson\Request\Enum\Wallet;
 use Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
@@ -135,5 +141,57 @@ class SerializationTest extends TestCase
         $checkResult = $serializer->deserialize($json, CheckResult::class, 'json');
 
         $this->assertSame(CheckResultStatus::Ok, $checkResult->getResult());
+    }
+
+    public function testCardFormSerializesVerificationCode(): void
+    {
+        $cardForm = (new CardForm())
+            ->setVerificationCode(CardFormVerificationCode::Mandatory);
+
+        $data = json_decode(SerializerFactory::get()->serialize($cardForm, 'json'), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame('MANDATORY', $data['VerificationCode']);
+    }
+
+    public function testRequestCardSerializesVerificationCode(): void
+    {
+        $card = (new Card())
+            ->setNumber('9010003150000001')
+            ->setExpMonth(12)
+            ->setExpYear(2030)
+            ->setVerificationCode('123');
+
+        $data = json_decode(SerializerFactory::get()->serialize($card, 'json'), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame('123', $data['VerificationCode']);
+        $this->assertArrayNotHasKey('CountryCode', $data);
+    }
+
+    public function testAuthenticationSerializesIssuerReference(): void
+    {
+        $authentication = (new Authentication())
+            ->setIssuerReference(new IssuerReference('transaction-stamp'));
+
+        $data = json_decode(SerializerFactory::get()->serialize($authentication, 'json'), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame('transaction-stamp', $data['IssuerReference']['TransactionStamp']);
+    }
+
+    public function testPayerSerializesBrowserFields(): void
+    {
+        $payer = (new Payer())
+            ->setAcceptHeader('text/html')
+            ->setUserAgent('Mozilla/5.0')
+            ->setScreenWidth(1920)
+            ->setScreenHeight(1080)
+            ->setJavaScriptEnabled(true);
+
+        $data = json_decode(SerializerFactory::get()->serialize($payer, 'json'), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame('text/html', $data['AcceptHeader']);
+        $this->assertSame('Mozilla/5.0', $data['UserAgent']);
+        $this->assertSame(1920, $data['ScreenWidth']);
+        $this->assertSame(1080, $data['ScreenHeight']);
+        $this->assertTrue($data['JavaScriptEnabled']);
     }
 }

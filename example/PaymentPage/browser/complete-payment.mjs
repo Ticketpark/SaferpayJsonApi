@@ -13,6 +13,7 @@ if (!redirectUrl || !returnUrlPrefix) {
 const cardNumber = process.env.SAFERPAY_TEST_CARD ?? '9010003150000001';
 const expiry = process.env.SAFERPAY_TEST_EXPIRY ?? '12/30';
 const verificationCode = process.env.SAFERPAY_TEST_CVC ?? '123';
+const holderName = process.env.SAFERPAY_TEST_HOLDER ?? 'Max Mustermann';
 
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage();
@@ -21,8 +22,19 @@ try {
     await page.goto(redirectUrl, { waitUntil: 'networkidle', timeout: 60_000 });
     await page.locator('#CardNumber').fill(cardNumber);
     await page.locator('#Expiry').fill(expiry);
-    await page.locator('#VerificationCode').fill(verificationCode);
-    await page.locator('#btn-card-pay').click();
+
+    const holderNameField = page.locator('#HolderName');
+    if (await holderNameField.count() > 0) {
+        await holderNameField.fill(holderName);
+    }
+
+    const verificationCodeField = page.locator('#VerificationCode');
+    if (await verificationCodeField.count() > 0) {
+        await verificationCodeField.fill(verificationCode);
+    }
+
+    const payButton = page.locator('#btn-card-pay, #btn-submit, button[type="submit"]').first();
+    await payButton.click({ timeout: 60_000 });
     await page.waitForURL(
         (url) => url.toString().startsWith(returnUrlPrefix),
         { timeout: 120_000 },

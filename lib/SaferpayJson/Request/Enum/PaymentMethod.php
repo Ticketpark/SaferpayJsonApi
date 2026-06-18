@@ -10,13 +10,14 @@ enum PaymentMethod: string
     case Alipay = 'ALIPAY';
     case Amex = 'AMEX';
     case Bancontact = 'BANCONTACT';
+    case Blik = 'BLIK';
     case Card = 'CARD';
     case Diners = 'DINERS';
     case DirectDebit = 'DIRECTDEBIT';
     case Eprzelewy = 'EPRZELEWY';
     case Eps = 'EPS';
+    case Giftcard = 'GIFTCARD';
     case Ideal = 'IDEAL';
-    case Invoice = 'INVOICE';
     case Jcb = 'JCB';
     case Klarna = 'KLARNA';
     case Maestro = 'MAESTRO';

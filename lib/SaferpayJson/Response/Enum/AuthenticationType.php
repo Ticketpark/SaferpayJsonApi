@@ -9,6 +9,7 @@ enum AuthenticationType: string
     case StrongCustomerAuthentication = 'STRONG_CUSTOMER_AUTHENTICATION';
     case Frictionless = 'FRICTIONLESS';
     case Attempt = 'ATTEMPT';
+    case Exemption = 'EXEMPTION';
     case Unspecified = 'UNSPECIFIED';
     case None = 'NONE';
 }

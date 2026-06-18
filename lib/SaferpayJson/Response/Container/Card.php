@@ -31,9 +31,6 @@ final class Card
     #[SerializedName('CountryCode')]
     private ?string $countryCode = null;
 
-    #[SerializedName('HashValue')]
-    private ?string $hashValue = null;
-
     #[SerializedName('TokenPan')]
     private ?TokenPan $tokenPan = null;
 
@@ -70,11 +67,6 @@ final class Card
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
-    }
-
-    public function getHashValue(): ?string
-    {
-        return $this->hashValue;
     }
 
     public function getTokenPan(): ?TokenPan

@@ -6,15 +6,11 @@ namespace Ticketpark\SaferpayJson\Response\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Response\Container\Invoice;
 use Ticketpark\SaferpayJson\Response\Enum\TransactionStatus;
 use Ticketpark\SaferpayJson\Response\Response;
 
 final class CaptureResponse extends Response
 {
-    #[SerializedName('TransactionId')]
-    private ?string $transactionId = null;
-
     #[SerializedName('CaptureId')]
     private ?string $captureId = null;
 
@@ -24,14 +20,6 @@ final class CaptureResponse extends Response
     #[SerializedName('Date')]
     #[Type("DateTimeImmutable<'Y-m-d\TH:i:s.uT'>")]
     private ?\DateTimeImmutable $date = null;
-
-    #[SerializedName('Invoice')]
-    private ?Invoice $invoice = null;
-
-    public function getTransactionId(): ?string
-    {
-        return $this->transactionId;
-    }
 
     public function getCaptureId(): ?string
     {
@@ -46,10 +34,5 @@ final class CaptureResponse extends Response
     public function getDate(): ?\DateTimeImmutable
     {
         return $this->date;
-    }
-
-    public function getInvoice(): ?Invoice
-    {
-        return $this->invoice;
     }
 }

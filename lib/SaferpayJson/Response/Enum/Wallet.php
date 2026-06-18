@@ -9,5 +9,4 @@ enum Wallet: string
     case ApplePay = 'APPLEPAY';
     case GooglePay = 'GOOGLEPAY';
     case ClickToPay = 'CLICKTOPAY';
-    case Masterpass = 'MASTERPASS';
 }

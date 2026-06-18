@@ -30,6 +30,7 @@ lib/SaferpayJson/
     Transaction/
     SecureCardData/
 tests/SaferpayJson/Tests/Request/   # Mirrors Request/ structure
+tests/SaferpayJson/Tests/Integration/ # Sandbox integration tests (optional credentials)
 example/                            # Runnable usage examples (need credentials.php)
 .github/
   contributing.md       # Container conventions (authoritative)
@@ -99,7 +100,8 @@ Follow the [Saferpay changelog](https://saferpay.github.io/jsonapi/) for the tar
 4. Update the version link in `README.md` to `https://saferpay.github.io/jsonapi/{version}/index.html`.
 5. Add new containers / fields / enum cases as described in the spec.
 6. Wire new optional containers into the matching `*Request` classes with getter/setter.
-7. Run tests and static analysis (see below).
+7. Update integration test assertions if request/response shape or `SpecVersion` changed (see [Integration tests](#integration-tests)).
+8. Run tests and static analysis (see below).
 
 **Example (v1.43):**
 
@@ -145,7 +147,8 @@ Place under `Request/Container/`. Use sub-namespaces when Saferpay groups contai
 2. Add `*Response` in the matching `Response/` subdirectory extending `Response`.
 3. Add containers for any new JSON structures.
 4. Add `tests/SaferpayJson/Tests/Request/.../*RequestTest.php` extending `CommonRequestTestCase`.
-5. Optionally add an `example/` script.
+5. Extend integration tests: add or update flows under `tests/SaferpayJson/Tests/Integration/` and wire `IntegrationRequestAssertions` / `IntegrationResponseAssertions` (see [Integration tests](#integration-tests)).
+6. Optionally add an `example/` script.
 
 ### Enums
 
@@ -170,6 +173,7 @@ Add a new enum file per vocabulary group; wire properties and getters/setters (r
 ```bash
 composer install
 composer test
+composer test-integration   # sandbox + Playwright; needs example/credentials.php
 composer phpstan
 composer rector-check
 composer cs-check
@@ -182,7 +186,31 @@ Request tests extend `CommonRequestTestCase`:
 - Call `doTestSuccessfulResponse(ResponseClass::class)` for the happy path
 - Error path and `RequestConfig` retry validation are inherited
 
-CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.3–8.5 (prefer-lowest and prefer-stable). Static analysis on PHP 8.5 runs PHPStan level 8, Rector, php-cs-fixer, and `composer validate`.
+### Integration tests
+
+Optional end-to-end tests against the Saferpay sandbox (`composer test-integration`). They require `example/credentials.php` (copy from `credentials.dist.php`) and Playwright for browser flows (`Transaction/Initialize`, PaymentPage, `Alias/Insert`).
+
+Location: `tests/SaferpayJson/Tests/Integration/`
+
+| File | Role |
+|------|------|
+| `IntegrationTestCase.php` | Credentials, shared helpers (`createTestPayment`, `createTestPayer`, …) |
+| `IntegrationRequestAssertions.php` | Mandatory JSON keys + optional fields on **requests** (serialize before `execute()`) |
+| `IntegrationResponseAssertions.php` | All getters on **responses** and nested containers after `execute()` |
+
+Flows call `$this->executeIntegrationRequest($request)`, which asserts the serialized payload, posts to the API, then asserts the response. Unit tests (`composer test`) exclude this directory.
+
+**Update integration tests when you change:**
+
+- Add or remove an implemented endpoint → new/updated flow test + `assertIntegrationRequest()` / response assert method in the matching trait
+- Add/remove/rename request or response properties or containers → extend the corresponding assert helper and, if useful, set the field in a flow so the sandbox exercises it
+- Change mandatory vs optional request fields → adjust mandatory-key checks in `IntegrationRequestAssertions`
+- Bump `RequestHeader::$specVersion` → update expected `SpecVersion` in `assertRequestHeaderJson()`
+- Change enum cases used in integration flows → update flow setup and enum JSON assertions
+
+Do not skip integration assertion updates when altering request/response types that already have coverage — stale asserts hide spec drift.
+
+CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.3–8.5 (prefer-lowest and prefer-stable). Static analysis on PHP 8.5 runs PHPStan level 8, Rector, php-cs-fixer, and `composer validate`. Integration tests are not run in CI by default (credentials required).
 
 ## Common pitfalls
 
@@ -192,7 +220,7 @@ CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.3–8.5 (prefer-lowest 
 - **Container reuse:** Check for an existing container before creating a duplicate.
 - **Shared enums:** `PaymentMethod`, `Wallet`, and `Gender` exist in both `Request\Enum` and `Response\Enum`; update both when Saferpay adds values.
 - **Partial API coverage:** Changelog entries may mention endpoints this library does not implement; skip those unless adding the endpoint is in scope.
-- **Tests:** New request classes need a test class; existing tests mock Guzzle and do not hit the real API.
+- **Tests:** New request classes need a unit test class; existing unit tests mock Guzzle and do not hit the real API. Keep `IntegrationRequestAssertions` and `IntegrationResponseAssertions` in sync with request/response changes (see [Integration tests](#integration-tests)).
 
 ## References
 

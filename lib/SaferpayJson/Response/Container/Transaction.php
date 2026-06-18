@@ -48,9 +48,6 @@ final class Transaction
     #[SerializedName('DirectDebit')]
     private ?DirectDebit $directDebit = null;
 
-    #[SerializedName('Invoice')]
-    private ?Invoice $invoice = null;
-
     #[SerializedName('IssuerReference')]
     private ?IssuerReference $issuerReference = null;
 
@@ -112,11 +109,6 @@ final class Transaction
     public function getDirectDebit(): ?DirectDebit
     {
         return $this->directDebit;
-    }
-
-    public function getInvoice(): ?Invoice
-    {
-        return $this->invoice;
     }
 
     public function getIssuerReference(): ?IssuerReference

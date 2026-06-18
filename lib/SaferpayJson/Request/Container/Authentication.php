@@ -19,6 +19,9 @@ final class Authentication
     #[SerializedName('ExternalThreeDS')]
     private ?ExternalThreeDS $externalThreeDS = null;
 
+    #[SerializedName('IssuerReference')]
+    private ?IssuerReference $issuerReference = null;
+
     public function getExemption(): ?AuthenticationExemption
     {
         return $this->exemption;
@@ -51,6 +54,18 @@ final class Authentication
     public function setExternalThreeDS(?ExternalThreeDS $externalThreeDS): self
     {
         $this->externalThreeDS = $externalThreeDS;
+
+        return $this;
+    }
+
+    public function getIssuerReference(): ?IssuerReference
+    {
+        return $this->issuerReference;
+    }
+
+    public function setIssuerReference(?IssuerReference $issuerReference): self
+    {
+        $this->issuerReference = $issuerReference;
 
         return $this;
     }

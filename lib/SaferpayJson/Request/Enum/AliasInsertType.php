@@ -8,6 +8,7 @@ enum AliasInsertType: string
 {
     case Card = 'CARD';
     case BankAccount = 'BANK_ACCOUNT';
-    case Postfinance = 'POSTFINANCE';
+    case PostfinancePay = 'POSTFINANCEPAY';
     case Twint = 'TWINT';
+    case Paypal = 'PAYPAL';
 }
