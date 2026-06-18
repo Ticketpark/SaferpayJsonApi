@@ -5,21 +5,22 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\PaymentMethod;
 
 final class Brand
 {
     #[SerializedName('PaymentMethod')]
-    private ?string $paymentMethod = null;
+    private ?PaymentMethod $paymentMethod = null;
 
     #[SerializedName('Name')]
     private ?string $name = null;
 
-    public function getPaymentMethod(): ?string
+    public function getPaymentMethod(): ?PaymentMethod
     {
         return $this->paymentMethod;
     }
 
-    public function setPaymentMethod(?string $paymentMethod): self
+    public function setPaymentMethod(?PaymentMethod $paymentMethod): self
     {
         $this->paymentMethod = $paymentMethod;
 

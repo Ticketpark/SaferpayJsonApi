@@ -5,24 +5,22 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\CheckType;
 
 final class Check
 {
-    public const TYPE_ONLINE = 'ONLINE';
-    public const TYPE_ONLINE_STRONG = 'ONLINE_STRONG';
-
     #[SerializedName('Type')]
-    private ?string $type = null;
+    private ?CheckType $type = null;
 
     #[SerializedName('TerminalId')]
     private ?string $terminalId = null;
 
-    public function getType(): ?string
+    public function getType(): ?CheckType
     {
         return $this->type;
     }
 
-    public function setType(?string $type): self
+    public function setType(?CheckType $type): self
     {
         $this->type = $type;
 
