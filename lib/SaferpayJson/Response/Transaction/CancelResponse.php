@@ -17,8 +17,8 @@ final class CancelResponse extends Response
     private ?string $orderId = null;
 
     #[SerializedName('Date')]
-    #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
-    private ?\DateTime $date = null;
+    #[Type("DateTimeImmutable<'Y-m-d\TH:i:s.uT'>")]
+    private ?\DateTimeImmutable $date = null;
 
     public function getTransactionId(): ?string
     {
@@ -30,7 +30,7 @@ final class CancelResponse extends Response
         return $this->orderId;
     }
 
-    public function getDate(): ?\DateTime
+    public function getDate(): ?\DateTimeImmutable
     {
         return $this->date;
     }

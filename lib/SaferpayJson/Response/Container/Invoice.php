@@ -16,8 +16,8 @@ final class Invoice
     private ?string $reasonForTransfer = null;
 
     #[SerializedName('DueDate')]
-    #[Type("DateTime<'Y-m-d'>")]
-    private ?\DateTime $dueDate = null;
+    #[Type("DateTimeImmutable<'Y-m-d'>")]
+    private ?\DateTimeImmutable $dueDate = null;
 
     public function getPayee(): ?Payee
     {
@@ -29,7 +29,7 @@ final class Invoice
         return $this->reasonForTransfer;
     }
 
-    public function getDueDate(): ?\DateTime
+    public function getDueDate(): ?\DateTimeImmutable
     {
         return $this->dueDate;
     }

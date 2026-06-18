@@ -10,15 +10,15 @@ use JMS\Serializer\Annotation\Type;
 final class Twint
 {
     #[SerializedName('CertificateExpirationDate')]
-    #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
-    private ?\DateTime $certificateExpirationDate = null;
+    #[Type("DateTimeInterface<'Y-m-d\TH:i:s.uT'>")]
+    private ?\DateTimeInterface $certificateExpirationDate = null;
 
-    public function getCertificateExpirationDate(): ?\DateTime
+    public function getCertificateExpirationDate(): ?\DateTimeInterface
     {
         return $this->certificateExpirationDate;
     }
 
-    public function setCertificateExpirationDate(?\DateTime $certificateExpirationDate): self
+    public function setCertificateExpirationDate(?\DateTimeInterface $certificateExpirationDate): self
     {
         $this->certificateExpirationDate = $certificateExpirationDate;
 

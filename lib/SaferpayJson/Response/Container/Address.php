@@ -38,8 +38,8 @@ final class Address
     private ?string $email = null;
 
     #[SerializedName('DateOfBirth')]
-    #[Type("DateTime<'Y-m-d'>")]
-    private ?\DateTime $dateOfBirth = null;
+    #[Type("DateTimeImmutable<'Y-m-d'>")]
+    private ?\DateTimeImmutable $dateOfBirth = null;
 
     #[SerializedName('Street2')]
     private ?string $street2 = null;
@@ -98,7 +98,7 @@ final class Address
         return $this->email;
     }
 
-    public function getDateOfBirth(): ?\DateTime
+    public function getDateOfBirth(): ?\DateTimeImmutable
     {
         return $this->dateOfBirth;
     }

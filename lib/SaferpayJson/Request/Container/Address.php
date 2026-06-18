@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Enum\Gender;
 
 final class Address
@@ -37,7 +38,8 @@ final class Address
     private ?string $email = null;
 
     #[SerializedName('DateOfBirth')]
-    private ?\DateTime $dateOfBirth = null;
+    #[Type("DateTimeInterface<'Y-m-d'>")]
+    private ?\DateTimeInterface $dateOfBirth = null;
 
     #[SerializedName('Street2')]
     private ?string $street2 = null;
@@ -159,12 +161,12 @@ final class Address
         return $this;
     }
 
-    public function getDateOfBirth(): ?\DateTime
+    public function getDateOfBirth(): ?\DateTimeInterface
     {
         return $this->dateOfBirth;
     }
 
-    public function setDateOfBirth(?\DateTime $dateOfBirth): self
+    public function setDateOfBirth(?\DateTimeInterface $dateOfBirth): self
     {
         $this->dateOfBirth = $dateOfBirth;
 

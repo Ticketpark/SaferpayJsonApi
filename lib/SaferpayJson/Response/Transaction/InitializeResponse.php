@@ -15,8 +15,8 @@ final class InitializeResponse extends Response
     private ?string $token = null;
 
     #[SerializedName('Expiration')]
-    #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
-    private ?\DateTime $expiration = null;
+    #[Type("DateTimeImmutable<'Y-m-d\TH:i:s.uT'>")]
+    private ?\DateTimeImmutable $expiration = null;
 
     #[SerializedName('LiabilityShift')]
     private ?bool $liabilityShift = null;
@@ -32,7 +32,7 @@ final class InitializeResponse extends Response
         return $this->token;
     }
 
-    public function getExpiration(): ?\DateTime
+    public function getExpiration(): ?\DateTimeImmutable
     {
         return $this->expiration;
     }

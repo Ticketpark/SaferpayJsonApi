@@ -24,8 +24,8 @@ final class CaptureResponse extends Response
     private ?string $status = null;
 
     #[SerializedName('Date')]
-    #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
-    private ?\DateTime $date = null;
+    #[Type("DateTimeImmutable<'Y-m-d\TH:i:s.uT'>")]
+    private ?\DateTimeImmutable $date = null;
 
     #[SerializedName('Invoice')]
     private ?Invoice $invoice = null;
@@ -45,7 +45,7 @@ final class CaptureResponse extends Response
         return $this->status;
     }
 
-    public function getDate(): ?\DateTime
+    public function getDate(): ?\DateTimeImmutable
     {
         return $this->date;
     }

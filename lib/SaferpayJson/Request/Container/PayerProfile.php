@@ -32,19 +32,19 @@ final class PayerProfile
     private ?string $dateOfBirth = null;
 
     #[SerializedName('LastLoginDate')]
-    #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
-    private ?\DateTime $lastLoginDate = null;
+    #[Type("DateTimeInterface<'Y-m-d\TH:i:s.uT'>")]
+    private ?\DateTimeInterface $lastLoginDate = null;
 
     #[SerializedName('Gender')]
     private ?Gender $gender = null;
 
     #[SerializedName('CreationDate')]
-    #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
-    private ?\DateTime $creationDate = null;
+    #[Type("DateTimeInterface<'Y-m-d\TH:i:s.uT'>")]
+    private ?\DateTimeInterface $creationDate = null;
 
     #[SerializedName('PasswordLastChangeDate')]
-    #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
-    private ?\DateTime $passwordLastChangeDate = null;
+    #[Type("DateTimeInterface<'Y-m-d\TH:i:s.uT'>")]
+    private ?\DateTimeInterface $passwordLastChangeDate = null;
 
     #[SerializedName('Email')]
     private ?string $email = null;
@@ -139,12 +139,12 @@ final class PayerProfile
         return $this;
     }
 
-    public function getLastLoginDate(): ?\DateTime
+    public function getLastLoginDate(): ?\DateTimeInterface
     {
         return $this->lastLoginDate;
     }
 
-    public function setLastLoginDate(?\DateTime $lastLoginDate): self
+    public function setLastLoginDate(?\DateTimeInterface $lastLoginDate): self
     {
         $this->lastLoginDate = $lastLoginDate;
 
@@ -163,24 +163,24 @@ final class PayerProfile
         return $this;
     }
 
-    public function getCreationDate(): ?\DateTime
+    public function getCreationDate(): ?\DateTimeInterface
     {
         return $this->creationDate;
     }
 
-    public function setCreationDate(?\DateTime $creationDate): self
+    public function setCreationDate(?\DateTimeInterface $creationDate): self
     {
         $this->creationDate = $creationDate;
 
         return $this;
     }
 
-    public function getPasswordLastChangeDate(): ?\DateTime
+    public function getPasswordLastChangeDate(): ?\DateTimeInterface
     {
         return $this->passwordLastChangeDate;
     }
 
-    public function setPasswordLastChangeDate(?\DateTime $passwordLastChangeDate): self
+    public function setPasswordLastChangeDate(?\DateTimeInterface $passwordLastChangeDate): self
     {
         $this->passwordLastChangeDate = $passwordLastChangeDate;
 
