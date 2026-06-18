@@ -30,6 +30,7 @@ class ErrorResponse extends Response
     #[SerializedName('TransactionId')]
     private ?string $transactionId = null;
 
+    /** @var array<string, mixed> */
     #[SerializedName('ErrorDetail')]
     #[Type('array')]
     private array $errorDetail = [];
@@ -71,6 +72,7 @@ class ErrorResponse extends Response
         return $this->transactionId;
     }
 
+    /** @return array<string, mixed>|null */
     public function getErrorDetail(): ?array
     {
         return $this->errorDetail;

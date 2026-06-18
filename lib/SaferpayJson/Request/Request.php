@@ -100,6 +100,7 @@ abstract class Request
         return $this->requestConfig->getRootUrl().$this->getApiPath();
     }
 
+    /** @return array<string, string> */
     private function getHeaders(): array
     {
         return [

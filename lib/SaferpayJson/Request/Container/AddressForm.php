@@ -27,6 +27,7 @@ final class AddressForm
     #[SerializedName('AddressSource')]
     private string $addressSource;
 
+    /** @var list<string>|null */
     #[SerializedName('MandatoryFields')]
     private ?array $mandatoryFields = [];
 
@@ -40,11 +41,13 @@ final class AddressForm
         return $this->addressSource;
     }
 
+    /** @return list<string>|null */
     public function getMandatoryFields(): ?array
     {
         return $this->mandatoryFields;
     }
 
+    /** @param list<string>|null $mandatoryFields */
     public function setMandatoryFields(?array $mandatoryFields): self
     {
         $this->mandatoryFields = $mandatoryFields;

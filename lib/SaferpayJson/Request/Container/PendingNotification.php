@@ -8,17 +8,20 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class PendingNotification
 {
+    /** @var list<string>|null */
     #[SerializedName('MerchantEmails')]
     private ?array $merchantEmails = [];
 
     #[SerializedName('NotifyUrl')]
     private ?string $notifyUrl = null;
 
+    /** @return list<string>|null */
     public function getMerchantEmails(): ?array
     {
         return $this->merchantEmails;
     }
 
+    /** @param list<string>|null $merchantEmails */
     public function setMerchantEmails(?array $merchantEmails): self
     {
         $this->merchantEmails = $merchantEmails;
