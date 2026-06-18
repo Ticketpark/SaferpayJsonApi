@@ -6,10 +6,10 @@ namespace Ticketpark\SaferpayJson\Request;
 
 use GuzzleHttp\Psr7\Request as PsrRequest;
 use JMS\Serializer\Annotation\Exclude;
-use Psr\Http\Client\ClientExceptionInterface;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\VirtualProperty;
 use JMS\Serializer\SerializerInterface;
+use Psr\Http\Client\ClientExceptionInterface;
 use Ticketpark\SaferpayJson\Request\Container\RequestHeader;
 use Ticketpark\SaferpayJson\Request\Exception\HttpRequestException;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;

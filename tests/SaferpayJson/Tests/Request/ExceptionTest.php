@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request;
 
-use Psr\Http\Client\ClientExceptionInterface;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Exception\HttpRequestException;
