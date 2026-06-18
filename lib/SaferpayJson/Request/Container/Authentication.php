@@ -25,6 +25,11 @@ final class Authentication
      */
     private ?string $threeDsChallenge = null;
 
+    /**
+     * @SerializedName("ExternalThreeDS")
+     */
+    private ?ExternalThreeDS $externalThreeDS = null;
+
     public function getExemption(): ?string
     {
         return $this->exemption;
@@ -45,6 +50,18 @@ final class Authentication
     public function setThreeDsChallenge(?string $threeDsChallenge): self
     {
         $this->threeDsChallenge = $threeDsChallenge;
+
+        return $this;
+    }
+
+    public function getExternalThreeDS(): ?ExternalThreeDS
+    {
+        return $this->externalThreeDS;
+    }
+
+    public function setExternalThreeDS(?ExternalThreeDS $externalThreeDS): self
+    {
+        $this->externalThreeDS = $externalThreeDS;
 
         return $this;
     }
