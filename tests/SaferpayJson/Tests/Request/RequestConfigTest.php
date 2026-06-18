@@ -9,6 +9,7 @@ use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use GuzzleHttp\Psr7\Utils as GuzzleUtils;
 use JMS\Serializer\SerializerInterface;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Client\ClientInterface;
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Request\Transaction\CancelRequest;
@@ -17,6 +18,26 @@ use Ticketpark\SaferpayJson\SerializerFactory;
 
 class RequestConfigTest extends TestCase
 {
+    public function testGetClientDefaultsToGuzzleClient(): void
+    {
+        $config = new RequestConfig('apiKey', 'apiSecret', 'customerId');
+
+        $client = $config->getClient();
+
+        $this->assertInstanceOf(ClientInterface::class, $client);
+        $this->assertInstanceOf(Client::class, $client);
+    }
+
+    public function testSetClientReturnsInjectedInstance(): void
+    {
+        $client = $this->createMock(ClientInterface::class);
+
+        $config = new RequestConfig('apiKey', 'apiSecret', 'customerId');
+
+        $this->assertSame($config, $config->setClient($client));
+        $this->assertSame($client, $config->getClient());
+    }
+
     public function testGetSerializerDefaultsToFactory(): void
     {
         $config = new RequestConfig('apiKey', 'apiSecret', 'customerId');
@@ -44,9 +65,9 @@ class RequestConfigTest extends TestCase
             ->method('deserialize')
             ->willReturn(new CancelResponse());
 
-        $client = $this->createMock(Client::class);
+        $client = $this->createMock(ClientInterface::class);
         $client->expects($this->once())
-            ->method('post')
+            ->method('sendRequest')
             ->willReturn(new GuzzleResponse(200, [], GuzzleUtils::streamFor('{}')));
 
         $requestConfig = new RequestConfig('apiKey', 'apiSecret', 'customerId');
