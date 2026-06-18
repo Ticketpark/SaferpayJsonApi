@@ -20,7 +20,7 @@ class RefundRequestTest extends CommonRequestTestCase
         );
     }
 
-    public function getInstance()
+    public function getInstance(): RefundRequest
     {
         return new RefundRequest(
             $this->getRequestConfig(),

@@ -18,7 +18,7 @@ class CancelRequestTest extends CommonRequestTestCase
         );
     }
 
-    public function getInstance()
+    public function getInstance(): CancelRequest
     {
         return new CancelRequest(
             $this->getRequestConfig(),

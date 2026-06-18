@@ -94,5 +94,8 @@ jobs:
       - name: Check coding standard
         run: composer cs-check
 
+      - name: Rector
+        run: composer rector-check
+
       - name: Static analysis
         run: composer phpstan

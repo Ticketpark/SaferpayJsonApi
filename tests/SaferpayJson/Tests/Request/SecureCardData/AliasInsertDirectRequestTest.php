@@ -12,7 +12,7 @@ use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
 class AliasInsertDirectRequestTest extends CommonRequestTestCase
 {
-    public function getInstance()
+    public function getInstance(): AliasInsertDirectRequest
     {
         return new AliasInsertDirectRequest(
             $this->getRequestConfig(),

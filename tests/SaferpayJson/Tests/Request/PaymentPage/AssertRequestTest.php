@@ -17,7 +17,7 @@ class AssertRequestTest extends CommonRequestTestCase
         );
     }
 
-    protected function getInstance()
+    protected function getInstance(): AssertRequest
     {
         return new AssertRequest(
             $this->getRequestConfig(),

@@ -17,7 +17,7 @@ class AliasDeleteRequestTest extends CommonRequestTestCase
         );
     }
 
-    public function getInstance()
+    public function getInstance(): AliasDeleteRequest
     {
         return new AliasDeleteRequest(
             $this->getRequestConfig(),

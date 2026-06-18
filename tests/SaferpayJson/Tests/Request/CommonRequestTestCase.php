@@ -13,6 +13,7 @@ use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\StreamInterface;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayException;
+use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\Response;
@@ -22,9 +23,10 @@ abstract class CommonRequestTestCase extends TestCase
 {
     private ?bool $successful = null;
 
+    /** @var class-string<Response>|null */
     private ?string $successfulResponseClass = null;
 
-    abstract protected function getInstance();
+    abstract protected function getInstance(): Request;
 
     public function testErrorResponse(): void
     {
@@ -39,6 +41,9 @@ abstract class CommonRequestTestCase extends TestCase
         }
     }
 
+    /**
+     * @return array<string, array{0: ?string, 1: int, 2?: class-string<\Throwable>}>
+     */
     public static function getRequestConfigValidationParams(): array
     {
         return [
@@ -49,6 +54,9 @@ abstract class CommonRequestTestCase extends TestCase
         ];
     }
 
+    /**
+     * @param class-string<\Throwable>|null $expectedException
+     */
     #[DataProvider('getRequestConfigValidationParams')]
     public function testRequestConfigValidation(
         ?string $requestId,
@@ -73,6 +81,9 @@ abstract class CommonRequestTestCase extends TestCase
         $this->assertInstanceOf(RequestConfig::class, $result);
     }
 
+    /**
+     * @param class-string<Response> $responseClass
+     */
     public function doTestSuccessfulResponse(string $responseClass): void
     {
         $this->successful = true;
@@ -121,7 +132,7 @@ abstract class CommonRequestTestCase extends TestCase
             ->willReturn($this->successful ? 200 : 404);
 
         $content = $this->successful
-            ? $this->getFakedApiResponse($this->successfulResponseClass)
+            ? $this->getFakedApiResponse($this->getSuccessfulResponseClass())
             : $this->getFakedApiResponse(ErrorResponse::class);
 
         $response->method('getBody')
@@ -130,6 +141,21 @@ abstract class CommonRequestTestCase extends TestCase
         return $response;
     }
 
+    /**
+     * @return class-string<Response>
+     */
+    private function getSuccessfulResponseClass(): string
+    {
+        if (null === $this->successfulResponseClass) {
+            throw new \LogicException('Successful response class not configured.');
+        }
+
+        return $this->successfulResponseClass;
+    }
+
+    /**
+     * @param class-string<Response> $class
+     */
     private function getFakedApiResponse(string $class): string
     {
         $response = new $class();

@@ -21,7 +21,7 @@ class AliasInsertRequestTest extends CommonRequestTestCase
         );
     }
 
-    public function getInstance()
+    public function getInstance(): AliasInsertRequest
     {
         return new AliasInsertRequest(
             $this->getRequestConfig(),

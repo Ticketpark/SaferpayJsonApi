@@ -13,6 +13,7 @@ return RectorConfig::configure()
     ])
     ->withPhpVersion(\Rector\ValueObject\PhpVersion::PHP_82)
     ->withImportNames(importShortClasses: false, removeUnusedImports: true)
+    ->withPreparedSets(typeDeclarations: true)
     ->withRules([
         AddVoidReturnTypeWhereNoReturnRector::class,
         TypedPropertyFromAssignsRector::class

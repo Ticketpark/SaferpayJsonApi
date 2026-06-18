@@ -13,7 +13,7 @@ use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
 class InitializeRequestTest extends CommonRequestTestCase
 {
-    protected function getInstance()
+    protected function getInstance(): InitializeRequest
     {
         return new InitializeRequest(
             $this->getRequestConfig(),
