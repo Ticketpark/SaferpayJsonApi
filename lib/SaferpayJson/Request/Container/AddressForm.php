@@ -24,16 +24,14 @@ final class AddressForm
     public const ADDRESS_SOURCE_SAFERPAY = 'SAFERPAY';
     public const ADDRESS_SOURCE_PREFER_PAYMENTMETHOD = 'PREFER_PAYMENTMETHOD';
 
-    #[SerializedName('AddressSource')]
-    private string $addressSource;
-
     /** @var list<string>|null */
     #[SerializedName('MandatoryFields')]
     private ?array $mandatoryFields = [];
 
-    public function __construct(string $addressSource)
-    {
-        $this->addressSource = $addressSource;
+    public function __construct(
+        #[SerializedName('AddressSource')]
+        private readonly string $addressSource,
+    ) {
     }
 
     public function getAddressSource(): string

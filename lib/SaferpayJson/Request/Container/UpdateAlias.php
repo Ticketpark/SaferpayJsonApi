@@ -8,15 +8,13 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class UpdateAlias
 {
-    #[SerializedName('Id')]
-    private string $id;
-
     #[SerializedName('Lifetime')]
     private ?int $lifetime = null;
 
-    public function __construct(string $id)
-    {
-        $this->id = $id;
+    public function __construct(
+        #[SerializedName('Id')]
+        private readonly string $id,
+    ) {
     }
 
     public function getId(): ?string

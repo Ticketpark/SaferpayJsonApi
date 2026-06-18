@@ -6,14 +6,12 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-final class GooglePay
+final readonly class GooglePay
 {
-    #[SerializedName('PaymentToken')]
-    private string $paymentToken;
-
-    public function __construct(string $paymentToken)
-    {
-        $this->paymentToken = $paymentToken;
+    public function __construct(
+        #[SerializedName('PaymentToken')]
+        private string $paymentToken,
+    ) {
     }
 
     public function getPaymentToken(): string

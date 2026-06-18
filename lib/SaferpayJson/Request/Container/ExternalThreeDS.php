@@ -22,56 +22,29 @@ final class ExternalThreeDS
     public const TRANS_STATUS_U = 'U';
     public const TRANS_STATUS_I = 'I';
 
-    #[SerializedName('AcsTransId')]
-    private string $acsTransId;
-
     #[SerializedName('AuthenticationMode')]
     private ?string $authenticationMode = null;
 
-    #[SerializedName('AuthenticationTime')]
-    private string $authenticationTime;
-
-    #[SerializedName('AuthenticationValue')]
-    private string $authenticationValue;
-
-    #[SerializedName('DsTransId')]
-    private string $dsTransId;
-
-    #[SerializedName('Eci')]
-    private string $eci;
-
-    #[SerializedName('Scheme')]
-    private string $scheme;
-
-    #[SerializedName('ThreeDsFullVersion')]
-    private string $threeDsFullVersion;
-
-    #[SerializedName('ThreeDSServerTransId')]
-    private string $threeDSServerTransId;
-
-    #[SerializedName('TransStatus')]
-    private string $transStatus;
-
     public function __construct(
-        string $acsTransId,
-        string $authenticationTime,
-        string $authenticationValue,
-        string $dsTransId,
-        string $eci,
-        string $scheme,
-        string $threeDsFullVersion,
-        string $threeDSServerTransId,
-        string $transStatus,
+        #[SerializedName('AcsTransId')]
+        private readonly string $acsTransId,
+        #[SerializedName('AuthenticationTime')]
+        private readonly string $authenticationTime,
+        #[SerializedName('AuthenticationValue')]
+        private readonly string $authenticationValue,
+        #[SerializedName('DsTransId')]
+        private readonly string $dsTransId,
+        #[SerializedName('Eci')]
+        private readonly string $eci,
+        #[SerializedName('Scheme')]
+        private readonly string $scheme,
+        #[SerializedName('ThreeDsFullVersion')]
+        private readonly string $threeDsFullVersion,
+        #[SerializedName('ThreeDSServerTransId')]
+        private readonly string $threeDSServerTransId,
+        #[SerializedName('TransStatus')]
+        private readonly string $transStatus,
     ) {
-        $this->acsTransId = $acsTransId;
-        $this->authenticationTime = $authenticationTime;
-        $this->authenticationValue = $authenticationValue;
-        $this->dsTransId = $dsTransId;
-        $this->eci = $eci;
-        $this->scheme = $scheme;
-        $this->threeDsFullVersion = $threeDsFullVersion;
-        $this->threeDSServerTransId = $threeDSServerTransId;
-        $this->transStatus = $transStatus;
     }
 
     public function getAcsTransId(): string

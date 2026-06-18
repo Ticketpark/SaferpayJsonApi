@@ -20,12 +20,6 @@ final class RefundRequest extends Request
     public const API_PATH = '/Payment/v1/Transaction/Refund';
     public const RESPONSE_CLASS = RefundResponse::class;
 
-    #[SerializedName('Refund')]
-    private Refund $refund;
-
-    #[SerializedName('CaptureReference')]
-    private CaptureReference $captureReference;
-
     #[SerializedName('PendingNotification')]
     private ?PendingNotification $pendingNotification = null;
 
@@ -34,12 +28,11 @@ final class RefundRequest extends Request
 
     public function __construct(
         RequestConfig $requestConfig,
-        Refund $refund,
-        CaptureReference $captureReference,
+        #[SerializedName('Refund')]
+        private readonly Refund $refund,
+        #[SerializedName('CaptureReference')]
+        private readonly CaptureReference $captureReference,
     ) {
-        $this->refund = $refund;
-        $this->captureReference = $captureReference;
-
         parent::__construct($requestConfig);
     }
 
@@ -48,23 +41,9 @@ final class RefundRequest extends Request
         return $this->refund;
     }
 
-    public function setRefund(Refund $refund): self
-    {
-        $this->refund = $refund;
-
-        return $this;
-    }
-
     public function getCaptureReference(): ?CaptureReference
     {
         return $this->captureReference;
-    }
-
-    public function setCaptureReference(CaptureReference $captureReference): self
-    {
-        $this->captureReference = $captureReference;
-
-        return $this;
     }
 
     public function getPendingNotification(): ?PendingNotification

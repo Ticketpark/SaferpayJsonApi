@@ -12,30 +12,20 @@ final class RequestHeader
     #[SerializedName('SpecVersion')]
     private string $specVersion = '1.52';
 
-    #[SerializedName('CustomerId')]
-    private string $customerId;
-
     #[SerializedName('RequestId')]
-    private ?string $requestId;
-
-    #[SerializedName('RetryIndicator')]
-    private int $retryIndicator;
+    private readonly ?string $requestId;
 
     #[SerializedName('ClientInfo')]
     private ?ClientInfo $clientInfo = null;
 
     public function __construct(
-        string $customerId,
+        #[SerializedName('CustomerId')]
+        private readonly string $customerId,
         ?string $requestId = null,
-        int $retryIndicator = RequestConfig::MIN_RETRY_INDICATOR,
+        #[SerializedName('RetryIndicator')]
+        private readonly int $retryIndicator = RequestConfig::MIN_RETRY_INDICATOR,
     ) {
-        $this->customerId = $customerId;
-        $this->requestId = $requestId;
-        $this->retryIndicator = $retryIndicator;
-
-        if (null === $requestId && 0 === $retryIndicator) {
-            $this->requestId = uniqid();
-        }
+        $this->requestId = null === $requestId && 0 === $retryIndicator ? uniqid() : $requestId;
     }
 
     public function getSpecVersion(): string

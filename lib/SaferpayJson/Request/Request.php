@@ -20,9 +20,6 @@ abstract class Request
 {
     private const ERROR_RESPONSE_CLASS = ErrorResponse::class;
 
-    #[Exclude]
-    private RequestConfig $requestConfig;
-
     abstract public function execute(): Response;
 
     abstract public function getApiPath(): string;
@@ -32,9 +29,10 @@ abstract class Request
      */
     abstract public function getResponseClass(): string;
 
-    public function __construct(RequestConfig $requestConfig)
-    {
-        $this->requestConfig = $requestConfig;
+    public function __construct(
+        #[Exclude]
+        private readonly RequestConfig $requestConfig,
+    ) {
     }
 
     #[SerializedName('RequestHeader')]

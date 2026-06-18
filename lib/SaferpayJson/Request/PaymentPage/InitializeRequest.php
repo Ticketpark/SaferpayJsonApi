@@ -61,15 +61,6 @@ final class InitializeRequest extends Request
     public const CONDITION_WITH_SUCCESSFUL_THREE_DS_CHALLENGE = 'WITH_SUCCESSFUL_THREE_DS_CHALLENGE';
     public const CONDITION_NONE = 'NONE';
 
-    #[SerializedName('TerminalId')]
-    private string $terminalId;
-
-    #[SerializedName('Payment')]
-    private Payment $payment;
-
-    #[SerializedName('ReturnUrl')]
-    private ReturnUrl $returnUrl;
-
     #[SerializedName('ConfigSet')]
     private ?string $configSet = null;
 
@@ -116,14 +107,13 @@ final class InitializeRequest extends Request
 
     public function __construct(
         RequestConfig $requestConfig,
-        string $terminalId,
-        Payment $payment,
-        ReturnUrl $returnUrl,
+        #[SerializedName('TerminalId')]
+        private readonly string $terminalId,
+        #[SerializedName('Payment')]
+        private readonly Payment $payment,
+        #[SerializedName('ReturnUrl')]
+        private readonly ReturnUrl $returnUrl,
     ) {
-        $this->terminalId = $terminalId;
-        $this->payment = $payment;
-        $this->returnUrl = $returnUrl;
-
         parent::__construct($requestConfig);
     }
 
@@ -132,35 +122,14 @@ final class InitializeRequest extends Request
         return $this->terminalId;
     }
 
-    public function setTerminalId(string $terminalId): self
-    {
-        $this->terminalId = $terminalId;
-
-        return $this;
-    }
-
     public function getPayment(): Payment
     {
         return $this->payment;
     }
 
-    public function setPayment(Payment $payment): self
-    {
-        $this->payment = $payment;
-
-        return $this;
-    }
-
     public function getReturnUrl(): ReturnUrl
     {
         return $this->returnUrl;
-    }
-
-    public function setReturnUrl(ReturnUrl $returnUrl): self
-    {
-        $this->returnUrl = $returnUrl;
-
-        return $this;
     }
 
     public function getConfigSet(): ?string

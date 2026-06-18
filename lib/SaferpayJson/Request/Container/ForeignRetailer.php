@@ -11,9 +11,6 @@ final class ForeignRetailer
     #[SerializedName('City')]
     private ?string $city = null;
 
-    #[SerializedName('CountryCode')]
-    private string $countryCode;
-
     #[SerializedName('Name')]
     private ?string $name = null;
 
@@ -23,9 +20,10 @@ final class ForeignRetailer
     #[SerializedName('Zip')]
     private ?string $zip = null;
 
-    public function __construct(string $countryCode)
-    {
-        $this->countryCode = $countryCode;
+    public function __construct(
+        #[SerializedName('CountryCode')]
+        private readonly string $countryCode,
+    ) {
     }
 
     public function getCity(): ?string

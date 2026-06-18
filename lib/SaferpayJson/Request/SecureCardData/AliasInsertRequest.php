@@ -40,15 +40,6 @@ final class AliasInsertRequest extends Request
     public const TYPE_POSTFINANCE = 'POSTFINANCE';
     public const TYPE_TWINT = 'TWINT';
 
-    #[SerializedName('RegisterAlias')]
-    private RegisterAlias $registerAlias;
-
-    #[SerializedName('Type')]
-    private string $type;
-
-    #[SerializedName('ReturnUrl')]
-    private ReturnUrl $returnUrl;
-
     #[SerializedName('Styling')]
     private ?Styling $styling = null;
 
@@ -73,14 +64,13 @@ final class AliasInsertRequest extends Request
 
     public function __construct(
         RequestConfig $requestConfig,
-        RegisterAlias $registerAlias,
-        string $type,
-        ReturnUrl $returnUrl,
+        #[SerializedName('RegisterAlias')]
+        private readonly RegisterAlias $registerAlias,
+        #[SerializedName('Type')]
+        private readonly string $type,
+        #[SerializedName('ReturnUrl')]
+        private readonly ReturnUrl $returnUrl,
     ) {
-        $this->registerAlias = $registerAlias;
-        $this->type = $type;
-        $this->returnUrl = $returnUrl;
-
         parent::__construct($requestConfig);
     }
 
@@ -89,35 +79,14 @@ final class AliasInsertRequest extends Request
         return $this->registerAlias;
     }
 
-    public function setRegisterAlias(RegisterAlias $registerAlias): self
-    {
-        $this->registerAlias = $registerAlias;
-
-        return $this;
-    }
-
     public function getType(): string
     {
         return $this->type;
     }
 
-    public function setType(string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
     public function getReturnUrl(): ReturnUrl
     {
         return $this->returnUrl;
-    }
-
-    public function setReturnUrl(ReturnUrl $returnUrl): self
-    {
-        $this->returnUrl = $returnUrl;
-
-        return $this;
     }
 
     public function getStyling(): ?Styling

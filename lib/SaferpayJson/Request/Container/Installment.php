@@ -6,14 +6,12 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-final class Installment
+final readonly class Installment
 {
-    #[SerializedName('Initial')]
-    private bool $initial;
-
-    public function __construct(bool $initial)
-    {
-        $this->initial = $initial;
+    public function __construct(
+        #[SerializedName('Initial')]
+        private bool $initial,
+    ) {
     }
 
     public function isInitial(): bool

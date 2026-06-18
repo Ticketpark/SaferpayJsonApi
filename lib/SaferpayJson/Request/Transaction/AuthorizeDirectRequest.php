@@ -27,15 +27,6 @@ final class AuthorizeDirectRequest extends Request
     public const INITIATOR_MERCHANT = 'MERCHANT';
     public const INITIATOR_PAYER = 'PAYER';
 
-    #[SerializedName('TerminalId')]
-    private string $terminalId;
-
-    #[SerializedName('Payment')]
-    private Payment $payment;
-
-    #[SerializedName('PaymentMeans')]
-    private PaymentMeans $paymentMeans;
-
     #[SerializedName('Authentication')]
     private ?Authentication $authentication = null;
 
@@ -59,14 +50,13 @@ final class AuthorizeDirectRequest extends Request
 
     public function __construct(
         RequestConfig $requestConfig,
-        string $terminalId,
-        Payment $payment,
-        PaymentMeans $paymentMeans,
+        #[SerializedName('TerminalId')]
+        private readonly string $terminalId,
+        #[SerializedName('Payment')]
+        private readonly Payment $payment,
+        #[SerializedName('PaymentMeans')]
+        private readonly PaymentMeans $paymentMeans,
     ) {
-        $this->terminalId = $terminalId;
-        $this->payment = $payment;
-        $this->paymentMeans = $paymentMeans;
-
         parent::__construct($requestConfig);
     }
 
@@ -75,35 +65,14 @@ final class AuthorizeDirectRequest extends Request
         return $this->terminalId;
     }
 
-    public function setTerminalId(string $terminalId): self
-    {
-        $this->terminalId = $terminalId;
-
-        return $this;
-    }
-
     public function getPayment(): Payment
     {
         return $this->payment;
     }
 
-    public function setPayment(Payment $payment): self
-    {
-        $this->payment = $payment;
-
-        return $this;
-    }
-
     public function getPaymentMeans(): PaymentMeans
     {
         return $this->paymentMeans;
-    }
-
-    public function setPaymentMeans(PaymentMeans $paymentMeans): self
-    {
-        $this->paymentMeans = $paymentMeans;
-
-        return $this;
     }
 
     public function getAuthentication(): ?Authentication

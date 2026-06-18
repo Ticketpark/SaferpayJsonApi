@@ -21,12 +21,6 @@ final class AliasInsertDirectRequest extends Request
     public const API_PATH = '/Payment/v1/Alias/InsertDirect';
     public const RESPONSE_CLASS = AliasInsertDirectResponse::class;
 
-    #[SerializedName('RegisterAlias')]
-    private RegisterAlias $registerAlias;
-
-    #[SerializedName('PaymentMeans')]
-    private PaymentMeans $paymentMeans;
-
     #[SerializedName('Check')]
     private ?Check $check = null;
 
@@ -36,11 +30,13 @@ final class AliasInsertDirectRequest extends Request
     #[SerializedName('IssuerReference')]
     private ?IssuerReference $issuerReference = null;
 
-    public function __construct(RequestConfig $requestConfig, RegisterAlias $registerAlias, PaymentMeans $paymentMeans)
-    {
-        $this->registerAlias = $registerAlias;
-        $this->paymentMeans = $paymentMeans;
-
+    public function __construct(
+        RequestConfig $requestConfig,
+        #[SerializedName('RegisterAlias')]
+        private readonly RegisterAlias $registerAlias,
+        #[SerializedName('PaymentMeans')]
+        private readonly PaymentMeans $paymentMeans,
+    ) {
         parent::__construct($requestConfig);
     }
 
@@ -49,23 +45,9 @@ final class AliasInsertDirectRequest extends Request
         return $this->registerAlias;
     }
 
-    public function setRegisterAlias(RegisterAlias $registerAlias): self
-    {
-        $this->registerAlias = $registerAlias;
-
-        return $this;
-    }
-
     public function getPaymentMeans(): PaymentMeans
     {
         return $this->paymentMeans;
-    }
-
-    public function setPaymentMeans(PaymentMeans $paymentMeans): self
-    {
-        $this->paymentMeans = $paymentMeans;
-
-        return $this;
     }
 
     public function getCheck(): ?Check

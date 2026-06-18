@@ -8,15 +8,13 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class IssuerReference
 {
-    #[SerializedName('TransactionStamp')]
-    private string $transactionStamp;
-
     #[SerializedName('SettlementDate')]
     private ?string $settlementDate = null;
 
-    public function __construct(string $transactionStamp)
-    {
-        $this->transactionStamp = $transactionStamp;
+    public function __construct(
+        #[SerializedName('TransactionStamp')]
+        private readonly string $transactionStamp,
+    ) {
     }
 
     public function getTransactionStamp(): string

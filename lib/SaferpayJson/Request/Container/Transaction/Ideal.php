@@ -6,14 +6,12 @@ namespace Ticketpark\SaferpayJson\Request\Container\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-final class Ideal
+final readonly class Ideal
 {
-    #[SerializedName('AccountHolderName')]
-    private string $accountHolderName;
-
-    public function __construct(string $accountHolderName)
-    {
-        $this->accountHolderName = $accountHolderName;
+    public function __construct(
+        #[SerializedName('AccountHolderName')]
+        private string $accountHolderName,
+    ) {
     }
 
     public function getAccountHolderName(): string

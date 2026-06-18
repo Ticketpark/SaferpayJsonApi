@@ -16,28 +16,17 @@ final class AssertRequest extends Request
     public const API_PATH = '/Payment/v1/PaymentPage/Assert';
     public const RESPONSE_CLASS = AssertResponse::class;
 
-    #[SerializedName('Token')]
-    private string $token;
-
     public function __construct(
         RequestConfig $requestConfig,
-        string $token,
+        #[SerializedName('Token')]
+        private readonly string $token,
     ) {
-        $this->token = $token;
-
         parent::__construct($requestConfig);
     }
 
     public function getToken(): string
     {
         return $this->token;
-    }
-
-    public function setToken(string $token): self
-    {
-        $this->token = $token;
-
-        return $this;
     }
 
     public function execute(): AssertResponse

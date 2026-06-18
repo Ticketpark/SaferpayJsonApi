@@ -6,14 +6,12 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-final class ReturnUrl
+final readonly class ReturnUrl
 {
-    #[SerializedName('Url')]
-    private string $url;
-
-    public function __construct(string $url)
-    {
-        $this->url = $url;
+    public function __construct(
+        #[SerializedName('Url')]
+        private string $url,
+    ) {
     }
 
     public function getUrl(): string

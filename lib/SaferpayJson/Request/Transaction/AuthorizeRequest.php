@@ -21,9 +21,6 @@ final class AuthorizeRequest extends Request
     public const CONDITION_WITH_SUCCESSFUL_THREE_DS_CHALLENGE = 'WITH_SUCCESSFUL_THREE_DS_CHALLENGE';
     public const CONDITION_NONE = 'NONE';
 
-    #[SerializedName('Token')]
-    private string $token;
-
     #[SerializedName('Condition')]
     private ?string $condition = null;
 
@@ -35,10 +32,9 @@ final class AuthorizeRequest extends Request
 
     public function __construct(
         RequestConfig $requestConfig,
-        string $token,
+        #[SerializedName('Token')]
+        private readonly string $token,
     ) {
-        $this->token = $token;
-
         parent::__construct($requestConfig);
     }
 

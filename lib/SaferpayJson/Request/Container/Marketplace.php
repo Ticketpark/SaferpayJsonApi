@@ -8,9 +8,6 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Marketplace
 {
-    #[SerializedName('SubmerchantId')]
-    private string $submerchantId;
-
     #[SerializedName('Fee')]
     private ?Amount $fee = null;
 
@@ -20,9 +17,10 @@ final class Marketplace
     #[SerializedName('ForeignRetailer')]
     private ?ForeignRetailer $foreignRetailer = null;
 
-    public function __construct(string $submerchantId)
-    {
-        $this->submerchantId = $submerchantId;
+    public function __construct(
+        #[SerializedName('SubmerchantId')]
+        private readonly string $submerchantId,
+    ) {
     }
 
     public function getSubmerchantId(): string
