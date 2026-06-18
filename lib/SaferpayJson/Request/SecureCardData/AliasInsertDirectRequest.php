@@ -6,6 +6,7 @@ namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Container\Check;
+use Ticketpark\SaferpayJson\Request\Container\ExternalThreeDS;
 use Ticketpark\SaferpayJson\Request\Container\IssuerReference;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
@@ -34,6 +35,11 @@ final class AliasInsertDirectRequest extends Request
      * @SerializedName("Check")
      */
     private ?Check $check = null;
+
+    /**
+     * @SerializedName("ExternalThreeDS")
+     */
+    private ?ExternalThreeDS $externalThreeDS = null;
 
     /**
      * @SerializedName("IssuerReference")
@@ -80,6 +86,18 @@ final class AliasInsertDirectRequest extends Request
     public function setCheck(?Check $check): self
     {
         $this->check = $check;
+
+        return $this;
+    }
+
+    public function getExternalThreeDS(): ?ExternalThreeDS
+    {
+        return $this->externalThreeDS;
+    }
+
+    public function setExternalThreeDS(?ExternalThreeDS $externalThreeDS): self
+    {
+        $this->externalThreeDS = $externalThreeDS;
 
         return $this;
     }
