@@ -19,11 +19,13 @@ Check `lib/SaferpayJson/Request/Container/RequestHeader.php` and `README.md` for
 lib/SaferpayJson/
   Request/              # API request classes and shared request infrastructure
     Container/          # Request payload containers (nested JSON objects)
+    Enum/               # Backed enums for request-side API vocabulary
     PaymentPage/        # PaymentPage/* endpoints
     Transaction/        # Transaction/* endpoints
     SecureCardData/     # Alias/* endpoints
   Response/             # API response classes
     Container/          # Response payload containers
+    Enum/               # Backed enums for response-side API vocabulary
     PaymentPage/
     Transaction/
     SecureCardData/
@@ -50,12 +52,12 @@ example/                            # Runnable usage examples (need credentials.
 Each endpoint is a `final class` extending `Request`:
 
 - `use RequestCommonsTrait`
-- `public const API_PATH = '/Payment/v1/...'`
-- `public const RESPONSE_CLASS = SomeResponse::class`
+- `public const string API_PATH = '/Payment/v1/...'`
+- `public const string RESPONSE_CLASS = SomeResponse::class`
 - Constructor takes `RequestConfig` plus Saferpay-mandatory fields; calls `parent::__construct($requestConfig)`
 - `execute(): SomeResponse` delegates to `doExecute()` with a return type hint
 - Properties map to JSON via `#[SerializedName('FieldName')]` attributes (PascalCase, matching Saferpay docs)
-- Enum-like API values get `public const` on the request class (e.g. `PAYMENT_METHOD_VISA`, `WALLET_APPLEPAY`)
+- Enum-like API values use backed enums under `Request\Enum\` (e.g. `PaymentMethod`, `Wallet`)
 
 ### Containers
 
@@ -95,14 +97,14 @@ Follow the [Saferpay changelog](https://saferpay.github.io/jsonapi/) for the tar
 2. Apply only changes relevant to **implemented** endpoints and containers.
 3. Update `RequestHeader::$specVersion` (default spec version sent with every request).
 4. Update the version link in `README.md` to `https://saferpay.github.io/jsonapi/{version}/index.html`.
-5. Add new containers / fields / constants as described in the spec.
+5. Add new containers / fields / enum cases as described in the spec.
 6. Wire new optional containers into the matching `*Request` classes with getter/setter.
 7. Run tests and static analysis (see below).
 
 **Example (v1.43):**
 
 - New `MerchantFundDistributor` container → added to `CaptureRequest`
-- `CLICKTOPAY` wallet → constant on `PaymentPage/InitializeRequest`
+- `CLICKTOPAY` wallet → new case on `Request\Enum\Wallet`
 - `ForeignRetailer` subcontainer reused from v1.41
 
 **Branch and PR conventions:**
@@ -145,9 +147,16 @@ Place under `Request/Container/`. Use sub-namespaces when Saferpay groups contai
 4. Add `tests/SaferpayJson/Tests/Request/.../*RequestTest.php` extending `CommonRequestTestCase`.
 5. Optionally add an `example/` script.
 
-### Constants
+### Enums
 
-Add `public const` for documented enum values on the request class that uses them (payment methods, wallets, conditions, statuses). Response classes may define status constants where useful (`CaptureResponse::STATUS_CAPTURED`).
+Documented API vocabulary lives in backed string enums, separated by direction:
+
+- **Request:** `lib/SaferpayJson/Request/Enum/` — used on request containers and request classes
+- **Response:** `lib/SaferpayJson/Response/Enum/` — used on response containers and response classes
+
+When Saferpay reuses the same JSON values on both sides (e.g. `PaymentMethod`, `Wallet`, `Gender`), define a case in **each** namespace. Keep case names and backing values in sync when bumping API versions.
+
+Add a new enum file per vocabulary group; wire properties and getters/setters (requests) or getters only (responses) to the enum type. JMS enum support is enabled in `SerializerFactory`.
 
 ### Style
 
@@ -162,6 +171,7 @@ Add `public const` for documented enum values on the request class that uses the
 composer install
 composer test
 composer phpstan
+composer rector-check
 composer cs-check
 composer cs-fix   # apply coding standard fixes
 ```
@@ -172,7 +182,7 @@ Request tests extend `CommonRequestTestCase`:
 - Call `doTestSuccessfulResponse(ResponseClass::class)` for the happy path
 - Error path and `RequestConfig` retry validation are inherited
 
-CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.3–8.5 (prefer-lowest and prefer-stable). Static analysis (PHPStan level 8, php-cs-fixer, `composer validate`) runs on PHP 8.5.
+CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.3–8.5 (prefer-lowest and prefer-stable). Static analysis on PHP 8.5 runs PHPStan level 8, Rector, php-cs-fixer, and `composer validate`.
 
 ## Common pitfalls
 
@@ -180,6 +190,7 @@ CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.3–8.5 (prefer-lowest 
 - **Mandatory vs optional:** Follow Saferpay docs for requests; keep response fields optional regardless.
 - **RequestHeader:** Never add it as a serialized property on request classes — it is a virtual property.
 - **Container reuse:** Check for an existing container before creating a duplicate.
+- **Shared enums:** `PaymentMethod`, `Wallet`, and `Gender` exist in both `Request\Enum` and `Response\Enum`; update both when Saferpay adds values.
 - **Partial API coverage:** Changelog entries may mention endpoints this library does not implement; skip those unless adding the endpoint is in scope.
 - **Tests:** New request classes need a test class; existing tests mock Guzzle and do not hit the real API.
 
