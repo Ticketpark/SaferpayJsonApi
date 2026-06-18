@@ -172,7 +172,7 @@ Request tests extend `CommonRequestTest`:
 - Call `doTestSuccessfulResponse(ResponseClass::class)` for the happy path
 - Error path and `RequestConfig` retry validation are inherited
 
-CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 7.4–8.5 (prefer-lowest and prefer-stable), plus PHPStan level 8, php-cs-fixer, and `composer validate`.
+CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 7.4–8.5 (prefer-lowest and prefer-stable). Static analysis (PHPStan level 8, php-cs-fixer, `composer validate`) runs on PHP 8.5.
 
 ## Common pitfalls
 
