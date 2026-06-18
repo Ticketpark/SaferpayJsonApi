@@ -6,7 +6,7 @@ namespace Ticketpark\SaferpayJson\Request\Exception;
 
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
 
-class SaferpayErrorException extends \Exception
+class SaferpayErrorException extends \Exception implements SaferpayException
 {
     private ErrorResponse $errorResponse;
 
@@ -22,7 +22,7 @@ class SaferpayErrorException extends \Exception
         ));
     }
 
-    public function getErrorResponse(): ?ErrorResponse
+    public function getErrorResponse(): ErrorResponse
     {
         return $this->errorResponse;
     }
