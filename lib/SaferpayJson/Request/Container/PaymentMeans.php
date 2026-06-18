@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\Wallet;
 
 final class PaymentMeans
 {
@@ -15,7 +16,7 @@ final class PaymentMeans
     private ?string $displayText = null;
 
     #[SerializedName('Wallet')]
-    private ?string $wallet = null;
+    private ?Wallet $wallet = null;
 
     #[SerializedName('Card')]
     private ?Card $card = null;
@@ -65,12 +66,12 @@ final class PaymentMeans
         return $this;
     }
 
-    public function getWallet(): ?string
+    public function getWallet(): ?Wallet
     {
         return $this->wallet;
     }
 
-    public function setWallet(?string $wallet): self
+    public function setWallet(?Wallet $wallet): self
     {
         $this->wallet = $wallet;
 

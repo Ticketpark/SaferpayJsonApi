@@ -5,13 +5,10 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\StylingTheme;
 
 final class Styling
 {
-    public const THEME_DEFAULT = 'DEFAULT';
-    public const THEME_SIX = 'SIX';
-    public const THEME_NONE = 'NONE';
-
     #[SerializedName('CssUrl')]
     private ?string $cssUrl = null;
 
@@ -19,7 +16,7 @@ final class Styling
     private ?bool $contentSecurityEnabled = null;
 
     #[SerializedName('Theme')]
-    private ?string $theme = null;
+    private ?StylingTheme $theme = null;
 
     public function getCssUrl(): ?string
     {
@@ -49,12 +46,12 @@ final class Styling
         return $this;
     }
 
-    public function getTheme(): ?string
+    public function getTheme(): ?StylingTheme
     {
         return $this->theme;
     }
 
-    public function setTheme(?string $theme): self
+    public function setTheme(?StylingTheme $theme): self
     {
         $this->theme = $theme;
 

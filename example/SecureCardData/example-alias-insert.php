@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+use Ticketpark\SaferpayJson\Enum\AliasIdGenerator;
+use Ticketpark\SaferpayJson\Enum\AliasInsertType;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Request\Container;
 use Ticketpark\SaferpayJson\Request\SecureCardData\AliasInsertRequest;
@@ -21,7 +23,7 @@ $requestConfig = new RequestConfig(
 );
 
 $registerAlias = new Container\RegisterAlias(
-    Container\RegisterAlias::ID_GENERATOR_RANDOM
+    AliasIdGenerator::Random
 );
 
 $returnUrl = new Container\ReturnUrl(
@@ -35,7 +37,7 @@ $returnUrl = new Container\ReturnUrl(
 $insertRequest = new AliasInsertRequest(
     $requestConfig,
     $registerAlias,
-    AliasInsertRequest::TYPE_CARD,
+    AliasInsertType::Card,
     $returnUrl
 );
 

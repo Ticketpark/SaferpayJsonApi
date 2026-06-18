@@ -5,13 +5,10 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\AliasIdGenerator;
 
 final class RegisterAlias
 {
-    public const ID_GENERATOR_MANUAL = 'MANUAL';
-    public const ID_GENERATOR_RANDOM = 'RANDOM';
-    public const ID_GENERATOR_RANDOM_UNIQUE = 'RANDOM_UNIQUE';
-
     #[SerializedName('Id')]
     private ?string $id = null;
 
@@ -20,11 +17,11 @@ final class RegisterAlias
 
     public function __construct(
         #[SerializedName('IdGenerator')]
-        private readonly string $idGenerator,
+        private readonly AliasIdGenerator $idGenerator,
     ) {
     }
 
-    public function getIdGenerator(): string
+    public function getIdGenerator(): AliasIdGenerator
     {
         return $this->idGenerator;
     }

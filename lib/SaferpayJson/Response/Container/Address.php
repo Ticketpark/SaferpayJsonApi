@@ -6,14 +6,10 @@ namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use Ticketpark\SaferpayJson\Enum\Gender;
 
 final class Address
 {
-    public const GENDER_MALE = 'MALE';
-    public const GENDER_FEMALE = 'FEMALE';
-    public const GENDER_DIVERSE = 'DIVERSE';
-    public const GENDER_COMPANY = 'COMPANY';
-
     #[SerializedName('FirstName')]
     private ?string $firstName = null;
 
@@ -24,7 +20,7 @@ final class Address
     private ?string $company = null;
 
     #[SerializedName('Gender')]
-    private ?string $gender = null;
+    private ?Gender $gender = null;
 
     #[SerializedName('Street')]
     private ?string $street = null;
@@ -72,7 +68,7 @@ final class Address
         return $this->company;
     }
 
-    public function getGender(): ?string
+    public function getGender(): ?Gender
     {
         return $this->gender;
     }

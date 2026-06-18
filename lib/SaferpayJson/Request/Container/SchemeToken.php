@@ -5,17 +5,10 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\SchemeTokenType;
 
 final class SchemeToken
 {
-    public const TOKEN_TYPE_APPLEPAY = 'APPLEPAY';
-    public const TOKEN_TYPE_GOOGLEPAY = 'GOOGLEPAY';
-    public const TOKEN_TYPE_SAMSUNGPAY = 'SAMSUNGPAY';
-    public const TOKEN_TYPE_CLICKTOPAY = 'CLICKTOPAY';
-    public const TOKEN_TYPE_OTHER = 'OTHER';
-    public const TOKEN_TYPE_MDES = 'MDES';
-    public const TOKEN_TYPE_VTS = 'VTS';
-
     #[SerializedName('Eci')]
     private ?string $eci = null;
 
@@ -29,7 +22,7 @@ final class SchemeToken
         #[SerializedName('AuthValue')]
         private readonly string $authValue,
         #[SerializedName('TokenType')]
-        private readonly string $tokenType,
+        private readonly SchemeTokenType $tokenType,
     ) {
     }
 
@@ -65,7 +58,7 @@ final class SchemeToken
         return $this;
     }
 
-    public function getTokenType(): string
+    public function getTokenType(): SchemeTokenType
     {
         return $this->tokenType;
     }

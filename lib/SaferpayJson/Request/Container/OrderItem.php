@@ -5,20 +5,12 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\OrderItemType;
 
 final class OrderItem
 {
-    public const TYPE_DIGITAL = 'DIGITAL';
-    public const TYPE_PHYSICAL = 'PHYSICAL';
-    public const TYPE_SERVICE = 'SERVICE';
-    public const TYPE_GIFTCARD = 'GIFTCARD';
-    public const TYPE_DISCOUNT = 'DISCOUNT';
-    public const TYPE_SHIPPINGFEE = 'SHIPPINGFEE';
-    public const TYPE_SALESTAX = 'SALESTAX';
-    public const TYPE_SURCHARGE = 'SURCHARGE';
-
     #[SerializedName('Type')]
-    private ?string $type = null;
+    private ?OrderItemType $type = null;
 
     #[SerializedName('Id')]
     private ?string $id = null;
@@ -59,12 +51,12 @@ final class OrderItem
     #[SerializedName('ImageUrl')]
     private ?string $imageUrl = null;
 
-    public function getType(): ?string
+    public function getType(): ?OrderItemType
     {
         return $this->type;
     }
 
-    public function setType(?string $type): self
+    public function setType(?OrderItemType $type): self
     {
         $this->type = $type;
 
