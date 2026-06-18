@@ -24,7 +24,7 @@ Have a look at the [example folder](/example) for more.
 
 ## Documentation
 
-This library is currently [based on v1.51 of the Saferpay JSON API](https://saferpay.github.io/jsonapi/1.51/index.html).
+This library is currently [based on v1.52 of the Saferpay JSON API](https://saferpay.github.io/jsonapi/1.52/index.html).
 
 Find the most current documentation of the Saferpay JSON API here:<br>
 https://saferpay.github.io/jsonapi/

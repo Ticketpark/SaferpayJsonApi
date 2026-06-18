@@ -17,6 +17,10 @@ final class AuthorizeRequest extends Request
     public const API_PATH = '/Payment/v1/Transaction/Authorize';
     public const RESPONSE_CLASS = AuthorizeResponse::class;
 
+    public const CONDITION_THREE_DS_AUTHENTICATION_SUCCESSFUL_OR_ATTEMPTED = 'THREE_DS_AUTHENTICATION_SUCCESSFUL_OR_ATTEMPTED';
+    public const CONDITION_WITH_SUCCESSFUL_THREE_DS_CHALLENGE = 'WITH_SUCCESSFUL_THREE_DS_CHALLENGE';
+    public const CONDITION_NONE = 'NONE';
+
     /**
      * @SerializedName("Token")
      */
