@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Response\Enum\AuthenticationType;
 
 final class ThreeDs
 {
@@ -21,7 +22,7 @@ final class ThreeDs
     private ?string $version = null;
 
     #[SerializedName('AuthenticationType')]
-    private ?string $authenticationType = null;
+    private ?AuthenticationType $authenticationType = null;
 
     public function isAuthenticated(): ?bool
     {
@@ -43,7 +44,7 @@ final class ThreeDs
         return $this->version;
     }
 
-    public function getAuthenticationType(): ?string
+    public function getAuthenticationType(): ?AuthenticationType
     {
         return $this->authenticationType;
     }

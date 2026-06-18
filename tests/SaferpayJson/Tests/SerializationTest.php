@@ -15,8 +15,15 @@ use Ticketpark\SaferpayJson\Request\Enum\Wallet;
 use Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Request\Transaction\RefundRequest;
+use Ticketpark\SaferpayJson\Response\Container\CheckResult;
+use Ticketpark\SaferpayJson\Response\Container\Liability;
+use Ticketpark\SaferpayJson\Response\Container\Transaction;
+use Ticketpark\SaferpayJson\Response\Enum\CheckResultStatus;
 use Ticketpark\SaferpayJson\Response\Enum\ErrorBehaviour;
+use Ticketpark\SaferpayJson\Response\Enum\InPsd2Scope;
+use Ticketpark\SaferpayJson\Response\Enum\LiableEntity;
 use Ticketpark\SaferpayJson\Response\Enum\TransactionStatus;
+use Ticketpark\SaferpayJson\Response\Enum\TransactionType;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\Transaction\CaptureResponse;
 use Ticketpark\SaferpayJson\SerializerFactory;
@@ -95,5 +102,38 @@ class SerializationTest extends TestCase
         $response = $serializer->deserialize($json, ErrorResponse::class, 'json');
 
         $this->assertSame(ErrorBehaviour::DoNotRetry, $response->getBehaviour());
+    }
+
+    public function testTransactionContainerDeserializesEnumsAndDate(): void
+    {
+        $serializer = SerializerFactory::get();
+        $json = '{"Type":"PAYMENT","Status":"AUTHORIZED","Date":"2024-06-18T10:15:30.123456+00:00"}';
+
+        $transaction = $serializer->deserialize($json, Transaction::class, 'json');
+
+        $this->assertSame(TransactionType::Payment, $transaction->getType());
+        $this->assertSame(TransactionStatus::Authorized, $transaction->getStatus());
+        $this->assertInstanceOf(\DateTimeImmutable::class, $transaction->getDate());
+    }
+
+    public function testLiabilityContainerDeserializesEnums(): void
+    {
+        $serializer = SerializerFactory::get();
+        $json = '{"LiableEntity":"THREEDS","InPsd2Scope":"YES"}';
+
+        $liability = $serializer->deserialize($json, Liability::class, 'json');
+
+        $this->assertSame(LiableEntity::ThreeDs, $liability->getLiableEntity());
+        $this->assertSame(InPsd2Scope::Yes, $liability->getInPsd2Scope());
+    }
+
+    public function testCheckResultDeserializesStatus(): void
+    {
+        $serializer = SerializerFactory::get();
+        $json = '{"Result":"OK","Message":"Check passed"}';
+
+        $checkResult = $serializer->deserialize($json, CheckResult::class, 'json');
+
+        $this->assertSame(CheckResultStatus::Ok, $checkResult->getResult());
     }
 }

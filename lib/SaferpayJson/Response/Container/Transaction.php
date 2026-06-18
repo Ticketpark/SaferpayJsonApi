@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Response\Enum\TransactionStatus;
 use Ticketpark\SaferpayJson\Response\Enum\TransactionType;
 
@@ -23,7 +24,8 @@ final class Transaction
     private ?string $captureId = null;
 
     #[SerializedName('Date')]
-    private ?string $date = null;
+    #[Type("DateTimeImmutable<'Y-m-d\TH:i:s.uT'>")]
+    private ?\DateTimeImmutable $date = null;
 
     #[SerializedName('Amount')]
     private ?Amount $amount = null;
@@ -72,7 +74,7 @@ final class Transaction
         return $this->captureId;
     }
 
-    public function getDate(): ?string
+    public function getDate(): ?\DateTimeImmutable
     {
         return $this->date;
     }

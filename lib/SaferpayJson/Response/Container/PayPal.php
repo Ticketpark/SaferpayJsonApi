@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Response\Enum\PayPalSellerProtectionStatus;
 
 final class PayPal
 {
@@ -12,7 +13,7 @@ final class PayPal
     private ?string $payerId = null;
 
     #[SerializedName('SellerProtectionStatus')]
-    private ?string $sellerProtectionStatus = null;
+    private ?PayPalSellerProtectionStatus $sellerProtectionStatus = null;
 
     #[SerializedName('Email')]
     private ?string $email = null;
@@ -22,7 +23,7 @@ final class PayPal
         return $this->payerId;
     }
 
-    public function getSellerProtectionStatus(): ?string
+    public function getSellerProtectionStatus(): ?PayPalSellerProtectionStatus
     {
         return $this->sellerProtectionStatus;
     }
