@@ -11,14 +11,10 @@ final class Check
     public const TYPE_ONLINE = 'ONLINE';
     public const TYPE_ONLINE_STRONG = 'ONLINE_STRONG';
 
-    /**
-     * @SerializedName("Type")
-     */
+    #[SerializedName('Type')]
     private ?string $type = null;
 
-    /**
-     * @SerializedName("TerminalId")
-     */
+    #[SerializedName('TerminalId')]
     private ?string $terminalId = null;
 
     public function getType(): ?string

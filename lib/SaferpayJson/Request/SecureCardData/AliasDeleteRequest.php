@@ -16,9 +16,7 @@ final class AliasDeleteRequest extends Request
     public const API_PATH = '/Payment/v1/Alias/Delete';
     public const RESPONSE_CLASS = AliasDeleteResponse::class;
 
-    /**
-     * @SerializedName("AliasId")
-     */
+    #[SerializedName('AliasId')]
     private string $aliasId;
 
     public function __construct(RequestConfig $requestConfig, string $aliasId)

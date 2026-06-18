@@ -8,39 +8,25 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class InstallmentPlan
 {
-    /**
-     * @SerializedName("NumberOfInstallments")
-     */
+    #[SerializedName('NumberOfInstallments')]
     private ?int $numberOfInstallments = null;
 
-    /**
-     * @SerializedName("InterestRate")
-     */
+    #[SerializedName('InterestRate')]
     private ?string $interestRate = null;
 
-    /**
-     * @SerializedName("InstallmentFee")
-     */
+    #[SerializedName('InstallmentFee')]
     private ?Amount $installmentFee = null;
 
-    /**
-     * @SerializedName("AnnualPercentageRate")
-     */
+    #[SerializedName('AnnualPercentageRate')]
     private ?string $annualPercentageRate = null;
 
-    /**
-     * @SerializedName("FirstInstallmentAmount")
-     */
+    #[SerializedName('FirstInstallmentAmount')]
     private ?Amount $firstInstallmentAmount = null;
 
-    /**
-     * @SerializedName("SubsequentInstallmentAmount")
-     */
+    #[SerializedName('SubsequentInstallmentAmount')]
     private ?Amount $subsequentInstallmentAmount = null;
 
-    /**
-     * @SerializedName("TotalAmountDue")
-     */
+    #[SerializedName('TotalAmountDue')]
     private ?Amount $totalAmountDue = null;
 
     public function getNumberOfInstallments(): ?int

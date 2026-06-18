@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class ClientInfo
 {
-    /**
-     * @SerializedName("ShopInfo")
-     */
+    #[SerializedName('ShopInfo')]
     private ?string $shopInfo = null;
 
-    /**
-     * @SerializedName("OsInfo")
-     */
+    #[SerializedName('OsInfo')]
     private ?string $osInfo = null;
 
     public function getShopInfo(): ?string

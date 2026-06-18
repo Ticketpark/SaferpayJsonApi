@@ -12,19 +12,13 @@ final class RegisterAlias
     public const ID_GENERATOR_RANDOM = 'RANDOM';
     public const ID_GENERATOR_RANDOM_UNIQUE = 'RANDOM_UNIQUE';
 
-    /**
-     * @SerializedName("IdGenerator")
-     */
+    #[SerializedName('IdGenerator')]
     private string $idGenerator;
 
-    /**
-     * @SerializedName("Id")
-     */
+    #[SerializedName('Id')]
     private ?string $id = null;
 
-    /**
-     * @SerializedName("Lifetime")
-     */
+    #[SerializedName('Lifetime')]
     private ?int $lifetime = null;
 
     public function __construct(string $idGenerator)

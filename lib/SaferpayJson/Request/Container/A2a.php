@@ -8,9 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class A2a
 {
-    /**
-     * @SerializedName("AccountHolderName")
-     */
+    #[SerializedName('AccountHolderName')]
     private string $accountHolderName;
 
     public function __construct(string $accountHolderName)

@@ -22,39 +22,27 @@ final class CaptureRequest extends Request
     public const API_PATH = '/Payment/v1/Transaction/Capture';
     public const RESPONSE_CLASS = CaptureResponse::class;
 
-    /**
-     * @SerializedName("TransactionReference")
-     */
+    #[SerializedName('TransactionReference')]
     private TransactionReference $transactionReference;
 
-    /**
-     * @SerializedName("Amount")
-     */
+    #[SerializedName('Amount')]
     private ?Amount $amount = null;
 
-    /**
-     * @SerializedName("PendingNotification")
-     */
+    #[SerializedName('PendingNotification')]
     private ?PendingNotification $pendingNotification = null;
 
-    /**
-     * @SerializedName("Marketplace")
-     */
+    #[SerializedName('Marketplace')]
     private ?Marketplace $marketplace = null;
 
-    /**
-     * @SerializedName("MastercardIssuerInstallments")
-     */
+    #[SerializedName('MastercardIssuerInstallments')]
     private ?MastercardIssuerInstallments $mastercardIssuerInstallments = null;
 
-    /**
-     * @SerializedName("MerchantFundDistributor")
-     */
+    #[SerializedName('MerchantFundDistributor')]
     private ?MerchantFundDistributor $merchantFundDistributor = null;
 
     public function __construct(
         RequestConfig $requestConfig,
-        TransactionReference $transactionReference
+        TransactionReference $transactionReference,
     ) {
         $this->transactionReference = $transactionReference;
 

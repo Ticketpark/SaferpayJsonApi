@@ -8,19 +8,13 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class PayPal
 {
-    /**
-     * @SerializedName("PayerId")
-     */
+    #[SerializedName('PayerId')]
     private ?string $payerId = null;
 
-    /**
-     * @SerializedName("SellerProtectionStatus")
-     */
+    #[SerializedName('SellerProtectionStatus')]
     private ?string $sellerProtectionStatus = null;
 
-    /**
-     * @SerializedName("Email")
-     */
+    #[SerializedName('Email')]
     private ?string $email = null;
 
     public function getPayerId(): ?string

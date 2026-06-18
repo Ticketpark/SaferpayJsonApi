@@ -8,9 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Installment
 {
-    /**
-     * @SerializedName("Initial")
-     */
+    #[SerializedName('Initial')]
     private bool $initial;
 
     public function __construct(bool $initial)

@@ -15,19 +15,13 @@ final class Tokenization
     public const STATUS_NOT_PERFORMED = 'NOT_PERFORMED';
     public const STATUS_DENIED_BY_SCHEME = 'DENIED_BY_SCHEME';
 
-    /**
-     * @SerializedName("Program")
-     */
+    #[SerializedName('Program')]
     private ?string $program = null;
 
-    /**
-     * @SerializedName("Status")
-     */
+    #[SerializedName('Status')]
     private ?string $status = null;
 
-    /**
-     * @SerializedName("TokenPan")
-     */
+    #[SerializedName('TokenPan')]
     private ?TokenizationTokenPan $tokenPan = null;
 
     public function getProgram(): ?string

@@ -8,44 +8,28 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Payment
 {
-    /**
-     * @SerializedName("Amount")
-     */
+    #[SerializedName('Amount')]
     private Amount $amount;
 
-    /**
-     * @SerializedName("OrderId")
-     */
+    #[SerializedName('OrderId')]
     private ?string $orderId = null;
 
-    /**
-     * @SerializedName("PayerNote")
-     */
+    #[SerializedName('PayerNote')]
     private ?string $payerNote = null;
 
-    /**
-     * @SerializedName("Description")
-     */
+    #[SerializedName('Description')]
     private ?string $description = null;
 
-    /**
-     * @SerializedName("MandateId")
-     */
+    #[SerializedName('MandateId')]
     private ?string $mandateId = null;
 
-    /**
-     * @SerializedName("Options")
-     */
+    #[SerializedName('Options')]
     private ?Options $options = null;
 
-    /**
-     * @SerializedName("Recurring")
-     */
+    #[SerializedName('Recurring')]
     private ?Recurring $recurring = null;
 
-    /**
-     * @SerializedName("Installment")
-     */
+    #[SerializedName('Installment')]
     private ?Installment $installment = null;
 
     public function __construct(Amount $amount)

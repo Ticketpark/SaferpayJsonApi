@@ -8,29 +8,19 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Refund
 {
-    /**
-     * @SerializedName("Amount")
-     */
+    #[SerializedName('Amount')]
     private ?Amount $amount;
 
-    /**
-     * @SerializedName("OrderId")
-     */
+    #[SerializedName('OrderId')]
     private ?string $orderId = null;
 
-    /**
-     * @SerializedName("Description")
-     */
+    #[SerializedName('Description')]
     private ?string $description = null;
 
-    /**
-     * @SerializedName("PayerNote")
-     */
+    #[SerializedName('PayerNote')]
     private ?string $payerNote = null;
 
-    /**
-     * @SerializedName("RestrictRefundAmountToCapturedAmount")
-     */
+    #[SerializedName('RestrictRefundAmountToCapturedAmount')]
     private ?bool $restrictRefundAmountToCapturedAmount = null;
 
     public function __construct(?Amount $amount)

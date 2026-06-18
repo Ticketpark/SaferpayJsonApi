@@ -7,9 +7,9 @@ namespace Ticketpark\SaferpayJson\Tests\Request\Transaction;
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Transaction\CancelRequest;
 use Ticketpark\SaferpayJson\Response\Transaction\CancelResponse;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
-class CancelRequestTest extends CommonRequestTest
+class CancelRequestTest extends CommonRequestTestCase
 {
     public function testSuccessfulResponse(): void
     {

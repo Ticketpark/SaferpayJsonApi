@@ -6,9 +6,9 @@ namespace Ticketpark\SaferpayJson\Tests\Request\SecureCardData;
 
 use Ticketpark\SaferpayJson\Request\SecureCardData\AliasDeleteRequest;
 use Ticketpark\SaferpayJson\Response\SecureCardData\AliasDeleteResponse;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
-class AliasDeleteRequestTest extends CommonRequestTest
+class AliasDeleteRequestTest extends CommonRequestTestCase
 {
     public function testSuccessfulResponse(): void
     {

@@ -8,9 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class MerchantFundDistributor
 {
-    /**
-     * @SerializedName("ForeignRetailer")
-     */
+    #[SerializedName('ForeignRetailer')]
     private ?ForeignRetailer $foreignRetailer = null;
 
     public function getForeignRetailer(): ?ForeignRetailer

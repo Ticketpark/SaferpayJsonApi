@@ -8,28 +8,18 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Payer
 {
-    /**
-     * @SerializedName("Id")
-     */
+    #[SerializedName('Id')]
     private ?string $id = null;
 
-    /**
-     * @SerializedName("IpAddress")
-     */
+    #[SerializedName('IpAddress')]
     private ?string $ipAddress = null;
-    /**
-     * @SerializedName("LanguageCode")
-     */
+    #[SerializedName('LanguageCode')]
     private ?string $languageCode = null;
 
-    /**
-     * @SerializedName("DeliveryAddress")
-     */
+    #[SerializedName('DeliveryAddress')]
     private ?Address $deliveryAddress = null;
 
-    /**
-     * @SerializedName("BillingAddress")
-     */
+    #[SerializedName('BillingAddress')]
     private ?Address $billingAddress = null;
 
     public function getId(): ?string

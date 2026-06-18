@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Error
 {
-    /**
-     * @SerializedName("ErrorName")
-     */
+    #[SerializedName('ErrorName')]
     private ?string $errorName = null;
 
-    /**
-     * @SerializedName("ErrorMessage")
-     */
+    #[SerializedName('ErrorMessage')]
     private ?string $errorMessage = null;
 
     public function getErrorName(): ?string

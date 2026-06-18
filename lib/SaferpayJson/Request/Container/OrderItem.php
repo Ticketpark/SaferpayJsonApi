@@ -17,74 +17,46 @@ final class OrderItem
     public const TYPE_SALESTAX = 'SALESTAX';
     public const TYPE_SURCHARGE = 'SURCHARGE';
 
-    /**
-     * @SerializedName("Type")
-     */
+    #[SerializedName('Type')]
     private ?string $type = null;
 
-    /**
-     * @SerializedName("Id")
-     */
+    #[SerializedName('Id')]
     private ?string $id = null;
 
-    /**
-     * @SerializedName("VariantId")
-     */
+    #[SerializedName('VariantId')]
     private ?string $variantId = null;
 
-    /**
-     * @SerializedName("Name")
-     */
+    #[SerializedName('Name')]
     private ?string $name = null;
 
-    /**
-     * @SerializedName("CategoryName")
-     */
+    #[SerializedName('CategoryName')]
     private ?string $categoryName = null;
 
-    /**
-     * @SerializedName("Description")
-     */
+    #[SerializedName('Description')]
     private ?string $description = null;
 
-    /**
-     * @SerializedName("Quantity")
-     */
+    #[SerializedName('Quantity')]
     private ?string $quantity = null;
 
-    /**
-     * @SerializedName("UnitPrice")
-     */
+    #[SerializedName('UnitPrice')]
     private ?string $unitPrice = null;
 
-    /**
-     * @SerializedName("IsPreOrder")
-     */
+    #[SerializedName('IsPreOrder')]
     private ?string $isPreOrder = null;
 
-    /**
-     * @SerializedName("TaxRate")
-     */
+    #[SerializedName('TaxRate')]
     private ?string $taxRate = null;
 
-    /**
-     * @SerializedName("TaxAmount")
-     */
+    #[SerializedName('TaxAmount')]
     private ?string $taxAmount = null;
 
-    /**
-     * @SerializedName("DiscountAmount")
-     */
+    #[SerializedName('DiscountAmount')]
     private ?string $discountAmount = null;
 
-    /**
-     * @SerializedName("ProductUrl")
-     */
+    #[SerializedName('ProductUrl')]
     private ?string $productUrl = null;
 
-    /**
-     * @SerializedName("ImageUrl")
-     */
+    #[SerializedName('ImageUrl')]
     private ?string $imageUrl = null;
 
     public function getType(): ?string

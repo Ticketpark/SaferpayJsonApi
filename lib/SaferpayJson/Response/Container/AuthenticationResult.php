@@ -14,19 +14,13 @@ final class AuthenticationResult
     public const AUTHENTICATION_TYPE_UNSPECIFIED = 'UNSPECIFIED';
     public const AUTHENTICATION_TYPE_NONE = 'NONE';
 
-    /**
-     * @SerializedName("Authenticated")
-     */
+    #[SerializedName('Authenticated')]
     private ?bool $authenticated = null;
 
-    /**
-     * @SerializedName("AuthenticationType")
-     */
+    #[SerializedName('AuthenticationType')]
     private ?string $authenticationType = null;
 
-    /**
-     * @SerializedName("Message")
-     */
+    #[SerializedName('Message')]
     private ?string $message = null;
 
     public function isAuthenticated(): ?bool

@@ -15,34 +15,22 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 final class AuthorizeDirectResponse extends Response
 {
-    /**
-     * @SerializedName("Transaction")
-     */
+    #[SerializedName('Transaction')]
     private ?Transaction $transaction = null;
 
-    /**
-     * @SerializedName("PaymentMeans")
-     */
+    #[SerializedName('PaymentMeans')]
     private ?PaymentMeans $paymentMeans = null;
 
-    /**
-     * @SerializedName("RegisterAlias")
-     */
+    #[SerializedName('RegisterAlias')]
     private ?RegisterAlias $registerAlias = null;
 
-    /**
-     * @SerializedName("Payer")
-     */
+    #[SerializedName('Payer')]
     private ?Payer $payer = null;
 
-    /**
-     * @SerializedName("FraudPrevention")
-     */
+    #[SerializedName('FraudPrevention')]
     private ?FraudPrevention $fraudPrevention = null;
 
-    /**
-     * @SerializedName("Liability")
-     */
+    #[SerializedName('Liability')]
     private ?Liability $liability = null;
 
     public function getTransaction(): ?Transaction

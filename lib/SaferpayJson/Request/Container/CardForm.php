@@ -11,9 +11,7 @@ final class CardForm
     public const HOLDER_NAME_NONE = 'NONE';
     public const HOLDER_NAME_MANDATORY = 'MANDATORY';
 
-    /**
-     * @SerializedName("HolderName")
-     */
+    #[SerializedName('HolderName')]
     private ?string $holderName = null;
 
     public function getHolderName(): ?string

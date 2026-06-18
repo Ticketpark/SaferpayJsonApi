@@ -21,29 +21,21 @@ final class AuthorizeRequest extends Request
     public const CONDITION_WITH_SUCCESSFUL_THREE_DS_CHALLENGE = 'WITH_SUCCESSFUL_THREE_DS_CHALLENGE';
     public const CONDITION_NONE = 'NONE';
 
-    /**
-     * @SerializedName("Token")
-     */
+    #[SerializedName('Token')]
     private string $token;
 
-    /**
-     * @SerializedName("Condition")
-     */
+    #[SerializedName('Condition')]
     private ?string $condition = null;
 
-    /**
-     * @SerializedName("VerificationCode")
-     */
+    #[SerializedName('VerificationCode')]
     private ?string $verificationCode = null;
 
-    /**
-     * @SerializedName("RegisterAlias")
-     */
+    #[SerializedName('RegisterAlias')]
     private ?RegisterAlias $registerAlias = null;
 
     public function __construct(
         RequestConfig $requestConfig,
-        string $token
+        string $token,
     ) {
         $this->token = $token;
 

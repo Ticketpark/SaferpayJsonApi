@@ -8,19 +8,13 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class IssuerReference
 {
-    /**
-     * @SerializedName("MastercardTLID")
-     */
+    #[SerializedName('MastercardTLID')]
     private ?string $mastercardTlid = null;
 
-    /**
-     * @SerializedName("TransactionStamp")
-     */
+    #[SerializedName('TransactionStamp')]
     private ?string $transactionStamp = null;
 
-    /**
-     * @SerializedName("SettlementDate")
-     */
+    #[SerializedName('SettlementDate')]
     private ?string $settlementDate = null;
 
     public function getMastercardTlid(): ?string

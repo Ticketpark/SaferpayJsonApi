@@ -13,14 +13,10 @@ final class Risk
     public const BLOCKREASON_BLACKLIST_PAYMENT_MEANS = 'BLACKLIST_PAYMENT_MEANS';
     public const BLOCKREASON_BLACKLIST_PAYMENT_MEANS_ORIGIN = 'BLACKLIST_PAYMENT_MEANS_ORIGIN';
 
-    /**
-     * @SerializedName("BlockReason")
-     */
+    #[SerializedName('BlockReason')]
     private ?string $blockReason = null;
 
-    /**
-     * @SerializedName("IpLocation")
-     */
+    #[SerializedName('IpLocation')]
     private ?string $ipLocation = null;
 
     public function getBlockReason(): ?string

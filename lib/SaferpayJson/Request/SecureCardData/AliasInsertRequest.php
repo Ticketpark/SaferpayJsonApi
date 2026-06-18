@@ -40,63 +40,41 @@ final class AliasInsertRequest extends Request
     public const TYPE_POSTFINANCE = 'POSTFINANCE';
     public const TYPE_TWINT = 'TWINT';
 
-    /**
-     * @SerializedName("RegisterAlias")
-     */
+    #[SerializedName('RegisterAlias')]
     private RegisterAlias $registerAlias;
 
-    /**
-     * @SerializedName("Type")
-     */
+    #[SerializedName('Type')]
     private string $type;
 
-    /**
-     * @SerializedName("ReturnUrl")
-     */
+    #[SerializedName('ReturnUrl')]
     private ReturnUrl $returnUrl;
 
-    /**
-     * @SerializedName("Styling")
-     */
+    #[SerializedName('Styling')]
     private ?Styling $styling = null;
 
-    /**
-     * @SerializedName("LanguageCode")
-     */
+    #[SerializedName('LanguageCode')]
     private ?string $languageCode = null;
 
-    /**
-     * @SerializedName("Check")
-     */
+    #[SerializedName('Check')]
     private ?Check $check = null;
 
-    /**
-     * @var array<string>|null
-     *
-     * @SerializedName("PaymentMethods")
-     */
+    #[SerializedName('PaymentMethods')]
     private ?array $paymentMethods = null;
 
-    /**
-     * @SerializedName("CardForm")
-     */
+    #[SerializedName('CardForm')]
     private ?CardForm $cardForm = null;
 
-    /**
-     * @SerializedName("PaymentMeans")
-     */
+    #[SerializedName('PaymentMeans')]
     private ?PaymentMeans $paymentMeans = null;
 
-    /**
-     * @SerializedName("Notification")
-     */
+    #[SerializedName('Notification')]
     private ?Notification $notification = null;
 
     public function __construct(
         RequestConfig $requestConfig,
         RegisterAlias $registerAlias,
         string $type,
-        ReturnUrl $returnUrl
+        ReturnUrl $returnUrl,
     ) {
         $this->registerAlias = $registerAlias;
         $this->type = $type;

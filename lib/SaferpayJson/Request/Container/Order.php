@@ -8,11 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Order
 {
-    /**
-     * @var array<OrderItem>
-     *
-     * @SerializedName("Items")
-     */
+    #[SerializedName('Items')]
     private ?array $items = [];
 
     public function getItems(): ?array

@@ -8,9 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class ReturnUrl
 {
-    /**
-     * @SerializedName("Url")
-     */
+    #[SerializedName('Url')]
     private string $url;
 
     public function __construct(string $url)

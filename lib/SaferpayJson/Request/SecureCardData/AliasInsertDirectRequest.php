@@ -21,29 +21,19 @@ final class AliasInsertDirectRequest extends Request
     public const API_PATH = '/Payment/v1/Alias/InsertDirect';
     public const RESPONSE_CLASS = AliasInsertDirectResponse::class;
 
-    /**
-     * @SerializedName("RegisterAlias")
-     */
+    #[SerializedName('RegisterAlias')]
     private RegisterAlias $registerAlias;
 
-    /**
-     * @SerializedName("PaymentMeans")
-     */
+    #[SerializedName('PaymentMeans')]
     private PaymentMeans $paymentMeans;
 
-    /**
-     * @SerializedName("Check")
-     */
+    #[SerializedName('Check')]
     private ?Check $check = null;
 
-    /**
-     * @SerializedName("ExternalThreeDS")
-     */
+    #[SerializedName('ExternalThreeDS')]
     private ?ExternalThreeDS $externalThreeDS = null;
 
-    /**
-     * @SerializedName("IssuerReference")
-     */
+    #[SerializedName('IssuerReference')]
     private ?IssuerReference $issuerReference = null;
 
     public function __construct(RequestConfig $requestConfig, RegisterAlias $registerAlias, PaymentMeans $paymentMeans)

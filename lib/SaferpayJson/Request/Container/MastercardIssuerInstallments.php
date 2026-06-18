@@ -8,9 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class MastercardIssuerInstallments
 {
-    /**
-     * @SerializedName("ChosenPlan")
-     */
+    #[SerializedName('ChosenPlan')]
     private ?ChosenPlan $chosenPlan = null;
 
     public function getChosenPlan(): ?ChosenPlan

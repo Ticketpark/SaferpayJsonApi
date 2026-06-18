@@ -11,19 +11,13 @@ final class HolderAuthentication
     public const RESULT_OK = 'OK';
     public const RESULT_NOT_SUPPORTED = 'NOT_SUPPORTED';
 
-    /**
-     * @SerializedName("Result")
-     */
+    #[SerializedName('Result')]
     private ?string $result = null;
 
-    /**
-     * @SerializedName("Message")
-     */
+    #[SerializedName('Message')]
     private ?string $message = null;
 
-    /**
-     * @SerializedName("Xid")
-     */
+    #[SerializedName('Xid')]
     private ?string $xid = null;
 
     public function getResult(): ?string

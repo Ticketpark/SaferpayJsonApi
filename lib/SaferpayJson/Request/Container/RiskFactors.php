@@ -14,24 +14,16 @@ final class RiskFactors
     public const DELIVERY_TYPE_PICKUP = 'PICKUP';
     public const DELIVERY_TYPE_HQ = 'HQ';
 
-    /**
-     * @SerializedName("DeliveryType")
-     */
+    #[SerializedName('DeliveryType')]
     private ?string $deliveryType = null;
 
-    /**
-     * @SerializedName("PayerProfile")
-     */
+    #[SerializedName('PayerProfile')]
     private ?PayerProfile $payerProfile = null;
 
-    /**
-     * @SerializedName("IsB2B")
-     */
+    #[SerializedName('IsB2B')]
     private ?bool $isB2B = null;
 
-    /**
-     * @SerializedName("DeviceFingerprintTransactionId")
-     */
+    #[SerializedName('DeviceFingerprintTransactionId')]
     private ?string $deviceFingerprintTransactionId = null;
 
     public function getDeliveryType(): ?string

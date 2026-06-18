@@ -8,19 +8,13 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class CheckResult
 {
-    /**
-     * @SerializedName("Result")
-     */
+    #[SerializedName('Result')]
     private ?string $result = null;
 
-    /**
-     * @SerializedName("Message")
-     */
+    #[SerializedName('Message')]
     private ?string $message = null;
 
-    /**
-     * @SerializedName("Authentication")
-     */
+    #[SerializedName('Authentication')]
     private ?HolderAuthentication $authentication = null;
 
     public function getResult(): ?string

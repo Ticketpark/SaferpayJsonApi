@@ -8,29 +8,19 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class ThreeDs
 {
-    /**
-     * @SerializedName("Authenticated")
-     */
+    #[SerializedName('Authenticated')]
     private ?bool $authenticated = null;
 
-    /**
-     * @SerializedName("LiabilityShift")
-     */
+    #[SerializedName('LiabilityShift')]
     private ?bool $liabilityShift = null;
 
-    /**
-     * @SerializedName("Xid")
-     */
+    #[SerializedName('Xid')]
     private ?string $xid = null;
 
-    /**
-     * @SerializedName("Version")
-     */
+    #[SerializedName('Version')]
     private ?string $version = null;
 
-    /**
-     * @SerializedName("AuthenticationType")
-     */
+    #[SerializedName('AuthenticationType')]
     private ?string $authenticationType = null;
 
     public function isAuthenticated(): ?bool

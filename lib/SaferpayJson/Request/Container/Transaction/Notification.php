@@ -8,12 +8,8 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Notification
 {
-    /**
-     * @var string|null
-     *
-     * @SerializedName("PayerDccReceiptEmail")
-     */
-    private $payerDccReceiptEmail;
+    #[SerializedName('PayerDccReceiptEmail')]
+    private ?string $payerDccReceiptEmail = null;
 
     public function getPayerDccReceiptEmail(): ?string
     {

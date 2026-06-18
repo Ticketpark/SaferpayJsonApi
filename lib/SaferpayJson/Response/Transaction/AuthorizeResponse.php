@@ -17,44 +17,28 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 final class AuthorizeResponse extends Response
 {
-    /**
-     * @SerializedName("Transaction")
-     */
+    #[SerializedName('Transaction')]
     private ?Transaction $transaction = null;
 
-    /**
-     * @SerializedName("PaymentMeans")
-     */
+    #[SerializedName('PaymentMeans')]
     private ?PaymentMeans $paymentMeans = null;
 
-    /**
-     * @SerializedName("Payer")
-     */
+    #[SerializedName('Payer')]
     private ?Payer $payer = null;
 
-    /**
-     * @SerializedName("RegistrationResult")
-     */
+    #[SerializedName('RegistrationResult')]
     private ?RegistrationResult $registrationResult = null;
 
-    /**
-     * @SerializedName("MastercardIssuerInstallments")
-     */
+    #[SerializedName('MastercardIssuerInstallments')]
     private ?MastercardIssuerInstallments $mastercardIssuerInstallments = null;
 
-    /**
-     * @SerializedName("FraudPrevention")
-     */
+    #[SerializedName('FraudPrevention')]
     private ?FraudPrevention $fraudPrevention = null;
 
-    /**
-     * @SerializedName("Liability")
-     */
+    #[SerializedName('Liability')]
     private ?Liability $liability = null;
 
-    /**
-     * @SerializedName("Dcc")
-     */
+    #[SerializedName('Dcc')]
     private ?Dcc $dcc = null;
 
     public function getTransaction(): ?Transaction

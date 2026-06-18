@@ -9,9 +9,9 @@ use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Transaction\AuthorizeReferencedRequest;
 use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeReferencedResponse;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
-class AuthorizeReferencedRequestTest extends CommonRequestTest
+class AuthorizeReferencedRequestTest extends CommonRequestTestCase
 {
     public function testSuccessfulResponse(): void
     {

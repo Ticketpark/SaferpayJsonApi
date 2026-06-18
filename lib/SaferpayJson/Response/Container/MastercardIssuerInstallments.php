@@ -9,28 +9,17 @@ use JMS\Serializer\Annotation\Type;
 
 final class MastercardIssuerInstallments
 {
-    /**
-     * @var array<InstallmentPlan>
-     *
-     * @SerializedName("InstallmentPlans")
-     *
-     * @Type("array")
-     */
+    #[SerializedName('InstallmentPlans')]
+    #[Type('array')]
     private array $installmentPlans = [];
 
-    /**
-     * @SerializedName("CustomPlan")
-     */
+    #[SerializedName('CustomPlan')]
     private ?CustomPlan $customPlan = null;
 
-    /**
-     * @SerializedName("ReceiptFreeText")
-     */
+    #[SerializedName('ReceiptFreeText')]
     private ?string $receiptFreeText = null;
 
-    /**
-     * @SerializedName("ChosenPlan")
-     */
+    #[SerializedName('ChosenPlan')]
     private ?ChosenPlan $chosenPlan = null;
 
     public function getInstallmentPlans(): ?array

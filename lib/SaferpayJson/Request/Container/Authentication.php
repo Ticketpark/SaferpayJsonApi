@@ -15,19 +15,13 @@ final class Authentication
     public const THREEDSCHALLENGE_FORCE = 'FORCE';
     public const THREEDSCHALLENGE_AVOID = 'AVOID';
 
-    /**
-     * @SerializedName("Exemption")
-     */
+    #[SerializedName('Exemption')]
     private ?string $exemption = null;
 
-    /**
-     * @SerializedName("ThreeDsChallenge")
-     */
+    #[SerializedName('ThreeDsChallenge')]
     private ?string $threeDsChallenge = null;
 
-    /**
-     * @SerializedName("ExternalThreeDS")
-     */
+    #[SerializedName('ExternalThreeDS')]
     private ?ExternalThreeDS $externalThreeDS = null;
 
     public function getExemption(): ?string

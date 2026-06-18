@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Redirect
 {
-    /**
-     * @SerializedName("RedirectUrl")
-     */
+    #[SerializedName('RedirectUrl')]
     private ?string $redirectUrl = null;
 
-    /**
-     * @SerializedName("PaymentMeansRequired")
-     */
+    #[SerializedName('PaymentMeansRequired')]
     private ?bool $paymentMeansRequired = null;
 
     public function getRedirectUrl(): ?string

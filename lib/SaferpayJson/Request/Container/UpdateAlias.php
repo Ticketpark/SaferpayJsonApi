@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class UpdateAlias
 {
-    /**
-     * @SerializedName("Id")
-     */
+    #[SerializedName('Id')]
     private string $id;
 
-    /**
-     * @SerializedName("Lifetime")
-     */
+    #[SerializedName('Lifetime')]
     private ?int $lifetime = null;
 
     public function __construct(string $id)

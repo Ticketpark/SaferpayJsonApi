@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class DccReference
 {
-    /**
-     * @SerializedName("SelectedCurrencyCode")
-     */
+    #[SerializedName('SelectedCurrencyCode')]
     private string $selectedCurrencyCode;
 
-    /**
-     * @SerializedName("Token")
-     */
+    #[SerializedName('Token')]
     private string $token;
 
     public function __construct(string $selectedCurrencyCode, string $token)

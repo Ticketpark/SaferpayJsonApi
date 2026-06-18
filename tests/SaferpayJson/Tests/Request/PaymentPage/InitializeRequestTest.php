@@ -9,9 +9,9 @@ use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
 use Ticketpark\SaferpayJson\Response\PaymentPage\InitializeResponse;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
-class InitializeRequestTest extends CommonRequestTest
+class InitializeRequestTest extends CommonRequestTestCase
 {
     public function testSuccessfulResponse(): void
     {

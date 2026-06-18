@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Options
 {
-    /**
-     * @SerializedName("PreAuth")
-     */
+    #[SerializedName('PreAuth')]
     private ?bool $preAuth = null;
 
-    /**
-     * @SerializedName("AllowPartialAuthorization")
-     */
+    #[SerializedName('AllowPartialAuthorization')]
     private ?bool $allowPartialAuthorization = null;
 
     public function isPreAuth(): ?bool

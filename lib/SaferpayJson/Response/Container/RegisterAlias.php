@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class RegisterAlias
 {
-    /**
-     * @SerializedName("Id")
-     */
+    #[SerializedName('Id')]
     private ?string $id = null;
 
-    /**
-     * @SerializedName("Lifetime")
-     */
+    #[SerializedName('Lifetime')]
     private ?int $lifetime = null;
 
     public function getId(): ?string

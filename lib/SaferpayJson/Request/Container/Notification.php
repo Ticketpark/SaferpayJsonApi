@@ -8,31 +8,19 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Notification
 {
-    /**
-     * @var array<string>
-     *
-     * @SerializedName("MerchantEmails")
-     */
+    #[SerializedName('MerchantEmails')]
     private ?array $merchantEmails = [];
 
-    /**
-     * @SerializedName("PayerEmail")
-     */
+    #[SerializedName('PayerEmail')]
     private ?string $payerEmail = null;
 
-    /**
-     * @SerializedName("PayerDccReceiptEmail")
-     */
+    #[SerializedName('PayerDccReceiptEmail')]
     private ?string $payerDccReceiptEmail = null;
 
-    /**
-     * @SerializedName("SuccessNotifyUrl")
-     */
+    #[SerializedName('SuccessNotifyUrl')]
     private ?string $successNotifyUrl = null;
 
-    /**
-     * @SerializedName("FailNotifyUrl")
-     */
+    #[SerializedName('FailNotifyUrl')]
     private ?string $failNotifyUrl = null;
 
     public function getMerchantEmails(): ?array

@@ -15,56 +15,35 @@ class ErrorResponse extends Response
     public const BEHAVIOUR_RETRY = 'RETRY';
     public const BEHAVIOUR_RETRY_LATER = 'RETRY_LATER';
 
-    /**
-     * @SerializedName("Risk")
-     */
+    #[SerializedName('Risk')]
     private ?Risk $risk = null;
 
-    /**
-     * @SerializedName("Behavior")
-     */
+    #[SerializedName('Behavior')]
     private ?string $behaviour = null;
 
-    /**
-     * @SerializedName("ErrorName")
-     */
+    #[SerializedName('ErrorName')]
     private ?string $errorName = null;
 
-    /**
-     * @SerializedName("ErrorMessage")
-     */
+    #[SerializedName('ErrorMessage')]
     private ?string $errorMessage = null;
 
-    /**
-     * @SerializedName("TransactionId")
-     */
+    #[SerializedName('TransactionId')]
     private ?string $transactionId = null;
 
-    /**
-     * @SerializedName("ErrorDetail")
-     *
-     * @Type("array")
-     */
+    #[SerializedName('ErrorDetail')]
+    #[Type('array')]
     private array $errorDetail = [];
 
-    /**
-     * @SerializedName("ProcessorName")
-     */
+    #[SerializedName('ProcessorName')]
     private ?string $processorName = null;
 
-    /**
-     * @SerializedName("ProcessorResult")
-     */
+    #[SerializedName('ProcessorResult')]
     private ?string $processorResult = null;
 
-    /**
-     * @SerializedName("ProcessorMessage")
-     */
+    #[SerializedName('ProcessorMessage')]
     private ?string $processorMessage = null;
 
-    /**
-     * @SerializedName("PayerMessage")
-     */
+    #[SerializedName('PayerMessage')]
     private ?string $payerMessage = null;
 
     public function getRisk(): ?Risk

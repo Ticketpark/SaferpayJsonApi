@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class ResponseHeader
 {
-    /**
-     * @SerializedName("SpecVersion")
-     */
+    #[SerializedName('SpecVersion')]
     private ?string $specVersion = null;
 
-    /**
-     * @SerializedName("RequestId")
-     */
+    #[SerializedName('RequestId')]
     private ?string $requestId = null;
 
     public function getSpecVersion(): ?string

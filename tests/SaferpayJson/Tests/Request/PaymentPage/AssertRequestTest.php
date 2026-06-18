@@ -6,9 +6,9 @@ namespace Ticketpark\SaferpayJson\Tests\Request\PaymentPage;
 
 use Ticketpark\SaferpayJson\Request\PaymentPage\AssertRequest;
 use Ticketpark\SaferpayJson\Response\PaymentPage\AssertResponse;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
-class AssertRequestTest extends CommonRequestTest
+class AssertRequestTest extends CommonRequestTestCase
 {
     public function testSuccessfulResponse(): void
     {

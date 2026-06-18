@@ -22,54 +22,34 @@ final class ExternalThreeDS
     public const TRANS_STATUS_U = 'U';
     public const TRANS_STATUS_I = 'I';
 
-    /**
-     * @SerializedName("AcsTransId")
-     */
+    #[SerializedName('AcsTransId')]
     private string $acsTransId;
 
-    /**
-     * @SerializedName("AuthenticationMode")
-     */
+    #[SerializedName('AuthenticationMode')]
     private ?string $authenticationMode = null;
 
-    /**
-     * @SerializedName("AuthenticationTime")
-     */
+    #[SerializedName('AuthenticationTime')]
     private string $authenticationTime;
 
-    /**
-     * @SerializedName("AuthenticationValue")
-     */
+    #[SerializedName('AuthenticationValue')]
     private string $authenticationValue;
 
-    /**
-     * @SerializedName("DsTransId")
-     */
+    #[SerializedName('DsTransId')]
     private string $dsTransId;
 
-    /**
-     * @SerializedName("Eci")
-     */
+    #[SerializedName('Eci')]
     private string $eci;
 
-    /**
-     * @SerializedName("Scheme")
-     */
+    #[SerializedName('Scheme')]
     private string $scheme;
 
-    /**
-     * @SerializedName("ThreeDsFullVersion")
-     */
+    #[SerializedName('ThreeDsFullVersion')]
     private string $threeDsFullVersion;
 
-    /**
-     * @SerializedName("ThreeDSServerTransId")
-     */
+    #[SerializedName('ThreeDSServerTransId')]
     private string $threeDSServerTransId;
 
-    /**
-     * @SerializedName("TransStatus")
-     */
+    #[SerializedName('TransStatus')]
     private string $transStatus;
 
     public function __construct(
@@ -81,7 +61,7 @@ final class ExternalThreeDS
         string $scheme,
         string $threeDsFullVersion,
         string $threeDSServerTransId,
-        string $transStatus
+        string $transStatus,
     ) {
         $this->acsTransId = $acsTransId;
         $this->authenticationTime = $authenticationTime;

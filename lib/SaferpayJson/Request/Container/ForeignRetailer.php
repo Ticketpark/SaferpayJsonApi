@@ -8,29 +8,19 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class ForeignRetailer
 {
-    /**
-     * @SerializedName("City")
-     */
+    #[SerializedName('City')]
     private ?string $city = null;
 
-    /**
-     * @SerializedName("CountryCode")
-     */
+    #[SerializedName('CountryCode')]
     private string $countryCode;
 
-    /**
-     * @SerializedName("Name")
-     */
+    #[SerializedName('Name')]
     private ?string $name = null;
 
-    /**
-     * @SerializedName("Street")
-     */
+    #[SerializedName('Street')]
     private ?string $street = null;
 
-    /**
-     * @SerializedName("Zip")
-     */
+    #[SerializedName('Zip')]
     private ?string $zip = null;
 
     public function __construct(string $countryCode)

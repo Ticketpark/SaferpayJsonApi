@@ -61,100 +61,62 @@ final class InitializeRequest extends Request
     public const CONDITION_WITH_SUCCESSFUL_THREE_DS_CHALLENGE = 'WITH_SUCCESSFUL_THREE_DS_CHALLENGE';
     public const CONDITION_NONE = 'NONE';
 
-    /**
-     * @SerializedName("TerminalId")
-     */
+    #[SerializedName('TerminalId')]
     private string $terminalId;
 
-    /**
-     * @SerializedName("Payment")
-     */
+    #[SerializedName('Payment')]
     private Payment $payment;
 
-    /**
-     * @SerializedName("ReturnUrl")
-     */
+    #[SerializedName('ReturnUrl')]
     private ReturnUrl $returnUrl;
 
-    /**
-     * @SerializedName("ConfigSet")
-     */
+    #[SerializedName('ConfigSet')]
     private ?string $configSet = null;
 
-    /**
-     * @var array<string>|null
-     *
-     * @SerializedName("PaymentMethods")
-     */
+    #[SerializedName('PaymentMethods')]
     private ?array $paymentMethods = null;
 
-    /**
-     * @SerializedName("PaymentMethodsOptions")
-     */
+    #[SerializedName('PaymentMethodsOptions')]
     private ?PaymentMethodsOptions $paymentMethodsOptions = null;
 
-    /**
-     * @SerializedName("Authentication")
-     */
+    #[SerializedName('Authentication')]
     private ?Authentication $authentication = null;
 
-    /**
-     * @var array<string>|null
-     *
-     * @SerializedName("Wallets")
-     */
+    #[SerializedName('Wallets')]
     private ?array $wallets = null;
 
-    /**
-     * @SerializedName("Payer")
-     */
+    #[SerializedName('Payer')]
     private ?Payer $payer = null;
 
-    /**
-     * @SerializedName("RegisterAlias")
-     */
+    #[SerializedName('RegisterAlias')]
     private ?RegisterAlias $registerAlias = null;
 
-    /**
-     * @SerializedName("Notification")
-     */
+    #[SerializedName('Notification')]
     private ?Notification $notification = null;
 
-    /**
-     * @SerializedName("BillingAddressForm")
-     */
+    #[SerializedName('BillingAddressForm')]
     private ?AddressForm $billingAddressForm = null;
 
-    /**
-     * @SerializedName("DeliveryAddressForm")
-     */
+    #[SerializedName('DeliveryAddressForm')]
     private ?AddressForm $deliveryAddressForm = null;
 
-    /**
-     * @SerializedName("CardForm")
-     */
+    #[SerializedName('CardForm')]
     private ?CardForm $cardForm = null;
 
-    /**
-     * @SerializedName("Condition")
-     */
+    #[SerializedName('Condition')]
     private ?string $condition = null;
 
-    /**
-     * @SerializedName("Order")
-     */
+    #[SerializedName('Order')]
     private ?Order $order = null;
 
-    /**
-     * @SerializedName("RiskFactors")
-     */
+    #[SerializedName('RiskFactors')]
     private ?RiskFactors $riskFactors = null;
 
     public function __construct(
         RequestConfig $requestConfig,
         string $terminalId,
         Payment $payment,
-        ReturnUrl $returnUrl
+        ReturnUrl $returnUrl,
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;

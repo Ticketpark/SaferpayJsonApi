@@ -11,7 +11,7 @@ return (new PhpCsFixer\Config())
         '@Symfony' => true,
         'declare_strict_types' => true,
         'trailing_comma_in_multiline' => [
-            'elements' => ['arrays', 'arguments'],
+            'elements' => ['arrays', 'arguments', 'parameters'],
         ],
     ])
     ->setFinder($finder)

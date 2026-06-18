@@ -11,9 +11,7 @@ final class FraudPrevention
     public const APPROVED = 'APPROVED';
     public const CHALLENGED = 'CHALLENGED';
 
-    /**
-     * @SerializedName("Result")
-     */
+    #[SerializedName('Result')]
     private ?string $result = null;
 
     public function getResult(): ?string

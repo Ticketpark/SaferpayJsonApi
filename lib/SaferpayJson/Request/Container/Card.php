@@ -8,29 +8,19 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Card
 {
-    /**
-     * @SerializedName("Number")
-     */
+    #[SerializedName('Number')]
     private ?string $number = null;
 
-    /**
-     * @SerializedName("ExpYear")
-     */
+    #[SerializedName('ExpYear')]
     private ?int $expYear = null;
 
-    /**
-     * @SerializedName("ExpMonth")
-     */
+    #[SerializedName('ExpMonth')]
     private ?int $expMonth = null;
 
-    /**
-     * @SerializedName("HolderName")
-     */
+    #[SerializedName('HolderName')]
     private ?string $holderName = null;
 
-    /**
-     * @SerializedName("CountryCode")
-     */
+    #[SerializedName('CountryCode')]
     private ?string $countryCode = null;
 
     public function getNumber(): ?string

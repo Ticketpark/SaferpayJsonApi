@@ -7,9 +7,9 @@ namespace SaferpayJson\Tests\Request\Transaction;
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Transaction\InquireRequest;
 use Ticketpark\SaferpayJson\Response\Transaction\InquireResponse;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
-class InquireRequestTest extends CommonRequestTest
+class InquireRequestTest extends CommonRequestTestCase
 {
     public function testSuccessfulResponse(): void
     {

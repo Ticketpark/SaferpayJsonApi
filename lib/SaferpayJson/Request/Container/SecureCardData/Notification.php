@@ -8,12 +8,8 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Notification
 {
-    /**
-     * @var string|null
-     *
-     * @SerializedName("NotifyUrl")
-     */
-    private $notifyUrl;
+    #[SerializedName('NotifyUrl')]
+    private ?string $notifyUrl = null;
 
     public function getNotifyUrl(): ?string
     {

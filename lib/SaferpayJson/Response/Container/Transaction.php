@@ -15,74 +15,46 @@ final class Transaction
     public const STATUS_CAPTURED = 'CAPTURED';
     public const STATUS_PENDING = 'PENDING';
 
-    /**
-     * @SerializedName("Type")
-     */
+    #[SerializedName('Type')]
     private ?string $type = null;
 
-    /**
-     * @SerializedName("Status")
-     */
+    #[SerializedName('Status')]
     private ?string $status = null;
 
-    /**
-     * @SerializedName("Id")
-     */
+    #[SerializedName('Id')]
     private ?string $id = null;
 
-    /**
-     * @SerializedName("CaptureId")
-     */
+    #[SerializedName('CaptureId')]
     private ?string $captureId = null;
 
-    /**
-     * @SerializedName("Date")
-     */
+    #[SerializedName('Date')]
     private ?string $date = null;
 
-    /**
-     * @SerializedName("Amount")
-     */
+    #[SerializedName('Amount')]
     private ?Amount $amount = null;
 
-    /**
-     * @SerializedName("OrderId")
-     */
+    #[SerializedName('OrderId')]
     private ?string $orderId = null;
 
-    /**
-     * @SerializedName("AcquirerName")
-     */
+    #[SerializedName('AcquirerName')]
     private ?string $acquirerName = null;
 
-    /**
-     * @SerializedName("AcquirerReference")
-     */
+    #[SerializedName('AcquirerReference')]
     private ?string $acquirerReference = null;
 
-    /**
-     * @SerializedName("SixTransactionReference")
-     */
+    #[SerializedName('SixTransactionReference')]
     private ?string $sixTransactionReference = null;
 
-    /**
-     * @SerializedName("ApprovalCode")
-     */
+    #[SerializedName('ApprovalCode')]
     private ?string $approvalCode = null;
 
-    /**
-     * @SerializedName("DirectDebit")
-     */
+    #[SerializedName('DirectDebit')]
     private ?DirectDebit $directDebit = null;
 
-    /**
-     * @SerializedName("Invoice")
-     */
+    #[SerializedName('Invoice')]
     private ?Invoice $invoice = null;
 
-    /**
-     * @SerializedName("IssuerReference")
-     */
+    #[SerializedName('IssuerReference')]
     private ?IssuerReference $issuerReference = null;
 
     public function getType(): ?string

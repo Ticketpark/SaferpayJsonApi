@@ -9,9 +9,9 @@ use Ticketpark\SaferpayJson\Request\Container\CaptureReference;
 use Ticketpark\SaferpayJson\Request\Container\Refund;
 use Ticketpark\SaferpayJson\Request\Transaction\RefundRequest;
 use Ticketpark\SaferpayJson\Response\Transaction\RefundResponse;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
-class RefundRequestTest extends CommonRequestTest
+class RefundRequestTest extends CommonRequestTestCase
 {
     public function testSuccessfulResponse(): void
     {
