@@ -32,8 +32,8 @@ final class AliasInsertRequest extends Request
     public const PAYMENT_METHOD_POSTFINANCEPAY = 'POSTFINANCEPAY';
     public const PAYMENT_METHOD_SAFERPAYTEST = 'SAFERPAYTEST';
     public const PAYMENT_METHOD_VISA = 'VISA';
+    public const PAYMENT_METHOD_WERO = 'WERO';
     public const PAYMENT_METHOD_WECHATPAY = 'WECHATPAY';
-    public const PAYMENT_METHOD_WLCRYPTOPAYMENTS = 'WLCRYPTOPAYMENTS';
 
     public const TYPE_CARD = 'CARD';
     public const TYPE_BANK_ACCOUNT = 'BANK_ACCOUNT';

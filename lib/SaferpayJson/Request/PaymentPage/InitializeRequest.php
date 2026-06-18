@@ -36,7 +36,6 @@ final class InitializeRequest extends Request
     public const PAYMENT_METHOD_DIRECTDEBIT = 'DIRECTDEBIT';
     public const PAYMENT_METHOD_EPRZELEWY = 'EPRZELEWY';
     public const PAYMENT_METHOD_EPS = 'EPS';
-    public const PAYMENT_METHOD_GIROPAY = 'GIROPAY';
     public const PAYMENT_METHOD_IDEAL = 'IDEAL';
     public const PAYMENT_METHOD_INVOICE = 'INVOICE';
     public const PAYMENT_METHOD_JCB = 'JCB';
@@ -44,17 +43,15 @@ final class InitializeRequest extends Request
     public const PAYMENT_METHOD_MAESTRO = 'MAESTRO';
     public const PAYMENT_METHOD_MASTERCARD = 'MASTERCARD';
     public const PAYMENT_METHOD_PAYCONIQ = 'PAYCONIQ';
-    public const PAYMENT_METHOD_PAYDIREKT = 'PAYDIREKT';
     public const PAYMENT_METHOD_PAYPAL = 'PAYPAL';
     public const PAYMENT_METHOD_POSTFINANCEPAY = 'POSTFINANCEPAY';
     public const PAYMENT_METHOD_REKA = 'REKA';
     public const PAYMENT_METHOD_SAFERPAYTEST = 'SAFERPAYTEST';
-    public const PAYMENT_METHOD_SOFORT = 'SOFORT';
     public const PAYMENT_METHOD_TWINT = 'TWINT';
     public const PAYMENT_METHOD_UNIONPAY = 'UNIONPAY';
     public const PAYMENT_METHOD_VISA = 'VISA';
+    public const PAYMENT_METHOD_WERO = 'WERO';
     public const PAYMENT_METHOD_WECHATPAY = 'WECHATPAY';
-    public const PAYMENT_METHOD_WLCRYPTOPAYMENTS = 'WLCRYPTOPAYMENTS';
 
     public const WALLET_APPLEPAY = 'APPLEPAY';
     public const WALLET_GOOGLEPAY = 'GOOGLEPAY';

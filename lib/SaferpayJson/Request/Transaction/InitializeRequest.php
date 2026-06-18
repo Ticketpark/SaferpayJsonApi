@@ -36,6 +36,7 @@ final class InitializeRequest extends Request
     public const PAYMENT_METHOD_MASTERCARD = 'MASTERCARD';
     public const PAYMENT_METHOD_REKA = 'REKA';
     public const PAYMENT_METHOD_VISA = 'VISA';
+    public const PAYMENT_METHOD_WERO = 'WERO';
     public const PAYMENT_METHOD_WECHATPAY = 'WECHATPAY';
 
     public const WALLET_MASTERPASS = 'MASTERPASS';

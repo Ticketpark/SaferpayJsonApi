@@ -6,6 +6,7 @@ namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
+use Ticketpark\SaferpayJson\Request\Container\DccReference;
 use Ticketpark\SaferpayJson\Request\Container\Order;
 use Ticketpark\SaferpayJson\Request\Container\Payer;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
@@ -45,6 +46,11 @@ final class AuthorizeDirectRequest extends Request
      * @SerializedName("Authentication")
      */
     private ?Authentication $authentication = null;
+
+    /**
+     * @SerializedName("Dcc")
+     */
+    private ?DccReference $dcc = null;
 
     /**
      * @SerializedName("RegisterAlias")
@@ -128,6 +134,18 @@ final class AuthorizeDirectRequest extends Request
     public function setAuthentication(?Authentication $authentication): self
     {
         $this->authentication = $authentication;
+
+        return $this;
+    }
+
+    public function getDcc(): ?DccReference
+    {
+        return $this->dcc;
+    }
+
+    public function setDcc(?DccReference $dcc): self
+    {
+        $this->dcc = $dcc;
 
         return $this;
     }
