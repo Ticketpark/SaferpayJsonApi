@@ -8,8 +8,8 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class CardForm
 {
-    public const HOLDER_NAME_NONE = 'NONE';
-    public const HOLDER_NAME_MANDATORY = 'MANDATORY';
+    public const string HOLDER_NAME_NONE = 'NONE';
+    public const string HOLDER_NAME_MANDATORY = 'MANDATORY';
 
     #[SerializedName('HolderName')]
     private ?string $holderName = null;

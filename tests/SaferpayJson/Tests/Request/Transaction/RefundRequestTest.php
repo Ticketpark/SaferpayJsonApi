@@ -20,6 +20,7 @@ class RefundRequestTest extends CommonRequestTestCase
         );
     }
 
+    #[\Override]
     public function getInstance(): RefundRequest
     {
         return new RefundRequest(

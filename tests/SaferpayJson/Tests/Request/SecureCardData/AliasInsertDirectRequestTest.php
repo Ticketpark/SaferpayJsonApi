@@ -12,6 +12,7 @@ use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
 class AliasInsertDirectRequestTest extends CommonRequestTestCase
 {
+    #[\Override]
     public function getInstance(): AliasInsertDirectRequest
     {
         return new AliasInsertDirectRequest(

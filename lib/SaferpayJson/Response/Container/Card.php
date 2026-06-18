@@ -8,15 +8,15 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Card
 {
-    public const HOLDER_SEGMENT_UNSPECIFIED = 'UNSPECIFIED';
-    public const HOLDER_SEGMENT_CONSUMER = 'CONSUMER';
-    public const HOLDER_SEGMENT_CORPORATE = 'CORPORATE';
-    public const HOLDER_SEGMENT_CORPORATE_AND_CONSUMER = 'CORPORATE_AND_CONSUMER';
+    public const string HOLDER_SEGMENT_UNSPECIFIED = 'UNSPECIFIED';
+    public const string HOLDER_SEGMENT_CONSUMER = 'CONSUMER';
+    public const string HOLDER_SEGMENT_CORPORATE = 'CORPORATE';
+    public const string HOLDER_SEGMENT_CORPORATE_AND_CONSUMER = 'CORPORATE_AND_CONSUMER';
 
-    public const FUNDING_SOURCE_UNSPECIFIED = 'UNSPECIFIED';
-    public const FUNDING_SOURCE_CREDIT = 'CREDIT';
-    public const FUNDING_SOURCE_DEBIT = 'DEBIT';
-    public const FUNDING_SOURCE_PREPAID = 'PREPAID';
+    public const string FUNDING_SOURCE_UNSPECIFIED = 'UNSPECIFIED';
+    public const string FUNDING_SOURCE_CREDIT = 'CREDIT';
+    public const string FUNDING_SOURCE_DEBIT = 'DEBIT';
+    public const string FUNDING_SOURCE_PREPAID = 'PREPAID';
 
     #[SerializedName('MaskedNumber')]
     private ?string $maskedNumber = null;

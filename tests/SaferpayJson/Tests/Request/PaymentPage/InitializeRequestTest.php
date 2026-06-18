@@ -20,6 +20,7 @@ class InitializeRequestTest extends CommonRequestTestCase
         );
     }
 
+    #[\Override]
     protected function getInstance(): InitializeRequest
     {
         return new InitializeRequest(

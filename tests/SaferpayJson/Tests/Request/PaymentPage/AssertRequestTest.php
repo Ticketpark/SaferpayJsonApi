@@ -17,6 +17,7 @@ class AssertRequestTest extends CommonRequestTestCase
         );
     }
 
+    #[\Override]
     protected function getInstance(): AssertRequest
     {
         return new AssertRequest(

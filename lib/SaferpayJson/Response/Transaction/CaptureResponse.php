@@ -11,8 +11,8 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 final class CaptureResponse extends Response
 {
-    public const STATUS_PENDING = 'PENDING';
-    public const STATUS_CAPTURED = 'CAPTURED';
+    public const string STATUS_PENDING = 'PENDING';
+    public const string STATUS_CAPTURED = 'CAPTURED';
 
     #[SerializedName('TransactionId')]
     private ?string $transactionId = null;

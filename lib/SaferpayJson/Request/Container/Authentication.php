@@ -8,12 +8,12 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Authentication
 {
-    public const EXEMPTION_LOW_VALUE = 'LOW_VALUE';
-    public const EXEMPTION_TRANSACTION_RISK_ANALYSIS = 'TRANSACTION_RISK_ANALYSIS';
-    public const EXEMPTION_RECURRING = 'RECURRING';
+    public const string EXEMPTION_LOW_VALUE = 'LOW_VALUE';
+    public const string EXEMPTION_TRANSACTION_RISK_ANALYSIS = 'TRANSACTION_RISK_ANALYSIS';
+    public const string EXEMPTION_RECURRING = 'RECURRING';
 
-    public const THREEDSCHALLENGE_FORCE = 'FORCE';
-    public const THREEDSCHALLENGE_AVOID = 'AVOID';
+    public const string THREEDSCHALLENGE_FORCE = 'FORCE';
+    public const string THREEDSCHALLENGE_AVOID = 'AVOID';
 
     #[SerializedName('Exemption')]
     private ?string $exemption = null;

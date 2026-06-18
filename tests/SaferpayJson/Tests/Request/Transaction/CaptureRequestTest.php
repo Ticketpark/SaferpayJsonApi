@@ -18,6 +18,7 @@ class CaptureRequestTest extends CommonRequestTestCase
         );
     }
 
+    #[\Override]
     public function getInstance(): CaptureRequest
     {
         return new CaptureRequest(

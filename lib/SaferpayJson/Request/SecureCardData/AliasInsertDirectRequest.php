@@ -18,8 +18,8 @@ use Ticketpark\SaferpayJson\Response\SecureCardData\AliasInsertDirectResponse;
 final class AliasInsertDirectRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Alias/InsertDirect';
-    public const RESPONSE_CLASS = AliasInsertDirectResponse::class;
+    public const string API_PATH = '/Payment/v1/Alias/InsertDirect';
+    public const string RESPONSE_CLASS = AliasInsertDirectResponse::class;
 
     #[SerializedName('Check')]
     private ?Check $check = null;
@@ -86,6 +86,7 @@ final class AliasInsertDirectRequest extends Request
         return $this;
     }
 
+    #[\Override]
     public function execute(): AliasInsertDirectResponse
     {
         /** @var AliasInsertDirectResponse $response */

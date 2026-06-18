@@ -8,10 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class TokenizationTokenPan
 {
-    public const STATUS_ACTIVE = 'ACTIVE';
-    public const STATUS_SUSPENDED = 'SUSPENDED';
-    public const STATUS_DELETED = 'DELETED';
-    public const STATUS_ACTIVATION_IN_PROGRESS = 'ACTIVATION_IN_PROGRESS';
+    public const string STATUS_ACTIVE = 'ACTIVE';
+    public const string STATUS_SUSPENDED = 'SUSPENDED';
+    public const string STATUS_DELETED = 'DELETED';
+    public const string STATUS_ACTIVATION_IN_PROGRESS = 'ACTIVATION_IN_PROGRESS';
 
     #[SerializedName('CardImageUrl')]
     private ?string $cardImageUrl = null;

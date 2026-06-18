@@ -10,6 +10,7 @@ use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
 class AuthorizeRequestTest extends CommonRequestTestCase
 {
+    #[\Override]
     protected function getInstance(): AuthorizeRequest
     {
         return new AuthorizeRequest(

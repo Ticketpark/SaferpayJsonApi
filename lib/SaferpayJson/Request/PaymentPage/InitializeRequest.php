@@ -27,8 +27,8 @@ use Ticketpark\SaferpayJson\Response\PaymentPage\InitializeResponse;
 final class InitializeRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/PaymentPage/Initialize';
-    public const RESPONSE_CLASS = InitializeResponse::class;
+    public const string API_PATH = '/Payment/v1/PaymentPage/Initialize';
+    public const string RESPONSE_CLASS = InitializeResponse::class;
 
     #[SerializedName('ConfigSet')]
     private ?string $configSet = null;
@@ -273,6 +273,7 @@ final class InitializeRequest extends Request
         return $this;
     }
 
+    #[\Override]
     public function execute(): InitializeResponse
     {
         /** @var InitializeResponse $response */

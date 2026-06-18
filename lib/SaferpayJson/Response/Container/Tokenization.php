@@ -8,12 +8,12 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Tokenization
 {
-    public const STATUS_SUCCESSFUL = 'SUCCESSFUL';
-    public const STATUS_FAILED = 'FAILED';
-    public const STATUS_SCHEME_NOT_SUPPORTED = 'SCHEME_NOT_SUPPORTED';
-    public const STATUS_ACQUIRER_NOT_SUPPORTED = 'ACQUIRER_NOT_SUPPORTED';
-    public const STATUS_NOT_PERFORMED = 'NOT_PERFORMED';
-    public const STATUS_DENIED_BY_SCHEME = 'DENIED_BY_SCHEME';
+    public const string STATUS_SUCCESSFUL = 'SUCCESSFUL';
+    public const string STATUS_FAILED = 'FAILED';
+    public const string STATUS_SCHEME_NOT_SUPPORTED = 'SCHEME_NOT_SUPPORTED';
+    public const string STATUS_ACQUIRER_NOT_SUPPORTED = 'ACQUIRER_NOT_SUPPORTED';
+    public const string STATUS_NOT_PERFORMED = 'NOT_PERFORMED';
+    public const string STATUS_DENIED_BY_SCHEME = 'DENIED_BY_SCHEME';
 
     #[SerializedName('Program')]
     private ?string $program = null;

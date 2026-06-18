@@ -13,8 +13,8 @@ use Ticketpark\SaferpayJson\Response\SecureCardData\AliasAssertInsertResponse;
 final class AliasAssertInsertRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Alias/AssertInsert';
-    public const RESPONSE_CLASS = AliasAssertInsertResponse::class;
+    public const string API_PATH = '/Payment/v1/Alias/AssertInsert';
+    public const string RESPONSE_CLASS = AliasAssertInsertResponse::class;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -29,6 +29,7 @@ final class AliasAssertInsertRequest extends Request
         return $this->token;
     }
 
+    #[\Override]
     public function execute(): AliasAssertInsertResponse
     {
         /** @var AliasAssertInsertResponse $response */

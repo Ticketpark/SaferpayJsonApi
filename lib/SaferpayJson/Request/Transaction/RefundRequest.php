@@ -17,8 +17,8 @@ use Ticketpark\SaferpayJson\Response\Transaction\RefundResponse;
 final class RefundRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Transaction/Refund';
-    public const RESPONSE_CLASS = RefundResponse::class;
+    public const string API_PATH = '/Payment/v1/Transaction/Refund';
+    public const string RESPONSE_CLASS = RefundResponse::class;
 
     #[SerializedName('PendingNotification')]
     private ?PendingNotification $pendingNotification = null;
@@ -70,6 +70,7 @@ final class RefundRequest extends Request
         return $this;
     }
 
+    #[\Override]
     public function execute(): RefundResponse
     {
         /** @var RefundResponse $response */

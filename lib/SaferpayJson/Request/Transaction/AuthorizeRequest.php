@@ -15,8 +15,8 @@ use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeResponse;
 final class AuthorizeRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Transaction/Authorize';
-    public const RESPONSE_CLASS = AuthorizeResponse::class;
+    public const string API_PATH = '/Payment/v1/Transaction/Authorize';
+    public const string RESPONSE_CLASS = AuthorizeResponse::class;
 
     #[SerializedName('Condition')]
     private ?ThreeDsCondition $condition = null;
@@ -76,6 +76,7 @@ final class AuthorizeRequest extends Request
         return $this;
     }
 
+    #[\Override]
     public function execute(): AuthorizeResponse
     {
         /** @var AuthorizeResponse $response */

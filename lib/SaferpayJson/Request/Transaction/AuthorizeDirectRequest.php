@@ -22,8 +22,8 @@ use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeDirectResponse;
 final class AuthorizeDirectRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Transaction/AuthorizeDirect';
-    public const RESPONSE_CLASS = AuthorizeDirectResponse::class;
+    public const string API_PATH = '/Payment/v1/Transaction/AuthorizeDirect';
+    public const string RESPONSE_CLASS = AuthorizeDirectResponse::class;
 
     #[SerializedName('Authentication')]
     private ?Authentication $authentication = null;
@@ -157,6 +157,7 @@ final class AuthorizeDirectRequest extends Request
         return $this;
     }
 
+    #[\Override]
     public function execute(): AuthorizeDirectResponse
     {
         /** @var AuthorizeDirectResponse $response */

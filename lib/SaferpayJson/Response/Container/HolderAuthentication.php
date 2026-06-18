@@ -8,8 +8,8 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class HolderAuthentication
 {
-    public const RESULT_OK = 'OK';
-    public const RESULT_NOT_SUPPORTED = 'NOT_SUPPORTED';
+    public const string RESULT_OK = 'OK';
+    public const string RESULT_NOT_SUPPORTED = 'NOT_SUPPORTED';
 
     #[SerializedName('Result')]
     private ?string $result = null;

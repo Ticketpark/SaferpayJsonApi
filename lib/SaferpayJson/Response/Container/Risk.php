@@ -8,10 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Risk
 {
-    public const BLOCKREASON_BLACKLIST_IP = 'BLACKLIST_IP';
-    public const BLOCKREASON_BLACKLIST_IP_ORIGIN = 'BLACKLIST_IP_ORIGIN';
-    public const BLOCKREASON_BLACKLIST_PAYMENT_MEANS = 'BLACKLIST_PAYMENT_MEANS';
-    public const BLOCKREASON_BLACKLIST_PAYMENT_MEANS_ORIGIN = 'BLACKLIST_PAYMENT_MEANS_ORIGIN';
+    public const string BLOCKREASON_BLACKLIST_IP = 'BLACKLIST_IP';
+    public const string BLOCKREASON_BLACKLIST_IP_ORIGIN = 'BLACKLIST_IP_ORIGIN';
+    public const string BLOCKREASON_BLACKLIST_PAYMENT_MEANS = 'BLACKLIST_PAYMENT_MEANS';
+    public const string BLOCKREASON_BLACKLIST_PAYMENT_MEANS_ORIGIN = 'BLACKLIST_PAYMENT_MEANS_ORIGIN';
 
     #[SerializedName('BlockReason')]
     private ?string $blockReason = null;

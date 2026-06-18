@@ -8,7 +8,7 @@ PHP library (`ticketpark/saferpay-json-api`) that wraps the [Saferpay JSON API](
 
 - **Namespace:** `Ticketpark\SaferpayJson`
 - **Autoload:** `lib/SaferpayJson/` (PSR-4)
-- **PHP:** 8.2–8.5
+- **PHP:** 8.3–8.5
 - **Key dependencies:** `jms/serializer`, `psr/http-client`, `guzzlehttp/guzzle` (default HTTP client)
 
 Check `lib/SaferpayJson/Request/Container/RequestHeader.php` and `README.md` for the current target API version.
@@ -172,7 +172,7 @@ Request tests extend `CommonRequestTestCase`:
 - Call `doTestSuccessfulResponse(ResponseClass::class)` for the happy path
 - Error path and `RequestConfig` retry validation are inherited
 
-CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.2–8.5 (prefer-lowest and prefer-stable). Static analysis (PHPStan level 8, php-cs-fixer, `composer validate`) runs on PHP 8.5.
+CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.3–8.5 (prefer-lowest and prefer-stable). Static analysis (PHPStan level 8, php-cs-fixer, `composer validate`) runs on PHP 8.5.
 
 ## Common pitfalls
 

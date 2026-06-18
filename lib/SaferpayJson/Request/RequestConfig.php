@@ -11,10 +11,10 @@ use Ticketpark\SaferpayJson\SerializerFactory;
 
 final class RequestConfig
 {
-    public const MIN_RETRY_INDICATOR = 0;
-    public const MAX_RETRY_INDICATOR = 9;
-    private const ROOT_URL = 'https://www.saferpay.com/api';
-    private const ROOT_URL_TEST = 'https://test.saferpay.com/api';
+    public const int MIN_RETRY_INDICATOR = 0;
+    public const int MAX_RETRY_INDICATOR = 9;
+    private const string ROOT_URL = 'https://www.saferpay.com/api';
+    private const string ROOT_URL_TEST = 'https://test.saferpay.com/api';
 
     private string $rootUrl;
 

@@ -8,11 +8,11 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class AuthenticationResult
 {
-    public const AUTHENTICATION_TYPE_STRONG_CUSTOMER_AUTHENTICATION = 'STRONG_CUSTOMER_AUTHENTICATION';
-    public const AUTHENTICATION_TYPE_FRICTIONLESS = 'FRICTIONLESS';
-    public const AUTHENTICATION_TYPE_ATTEMPT = 'ATTEMPT';
-    public const AUTHENTICATION_TYPE_UNSPECIFIED = 'UNSPECIFIED';
-    public const AUTHENTICATION_TYPE_NONE = 'NONE';
+    public const string AUTHENTICATION_TYPE_STRONG_CUSTOMER_AUTHENTICATION = 'STRONG_CUSTOMER_AUTHENTICATION';
+    public const string AUTHENTICATION_TYPE_FRICTIONLESS = 'FRICTIONLESS';
+    public const string AUTHENTICATION_TYPE_ATTEMPT = 'ATTEMPT';
+    public const string AUTHENTICATION_TYPE_UNSPECIFIED = 'UNSPECIFIED';
+    public const string AUTHENTICATION_TYPE_NONE = 'NONE';
 
     #[SerializedName('Authenticated')]
     private ?bool $authenticated = null;

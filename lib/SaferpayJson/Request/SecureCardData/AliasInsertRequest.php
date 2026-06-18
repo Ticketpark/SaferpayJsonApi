@@ -22,8 +22,8 @@ use Ticketpark\SaferpayJson\Response\SecureCardData\AliasInsertResponse;
 final class AliasInsertRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Alias/Insert';
-    public const RESPONSE_CLASS = AliasInsertResponse::class;
+    public const string API_PATH = '/Payment/v1/Alias/Insert';
+    public const string RESPONSE_CLASS = AliasInsertResponse::class;
 
     #[SerializedName('Styling')]
     private ?Styling $styling = null;
@@ -148,6 +148,7 @@ final class AliasInsertRequest extends Request
         return $this;
     }
 
+    #[\Override]
     public function execute(): AliasInsertResponse
     {
         /** @var AliasInsertResponse $response */

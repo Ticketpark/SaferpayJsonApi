@@ -8,8 +8,8 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class FraudPrevention
 {
-    public const APPROVED = 'APPROVED';
-    public const CHALLENGED = 'CHALLENGED';
+    public const string APPROVED = 'APPROVED';
+    public const string CHALLENGED = 'CHALLENGED';
 
     #[SerializedName('Result')]
     private ?string $result = null;

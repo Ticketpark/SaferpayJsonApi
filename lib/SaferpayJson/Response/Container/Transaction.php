@@ -8,12 +8,12 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Transaction
 {
-    public const TYPE_PAYMENT = 'PAYMENT';
+    public const string TYPE_PAYMENT = 'PAYMENT';
 
-    public const STATUS_AUTHORIZED = 'AUTHORIZED';
-    public const STATUS_CANCELED = 'CANCELED';
-    public const STATUS_CAPTURED = 'CAPTURED';
-    public const STATUS_PENDING = 'PENDING';
+    public const string STATUS_AUTHORIZED = 'AUTHORIZED';
+    public const string STATUS_CANCELED = 'CANCELED';
+    public const string STATUS_CAPTURED = 'CAPTURED';
+    public const string STATUS_PENDING = 'PENDING';
 
     #[SerializedName('Type')]
     private ?string $type = null;

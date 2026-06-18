@@ -18,6 +18,7 @@ class CancelRequestTest extends CommonRequestTestCase
         );
     }
 
+    #[\Override]
     public function getInstance(): CancelRequest
     {
         return new CancelRequest(

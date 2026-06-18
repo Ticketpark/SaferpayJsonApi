@@ -18,6 +18,7 @@ class InquireRequestTest extends CommonRequestTestCase
         );
     }
 
+    #[\Override]
     protected function getInstance(): InquireRequest
     {
         return new InquireRequest(

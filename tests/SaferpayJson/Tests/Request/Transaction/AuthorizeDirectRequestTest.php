@@ -20,6 +20,7 @@ class AuthorizeDirectRequestTest extends CommonRequestTestCase
         );
     }
 
+    #[\Override]
     public function getInstance(): AuthorizeDirectRequest
     {
         return new AuthorizeDirectRequest(
