@@ -41,83 +41,53 @@ final class InitializeRequest extends Request
 
     public const WALLET_MASTERPASS = 'MASTERPASS';
 
-    /**
-     * @SerializedName("ConfigSet")
-     */
+    #[SerializedName('ConfigSet')]
     private ?string $configSet = null;
 
-    /**
-     * @SerializedName("TerminalId")
-     */
+    #[SerializedName('TerminalId')]
     private string $terminalId;
 
-    /**
-     * @SerializedName("Payment")
-     */
+    #[SerializedName('Payment')]
     private Payment $payment;
 
-    /**
-     * @SerializedName("PaymentMeans")
-     */
+    #[SerializedName('PaymentMeans')]
     private ?PaymentMeans $paymentMeans = null;
 
-    /**
-     * @SerializedName("Authentication")
-     */
+    #[SerializedName('Authentication')]
     private ?Authentication $authentication = null;
 
-    /**
-     * @SerializedName("Payer")
-     */
+    #[SerializedName('Payer')]
     private ?Payer $payer = null;
 
-    /**
-     * @SerializedName("ReturnUrl")
-     */
-    private ?ReturnUrl $returnUrl;
+    #[SerializedName('ReturnUrl')]
+    private ReturnUrl $returnUrl;
 
-    /**
-     * @SerializedName("Styling")
-     */
+    #[SerializedName('Styling')]
     private ?Styling $styling = null;
 
-    /**
-     * @var array<string>|null
-     *
-     * @SerializedName("PaymentMethods")
-     */
+    #[SerializedName('PaymentMethods')]
     private ?array $paymentMethods = null;
 
-    /**
-     * @SerializedName("Order")
-     */
+    #[SerializedName('Order')]
     private ?Order $order = null;
 
-    /**
-     * @SerializedName("RiskFactors")
-     */
+    #[SerializedName('RiskFactors')]
     private ?RiskFactors $riskFactors = null;
 
-    /**
-     * @SerializedName("CardForm")
-     */
+    #[SerializedName('CardForm')]
     private ?CardForm $cardForm = null;
 
-    /**
-     * @SerializedName("RedirectNotifyUrls")
-     */
+    #[SerializedName('RedirectNotifyUrls')]
     private ?RedirectNotifyUrls $redirectNotifyUrls = null;
 
-    /**
-     * @SerializedName("Notification")
-     */
+    #[SerializedName('Notification')]
     private ?Notification $notification = null;
 
     public function __construct(
         RequestConfig $requestConfig,
         string $terminalId,
         Payment $payment,
-        ReturnUrl $returnUrl
+        ReturnUrl $returnUrl,
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;
@@ -234,7 +204,7 @@ final class InitializeRequest extends Request
         return $this->payer;
     }
 
-    public function getReturnUrl(): ?ReturnUrl
+    public function getReturnUrl(): ReturnUrl
     {
         return $this->returnUrl;
     }

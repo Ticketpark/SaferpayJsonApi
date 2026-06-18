@@ -18,49 +18,31 @@ final class Card
     public const FUNDING_SOURCE_DEBIT = 'DEBIT';
     public const FUNDING_SOURCE_PREPAID = 'PREPAID';
 
-    /**
-     * @SerializedName("MaskedNumber")
-     */
+    #[SerializedName('MaskedNumber')]
     private ?string $maskedNumber = null;
 
-    /**
-     * @SerializedName("ExpYear")
-     */
+    #[SerializedName('ExpYear')]
     private ?int $expYear = null;
 
-    /**
-     * @SerializedName("ExpMonth")
-     */
+    #[SerializedName('ExpMonth')]
     private ?int $expMonth = null;
 
-    /**
-     * @SerializedName("HolderName")
-     */
+    #[SerializedName('HolderName')]
     private ?string $holderName = null;
 
-    /**
-     * @SerializedName("HolderSegment")
-     */
+    #[SerializedName('HolderSegment')]
     private ?string $holderSegment = null;
 
-    /**
-     * @SerializedName("FundingSource")
-     */
+    #[SerializedName('FundingSource')]
     private ?string $fundingSource = null;
 
-    /**
-     * @SerializedName("CountryCode")
-     */
+    #[SerializedName('CountryCode')]
     private ?string $countryCode = null;
 
-    /**
-     * @SerializedName("HashValue")
-     */
+    #[SerializedName('HashValue')]
     private ?string $hashValue = null;
 
-    /**
-     * @SerializedName("TokenPan")
-     */
+    #[SerializedName('TokenPan')]
     private ?TokenPan $tokenPan = null;
 
     public function getMaskedNumber(): ?string

@@ -8,59 +8,37 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class PaymentMeans
 {
-    /**
-     * @SerializedName("Brand")
-     */
+    #[SerializedName('Brand')]
     private ?Brand $brand = null;
 
-    /**
-     * @SerializedName("DisplayText")
-     */
+    #[SerializedName('DisplayText')]
     private ?string $displayText = null;
 
-    /**
-     * @SerializedName("Wallet")
-     */
+    #[SerializedName('Wallet')]
     private ?string $wallet = null;
 
-    /**
-     * @SerializedName("Card")
-     */
+    #[SerializedName('Card')]
     private ?Card $card = null;
 
-    /**
-     * @SerializedName("BankAccount")
-     */
+    #[SerializedName('BankAccount')]
     private ?BankAccount $bankAccount = null;
 
-    /**
-     * @SerializedName("Twint")
-     */
+    #[SerializedName('Twint')]
     private ?Twint $twint = null;
 
-    /**
-     * @SerializedName("SaferpayFields")
-     */
+    #[SerializedName('SaferpayFields')]
     private ?SaferpayFields $saferpayFields = null;
 
-    /**
-     * @SerializedName("Alias")
-     */
+    #[SerializedName('Alias')]
     private ?Alias $alias = null;
 
-    /**
-     * @SerializedName("SchemeToken")
-     */
+    #[SerializedName('SchemeToken')]
     private ?SchemeToken $schemeToken = null;
 
-    /**
-     * @SerializedName("ApplePay")
-     */
+    #[SerializedName('ApplePay')]
     private ?ApplePay $applePay = null;
 
-    /**
-     * @SerializedName("GooglePay")
-     */
+    #[SerializedName('GooglePay')]
     private ?GooglePay $googlePay = null;
 
     public function getBrand(): ?Brand

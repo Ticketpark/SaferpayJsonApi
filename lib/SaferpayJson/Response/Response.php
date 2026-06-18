@@ -9,9 +9,7 @@ use Ticketpark\SaferpayJson\Response\Container\ResponseHeader;
 
 abstract class Response
 {
-    /**
-     * @SerializedName("ResponseHeader")
-     */
+    #[SerializedName('ResponseHeader')]
     protected ?ResponseHeader $responseHeader = null;
 
     public function getResponseHeader(): ?ResponseHeader

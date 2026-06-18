@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Amount
 {
-    /**
-     * @SerializedName("Value")
-     */
+    #[SerializedName('Value')]
     private int $value;
 
-    /**
-     * @SerializedName("CurrencyCode")
-     */
+    #[SerializedName('CurrencyCode')]
     private string $currencyCode;
 
     public function __construct(int $value, string $currencyCode)

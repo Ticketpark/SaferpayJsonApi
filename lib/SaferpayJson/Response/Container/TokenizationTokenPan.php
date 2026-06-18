@@ -13,24 +13,16 @@ final class TokenizationTokenPan
     public const STATUS_DELETED = 'DELETED';
     public const STATUS_ACTIVATION_IN_PROGRESS = 'ACTIVATION_IN_PROGRESS';
 
-    /**
-     * @SerializedName("CardImageUrl")
-     */
+    #[SerializedName('CardImageUrl')]
     private ?string $cardImageUrl = null;
 
-    /**
-     * @SerializedName("ExpMonth")
-     */
+    #[SerializedName('ExpMonth')]
     private ?int $expMonth = null;
 
-    /**
-     * @SerializedName("ExpYear")
-     */
+    #[SerializedName('ExpYear')]
     private ?int $expYear = null;
 
-    /**
-     * @SerializedName("Status")
-     */
+    #[SerializedName('Status')]
     private ?string $status = null;
 
     public function getCardImageUrl(): ?string

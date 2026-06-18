@@ -6,9 +6,9 @@ namespace SaferpayJson\Tests\Request\Transaction;
 
 use Ticketpark\SaferpayJson\Request\Transaction\AuthorizeRequest;
 use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeResponse;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
-class AuthorizeRequestTest extends CommonRequestTest
+class AuthorizeRequestTest extends CommonRequestTestCase
 {
     protected function getInstance()
     {

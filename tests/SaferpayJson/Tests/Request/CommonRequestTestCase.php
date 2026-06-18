@@ -6,9 +6,11 @@ namespace Ticketpark\SaferpayJson\Tests\Request;
 
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use GuzzleHttp\Psr7\Utils as GuzzleUtils;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\StreamInterface;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayException;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -16,7 +18,7 @@ use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\Response;
 use Ticketpark\SaferpayJson\SerializerFactory;
 
-abstract class CommonRequestTest extends TestCase
+abstract class CommonRequestTestCase extends TestCase
 {
     private ?bool $successful = null;
 
@@ -37,7 +39,7 @@ abstract class CommonRequestTest extends TestCase
         }
     }
 
-    public function getRequestConfigValidationParams(): array
+    public static function getRequestConfigValidationParams(): array
     {
         return [
             'first try' => [null, RequestConfig::MIN_RETRY_INDICATOR],
@@ -47,14 +49,12 @@ abstract class CommonRequestTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getRequestConfigValidationParams
-     */
+    #[DataProvider('getRequestConfigValidationParams')]
     public function testRequestConfigValidation(
         ?string $requestId,
         int $retryIndicator,
-        ?string $expectedException = null): void
-    {
+        ?string $expectedException = null,
+    ): void {
         $config = new RequestConfig(
             'apiKey',
             'apiSecret',
@@ -102,7 +102,7 @@ abstract class CommonRequestTest extends TestCase
         return $initializer->execute();
     }
 
-    private function getClientMock(): MockObject
+    private function getClientMock(): MockObject&ClientInterface
     {
         $browser = $this->createMock(ClientInterface::class);
 
@@ -113,28 +113,18 @@ abstract class CommonRequestTest extends TestCase
         return $browser;
     }
 
-    private function getResponseMock(): MockObject
+    private function getResponseMock(): MockObject&GuzzleResponse
     {
-        $response = $this->getMockBuilder(GuzzleResponse::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods([
-                'getStatusCode',
-                'getBody',
-            ])
-            ->getMock();
+        $response = $this->createMock(GuzzleResponse::class);
 
-        $response->expects($this->any())
-            ->method('getStatusCode')
-            ->will($this->returnValue($this->successful ? 200 : 404));
+        $response->method('getStatusCode')
+            ->willReturn($this->successful ? 200 : 404);
 
-        if ($this->successful) {
-            $content = $this->getFakedApiResponse($this->successfulResponseClass);
-        } else {
-            $content = $this->getFakedApiResponse(ErrorResponse::class);
-        }
+        $content = $this->successful
+            ? $this->getFakedApiResponse($this->successfulResponseClass)
+            : $this->getFakedApiResponse(ErrorResponse::class);
 
-        $response->expects($this->any())
-            ->method('getBody')
+        $response->method('getBody')
             ->willReturn($this->getBodyContent($content));
 
         return $response;
@@ -147,7 +137,7 @@ abstract class CommonRequestTest extends TestCase
         return SerializerFactory::get()->serialize($response, 'json');
     }
 
-    private function getBodyContent(string $content)
+    private function getBodyContent(string $content): StreamInterface
     {
         return GuzzleUtils::streamFor($content);
     }

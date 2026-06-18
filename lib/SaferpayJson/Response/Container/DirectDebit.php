@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class DirectDebit
 {
-    /**
-     * @SerializedName("MandateId")
-     */
+    #[SerializedName('MandateId')]
     private ?string $mandateId = null;
 
-    /**
-     * @SerializedName("CreditorId")
-     */
+    #[SerializedName('CreditorId')]
     private ?string $creditorId = null;
 
     public function getMandateId(): ?string

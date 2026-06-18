@@ -20,30 +20,22 @@ final class RefundRequest extends Request
     public const API_PATH = '/Payment/v1/Transaction/Refund';
     public const RESPONSE_CLASS = RefundResponse::class;
 
-    /**
-     * @SerializedName("Refund")
-     */
+    #[SerializedName('Refund')]
     private Refund $refund;
 
-    /**
-     * @SerializedName("CaptureReference")
-     */
+    #[SerializedName('CaptureReference')]
     private CaptureReference $captureReference;
 
-    /**
-     * @SerializedName("PendingNotification")
-     */
+    #[SerializedName('PendingNotification')]
     private ?PendingNotification $pendingNotification = null;
 
-    /**
-     * @SerializedName("PaymentMethodsOptions")
-     */
+    #[SerializedName('PaymentMethodsOptions')]
     private ?PaymentMethodsOptions $paymentMethodsOptions = null;
 
     public function __construct(
         RequestConfig $requestConfig,
         Refund $refund,
-        CaptureReference $captureReference
+        CaptureReference $captureReference,
     ) {
         $this->refund = $refund;
         $this->captureReference = $captureReference;

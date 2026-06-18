@@ -10,21 +10,14 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 final class InitializeResponse extends Response
 {
-    /**
-     * @SerializedName("Token")
-     */
+    #[SerializedName('Token')]
     private ?string $token = null;
 
-    /**
-     * @SerializedName("Expiration")
-     *
-     * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
-     */
+    #[SerializedName('Expiration')]
+    #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
     private ?\DateTime $expiration = null;
 
-    /**
-     * @SerializedName("RedirectUrl")
-     */
+    #[SerializedName('RedirectUrl')]
     private ?string $redirectUrl = null;
 
     public function getToken(): ?string

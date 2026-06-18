@@ -18,20 +18,16 @@ final class AliasUpdateRequest extends Request
     public const API_PATH = '/Payment/v1/Alias/Update';
     public const RESPONSE_CLASS = AliasUpdateResponse::class;
 
-    /**
-     * @SerializedName("UpdateAlias")
-     */
+    #[SerializedName('UpdateAlias')]
     private UpdateAlias $updateAlias;
 
-    /**
-     * @SerializedName("UpdatePaymentMeans")
-     */
+    #[SerializedName('UpdatePaymentMeans')]
     private UpdatePaymentMeans $updatePaymentMeans;
 
     public function __construct(
         RequestConfig $requestConfig,
         UpdateAlias $updateAlias,
-        UpdatePaymentMeans $updatePaymentMeans
+        UpdatePaymentMeans $updatePaymentMeans,
     ) {
         $this->updateAlias = $updateAlias;
         $this->updatePaymentMeans = $updatePaymentMeans;

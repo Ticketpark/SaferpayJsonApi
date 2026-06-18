@@ -8,9 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Klarna
 {
-    /**
-     * @SerializedName("Attachment")
-     */
+    #[SerializedName('Attachment')]
     private Attachment $attachment;
 
     public function __construct(Attachment $attachment)

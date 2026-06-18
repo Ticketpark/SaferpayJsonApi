@@ -6,9 +6,9 @@ namespace Ticketpark\SaferpayJson\Tests\Request\SecureCardData;
 
 use Ticketpark\SaferpayJson\Request\SecureCardData\AliasAssertInsertRequest;
 use Ticketpark\SaferpayJson\Response\SecureCardData\AliasAssertInsertResponse;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
-class AliasAssertInsertRequestTest extends CommonRequestTest
+class AliasAssertInsertRequestTest extends CommonRequestTestCase
 {
     public function testSuccessfulResponse(): void
     {

@@ -9,11 +9,8 @@ use JMS\Serializer\Annotation\Type;
 
 final class Twint
 {
-    /**
-     * @SerializedName("CertificateExpirationDate")
-     *
-     * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
-     */
+    #[SerializedName('CertificateExpirationDate')]
+    #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
     private ?\DateTime $certificateExpirationDate = null;
 
     public function getCertificateExpirationDate(): ?\DateTime

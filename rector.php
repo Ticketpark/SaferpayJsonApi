@@ -11,8 +11,7 @@ return RectorConfig::configure()
         __DIR__ . '/lib',
         __DIR__ . '/tests',
     ])
-    // uncomment to reach your current PHP version
-    // ->withPhpSets()
+    ->withPhpVersion(\Rector\ValueObject\PhpVersion::PHP_82)
     ->withImportNames(importShortClasses: false, removeUnusedImports: true)
     ->withRules([
         AddVoidReturnTypeWhereNoReturnRector::class,

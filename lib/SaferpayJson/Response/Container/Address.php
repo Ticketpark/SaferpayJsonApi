@@ -14,76 +14,47 @@ final class Address
     public const GENDER_DIVERSE = 'DIVERSE';
     public const GENDER_COMPANY = 'COMPANY';
 
-    /**
-     * @SerializedName("FirstName")
-     */
+    #[SerializedName('FirstName')]
     private ?string $firstName = null;
 
-    /**
-     * @SerializedName("LastName")
-     */
+    #[SerializedName('LastName')]
     private ?string $lastName = null;
 
-    /**
-     * @SerializedName("Company")
-     */
+    #[SerializedName('Company')]
     private ?string $company = null;
 
-    /**
-     * @SerializedName("Gender")
-     */
+    #[SerializedName('Gender')]
     private ?string $gender = null;
 
-    /**
-     * @SerializedName("Street")
-     */
+    #[SerializedName('Street')]
     private ?string $street = null;
 
-    /**
-     * @SerializedName("Zip")
-     */
+    #[SerializedName('Zip')]
     private ?string $zip = null;
 
-    /**
-     * @SerializedName("City")
-     */
+    #[SerializedName('City')]
     private ?string $city = null;
 
-    /**
-     * @SerializedName("CountryCode")
-     */
+    #[SerializedName('CountryCode')]
     private ?string $countryCode = null;
 
-    /**
-     * @SerializedName("Email")
-     */
+    #[SerializedName('Email')]
     private ?string $email = null;
 
-    /**
-     * @SerializedName("DateOfBirth")
-     *
-     * @Type("DateTime<'Y-m-d'>")
-     */
+    #[SerializedName('DateOfBirth')]
+    #[Type("DateTime<'Y-m-d'>")]
     private ?\DateTime $dateOfBirth = null;
 
-    /**
-     * @SerializedName("Street2")
-     */
+    #[SerializedName('Street2')]
     private ?string $street2 = null;
 
-    /**
-     * @SerializedName("CountrySubdivisionCode")
-     */
+    #[SerializedName('CountrySubdivisionCode')]
     private ?string $countrySubdivisionCode = null;
 
-    /**
-     * @SerializedName("Phone")
-     */
+    #[SerializedName('Phone')]
     private ?string $phone = null;
 
-    /**
-     * @SerializedName("VatNumber")
-     */
+    #[SerializedName('VatNumber')]
     private ?string $vatNumber = null;
 
     public function getFirstName(): ?string

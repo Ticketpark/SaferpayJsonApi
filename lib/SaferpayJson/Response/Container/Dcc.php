@@ -8,19 +8,13 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Dcc
 {
-    /**
-     * @SerializedName("PayerAmount")
-     */
+    #[SerializedName('PayerAmount')]
     private ?Amount $payerAmount = null;
 
-    /**
-     * @SerializedName("Markup")
-     */
+    #[SerializedName('Markup')]
     private ?string $markup = null;
 
-    /**
-     * @SerializedName("ExchangeRate")
-     */
+    #[SerializedName('ExchangeRate')]
     private ?string $exchangeRate = null;
 
     public function getPayerAmount(): ?Amount

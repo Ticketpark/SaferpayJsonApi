@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class IssuerReference
 {
-    /**
-     * @SerializedName("TransactionStamp")
-     */
+    #[SerializedName('TransactionStamp')]
     private string $transactionStamp;
 
-    /**
-     * @SerializedName("SettlementDate")
-     */
+    #[SerializedName('SettlementDate')]
     private ?string $settlementDate = null;
 
     public function __construct(string $transactionStamp)

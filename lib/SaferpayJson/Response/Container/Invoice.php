@@ -9,21 +9,14 @@ use JMS\Serializer\Annotation\Type;
 
 final class Invoice
 {
-    /**
-     * @SerializedName("Payee")
-     */
+    #[SerializedName('Payee')]
     private ?Payee $payee = null;
 
-    /**
-     * @SerializedName("ReasonForTransfer")
-     */
+    #[SerializedName('ReasonForTransfer')]
     private ?string $reasonForTransfer = null;
 
-    /**
-     * @SerializedName("DueDate")
-     *
-     * @Type("DateTime<'Y-m-d'>")
-     */
+    #[SerializedName('DueDate')]
+    #[Type("DateTime<'Y-m-d'>")]
     private ?\DateTime $dueDate = null;
 
     public function getPayee(): ?Payee

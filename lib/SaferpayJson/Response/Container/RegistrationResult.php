@@ -8,24 +8,16 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class RegistrationResult
 {
-    /**
-     * @SerializedName("Success")
-     */
+    #[SerializedName('Success')]
     private ?bool $success = null;
 
-    /**
-     * @SerializedName("Alias")
-     */
+    #[SerializedName('Alias')]
     private ?Alias $alias = null;
 
-    /**
-     * @SerializedName("Error")
-     */
+    #[SerializedName('Error')]
     private ?Error $error = null;
 
-    /**
-     * @SerializedName("AuthenticationResult")
-     */
+    #[SerializedName('AuthenticationResult')]
     private ?AuthenticationResult $authenticationResult = null;
 
     public function isSuccess(): ?bool

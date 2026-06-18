@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class TransactionReference
 {
-    /**
-     * @SerializedName("TransactionId")
-     */
+    #[SerializedName('TransactionId')]
     private ?string $transactionId = null;
 
-    /**
-     * @SerializedName("OrderId")
-     */
+    #[SerializedName('OrderId')]
     private ?string $orderId = null;
 
     public function getTransactionId(): ?string

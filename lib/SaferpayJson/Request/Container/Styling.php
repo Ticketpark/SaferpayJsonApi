@@ -12,19 +12,13 @@ final class Styling
     public const THEME_SIX = 'SIX';
     public const THEME_NONE = 'NONE';
 
-    /**
-     * @SerializedName("CssUrl")
-     */
+    #[SerializedName('CssUrl')]
     private ?string $cssUrl = null;
 
-    /**
-     * @SerializedName("ContentSecurityEnabled")
-     */
+    #[SerializedName('ContentSecurityEnabled')]
     private ?bool $contentSecurityEnabled = null;
 
-    /**
-     * @SerializedName("Theme")
-     */
+    #[SerializedName('Theme')]
     private ?string $theme = null;
 
     public function getCssUrl(): ?string

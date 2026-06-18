@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class RedirectNotifyUrls
 {
-    /**
-     * @SerializedName("Success")
-     */
+    #[SerializedName('Success')]
     private string $success;
 
-    /**
-     * @SerializedName("Fail")
-     */
+    #[SerializedName('Fail')]
     private string $fail;
 
     public function __construct(string $success, string $fail)

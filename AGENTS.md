@@ -8,8 +8,8 @@ PHP library (`ticketpark/saferpay-json-api`) that wraps the [Saferpay JSON API](
 
 - **Namespace:** `Ticketpark\SaferpayJson`
 - **Autoload:** `lib/SaferpayJson/` (PSR-4)
-- **PHP:** 7.4–8.5
-- **Key dependencies:** `jms/serializer`, `psr/http-client`, `guzzlehttp/guzzle` (default HTTP client), `doctrine/annotations`
+- **PHP:** 8.2–8.5
+- **Key dependencies:** `jms/serializer`, `psr/http-client`, `guzzlehttp/guzzle` (default HTTP client)
 
 Check `lib/SaferpayJson/Request/Container/RequestHeader.php` and `README.md` for the current target API version.
 
@@ -54,14 +54,14 @@ Each endpoint is a `final class` extending `Request`:
 - `public const RESPONSE_CLASS = SomeResponse::class`
 - Constructor takes `RequestConfig` plus Saferpay-mandatory fields; calls `parent::__construct($requestConfig)`
 - `execute(): SomeResponse` delegates to `doExecute()` with a return type hint
-- Properties map to JSON via `@SerializedName("FieldName")` (PascalCase, matching Saferpay docs)
+- Properties map to JSON via `#[SerializedName('FieldName')]` attributes (PascalCase, matching Saferpay docs)
 - Enum-like API values get `public const` on the request class (e.g. `PAYMENT_METHOD_VISA`, `WALLET_APPLEPAY`)
 
 ### Containers
 
 **Request containers** (`lib/SaferpayJson/Request/Container/`):
 
-- `final class`, `@SerializedName` on every property
+- `final class`, `#[SerializedName]` on every property
 - Mandatory Saferpay fields → constructor parameters, **no setters** for constructor args
 - Optional fields → nullable properties with getters/setters returning `self`
 - Reuse existing containers when Saferpay reuses the same JSON structure (e.g. `ForeignRetailer` in both `Marketplace` and `MerchantFundDistributor`)
@@ -127,7 +127,7 @@ Stick to [.github/pull_request_template.md](.github/pull_request_template.md): `
 ```php
 final class ExampleContainer
 {
-    /** @SerializedName("FieldName") */
+    #[SerializedName('FieldName')]
     private ?string $field = null;
 
     public function getField(): ?string { ... }
@@ -142,7 +142,7 @@ Place under `Request/Container/`. Use sub-namespaces when Saferpay groups contai
 1. Add `*Request` in the appropriate `Request/` subdirectory.
 2. Add `*Response` in the matching `Response/` subdirectory extending `Response`.
 3. Add containers for any new JSON structures.
-4. Add `tests/SaferpayJson/Tests/Request/.../*RequestTest.php` extending `CommonRequestTest`.
+4. Add `tests/SaferpayJson/Tests/Request/.../*RequestTest.php` extending `CommonRequestTestCase`.
 5. Optionally add an `example/` script.
 
 ### Constants
@@ -166,13 +166,13 @@ composer cs-check
 composer cs-fix   # apply coding standard fixes
 ```
 
-Request tests extend `CommonRequestTest`:
+Request tests extend `CommonRequestTestCase`:
 
 - Implement `getInstance()` returning a configured request
 - Call `doTestSuccessfulResponse(ResponseClass::class)` for the happy path
 - Error path and `RequestConfig` retry validation are inherited
 
-CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 7.4–8.5 (prefer-lowest and prefer-stable). Static analysis (PHPStan level 8, php-cs-fixer, `composer validate`) runs on PHP 8.5.
+CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.2–8.5 (prefer-lowest and prefer-stable). Static analysis (PHPStan level 8, php-cs-fixer, `composer validate`) runs on PHP 8.5.
 
 ## Common pitfalls
 

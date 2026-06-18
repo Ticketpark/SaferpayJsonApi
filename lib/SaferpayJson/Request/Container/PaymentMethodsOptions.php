@@ -8,9 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class PaymentMethodsOptions
 {
-    /**
-     * @SerializedName("Klarna")
-     */
+    #[SerializedName('Klarna')]
     private ?Klarna $klarna = null;
 
     public function getKlarna(): ?Klarna

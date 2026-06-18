@@ -8,9 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Ideal
 {
-    /**
-     * @SerializedName("IssuerId")
-     */
+    #[SerializedName('IssuerId')]
     private string $issuerId;
 
     public function __construct(string $issuerId)

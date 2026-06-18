@@ -32,14 +32,10 @@ final class Brand
     public const PAYMENT_METHOD_WERO = 'WERO';
     public const PAYMENT_METHOD_WECHATPAY = 'WECHATPAY';
 
-    /**
-     * @SerializedName("PaymentMethod")
-     */
+    #[SerializedName('PaymentMethod')]
     private ?string $paymentMethod = null;
 
-    /**
-     * @SerializedName("Name")
-     */
+    #[SerializedName('Name')]
     private ?string $name = null;
 
     public function getPaymentMethod(): ?string

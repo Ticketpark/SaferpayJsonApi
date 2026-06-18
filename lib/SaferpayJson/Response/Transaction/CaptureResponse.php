@@ -14,31 +14,20 @@ final class CaptureResponse extends Response
     public const STATUS_PENDING = 'PENDING';
     public const STATUS_CAPTURED = 'CAPTURED';
 
-    /**
-     * @SerializedName("TransactionId")
-     */
+    #[SerializedName('TransactionId')]
     private ?string $transactionId = null;
 
-    /**
-     * @SerializedName("CaptureId")
-     */
+    #[SerializedName('CaptureId')]
     private ?string $captureId = null;
 
-    /**
-     * @SerializedName("Status")
-     */
+    #[SerializedName('Status')]
     private ?string $status = null;
 
-    /**
-     * @SerializedName("Date")
-     *
-     * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
-     */
+    #[SerializedName('Date')]
+    #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
     private ?\DateTime $date = null;
 
-    /**
-     * @SerializedName("Invoice")
-     */
+    #[SerializedName('Invoice')]
     private ?Invoice $invoice = null;
 
     public function getTransactionId(): ?string

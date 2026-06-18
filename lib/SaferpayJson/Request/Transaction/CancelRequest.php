@@ -17,14 +17,12 @@ final class CancelRequest extends Request
     public const API_PATH = '/Payment/v1/Transaction/Cancel';
     public const RESPONSE_CLASS = CancelResponse::class;
 
-    /**
-     * @SerializedName("TransactionReference")
-     */
+    #[SerializedName('TransactionReference')]
     private TransactionReference $transactionReference;
 
     public function __construct(
         RequestConfig $requestConfig,
-        TransactionReference $transactionReference
+        TransactionReference $transactionReference,
     ) {
         $this->transactionReference = $transactionReference;
 

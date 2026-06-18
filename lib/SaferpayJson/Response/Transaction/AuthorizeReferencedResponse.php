@@ -13,24 +13,16 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 final class AuthorizeReferencedResponse extends Response
 {
-    /**
-     * @SerializedName("Transaction")
-     */
+    #[SerializedName('Transaction')]
     private ?Transaction $transaction = null;
 
-    /**
-     * @SerializedName("PaymentMeans")
-     */
+    #[SerializedName('PaymentMeans')]
     private ?PaymentMeans $paymentMeans = null;
 
-    /**
-     * @SerializedName("Payer")
-     */
+    #[SerializedName('Payer')]
     private ?Payer $payer = null;
 
-    /**
-     * @SerializedName("Dcc")
-     */
+    #[SerializedName('Dcc')]
     private ?Dcc $dcc = null;
 
     public function getTransaction(): ?Transaction

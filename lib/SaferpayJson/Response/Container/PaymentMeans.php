@@ -8,34 +8,22 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class PaymentMeans
 {
-    /**
-     * @SerializedName("Brand")
-     */
+    #[SerializedName('Brand')]
     private ?Brand $brand = null;
 
-    /**
-     * @SerializedName("DisplayText")
-     */
+    #[SerializedName('DisplayText')]
     private ?string $displayText = null;
 
-    /**
-     * @SerializedName("Wallet")
-     */
+    #[SerializedName('Wallet')]
     private ?string $wallet = null;
 
-    /**
-     * @SerializedName("Card")
-     */
+    #[SerializedName('Card')]
     private ?Card $card = null;
 
-    /**
-     * @SerializedName("BankAccount")
-     */
+    #[SerializedName('BankAccount')]
     private ?BankAccount $bankAccount = null;
 
-    /**
-     * @SerializedName("PayPal")
-     */
+    #[SerializedName('PayPal')]
     private ?PayPal $payPal = null;
 
     public function getBrand(): ?Brand

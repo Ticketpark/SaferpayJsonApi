@@ -20,41 +20,29 @@ final class AuthorizeReferencedRequest extends Request
     public const API_PATH = '/Payment/v1/Transaction/AuthorizeReferenced';
     public const RESPONSE_CLASS = AuthorizeReferencedResponse::class;
 
-    /**
-     * @SerializedName("TerminalId")
-     */
+    #[SerializedName('TerminalId')]
     private string $terminalId;
 
-    /**
-     * @SerializedName("Payment")
-     */
+    #[SerializedName('Payment')]
     private Payment $payment;
 
-    /**
-     * @SerializedName("TransactionReference")
-     */
+    #[SerializedName('TransactionReference')]
     private TransactionReference $transactionReference;
 
-    /**
-     * @SerializedName("Authentication")
-     */
+    #[SerializedName('Authentication')]
     private ?Authentication $authentication = null;
 
-    /**
-     * @SerializedName("SuppressDcc")
-     */
+    #[SerializedName('SuppressDcc')]
     private ?bool $suppressDcc = null;
 
-    /**
-     * @SerializedName("Notification")
-     */
+    #[SerializedName('Notification')]
     private ?Notification $notification = null;
 
     public function __construct(
         RequestConfig $requestConfig,
         string $terminalId,
         Payment $payment,
-        TransactionReference $transactionReference
+        TransactionReference $transactionReference,
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;

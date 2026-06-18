@@ -9,35 +9,25 @@ use Ticketpark\SaferpayJson\Request\RequestConfig;
 
 final class RequestHeader
 {
-    /**
-     * @SerializedName("SpecVersion")
-     */
+    #[SerializedName('SpecVersion')]
     private string $specVersion = '1.52';
 
-    /**
-     * @SerializedName("CustomerId")
-     */
+    #[SerializedName('CustomerId')]
     private string $customerId;
 
-    /**
-     * @SerializedName("RequestId")
-     */
+    #[SerializedName('RequestId')]
     private ?string $requestId;
 
-    /**
-     * @SerializedName("RetryIndicator")
-     */
+    #[SerializedName('RetryIndicator')]
     private int $retryIndicator;
 
-    /**
-     * @SerializedName("ClientInfo")
-     */
+    #[SerializedName('ClientInfo')]
     private ?ClientInfo $clientInfo = null;
 
     public function __construct(
         string $customerId,
         ?string $requestId = null,
-        int $retryIndicator = RequestConfig::MIN_RETRY_INDICATOR
+        int $retryIndicator = RequestConfig::MIN_RETRY_INDICATOR,
     ) {
         $this->customerId = $customerId;
         $this->requestId = $requestId;

@@ -8,34 +8,22 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class CustomPlan
 {
-    /**
-     * @SerializedName("MinimumNumberOfInstallments")
-     */
+    #[SerializedName('MinimumNumberOfInstallments')]
     private ?int $minimumNumberOfInstallments = null;
 
-    /**
-     * @SerializedName("MaximumNumberOfInstallments")
-     */
+    #[SerializedName('MaximumNumberOfInstallments')]
     private ?int $maximumNumberOfInstallments = null;
 
-    /**
-     * @SerializedName("InterestRate")
-     */
+    #[SerializedName('InterestRate')]
     private ?string $interestRate = null;
 
-    /**
-     * @SerializedName("InstallmentFee")
-     */
+    #[SerializedName('InstallmentFee')]
     private ?Amount $installmentFee = null;
 
-    /**
-     * @SerializedName("AnnualPercentageRate")
-     */
+    #[SerializedName('AnnualPercentageRate')]
     private ?string $annualPercentageRate = null;
 
-    /**
-     * @SerializedName("TotalAmountDue")
-     */
+    #[SerializedName('TotalAmountDue')]
     private ?Amount $totalAmountDue = null;
 
     public function getMinimumNumberOfInstallments(): ?int

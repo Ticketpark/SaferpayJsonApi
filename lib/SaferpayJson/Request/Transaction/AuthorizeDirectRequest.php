@@ -27,61 +27,41 @@ final class AuthorizeDirectRequest extends Request
     public const INITIATOR_MERCHANT = 'MERCHANT';
     public const INITIATOR_PAYER = 'PAYER';
 
-    /**
-     * @SerializedName("TerminalId")
-     */
+    #[SerializedName('TerminalId')]
     private string $terminalId;
 
-    /**
-     * @SerializedName("Payment")
-     */
+    #[SerializedName('Payment')]
     private Payment $payment;
 
-    /**
-     * @SerializedName("PaymentMeans")
-     */
+    #[SerializedName('PaymentMeans')]
     private PaymentMeans $paymentMeans;
 
-    /**
-     * @SerializedName("Authentication")
-     */
+    #[SerializedName('Authentication')]
     private ?Authentication $authentication = null;
 
-    /**
-     * @SerializedName("Dcc")
-     */
+    #[SerializedName('Dcc')]
     private ?DccReference $dcc = null;
 
-    /**
-     * @SerializedName("RegisterAlias")
-     */
+    #[SerializedName('RegisterAlias')]
     private ?RegisterAlias $registerAlias = null;
 
-    /**
-     * @SerializedName("Payer")
-     */
+    #[SerializedName('Payer')]
     private ?Payer $payer = null;
 
-    /**
-     * @SerializedName("Order")
-     */
+    #[SerializedName('Order')]
     private ?Order $order = null;
 
-    /**
-     * @SerializedName("RiskFactors")
-     */
+    #[SerializedName('RiskFactors')]
     private ?RiskFactors $riskFactors = null;
 
-    /**
-     * @SerializedName("Initiator")
-     */
+    #[SerializedName('Initiator')]
     private ?string $initiator = null;
 
     public function __construct(
         RequestConfig $requestConfig,
         string $terminalId,
         Payment $payment,
-        PaymentMeans $paymentMeans
+        PaymentMeans $paymentMeans,
     ) {
         $this->terminalId = $terminalId;
         $this->payment = $payment;

@@ -8,24 +8,16 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Liability
 {
-    /**
-     * @SerializedName("LiabilityShift")
-     */
+    #[SerializedName('LiabilityShift')]
     private ?bool $liabilityShift = null;
 
-    /**
-     * @SerializedName("LiableEntity")
-     */
+    #[SerializedName('LiableEntity')]
     private ?string $liableEntity = null;
 
-    /**
-     * @SerializedName("ThreeDs")
-     */
+    #[SerializedName('ThreeDs')]
     private ?ThreeDs $threeDs = null;
 
-    /**
-     * @SerializedName("InPsd2Scope")
-     */
+    #[SerializedName('InPsd2Scope')]
     private ?string $inPsd2Scope = null;
 
     public function isLiabilityShift(): ?bool

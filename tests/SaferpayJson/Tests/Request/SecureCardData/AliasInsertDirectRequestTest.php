@@ -7,9 +7,9 @@ namespace Ticketpark\SaferpayJson\Tests\Request\SecureCardData;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\SecureCardData\AliasInsertDirectRequest;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
-class AliasInsertDirectRequestTest extends CommonRequestTest
+class AliasInsertDirectRequestTest extends CommonRequestTestCase
 {
     public function getInstance()
     {

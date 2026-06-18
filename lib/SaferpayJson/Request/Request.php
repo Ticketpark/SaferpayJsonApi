@@ -20,9 +20,7 @@ abstract class Request
 {
     private const ERROR_RESPONSE_CLASS = ErrorResponse::class;
 
-    /**
-     * @Exclude
-     */
+    #[Exclude]
     private RequestConfig $requestConfig;
 
     abstract public function execute(): Response;
@@ -39,11 +37,8 @@ abstract class Request
         $this->requestConfig = $requestConfig;
     }
 
-    /**
-     * @SerializedName("RequestHeader")
-     *
-     * @VirtualProperty
-     */
+    #[SerializedName('RequestHeader')]
+    #[VirtualProperty]
     public function getRequestHeader(): RequestHeader
     {
         return new RequestHeader(

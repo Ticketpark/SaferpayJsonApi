@@ -13,24 +13,16 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 final class AliasInsertDirectResponse extends Response
 {
-    /**
-     * @SerializedName("Alias")
-     */
+    #[SerializedName('Alias')]
     private ?Alias $alias = null;
 
-    /**
-     * @SerializedName("PaymentMeans")
-     */
+    #[SerializedName('PaymentMeans')]
     private ?PaymentMeans $paymentMeans = null;
 
-    /**
-     * @SerializedName("CheckResult")
-     */
+    #[SerializedName('CheckResult')]
     private ?CheckResult $checkResult = null;
 
-    /**
-     * @SerializedName("Tokenization")
-     */
+    #[SerializedName('Tokenization')]
     private ?Tokenization $tokenization = null;
 
     public function getAlias(): ?Alias

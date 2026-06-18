@@ -10,21 +10,14 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 final class CancelResponse extends Response
 {
-    /**
-     * @SerializedName("TransactionId")
-     */
+    #[SerializedName('TransactionId')]
     private ?string $transactionId = null;
 
-    /**
-     * @SerializedName("OrderId")
-     */
+    #[SerializedName('OrderId')]
     private ?string $orderId = null;
 
-    /**
-     * @SerializedName("Date")
-     *
-     * @Type("DateTime<'Y-m-d\TH:i:s.uT'>")
-     */
+    #[SerializedName('Date')]
+    #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
     private ?\DateTime $date = null;
 
     public function getTransactionId(): ?string

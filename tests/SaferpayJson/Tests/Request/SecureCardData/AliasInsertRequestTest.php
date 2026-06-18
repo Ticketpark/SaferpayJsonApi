@@ -8,9 +8,9 @@ use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\SecureCardData\AliasInsertRequest;
 use Ticketpark\SaferpayJson\Response\SecureCardData\AliasInsertResponse;
-use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTest;
+use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
 
-class AliasInsertRequestTest extends CommonRequestTest
+class AliasInsertRequestTest extends CommonRequestTestCase
 {
     public function testSuccessfulResponse(): void
     {

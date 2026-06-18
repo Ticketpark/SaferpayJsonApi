@@ -8,14 +8,10 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Brand
 {
-    /**
-     * @SerializedName("PaymentMethod")
-     */
+    #[SerializedName('PaymentMethod')]
     private ?string $paymentMethod = null;
 
-    /**
-     * @SerializedName("Name")
-     */
+    #[SerializedName('Name')]
     private ?string $name = null;
 
     public function getPaymentMethod(): ?string

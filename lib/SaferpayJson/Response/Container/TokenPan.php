@@ -8,19 +8,13 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class TokenPan
 {
-    /**
-     * @SerializedName("MaskedNumber")
-     */
+    #[SerializedName('MaskedNumber')]
     private ?string $maskedNumber = null;
 
-    /**
-     * @SerializedName("ExpYear")
-     */
+    #[SerializedName('ExpYear')]
     private ?int $expYear = null;
 
-    /**
-     * @SerializedName("ExpMonth")
-     */
+    #[SerializedName('ExpMonth')]
     private ?int $expMonth = null;
 
     public function getMaskedNumber(): ?string
