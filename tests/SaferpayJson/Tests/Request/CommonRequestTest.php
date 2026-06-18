@@ -10,6 +10,7 @@ use GuzzleHttp\Psr7\Utils as GuzzleUtils;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
+use Ticketpark\SaferpayJson\Request\Exception\SaferpayException;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\Response;
@@ -25,10 +26,15 @@ abstract class CommonRequestTest extends TestCase
 
     public function testErrorResponse(): void
     {
-        $this->expectException(SaferpayErrorException::class);
-
         $this->successful = false;
-        $this->executeRequest();
+
+        try {
+            $this->executeRequest();
+            $this->fail('Expected SaferpayErrorException');
+        } catch (SaferpayErrorException $e) {
+            $this->assertInstanceOf(ErrorResponse::class, $e->getErrorResponse());
+            $this->assertInstanceOf(SaferpayException::class, $e);
+        }
     }
 
     public function getRequestConfigValidationParams(): array

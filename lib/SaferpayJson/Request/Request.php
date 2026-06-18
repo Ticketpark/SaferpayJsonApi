@@ -72,7 +72,7 @@ abstract class Request
             );
         } catch (\Exception $e) {
             if (!$e instanceof ClientException) {
-                throw new HttpRequestException($e->getMessage());
+                throw new HttpRequestException($e->getMessage(), 0, $e);
             }
 
             /** @var GuzzleResponse $response */
