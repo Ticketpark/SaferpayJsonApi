@@ -5,14 +5,12 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Response\Enum\HolderAuthenticationResult;
 
 final class HolderAuthentication
 {
-    public const string RESULT_OK = 'OK';
-    public const string RESULT_NOT_SUPPORTED = 'NOT_SUPPORTED';
-
     #[SerializedName('Result')]
-    private ?string $result = null;
+    private ?HolderAuthenticationResult $result = null;
 
     #[SerializedName('Message')]
     private ?string $message = null;
@@ -20,7 +18,7 @@ final class HolderAuthentication
     #[SerializedName('Xid')]
     private ?string $xid = null;
 
-    public function getResult(): ?string
+    public function getResult(): ?HolderAuthenticationResult
     {
         return $this->result;
     }

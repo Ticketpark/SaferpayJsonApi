@@ -5,21 +5,15 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Response\Enum\TokenizationStatus;
 
 final class Tokenization
 {
-    public const string STATUS_SUCCESSFUL = 'SUCCESSFUL';
-    public const string STATUS_FAILED = 'FAILED';
-    public const string STATUS_SCHEME_NOT_SUPPORTED = 'SCHEME_NOT_SUPPORTED';
-    public const string STATUS_ACQUIRER_NOT_SUPPORTED = 'ACQUIRER_NOT_SUPPORTED';
-    public const string STATUS_NOT_PERFORMED = 'NOT_PERFORMED';
-    public const string STATUS_DENIED_BY_SCHEME = 'DENIED_BY_SCHEME';
-
     #[SerializedName('Program')]
     private ?string $program = null;
 
     #[SerializedName('Status')]
-    private ?string $status = null;
+    private ?TokenizationStatus $status = null;
 
     #[SerializedName('TokenPan')]
     private ?TokenizationTokenPan $tokenPan = null;
@@ -29,7 +23,7 @@ final class Tokenization
         return $this->program;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): ?TokenizationStatus
     {
         return $this->status;
     }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ticketpark\SaferpayJson\Enum;
+namespace Ticketpark\SaferpayJson\Response\Enum;
 
 enum PaymentMethod: string
 {

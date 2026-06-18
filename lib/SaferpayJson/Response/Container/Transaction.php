@@ -5,21 +5,16 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Response\Enum\TransactionStatus;
+use Ticketpark\SaferpayJson\Response\Enum\TransactionType;
 
 final class Transaction
 {
-    public const string TYPE_PAYMENT = 'PAYMENT';
-
-    public const string STATUS_AUTHORIZED = 'AUTHORIZED';
-    public const string STATUS_CANCELED = 'CANCELED';
-    public const string STATUS_CAPTURED = 'CAPTURED';
-    public const string STATUS_PENDING = 'PENDING';
-
     #[SerializedName('Type')]
-    private ?string $type = null;
+    private ?TransactionType $type = null;
 
     #[SerializedName('Status')]
-    private ?string $status = null;
+    private ?TransactionStatus $status = null;
 
     #[SerializedName('Id')]
     private ?string $id = null;
@@ -57,12 +52,12 @@ final class Transaction
     #[SerializedName('IssuerReference')]
     private ?IssuerReference $issuerReference = null;
 
-    public function getType(): ?string
+    public function getType(): ?TransactionType
     {
         return $this->type;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): ?TransactionStatus
     {
         return $this->status;
     }

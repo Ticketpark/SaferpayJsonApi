@@ -5,16 +5,19 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Ticketpark\SaferpayJson\Enum\PaymentMethod;
-use Ticketpark\SaferpayJson\Enum\Wallet;
 use Ticketpark\SaferpayJson\Request\Container\Amount;
 use Ticketpark\SaferpayJson\Request\Container\CaptureReference;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\Refund;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
+use Ticketpark\SaferpayJson\Request\Enum\PaymentMethod;
+use Ticketpark\SaferpayJson\Request\Enum\Wallet;
 use Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Request\Transaction\RefundRequest;
+use Ticketpark\SaferpayJson\Response\Enum\ErrorBehaviour;
+use Ticketpark\SaferpayJson\Response\Enum\TransactionStatus;
+use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\Transaction\CaptureResponse;
 use Ticketpark\SaferpayJson\SerializerFactory;
 
@@ -72,7 +75,7 @@ class SerializationTest extends TestCase
         $response = $serializer->deserialize($json, CaptureResponse::class, 'json');
 
         $this->assertInstanceOf(\DateTimeImmutable::class, $response->getDate());
-        $this->assertSame('CAPTURED', $response->getStatus());
+        $this->assertSame(TransactionStatus::Captured, $response->getStatus());
 
         $roundTrip = $serializer->deserialize(
             $serializer->serialize($response, 'json'),
@@ -81,6 +84,16 @@ class SerializationTest extends TestCase
         );
 
         $this->assertInstanceOf(\DateTimeImmutable::class, $roundTrip->getDate());
-        $this->assertSame('CAPTURED', $roundTrip->getStatus());
+        $this->assertSame(TransactionStatus::Captured, $roundTrip->getStatus());
+    }
+
+    public function testErrorResponseDeserializesErrorBehaviour(): void
+    {
+        $serializer = SerializerFactory::get();
+        $json = '{"Behavior":"DO_NOT_RETRY","ErrorName":"VALIDATION_FAILED","ErrorMessage":"Invalid request"}';
+
+        $response = $serializer->deserialize($json, ErrorResponse::class, 'json');
+
+        $this->assertSame(ErrorBehaviour::DoNotRetry, $response->getBehaviour());
     }
 }

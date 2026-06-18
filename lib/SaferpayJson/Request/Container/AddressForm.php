@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Enum\AddressFormMandatoryField;
-use Ticketpark\SaferpayJson\Enum\AddressSource;
+use Ticketpark\SaferpayJson\Request\Enum\AddressFormMandatoryField;
+use Ticketpark\SaferpayJson\Request\Enum\AddressSource;
 
 final class AddressForm
 {

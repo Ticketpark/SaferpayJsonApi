@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Enum\AliasIdGenerator;
+use Ticketpark\SaferpayJson\Request\Enum\AliasIdGenerator;
 
 final class RegisterAlias
 {

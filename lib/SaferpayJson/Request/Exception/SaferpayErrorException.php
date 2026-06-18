@@ -14,9 +14,11 @@ class SaferpayErrorException extends \Exception implements SaferpayException
     {
         $this->errorResponse = $errorResponse;
 
+        $behaviour = $errorResponse->getBehaviour();
+
         parent::__construct(sprintf(
             '[%s] %s: %s',
-            $errorResponse->getBehaviour(),
+            null !== $behaviour ? $behaviour->value : '',
             $errorResponse->getErrorName(),
             $errorResponse->getErrorMessage(),
         ));

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Enum\ThreeDsCondition;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
+use Ticketpark\SaferpayJson\Request\Enum\ThreeDsCondition;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;

@@ -5,19 +5,19 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Tests\Integration;
 
 use PHPUnit\Framework\TestCase;
-use Ticketpark\SaferpayJson\Enum\PaymentMethod;
 use Ticketpark\SaferpayJson\Request\Container\Amount;
 use Ticketpark\SaferpayJson\Request\Container\CaptureReference;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\Refund;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
+use Ticketpark\SaferpayJson\Request\Enum\PaymentMethod;
 use Ticketpark\SaferpayJson\Request\PaymentPage\AssertRequest;
 use Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
 use Ticketpark\SaferpayJson\Request\Transaction\CaptureRequest;
 use Ticketpark\SaferpayJson\Request\Transaction\RefundRequest;
-use Ticketpark\SaferpayJson\Response\Transaction\CaptureResponse;
+use Ticketpark\SaferpayJson\Response\Enum\TransactionStatus;
 
 final class PaymentPageFlowTest extends TestCase
 {
@@ -75,7 +75,7 @@ final class PaymentPageFlowTest extends TestCase
             (new TransactionReference())->setTransactionId($transactionId),
         ))->execute();
 
-        $this->assertSame(CaptureResponse::STATUS_CAPTURED, $captureResponse->getStatus());
+        $this->assertSame(TransactionStatus::Captured, $captureResponse->getStatus());
         $captureId = $captureResponse->getCaptureId();
         $this->assertNotEmpty($captureId);
 

@@ -6,7 +6,7 @@ namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Enum\Gender;
+use Ticketpark\SaferpayJson\Response\Enum\Gender;
 
 final class Address
 {

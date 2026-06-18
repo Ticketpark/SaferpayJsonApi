@@ -6,7 +6,7 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Enum\Gender;
+use Ticketpark\SaferpayJson\Request\Enum\Gender;
 
 final class PayerProfile
 {

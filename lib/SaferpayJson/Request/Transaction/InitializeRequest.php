@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Enum\PaymentMethod;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\CardForm;
 use Ticketpark\SaferpayJson\Request\Container\Order;
@@ -17,6 +16,7 @@ use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
 use Ticketpark\SaferpayJson\Request\Container\Styling;
 use Ticketpark\SaferpayJson\Request\Container\Transaction\Notification;
+use Ticketpark\SaferpayJson\Request\Enum\PaymentMethod;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
