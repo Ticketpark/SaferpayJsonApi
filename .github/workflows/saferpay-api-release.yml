@@ -1,0 +1,68 @@
+name: Open issue on new Saferpay API release
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch-changelog:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Detect versions
+        id: versions
+        run: |
+          CURRENT=$(sed -n "s/.*specVersion = '\([0-9.]*\)'.*/\1/p" lib/SaferpayJson/Request/Container/RequestHeader.php)
+          curl -fsSL https://saferpay.github.io/jsonapi/ -o /tmp/saferpay.html
+          ANCHOR=$(grep -oE 'id="v1\.[0-9]+\.0\.0\.[0-9]+"' /tmp/saferpay.html | head -1 | sed 's/id="//;s/"$//')
+          LATEST=$(echo "$ANCHOR" | sed 's/^v//;s/\.0\.0\..*$//')
+
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          echo "latest=$LATEST" >> "$GITHUB_OUTPUT"
+          echo "anchor=$ANCHOR" >> "$GITHUB_OUTPUT"
+
+          if [ "$(printf '%s\n' "$CURRENT" "$LATEST" | sort -V | tail -1)" = "$LATEST" ] \
+             && [ "$CURRENT" != "$LATEST" ]; then
+            echo "needs_issue=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "needs_issue=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create issue if needed
+        if: steps.versions.outputs.needs_issue == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITLE="Implement changes of Saferpay API ${{ steps.versions.outputs.latest }}"
+          if gh issue list --search "$TITLE in:title" --state all --json title --jq '.[].title' | grep -qxF "$TITLE"; then
+            echo "Issue already exists, skipping."
+            exit 0
+          fi
+          gh issue create \
+            --title "$TITLE" \
+            --body "https://saferpay.github.io/jsonapi/#${{ steps.versions.outputs.anchor }}"
+
+      - name: Summary
+        run: |
+          {
+            echo "### Saferpay API release watch"
+            echo ""
+            echo "| | Version |"
+            echo "|---|---|"
+            echo "| Library | ${{ steps.versions.outputs.current }} |"
+            echo "| Saferpay changelog | ${{ steps.versions.outputs.latest }} |"
+            echo ""
+            if [ "${{ steps.versions.outputs.needs_issue }}" = "true" ]; then
+              echo "A new issue was created (or already existed)."
+            else
+              echo "No action needed."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
