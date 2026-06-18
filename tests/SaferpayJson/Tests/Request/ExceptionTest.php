@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request;
 
-use GuzzleHttp\Client;
+use Psr\Http\Client\ClientExceptionInterface;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Client\ClientInterface;
 use Ticketpark\SaferpayJson\Request\Container\TransactionReference;
 use Ticketpark\SaferpayJson\Request\Exception\HttpRequestException;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
@@ -44,10 +45,11 @@ class ExceptionTest extends TestCase
 
     public function testRequestWrapsTransportErrorsInHttpRequestException(): void
     {
-        $previous = new \RuntimeException('connection failed');
+        $previous = new class('connection failed') extends \RuntimeException implements ClientExceptionInterface {
+        };
 
-        $client = $this->createMock(Client::class);
-        $client->method('post')->willThrowException($previous);
+        $client = $this->createMock(ClientInterface::class);
+        $client->method('sendRequest')->willThrowException($previous);
 
         $requestConfig = new RequestConfig('apiKey', 'apiSecret', 'customerId');
         $requestConfig->setClient($client);

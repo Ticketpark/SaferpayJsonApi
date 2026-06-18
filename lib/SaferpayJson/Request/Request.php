@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Request;
 
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Psr7\Response as GuzzleResponse;
+use GuzzleHttp\Psr7\Request as PsrRequest;
 use JMS\Serializer\Annotation\Exclude;
+use Psr\Http\Client\ClientExceptionInterface;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\VirtualProperty;
 use JMS\Serializer\SerializerInterface;
@@ -60,22 +60,17 @@ abstract class Request
 
     protected function doExecute(): Response
     {
-        try {
-            /** @var GuzzleResponse $response */
-            $response = $this->requestConfig->getClient()->post(
-                $this->getUrl(),
-                [
-                    'headers' => $this->getHeaders(),
-                    'body' => $this->getContent(),
-                ],
-            );
-        } catch (\Exception $e) {
-            if (!$e instanceof ClientException) {
-                throw new HttpRequestException($e->getMessage(), 0, $e);
-            }
+        $request = new PsrRequest(
+            'POST',
+            $this->getUrl(),
+            $this->getHeaders(),
+            $this->getContent(),
+        );
 
-            /** @var GuzzleResponse $response */
-            $response = $e->getResponse();
+        try {
+            $response = $this->requestConfig->getClient()->sendRequest($request);
+        } catch (ClientExceptionInterface $e) {
+            throw new HttpRequestException($e->getMessage(), 0, $e);
         }
 
         $statusCode = $response->getStatusCode();

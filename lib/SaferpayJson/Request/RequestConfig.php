@@ -6,6 +6,7 @@ namespace Ticketpark\SaferpayJson\Request;
 
 use GuzzleHttp\Client;
 use JMS\Serializer\SerializerInterface;
+use Psr\Http\Client\ClientInterface;
 use Ticketpark\SaferpayJson\SerializerFactory;
 
 final class RequestConfig
@@ -21,7 +22,7 @@ final class RequestConfig
     private string $rootUrl;
     private bool $test;
 
-    private ?Client $client = null;
+    private ?ClientInterface $client = null;
     private ?SerializerInterface $serializer = null;
     private ?string $requestId = null;
     private int $retryIndicator = self::MIN_RETRY_INDICATOR;
@@ -65,14 +66,14 @@ final class RequestConfig
         return $this->test;
     }
 
-    public function setClient(Client $client): self
+    public function setClient(ClientInterface $client): self
     {
         $this->client = $client;
 
         return $this;
     }
 
-    public function getClient(): Client
+    public function getClient(): ClientInterface
     {
         if (null === $this->client) {
             return new Client();

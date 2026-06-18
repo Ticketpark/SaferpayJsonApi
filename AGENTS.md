@@ -4,12 +4,12 @@ Guidance for AI agents working on [Ticketpark/SaferpayJsonApi](https://github.co
 
 ## Project overview
 
-PHP library (`ticketpark/saferpay-json-api`) that wraps the [Saferpay JSON API](https://saferpay.github.io/jsonapi/). It serializes typed request objects to JSON, sends them via Guzzle, and deserializes responses.
+PHP library (`ticketpark/saferpay-json-api`) that wraps the [Saferpay JSON API](https://saferpay.github.io/jsonapi/). It serializes typed request objects to JSON, sends them via a PSR-18 HTTP client, and deserializes responses.
 
 - **Namespace:** `Ticketpark\SaferpayJson`
 - **Autoload:** `lib/SaferpayJson/` (PSR-4)
 - **PHP:** 7.4–8.5
-- **Key dependencies:** `jms/serializer`, `guzzlehttp/guzzle`, `doctrine/annotations`
+- **Key dependencies:** `jms/serializer`, `psr/http-client`, `guzzlehttp/guzzle` (default HTTP client), `doctrine/annotations`
 
 Check `lib/SaferpayJson/Request/Container/RequestHeader.php` and `README.md` for the current target API version.
 

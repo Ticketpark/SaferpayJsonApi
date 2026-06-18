@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request;
 
-use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use GuzzleHttp\Psr7\Utils as GuzzleUtils;
 use PHPUnit\Framework\MockObject\MockObject;
+use Psr\Http\Client\ClientInterface;
 use PHPUnit\Framework\TestCase;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayException;
@@ -104,14 +104,11 @@ abstract class CommonRequestTest extends TestCase
 
     private function getClientMock(): MockObject
     {
-        $browser = $this->getMockBuilder(Client::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['post'])
-            ->getMock();
+        $browser = $this->createMock(ClientInterface::class);
 
         $browser->expects($this->once())
-            ->method('post')
-            ->will($this->returnValue($this->getResponseMock()));
+            ->method('sendRequest')
+            ->willReturn($this->getResponseMock());
 
         return $browser;
     }
