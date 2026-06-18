@@ -15,23 +15,21 @@ final class Brand
     public const PAYMENT_METHOD_DIRECTDEBIT = 'DIRECTDEBIT';
     public const PAYMENT_METHOD_EPRZELEWY = 'EPRZELEWY';
     public const PAYMENT_METHOD_EPS = 'EPS';
-    public const PAYMENT_METHOD_GIROPAY = 'GIROPAY';
     public const PAYMENT_METHOD_IDEAL = 'IDEAL';
     public const PAYMENT_METHOD_INVOICE = 'INVOICE';
     public const PAYMENT_METHOD_JCB = 'JCB';
     public const PAYMENT_METHOD_KLARNA = 'KLARNA';
     public const PAYMENT_METHOD_MAESTRO = 'MAESTRO';
     public const PAYMENT_METHOD_MASTERCARD = 'MASTERCARD';
-    public const PAYMENT_METHOD_PAYDIREKT = 'PAYDIREKT';
     public const PAYMENT_METHOD_PAYPAL = 'PAYPAL';
     public const PAYMENT_METHOD_POSTCARD = 'POSTCARD';
     public const PAYMENT_METHOD_POSTFINANCE = 'POSTFINANCE';
     public const PAYMENT_METHOD_REKA = 'REKA';
-    public const PAYMENT_METHOD_SOFORT = 'SOFORT';
     public const PAYMENT_METHOD_TWINT = 'TWINT';
     public const PAYMENT_METHOD_UNIONPAY = 'UNIONPAY';
     public const PAYMENT_METHOD_VISA = 'VISA';
     public const PAYMENT_METHOD_VPAY = 'VPAY';
+    public const PAYMENT_METHOD_WERO = 'WERO';
     public const PAYMENT_METHOD_WECHATPAY = 'WECHATPAY';
 
     /**
