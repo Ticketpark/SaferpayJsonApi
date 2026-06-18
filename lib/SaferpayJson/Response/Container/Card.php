@@ -13,6 +13,11 @@ final class Card
     public const HOLDER_SEGMENT_CORPORATE = 'CORPORATE';
     public const HOLDER_SEGMENT_CORPORATE_AND_CONSUMER = 'CORPORATE_AND_CONSUMER';
 
+    public const FUNDING_SOURCE_UNSPECIFIED = 'UNSPECIFIED';
+    public const FUNDING_SOURCE_CREDIT = 'CREDIT';
+    public const FUNDING_SOURCE_DEBIT = 'DEBIT';
+    public const FUNDING_SOURCE_PREPAID = 'PREPAID';
+
     /**
      * @SerializedName("MaskedNumber")
      */
@@ -37,6 +42,11 @@ final class Card
      * @SerializedName("HolderSegment")
      */
     private ?string $holderSegment = null;
+
+    /**
+     * @SerializedName("FundingSource")
+     */
+    private ?string $fundingSource = null;
 
     /**
      * @SerializedName("CountryCode")
@@ -76,6 +86,11 @@ final class Card
     public function getHolderSegment(): ?string
     {
         return $this->holderSegment;
+    }
+
+    public function getFundingSource(): ?string
+    {
+        return $this->fundingSource;
     }
 
     public function getCountryCode(): ?string

@@ -8,22 +8,35 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class AuthenticationResult
 {
-    public const RESULT_OK = 'OK';
-    public const RESULT_NOT_SUPPORTED = 'NOT_SUPPORTED';
+    public const AUTHENTICATION_TYPE_STRONG_CUSTOMER_AUTHENTICATION = 'STRONG_CUSTOMER_AUTHENTICATION';
+    public const AUTHENTICATION_TYPE_FRICTIONLESS = 'FRICTIONLESS';
+    public const AUTHENTICATION_TYPE_ATTEMPT = 'ATTEMPT';
+    public const AUTHENTICATION_TYPE_UNSPECIFIED = 'UNSPECIFIED';
+    public const AUTHENTICATION_TYPE_NONE = 'NONE';
 
     /**
-     * @SerializedName("Result")
+     * @SerializedName("Authenticated")
      */
-    private ?string $result = null;
+    private ?bool $authenticated = null;
+
+    /**
+     * @SerializedName("AuthenticationType")
+     */
+    private ?string $authenticationType = null;
 
     /**
      * @SerializedName("Message")
      */
     private ?string $message = null;
 
-    public function getResult(): ?string
+    public function isAuthenticated(): ?bool
     {
-        return $this->result;
+        return $this->authenticated;
+    }
+
+    public function getAuthenticationType(): ?string
+    {
+        return $this->authenticationType;
     }
 
     public function getMessage(): ?string

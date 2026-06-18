@@ -11,27 +11,32 @@ final class ForeignRetailer
     /**
      * @SerializedName("City")
      */
-    private ?string $city;
+    private ?string $city = null;
 
     /**
      * @SerializedName("CountryCode")
      */
-    private ?string $countryCode;
+    private string $countryCode;
 
     /**
      * @SerializedName("Name")
      */
-    private ?string $name;
+    private ?string $name = null;
 
     /**
      * @SerializedName("Street")
      */
-    private ?string $street;
+    private ?string $street = null;
 
     /**
      * @SerializedName("Zip")
      */
-    private ?string $zip;
+    private ?string $zip = null;
+
+    public function __construct(string $countryCode)
+    {
+        $this->countryCode = $countryCode;
+    }
 
     public function getCity(): ?string
     {
@@ -45,16 +50,9 @@ final class ForeignRetailer
         return $this;
     }
 
-    public function getCountryCode(): ?string
+    public function getCountryCode(): string
     {
         return $this->countryCode;
-    }
-
-    public function setCountryCode(?string $countryCode): self
-    {
-        $this->countryCode = $countryCode;
-
-        return $this;
     }
 
     public function getName(): ?string
