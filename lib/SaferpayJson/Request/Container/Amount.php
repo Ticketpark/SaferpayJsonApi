@@ -6,18 +6,14 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-final class Amount
+final readonly class Amount
 {
-    #[SerializedName('Value')]
-    private int $value;
-
-    #[SerializedName('CurrencyCode')]
-    private string $currencyCode;
-
-    public function __construct(int $value, string $currencyCode)
-    {
-        $this->value = $value;
-        $this->currencyCode = $currencyCode;
+    public function __construct(
+        #[SerializedName('Value')]
+        private int $value,
+        #[SerializedName('CurrencyCode')]
+        private string $currencyCode,
+    ) {
     }
 
     public function getValue(): int

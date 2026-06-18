@@ -8,9 +8,6 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class ChosenPlan
 {
-    #[SerializedName('NumberOfInstallments')]
-    private int $numberOfInstallments;
-
     #[SerializedName('InterestRate')]
     private ?string $interestRate = null;
 
@@ -29,9 +26,10 @@ final class ChosenPlan
     #[SerializedName('TotalAmountDue')]
     private ?Amount $totalAmountDue = null;
 
-    public function __construct(int $numberOfInstallments)
-    {
-        $this->numberOfInstallments = $numberOfInstallments;
+    public function __construct(
+        #[SerializedName('NumberOfInstallments')]
+        private readonly int $numberOfInstallments,
+    ) {
     }
 
     public function getNumberOfInstallments(): int

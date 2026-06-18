@@ -6,18 +6,14 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-final class RedirectNotifyUrls
+final readonly class RedirectNotifyUrls
 {
-    #[SerializedName('Success')]
-    private string $success;
-
-    #[SerializedName('Fail')]
-    private string $fail;
-
-    public function __construct(string $success, string $fail)
-    {
-        $this->success = $success;
-        $this->fail = $fail;
+    public function __construct(
+        #[SerializedName('Success')]
+        private string $success,
+        #[SerializedName('Fail')]
+        private string $fail,
+    ) {
     }
 
     public function getSuccess(): string

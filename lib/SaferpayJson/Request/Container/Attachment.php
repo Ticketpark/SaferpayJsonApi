@@ -6,18 +6,14 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-final class Attachment
+final readonly class Attachment
 {
-    #[SerializedName('ContentType')]
-    private string $contentType;
-
-    #[SerializedName('Body')]
-    private string $body;
-
-    public function __construct(string $contentType, string $body)
-    {
-        $this->contentType = $contentType;
-        $this->body = $body;
+    public function __construct(
+        #[SerializedName('ContentType')]
+        private string $contentType,
+        #[SerializedName('Body')]
+        private string $body,
+    ) {
     }
 
     public function getContentType(): string

@@ -22,9 +22,6 @@ final class CaptureRequest extends Request
     public const API_PATH = '/Payment/v1/Transaction/Capture';
     public const RESPONSE_CLASS = CaptureResponse::class;
 
-    #[SerializedName('TransactionReference')]
-    private TransactionReference $transactionReference;
-
     #[SerializedName('Amount')]
     private ?Amount $amount = null;
 
@@ -42,23 +39,15 @@ final class CaptureRequest extends Request
 
     public function __construct(
         RequestConfig $requestConfig,
-        TransactionReference $transactionReference,
+        #[SerializedName('TransactionReference')]
+        private readonly TransactionReference $transactionReference,
     ) {
-        $this->transactionReference = $transactionReference;
-
         parent::__construct($requestConfig);
     }
 
     public function getTransactionReference(): TransactionReference
     {
         return $this->transactionReference;
-    }
-
-    public function setTransactionReference(TransactionReference $transactionReference): self
-    {
-        $this->transactionReference = $transactionReference;
-
-        return $this;
     }
 
     public function getAmount(): ?Amount

@@ -6,14 +6,12 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-final class SaferpayFields
+final readonly class SaferpayFields
 {
-    #[SerializedName('Token')]
-    private string $token;
-
-    public function __construct(string $token)
-    {
-        $this->token = $token;
+    public function __construct(
+        #[SerializedName('Token')]
+        private string $token,
+    ) {
     }
 
     public function getToken(): ?string

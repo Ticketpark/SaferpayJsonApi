@@ -16,26 +16,17 @@ final class AliasAssertInsertRequest extends Request
     public const API_PATH = '/Payment/v1/Alias/AssertInsert';
     public const RESPONSE_CLASS = AliasAssertInsertResponse::class;
 
-    #[SerializedName('Token')]
-    private string $token;
-
-    public function __construct(RequestConfig $requestConfig, string $token)
-    {
-        $this->token = $token;
-
+    public function __construct(
+        RequestConfig $requestConfig,
+        #[SerializedName('Token')]
+        private readonly string $token,
+    ) {
         parent::__construct($requestConfig);
     }
 
     public function getToken(): string
     {
         return $this->token;
-    }
-
-    public function setToken(string $token): self
-    {
-        $this->token = $token;
-
-        return $this;
     }
 
     public function execute(): AliasAssertInsertResponse

@@ -8,9 +8,6 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Refund
 {
-    #[SerializedName('Amount')]
-    private ?Amount $amount;
-
     #[SerializedName('OrderId')]
     private ?string $orderId = null;
 
@@ -23,21 +20,15 @@ final class Refund
     #[SerializedName('RestrictRefundAmountToCapturedAmount')]
     private ?bool $restrictRefundAmountToCapturedAmount = null;
 
-    public function __construct(?Amount $amount)
-    {
-        $this->amount = $amount;
+    public function __construct(
+        #[SerializedName('Amount')]
+        private readonly ?Amount $amount,
+    ) {
     }
 
     public function getAmount(): ?Amount
     {
         return $this->amount;
-    }
-
-    public function setAmount(?Amount $amount): self
-    {
-        $this->amount = $amount;
-
-        return $this;
     }
 
     public function getOrderId(): ?string

@@ -16,31 +16,21 @@ final class SchemeToken
     public const TOKEN_TYPE_MDES = 'MDES';
     public const TOKEN_TYPE_VTS = 'VTS';
 
-    #[SerializedName('Number')]
-    private string $number;
-
-    #[SerializedName('ExpMonth')]
-    private int $expMonth;
-
-    #[SerializedName('ExpYear')]
-    private int $expYear;
-
-    #[SerializedName('AuthValue')]
-    private string $authValue;
-
     #[SerializedName('Eci')]
     private ?string $eci = null;
 
-    #[SerializedName('TokenType')]
-    private string $tokenType;
-
-    public function __construct(string $number, int $expMonth, int $expYear, string $authValue, string $tokenType)
-    {
-        $this->number = $number;
-        $this->expMonth = $expMonth;
-        $this->expYear = $expYear;
-        $this->authValue = $authValue;
-        $this->tokenType = $tokenType;
+    public function __construct(
+        #[SerializedName('Number')]
+        private readonly string $number,
+        #[SerializedName('ExpMonth')]
+        private readonly int $expMonth,
+        #[SerializedName('ExpYear')]
+        private readonly int $expYear,
+        #[SerializedName('AuthValue')]
+        private readonly string $authValue,
+        #[SerializedName('TokenType')]
+        private readonly string $tokenType,
+    ) {
     }
 
     public function getNumber(): string

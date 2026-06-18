@@ -8,9 +8,6 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class BankAccount
 {
-    #[SerializedName('Iban')]
-    private string $iban;
-
     #[SerializedName('HolderName')]
     private ?string $holderName = null;
 
@@ -20,9 +17,10 @@ final class BankAccount
     #[SerializedName('BankName')]
     private ?string $bankName = null;
 
-    public function __construct(string $iban)
-    {
-        $this->iban = $iban;
+    public function __construct(
+        #[SerializedName('Iban')]
+        private readonly string $iban,
+    ) {
     }
 
     public function getIban(): string

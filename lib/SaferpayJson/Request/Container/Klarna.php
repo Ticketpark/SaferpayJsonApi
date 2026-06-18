@@ -6,14 +6,12 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-final class Klarna
+final readonly class Klarna
 {
-    #[SerializedName('Attachment')]
-    private Attachment $attachment;
-
-    public function __construct(Attachment $attachment)
-    {
-        $this->attachment = $attachment;
+    public function __construct(
+        #[SerializedName('Attachment')]
+        private Attachment $attachment,
+    ) {
     }
 
     public function getAttachment(): Attachment

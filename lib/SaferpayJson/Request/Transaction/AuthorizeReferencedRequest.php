@@ -20,15 +20,6 @@ final class AuthorizeReferencedRequest extends Request
     public const API_PATH = '/Payment/v1/Transaction/AuthorizeReferenced';
     public const RESPONSE_CLASS = AuthorizeReferencedResponse::class;
 
-    #[SerializedName('TerminalId')]
-    private string $terminalId;
-
-    #[SerializedName('Payment')]
-    private Payment $payment;
-
-    #[SerializedName('TransactionReference')]
-    private TransactionReference $transactionReference;
-
     #[SerializedName('Authentication')]
     private ?Authentication $authentication = null;
 
@@ -40,14 +31,13 @@ final class AuthorizeReferencedRequest extends Request
 
     public function __construct(
         RequestConfig $requestConfig,
-        string $terminalId,
-        Payment $payment,
-        TransactionReference $transactionReference,
+        #[SerializedName('TerminalId')]
+        private readonly string $terminalId,
+        #[SerializedName('Payment')]
+        private readonly Payment $payment,
+        #[SerializedName('TransactionReference')]
+        private readonly TransactionReference $transactionReference,
     ) {
-        $this->terminalId = $terminalId;
-        $this->payment = $payment;
-        $this->transactionReference = $transactionReference;
-
         parent::__construct($requestConfig);
     }
 
@@ -56,35 +46,14 @@ final class AuthorizeReferencedRequest extends Request
         return $this->terminalId;
     }
 
-    public function setTerminalId(string $terminalId): self
-    {
-        $this->terminalId = $terminalId;
-
-        return $this;
-    }
-
     public function getPayment(): Payment
     {
         return $this->payment;
     }
 
-    public function setPayment(Payment $payment): self
-    {
-        $this->payment = $payment;
-
-        return $this;
-    }
-
     public function getTransactionReference(): TransactionReference
     {
         return $this->transactionReference;
-    }
-
-    public function setTransactionReference(TransactionReference $transactionReference): self
-    {
-        $this->transactionReference = $transactionReference;
-
-        return $this;
     }
 
     public function getAuthentication(): ?Authentication

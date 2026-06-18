@@ -44,12 +44,6 @@ final class InitializeRequest extends Request
     #[SerializedName('ConfigSet')]
     private ?string $configSet = null;
 
-    #[SerializedName('TerminalId')]
-    private string $terminalId;
-
-    #[SerializedName('Payment')]
-    private Payment $payment;
-
     #[SerializedName('PaymentMeans')]
     private ?PaymentMeans $paymentMeans = null;
 
@@ -58,9 +52,6 @@ final class InitializeRequest extends Request
 
     #[SerializedName('Payer')]
     private ?Payer $payer = null;
-
-    #[SerializedName('ReturnUrl')]
-    private ReturnUrl $returnUrl;
 
     #[SerializedName('Styling')]
     private ?Styling $styling = null;
@@ -86,14 +77,13 @@ final class InitializeRequest extends Request
 
     public function __construct(
         RequestConfig $requestConfig,
-        string $terminalId,
-        Payment $payment,
-        ReturnUrl $returnUrl,
+        #[SerializedName('TerminalId')]
+        private readonly string $terminalId,
+        #[SerializedName('Payment')]
+        private readonly Payment $payment,
+        #[SerializedName('ReturnUrl')]
+        private readonly ReturnUrl $returnUrl,
     ) {
-        $this->terminalId = $terminalId;
-        $this->payment = $payment;
-        $this->returnUrl = $returnUrl;
-
         parent::__construct($requestConfig);
     }
 

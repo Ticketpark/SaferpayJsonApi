@@ -6,14 +6,12 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 
-final class Ideal
+final readonly class Ideal
 {
-    #[SerializedName('IssuerId')]
-    private string $issuerId;
-
-    public function __construct(string $issuerId)
-    {
-        $this->issuerId = $issuerId;
+    public function __construct(
+        #[SerializedName('IssuerId')]
+        private string $issuerId,
+    ) {
     }
 
     public function getIssuerId(): string

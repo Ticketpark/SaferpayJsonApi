@@ -17,28 +17,17 @@ final class InquireRequest extends Request
     public const API_PATH = '/Payment/v1/Transaction/Inquire';
     public const RESPONSE_CLASS = InquireResponse::class;
 
-    #[SerializedName('TransactionReference')]
-    private TransactionReference $transactionReference;
-
     public function __construct(
         RequestConfig $requestConfig,
-        TransactionReference $transactionReference,
+        #[SerializedName('TransactionReference')]
+        private readonly TransactionReference $transactionReference,
     ) {
-        $this->transactionReference = $transactionReference;
-
         parent::__construct($requestConfig);
     }
 
     public function getTransactionReference(): TransactionReference
     {
         return $this->transactionReference;
-    }
-
-    public function setTransactionReference(TransactionReference $transactionReference): self
-    {
-        $this->transactionReference = $transactionReference;
-
-        return $this;
     }
 
     public function execute(): InquireResponse
