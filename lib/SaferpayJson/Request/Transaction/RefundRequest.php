@@ -36,12 +36,12 @@ final class RefundRequest extends Request
         parent::__construct($requestConfig);
     }
 
-    public function getRefund(): ?Refund
+    public function getRefund(): Refund
     {
         return $this->refund;
     }
 
-    public function getCaptureReference(): ?CaptureReference
+    public function getCaptureReference(): CaptureReference
     {
         return $this->captureReference;
     }

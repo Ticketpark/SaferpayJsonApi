@@ -6,5 +6,3 @@ parameters:
         -
             identifier: property.unusedType
             path: lib/SaferpayJson/Response
-        -
-            identifier: return.unusedType

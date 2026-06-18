@@ -28,12 +28,12 @@ final class AliasUpdateRequest extends Request
         parent::__construct($requestConfig);
     }
 
-    public function getUpdateAlias(): ?UpdateAlias
+    public function getUpdateAlias(): UpdateAlias
     {
         return $this->updateAlias;
     }
 
-    public function getUpdatePaymentMeans(): ?UpdatePaymentMeans
+    public function getUpdatePaymentMeans(): UpdatePaymentMeans
     {
         return $this->updatePaymentMeans;
     }
