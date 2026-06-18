@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" colors="true" bootstrap="vendor/autoload.php" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd">
-  <coverage>
-    <include>
-      <directory>./lib</directory>
-    </include>
-  </coverage>
   <testsuites>
     <testsuite name="SaferpayJsonApi">
       <directory>./tests</directory>
     </testsuite>
   </testsuites>
+  <source>
+    <include>
+      <directory>./lib</directory>
+    </include>
+  </source>
 </phpunit>
