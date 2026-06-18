@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  php:
+    container_name: php-saferpay-json-api
+    build: docker/php
+    volumes:
+      - .:/var/www/html
