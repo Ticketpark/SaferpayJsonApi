@@ -15,7 +15,6 @@ use Ticketpark\SaferpayJson\Request\Exception\HttpRequestException;
 use Ticketpark\SaferpayJson\Request\Exception\SaferpayErrorException;
 use Ticketpark\SaferpayJson\Response\ErrorResponse;
 use Ticketpark\SaferpayJson\Response\Response;
-use Ticketpark\SaferpayJson\SerializerFactory;
 
 abstract class Request
 {
@@ -131,6 +130,6 @@ abstract class Request
 
     private function getSerializer(): SerializerInterface
     {
-        return SerializerFactory::get();
+        return $this->requestConfig->getSerializer();
     }
 }
