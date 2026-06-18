@@ -3,6 +3,8 @@ parameters:
     paths:
         - lib
         - tests
+    excludePaths:
+        - tests/SaferpayJson/Tests/Integration
     ignoreErrors:
         -
             identifier: property.unusedType

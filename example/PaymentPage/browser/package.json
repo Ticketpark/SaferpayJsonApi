@@ -1,0 +1,11 @@
+{
+  "name": "saferpay-json-api-payment-page-browser",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install-browsers": "playwright install chromium"
+  },
+  "devDependencies": {
+    "playwright": "^1.52.0"
+  }
+}

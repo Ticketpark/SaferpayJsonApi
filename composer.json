@@ -35,6 +35,11 @@
     },
     "scripts": {
         "test": "phpunit",
+        "test-integration": [
+            "npm --prefix example/PaymentPage/browser ci",
+            "npm --prefix example/PaymentPage/browser run install-browsers",
+            "phpunit --testsuite integration"
+        ],
         "phpstan": "phpstan analyse",
         "rector": "rector process",
         "rector-check": "rector process --dry-run",
