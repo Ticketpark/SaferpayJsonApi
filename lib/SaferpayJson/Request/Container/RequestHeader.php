@@ -6,6 +6,7 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
+use Ticketpark\SaferpayJson\Uuid;
 
 final class RequestHeader
 {
@@ -25,7 +26,7 @@ final class RequestHeader
         #[SerializedName('RetryIndicator')]
         private readonly int $retryIndicator = RequestConfig::MIN_RETRY_INDICATOR,
     ) {
-        $this->requestId = null === $requestId && 0 === $retryIndicator ? uniqid() : $requestId;
+        $this->requestId = null === $requestId && 0 === $retryIndicator ? Uuid::v4() : $requestId;
     }
 
     public function getSpecVersion(): string
