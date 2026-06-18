@@ -92,7 +92,7 @@ abstract class IntegrationTestCase extends TestCase
 
         if (!is_file($playwrightBinary)) {
             $this->markTestSkipped(
-                'Playwright is not installed. Run: npm --prefix example/PaymentPage/browser install && npm --prefix example/PaymentPage/browser run install-browsers',
+                'Playwright is not installed. Run: composer test-integration (or rebuild the Docker image for container runs).',
             );
         }
     }

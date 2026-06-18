@@ -15,7 +15,12 @@ const expiry = process.env.SAFERPAY_TEST_EXPIRY ?? '12/30';
 const verificationCode = process.env.SAFERPAY_TEST_CVC ?? '123';
 const holderName = process.env.SAFERPAY_TEST_HOLDER ?? 'Max Mustermann';
 
-const browser = await chromium.launch({ headless: true });
+const launchOptions = { headless: true };
+if (process.env.PLAYWRIGHT_NO_SANDBOX === '1' || (typeof process.getuid === 'function' && process.getuid() === 0)) {
+    launchOptions.args = ['--no-sandbox', '--disable-setuid-sandbox'];
+}
+
+const browser = await chromium.launch(launchOptions);
 const page = await browser.newPage();
 
 try {

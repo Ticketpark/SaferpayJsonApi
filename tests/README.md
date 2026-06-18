@@ -20,10 +20,20 @@ This uses Playwright to complete the hosted payment page in a headless browser. 
 
 ### Requirements
 
-- Node.js
+- Node.js (included in the project Docker image)
 - Saferpay test credentials in `example/credentials.php`
 
-`composer test-integration` installs Playwright and Chromium automatically on first run.
+`composer test-integration` installs Playwright npm packages automatically on first run. Chromium is pre-installed in the Docker image.
+
+### Docker
+
+```bash
+docker compose build
+docker compose run --rm php composer install
+docker compose run --rm php composer test-integration
+```
+
+Mount `example/credentials.php` from the host (the repo is bind-mounted at `/var/www/html`). The PHP image includes Node.js, Playwright OS dependencies, and Chromium at `/opt/ms-playwright`.
 
 ### Test card overrides
 

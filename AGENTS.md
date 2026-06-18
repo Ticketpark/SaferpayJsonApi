@@ -190,6 +190,8 @@ Request tests extend `CommonRequestTestCase`:
 
 Optional end-to-end tests against the Saferpay sandbox (`composer test-integration`). They require `example/credentials.php` (copy from `credentials.dist.php`) and Playwright for browser flows (`Transaction/Initialize`, PaymentPage, `Alias/Insert`).
 
+In Docker: `docker compose build && docker compose run --rm php composer install && docker compose run --rm php composer test-integration` (see [tests/README.md](tests/README.md)). The PHP image ships Node.js, Playwright OS deps, and Chromium at `/opt/ms-playwright`.
+
 Location: `tests/SaferpayJson/Tests/Integration/`
 
 | File | Role |
