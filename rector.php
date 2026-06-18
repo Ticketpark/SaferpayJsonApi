@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector;
 use Rector\ValueObject\PhpVersion;
 
@@ -16,6 +15,5 @@ return RectorConfig::configure()
     ->withImportNames(importShortClasses: false, removeUnusedImports: true)
     ->withPreparedSets(typeDeclarations: true)
     ->withRules([
-        AddVoidReturnTypeWhereNoReturnRector::class,
-        TypedPropertyFromAssignsRector::class
+        TypedPropertyFromAssignsRector::class,
     ]);
