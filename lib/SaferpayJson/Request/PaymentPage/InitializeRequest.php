@@ -73,6 +73,7 @@ final class InitializeRequest extends Request
     #[SerializedName('ConfigSet')]
     private ?string $configSet = null;
 
+    /** @var list<string>|null */
     #[SerializedName('PaymentMethods')]
     private ?array $paymentMethods = null;
 
@@ -82,6 +83,7 @@ final class InitializeRequest extends Request
     #[SerializedName('Authentication')]
     private ?Authentication $authentication = null;
 
+    /** @var list<string>|null */
     #[SerializedName('Wallets')]
     private ?array $wallets = null;
 
@@ -173,11 +175,13 @@ final class InitializeRequest extends Request
         return $this;
     }
 
+    /** @return list<string>|null */
     public function getPaymentMethods(): ?array
     {
         return $this->paymentMethods;
     }
 
+    /** @param list<string>|null $paymentMethods */
     public function setPaymentMethods(?array $paymentMethods): self
     {
         $this->paymentMethods = $paymentMethods;
@@ -209,11 +213,13 @@ final class InitializeRequest extends Request
         return $this;
     }
 
+    /** @return list<string>|null */
     public function getWallets(): ?array
     {
         return $this->wallets;
     }
 
+    /** @param list<string>|null $wallets */
     public function setWallets(?array $wallets): self
     {
         $this->wallets = $wallets;

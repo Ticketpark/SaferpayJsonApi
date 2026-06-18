@@ -9,8 +9,9 @@ use JMS\Serializer\Annotation\Type;
 
 final class MastercardIssuerInstallments
 {
+    /** @var list<InstallmentPlan> */
     #[SerializedName('InstallmentPlans')]
-    #[Type('array')]
+    #[Type('array<Ticketpark\SaferpayJson\Response\Container\InstallmentPlan>')]
     private array $installmentPlans = [];
 
     #[SerializedName('CustomPlan')]
@@ -22,7 +23,8 @@ final class MastercardIssuerInstallments
     #[SerializedName('ChosenPlan')]
     private ?ChosenPlan $chosenPlan = null;
 
-    public function getInstallmentPlans(): ?array
+    /** @return list<InstallmentPlan> */
+    public function getInstallmentPlans(): array
     {
         return $this->installmentPlans;
     }

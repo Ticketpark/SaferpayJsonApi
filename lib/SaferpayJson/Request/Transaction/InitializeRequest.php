@@ -65,6 +65,7 @@ final class InitializeRequest extends Request
     #[SerializedName('Styling')]
     private ?Styling $styling = null;
 
+    /** @var list<string>|null */
     #[SerializedName('PaymentMethods')]
     private ?array $paymentMethods = null;
 
@@ -139,6 +140,7 @@ final class InitializeRequest extends Request
         return $this;
     }
 
+    /** @param list<string>|null $paymentMethods */
     public function setPaymentMethods(?array $paymentMethods): self
     {
         $this->paymentMethods = $paymentMethods;
@@ -214,6 +216,7 @@ final class InitializeRequest extends Request
         return $this->styling;
     }
 
+    /** @return list<string>|null */
     public function getPaymentMethods(): ?array
     {
         return $this->paymentMethods;

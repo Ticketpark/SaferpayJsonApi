@@ -8,6 +8,7 @@ use JMS\Serializer\Annotation\SerializedName;
 
 final class Notification
 {
+    /** @var list<string>|null */
     #[SerializedName('MerchantEmails')]
     private ?array $merchantEmails = [];
 
@@ -23,11 +24,13 @@ final class Notification
     #[SerializedName('FailNotifyUrl')]
     private ?string $failNotifyUrl = null;
 
+    /** @return list<string>|null */
     public function getMerchantEmails(): ?array
     {
         return $this->merchantEmails;
     }
 
+    /** @param list<string>|null $merchantEmails */
     public function setMerchantEmails(?array $merchantEmails): self
     {
         $this->merchantEmails = $merchantEmails;

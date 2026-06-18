@@ -58,6 +58,7 @@ final class AliasInsertRequest extends Request
     #[SerializedName('Check')]
     private ?Check $check = null;
 
+    /** @var list<string>|null */
     #[SerializedName('PaymentMethods')]
     private ?array $paymentMethods = null;
 
@@ -155,11 +156,13 @@ final class AliasInsertRequest extends Request
         return $this;
     }
 
+    /** @return list<string>|null */
     public function getPaymentMethods(): ?array
     {
         return $this->paymentMethods;
     }
 
+    /** @param list<string>|null $paymentMethods */
     public function setPaymentMethods(?array $paymentMethods): self
     {
         $this->paymentMethods = $paymentMethods;

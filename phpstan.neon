@@ -7,6 +7,4 @@ parameters:
             identifier: property.unusedType
             path: lib/SaferpayJson/Response
         -
-            identifier: missingType.iterableValue
-        -
             identifier: return.unusedType
