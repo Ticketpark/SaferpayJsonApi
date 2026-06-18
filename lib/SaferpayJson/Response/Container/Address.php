@@ -9,11 +9,6 @@ use JMS\Serializer\Annotation\Type;
 
 final class Address
 {
-    public const GENDER_MALE = 'MALE';
-    public const GENDER_FEMALE = 'FEMALE';
-    public const GENDER_DIVERSE = 'DIVERSE';
-    public const GENDER_COMPANY = 'COMPANY';
-
     #[SerializedName('FirstName')]
     private ?string $firstName = null;
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\ThreeDsCondition;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
@@ -17,12 +18,8 @@ final class AuthorizeRequest extends Request
     public const API_PATH = '/Payment/v1/Transaction/Authorize';
     public const RESPONSE_CLASS = AuthorizeResponse::class;
 
-    public const CONDITION_THREE_DS_AUTHENTICATION_SUCCESSFUL_OR_ATTEMPTED = 'THREE_DS_AUTHENTICATION_SUCCESSFUL_OR_ATTEMPTED';
-    public const CONDITION_WITH_SUCCESSFUL_THREE_DS_CHALLENGE = 'WITH_SUCCESSFUL_THREE_DS_CHALLENGE';
-    public const CONDITION_NONE = 'NONE';
-
     #[SerializedName('Condition')]
-    private ?string $condition = null;
+    private ?ThreeDsCondition $condition = null;
 
     #[SerializedName('VerificationCode')]
     private ?string $verificationCode = null;
@@ -43,7 +40,7 @@ final class AuthorizeRequest extends Request
         return $this->token;
     }
 
-    public function getCondition(): ?string
+    public function getCondition(): ?ThreeDsCondition
     {
         return $this->condition;
     }
@@ -58,7 +55,7 @@ final class AuthorizeRequest extends Request
         return $this->registerAlias;
     }
 
-    public function setCondition(?string $condition): self
+    public function setCondition(?ThreeDsCondition $condition): self
     {
         $this->condition = $condition;
 

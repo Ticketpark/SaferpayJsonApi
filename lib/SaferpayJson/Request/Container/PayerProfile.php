@@ -6,14 +6,10 @@ namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use Ticketpark\SaferpayJson\Enum\Gender;
 
 final class PayerProfile
 {
-    public const GENDER_MALE = 'MALE';
-    public const GENDER_FEMALE = 'FEMALE';
-    public const GENDER_DIVERSE = 'DIVERSE';
-    public const GENDER_COMPANY = 'COMPANY';
-
     #[SerializedName('HasAccount')]
     private ?bool $hasAccount = null;
 
@@ -40,7 +36,7 @@ final class PayerProfile
     private ?\DateTime $lastLoginDate = null;
 
     #[SerializedName('Gender')]
-    private ?string $gender = null;
+    private ?Gender $gender = null;
 
     #[SerializedName('CreationDate')]
     #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
@@ -155,12 +151,12 @@ final class PayerProfile
         return $this;
     }
 
-    public function getGender(): ?string
+    public function getGender(): ?Gender
     {
         return $this->gender;
     }
 
-    public function setGender(?string $gender): self
+    public function setGender(?Gender $gender): self
     {
         $this->gender = $gender;
 

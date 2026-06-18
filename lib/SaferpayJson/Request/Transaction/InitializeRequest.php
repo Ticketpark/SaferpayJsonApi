@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\PaymentMethod;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\CardForm;
 use Ticketpark\SaferpayJson\Request\Container\Order;
@@ -27,20 +28,6 @@ final class InitializeRequest extends Request
     public const API_PATH = '/Payment/v1/Transaction/Initialize';
     public const RESPONSE_CLASS = InitializeResponse::class;
 
-    public const PAYMENT_METHOD_AMEX = 'AMEX';
-    public const PAYMENT_METHOD_BANCONTACT = 'BANCONTACT';
-    public const PAYMENT_METHOD_DINERS = 'DINERS';
-    public const PAYMENT_METHOD_DIRECTDEBIT = 'DIRECTDEBIT';
-    public const PAYMENT_METHOD_JCB = 'JCB';
-    public const PAYMENT_METHOD_MAESTRO = 'MAESTRO';
-    public const PAYMENT_METHOD_MASTERCARD = 'MASTERCARD';
-    public const PAYMENT_METHOD_REKA = 'REKA';
-    public const PAYMENT_METHOD_VISA = 'VISA';
-    public const PAYMENT_METHOD_WERO = 'WERO';
-    public const PAYMENT_METHOD_WECHATPAY = 'WECHATPAY';
-
-    public const WALLET_MASTERPASS = 'MASTERPASS';
-
     #[SerializedName('ConfigSet')]
     private ?string $configSet = null;
 
@@ -56,7 +43,7 @@ final class InitializeRequest extends Request
     #[SerializedName('Styling')]
     private ?Styling $styling = null;
 
-    /** @var list<string>|null */
+    /** @var list<PaymentMethod>|null */
     #[SerializedName('PaymentMethods')]
     private ?array $paymentMethods = null;
 
@@ -130,7 +117,7 @@ final class InitializeRequest extends Request
         return $this;
     }
 
-    /** @param list<string>|null $paymentMethods */
+    /** @param list<PaymentMethod>|null $paymentMethods */
     public function setPaymentMethods(?array $paymentMethods): self
     {
         $this->paymentMethods = $paymentMethods;
@@ -206,7 +193,7 @@ final class InitializeRequest extends Request
         return $this->styling;
     }
 
-    /** @return list<string>|null */
+    /** @return list<PaymentMethod>|null */
     public function getPaymentMethods(): ?array
     {
         return $this->paymentMethods;

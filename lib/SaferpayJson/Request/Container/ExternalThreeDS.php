@@ -5,25 +5,14 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\CardScheme;
+use Ticketpark\SaferpayJson\Enum\ThreeDsAuthenticationMode;
+use Ticketpark\SaferpayJson\Enum\ThreeDsTransStatus;
 
 final class ExternalThreeDS
 {
-    public const AUTHENTICATION_MODE_CHALLENGE = 'CHALLENGE';
-    public const AUTHENTICATION_MODE_FRICTIONLESS = 'FRICTIONLESS';
-
-    public const SCHEME_MASTERCARD = 'MASTERCARD';
-    public const SCHEME_VISA = 'VISA';
-    public const SCHEME_JCB = 'JCB';
-    public const SCHEME_DINERS = 'DINERS';
-    public const SCHEME_AMEX = 'AMEX';
-
-    public const TRANS_STATUS_Y = 'Y';
-    public const TRANS_STATUS_A = 'A';
-    public const TRANS_STATUS_U = 'U';
-    public const TRANS_STATUS_I = 'I';
-
     #[SerializedName('AuthenticationMode')]
-    private ?string $authenticationMode = null;
+    private ?ThreeDsAuthenticationMode $authenticationMode = null;
 
     public function __construct(
         #[SerializedName('AcsTransId')]
@@ -37,13 +26,13 @@ final class ExternalThreeDS
         #[SerializedName('Eci')]
         private readonly string $eci,
         #[SerializedName('Scheme')]
-        private readonly string $scheme,
+        private readonly CardScheme $scheme,
         #[SerializedName('ThreeDsFullVersion')]
         private readonly string $threeDsFullVersion,
         #[SerializedName('ThreeDSServerTransId')]
         private readonly string $threeDSServerTransId,
         #[SerializedName('TransStatus')]
-        private readonly string $transStatus,
+        private readonly ThreeDsTransStatus $transStatus,
     ) {
     }
 
@@ -52,12 +41,12 @@ final class ExternalThreeDS
         return $this->acsTransId;
     }
 
-    public function getAuthenticationMode(): ?string
+    public function getAuthenticationMode(): ?ThreeDsAuthenticationMode
     {
         return $this->authenticationMode;
     }
 
-    public function setAuthenticationMode(?string $authenticationMode): self
+    public function setAuthenticationMode(?ThreeDsAuthenticationMode $authenticationMode): self
     {
         $this->authenticationMode = $authenticationMode;
 
@@ -84,7 +73,7 @@ final class ExternalThreeDS
         return $this->eci;
     }
 
-    public function getScheme(): string
+    public function getScheme(): CardScheme
     {
         return $this->scheme;
     }
@@ -99,7 +88,7 @@ final class ExternalThreeDS
         return $this->threeDSServerTransId;
     }
 
-    public function getTransStatus(): string
+    public function getTransStatus(): ThreeDsTransStatus
     {
         return $this->transStatus;
     }

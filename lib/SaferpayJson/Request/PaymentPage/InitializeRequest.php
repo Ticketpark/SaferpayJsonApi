@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\PaymentPage;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\PaymentMethod;
+use Ticketpark\SaferpayJson\Enum\ThreeDsCondition;
+use Ticketpark\SaferpayJson\Enum\Wallet;
 use Ticketpark\SaferpayJson\Request\Container\AddressForm;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\CardForm;
@@ -27,44 +30,10 @@ final class InitializeRequest extends Request
     public const API_PATH = '/Payment/v1/PaymentPage/Initialize';
     public const RESPONSE_CLASS = InitializeResponse::class;
 
-    public const PAYMENT_METHOD_ACCOUNTTOACCOUNT = 'ACCOUNTTOACCOUNT';
-    public const PAYMENT_METHOD_ALIPAY = 'ALIPAY';
-    public const PAYMENT_METHOD_AMEX = 'AMEX';
-    public const PAYMENT_METHOD_BANCONTACT = 'BANCONTACT';
-    public const PAYMENT_METHOD_DINERS = 'DINERS';
-    public const PAYMENT_METHOD_CARD = 'CARD';
-    public const PAYMENT_METHOD_DIRECTDEBIT = 'DIRECTDEBIT';
-    public const PAYMENT_METHOD_EPRZELEWY = 'EPRZELEWY';
-    public const PAYMENT_METHOD_EPS = 'EPS';
-    public const PAYMENT_METHOD_IDEAL = 'IDEAL';
-    public const PAYMENT_METHOD_INVOICE = 'INVOICE';
-    public const PAYMENT_METHOD_JCB = 'JCB';
-    public const PAYMENT_METHOD_KLARNA = 'KLARNA';
-    public const PAYMENT_METHOD_MAESTRO = 'MAESTRO';
-    public const PAYMENT_METHOD_MASTERCARD = 'MASTERCARD';
-    public const PAYMENT_METHOD_PAYCONIQ = 'PAYCONIQ';
-    public const PAYMENT_METHOD_PAYPAL = 'PAYPAL';
-    public const PAYMENT_METHOD_POSTFINANCEPAY = 'POSTFINANCEPAY';
-    public const PAYMENT_METHOD_REKA = 'REKA';
-    public const PAYMENT_METHOD_SAFERPAYTEST = 'SAFERPAYTEST';
-    public const PAYMENT_METHOD_TWINT = 'TWINT';
-    public const PAYMENT_METHOD_UNIONPAY = 'UNIONPAY';
-    public const PAYMENT_METHOD_VISA = 'VISA';
-    public const PAYMENT_METHOD_WERO = 'WERO';
-    public const PAYMENT_METHOD_WECHATPAY = 'WECHATPAY';
-
-    public const WALLET_APPLEPAY = 'APPLEPAY';
-    public const WALLET_GOOGLEPAY = 'GOOGLEPAY';
-    public const WALLET_CLICKTOPAY = 'CLICKTOPAY';
-
-    public const CONDITION_THREE_DS_AUTHENTICATION_SUCCESSFUL_OR_ATTEMPTED = 'THREE_DS_AUTHENTICATION_SUCCESSFUL_OR_ATTEMPTED';
-    public const CONDITION_WITH_SUCCESSFUL_THREE_DS_CHALLENGE = 'WITH_SUCCESSFUL_THREE_DS_CHALLENGE';
-    public const CONDITION_NONE = 'NONE';
-
     #[SerializedName('ConfigSet')]
     private ?string $configSet = null;
 
-    /** @var list<string>|null */
+    /** @var list<PaymentMethod>|null */
     #[SerializedName('PaymentMethods')]
     private ?array $paymentMethods = null;
 
@@ -74,7 +43,7 @@ final class InitializeRequest extends Request
     #[SerializedName('Authentication')]
     private ?Authentication $authentication = null;
 
-    /** @var list<string>|null */
+    /** @var list<Wallet>|null */
     #[SerializedName('Wallets')]
     private ?array $wallets = null;
 
@@ -97,7 +66,7 @@ final class InitializeRequest extends Request
     private ?CardForm $cardForm = null;
 
     #[SerializedName('Condition')]
-    private ?string $condition = null;
+    private ?ThreeDsCondition $condition = null;
 
     #[SerializedName('Order')]
     private ?Order $order = null;
@@ -144,13 +113,13 @@ final class InitializeRequest extends Request
         return $this;
     }
 
-    /** @return list<string>|null */
+    /** @return list<PaymentMethod>|null */
     public function getPaymentMethods(): ?array
     {
         return $this->paymentMethods;
     }
 
-    /** @param list<string>|null $paymentMethods */
+    /** @param list<PaymentMethod>|null $paymentMethods */
     public function setPaymentMethods(?array $paymentMethods): self
     {
         $this->paymentMethods = $paymentMethods;
@@ -182,13 +151,13 @@ final class InitializeRequest extends Request
         return $this;
     }
 
-    /** @return list<string>|null */
+    /** @return list<Wallet>|null */
     public function getWallets(): ?array
     {
         return $this->wallets;
     }
 
-    /** @param list<string>|null $wallets */
+    /** @param list<Wallet>|null $wallets */
     public function setWallets(?array $wallets): self
     {
         $this->wallets = $wallets;
@@ -268,12 +237,12 @@ final class InitializeRequest extends Request
         return $this;
     }
 
-    public function getCondition(): ?string
+    public function getCondition(): ?ThreeDsCondition
     {
         return $this->condition;
     }
 
-    public function setCondition(?string $condition): self
+    public function setCondition(?ThreeDsCondition $condition): self
     {
         $this->condition = $condition;
 

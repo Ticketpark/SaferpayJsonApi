@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\Initiator;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\DccReference;
 use Ticketpark\SaferpayJson\Request\Container\Order;
@@ -23,9 +24,6 @@ final class AuthorizeDirectRequest extends Request
     use RequestCommonsTrait;
     public const API_PATH = '/Payment/v1/Transaction/AuthorizeDirect';
     public const RESPONSE_CLASS = AuthorizeDirectResponse::class;
-
-    public const INITIATOR_MERCHANT = 'MERCHANT';
-    public const INITIATOR_PAYER = 'PAYER';
 
     #[SerializedName('Authentication')]
     private ?Authentication $authentication = null;
@@ -46,7 +44,7 @@ final class AuthorizeDirectRequest extends Request
     private ?RiskFactors $riskFactors = null;
 
     #[SerializedName('Initiator')]
-    private ?string $initiator = null;
+    private ?Initiator $initiator = null;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -147,12 +145,12 @@ final class AuthorizeDirectRequest extends Request
         return $this;
     }
 
-    public function getInitiator(): ?string
+    public function getInitiator(): ?Initiator
     {
         return $this->initiator;
     }
 
-    public function setInitiator(?string $initiator): self
+    public function setInitiator(?Initiator $initiator): self
     {
         $this->initiator = $initiator;
 

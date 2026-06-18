@@ -5,17 +5,12 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\DeliveryType;
 
 final class RiskFactors
 {
-    public const DELIVERY_TYPE_EMAIL = 'EMAIL';
-    public const DELIVERY_TYPE_SHOP = 'SHOP';
-    public const DELIVERY_TYPE_HOMEDELIVERY = 'HOMEDELIVERY';
-    public const DELIVERY_TYPE_PICKUP = 'PICKUP';
-    public const DELIVERY_TYPE_HQ = 'HQ';
-
     #[SerializedName('DeliveryType')]
-    private ?string $deliveryType = null;
+    private ?DeliveryType $deliveryType = null;
 
     #[SerializedName('PayerProfile')]
     private ?PayerProfile $payerProfile = null;
@@ -26,12 +21,12 @@ final class RiskFactors
     #[SerializedName('DeviceFingerprintTransactionId')]
     private ?string $deviceFingerprintTransactionId = null;
 
-    public function getDeliveryType(): ?string
+    public function getDeliveryType(): ?DeliveryType
     {
         return $this->deliveryType;
     }
 
-    public function setDeliveryType(?string $deliveryType): self
+    public function setDeliveryType(?DeliveryType $deliveryType): self
     {
         $this->deliveryType = $deliveryType;
 

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\SecureCardData;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Enum\AliasInsertType;
+use Ticketpark\SaferpayJson\Enum\PaymentMethod;
 use Ticketpark\SaferpayJson\Request\Container\CardForm;
 use Ticketpark\SaferpayJson\Request\Container\Check;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
@@ -23,23 +25,6 @@ final class AliasInsertRequest extends Request
     public const API_PATH = '/Payment/v1/Alias/Insert';
     public const RESPONSE_CLASS = AliasInsertResponse::class;
 
-    public const PAYMENT_METHOD_AMEX = 'AMEX';
-    public const PAYMENT_METHOD_DINERS = 'DINERS';
-    public const PAYMENT_METHOD_DIRECTDEBIT = 'DIRECTDEBIT';
-    public const PAYMENT_METHOD_JCB = 'JCB';
-    public const PAYMENT_METHOD_MAESTRO = 'MAESTRO';
-    public const PAYMENT_METHOD_MASTERCARD = 'MASTERCARD';
-    public const PAYMENT_METHOD_POSTFINANCEPAY = 'POSTFINANCEPAY';
-    public const PAYMENT_METHOD_SAFERPAYTEST = 'SAFERPAYTEST';
-    public const PAYMENT_METHOD_VISA = 'VISA';
-    public const PAYMENT_METHOD_WERO = 'WERO';
-    public const PAYMENT_METHOD_WECHATPAY = 'WECHATPAY';
-
-    public const TYPE_CARD = 'CARD';
-    public const TYPE_BANK_ACCOUNT = 'BANK_ACCOUNT';
-    public const TYPE_POSTFINANCE = 'POSTFINANCE';
-    public const TYPE_TWINT = 'TWINT';
-
     #[SerializedName('Styling')]
     private ?Styling $styling = null;
 
@@ -49,7 +34,7 @@ final class AliasInsertRequest extends Request
     #[SerializedName('Check')]
     private ?Check $check = null;
 
-    /** @var list<string>|null */
+    /** @var list<PaymentMethod>|null */
     #[SerializedName('PaymentMethods')]
     private ?array $paymentMethods = null;
 
@@ -67,7 +52,7 @@ final class AliasInsertRequest extends Request
         #[SerializedName('RegisterAlias')]
         private readonly RegisterAlias $registerAlias,
         #[SerializedName('Type')]
-        private readonly string $type,
+        private readonly AliasInsertType $type,
         #[SerializedName('ReturnUrl')]
         private readonly ReturnUrl $returnUrl,
     ) {
@@ -79,7 +64,7 @@ final class AliasInsertRequest extends Request
         return $this->registerAlias;
     }
 
-    public function getType(): string
+    public function getType(): AliasInsertType
     {
         return $this->type;
     }
@@ -125,13 +110,13 @@ final class AliasInsertRequest extends Request
         return $this;
     }
 
-    /** @return list<string>|null */
+    /** @return list<PaymentMethod>|null */
     public function getPaymentMethods(): ?array
     {
         return $this->paymentMethods;
     }
 
-    /** @param list<string>|null $paymentMethods */
+    /** @param list<PaymentMethod>|null $paymentMethods */
     public function setPaymentMethods(?array $paymentMethods): self
     {
         $this->paymentMethods = $paymentMethods;
