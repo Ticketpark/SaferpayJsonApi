@@ -20,6 +20,9 @@ final class RegistrationResult
     #[SerializedName('AuthenticationResult')]
     private ?AuthenticationResult $authenticationResult = null;
 
+    #[SerializedName('Tokenization')]
+    private ?Tokenization $tokenization = null;
+
     public function isSuccess(): ?bool
     {
         return $this->success;
@@ -38,5 +41,10 @@ final class RegistrationResult
     public function getAuthenticationResult(): ?AuthenticationResult
     {
         return $this->authenticationResult;
+    }
+
+    public function getTokenization(): ?Tokenization
+    {
+        return $this->tokenization;
     }
 }

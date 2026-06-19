@@ -3,6 +3,10 @@
   <testsuites>
     <testsuite name="SaferpayJsonApi">
       <directory>./tests</directory>
+      <exclude>./tests/SaferpayJson/Tests/Integration</exclude>
+    </testsuite>
+    <testsuite name="integration">
+      <directory>./tests/SaferpayJson/Tests/Integration</directory>
     </testsuite>
   </testsuites>
   <source>

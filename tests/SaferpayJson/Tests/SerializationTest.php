@@ -1,0 +1,197 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Ticketpark\SaferpayJson\Tests;
+
+use PHPUnit\Framework\TestCase;
+use Ticketpark\SaferpayJson\Request\Container\Amount;
+use Ticketpark\SaferpayJson\Request\Container\Authentication;
+use Ticketpark\SaferpayJson\Request\Container\CaptureReference;
+use Ticketpark\SaferpayJson\Request\Container\Card;
+use Ticketpark\SaferpayJson\Request\Container\CardForm;
+use Ticketpark\SaferpayJson\Request\Container\IssuerReference;
+use Ticketpark\SaferpayJson\Request\Container\Payer;
+use Ticketpark\SaferpayJson\Request\Container\Payment;
+use Ticketpark\SaferpayJson\Request\Container\Refund;
+use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
+use Ticketpark\SaferpayJson\Request\Enum\CardFormVerificationCode;
+use Ticketpark\SaferpayJson\Request\Enum\PaymentMethod;
+use Ticketpark\SaferpayJson\Request\Enum\Wallet;
+use Ticketpark\SaferpayJson\Request\PaymentPage\InitializeRequest;
+use Ticketpark\SaferpayJson\Request\RequestConfig;
+use Ticketpark\SaferpayJson\Request\Transaction\RefundRequest;
+use Ticketpark\SaferpayJson\Response\Container\CheckResult;
+use Ticketpark\SaferpayJson\Response\Container\Liability;
+use Ticketpark\SaferpayJson\Response\Container\Transaction;
+use Ticketpark\SaferpayJson\Response\Enum\CheckResultStatus;
+use Ticketpark\SaferpayJson\Response\Enum\ErrorBehaviour;
+use Ticketpark\SaferpayJson\Response\Enum\InPsd2Scope;
+use Ticketpark\SaferpayJson\Response\Enum\LiableEntity;
+use Ticketpark\SaferpayJson\Response\Enum\TransactionStatus;
+use Ticketpark\SaferpayJson\Response\Enum\TransactionType;
+use Ticketpark\SaferpayJson\Response\ErrorResponse;
+use Ticketpark\SaferpayJson\Response\Transaction\CaptureResponse;
+use Ticketpark\SaferpayJson\SerializerFactory;
+
+class SerializationTest extends TestCase
+{
+    public function testAmountRoundTrip(): void
+    {
+        $serializer = SerializerFactory::get();
+        $amount = new Amount(5000, 'CHF');
+
+        $json = $serializer->serialize($amount, 'json');
+        $restored = $serializer->deserialize($json, Amount::class, 'json');
+
+        $this->assertSame(5000, $restored->getValue());
+        $this->assertSame('CHF', $restored->getCurrencyCode());
+    }
+
+    public function testRefundRequestSerializesMandatoryContainers(): void
+    {
+        $request = new RefundRequest(
+            new RequestConfig('apiKey', 'apiSecret', 'customerId'),
+            new Refund(new Amount(5000, 'CHF')),
+            new CaptureReference(),
+        );
+
+        $data = json_decode(SerializerFactory::get()->serialize($request, 'json'), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame('customerId', $data['RequestHeader']['CustomerId']);
+        $this->assertSame(5000, $data['Refund']['Amount']['Value']);
+        $this->assertSame('CHF', $data['Refund']['Amount']['CurrencyCode']);
+    }
+
+    public function testInitializeRequestSerializesEnums(): void
+    {
+        $request = new InitializeRequest(
+            new RequestConfig('apiKey', 'apiSecret', 'customerId'),
+            'terminal-id',
+            new Payment(new Amount(5000, 'CHF')),
+            new ReturnUrl('https://example.com/return'),
+        );
+        $request->setPaymentMethods([PaymentMethod::Visa, PaymentMethod::Mastercard]);
+        $request->setWallets([Wallet::ApplePay]);
+
+        $data = json_decode(SerializerFactory::get()->serialize($request, 'json'), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame(['VISA', 'MASTERCARD'], $data['PaymentMethods']);
+        $this->assertSame(['APPLEPAY'], $data['Wallets']);
+    }
+
+    public function testCaptureResponseDeserializesDateTimeImmutable(): void
+    {
+        $serializer = SerializerFactory::get();
+        $json = '{"Date":"2024-06-18T10:15:30.123456+00:00","Status":"CAPTURED"}';
+
+        $response = $serializer->deserialize($json, CaptureResponse::class, 'json');
+
+        $this->assertInstanceOf(\DateTimeImmutable::class, $response->getDate());
+        $this->assertSame(TransactionStatus::Captured, $response->getStatus());
+
+        $roundTrip = $serializer->deserialize(
+            $serializer->serialize($response, 'json'),
+            CaptureResponse::class,
+            'json',
+        );
+
+        $this->assertInstanceOf(\DateTimeImmutable::class, $roundTrip->getDate());
+        $this->assertSame(TransactionStatus::Captured, $roundTrip->getStatus());
+    }
+
+    public function testErrorResponseDeserializesErrorBehaviour(): void
+    {
+        $serializer = SerializerFactory::get();
+        $json = '{"Behavior":"DO_NOT_RETRY","ErrorName":"VALIDATION_FAILED","ErrorMessage":"Invalid request"}';
+
+        $response = $serializer->deserialize($json, ErrorResponse::class, 'json');
+
+        $this->assertSame(ErrorBehaviour::DoNotRetry, $response->getBehaviour());
+    }
+
+    public function testTransactionContainerDeserializesEnumsAndDate(): void
+    {
+        $serializer = SerializerFactory::get();
+        $json = '{"Type":"PAYMENT","Status":"AUTHORIZED","Date":"2024-06-18T10:15:30.123456+00:00"}';
+
+        $transaction = $serializer->deserialize($json, Transaction::class, 'json');
+
+        $this->assertSame(TransactionType::Payment, $transaction->getType());
+        $this->assertSame(TransactionStatus::Authorized, $transaction->getStatus());
+        $this->assertInstanceOf(\DateTimeImmutable::class, $transaction->getDate());
+    }
+
+    public function testLiabilityContainerDeserializesEnums(): void
+    {
+        $serializer = SerializerFactory::get();
+        $json = '{"LiableEntity":"THREEDS","InPsd2Scope":"YES"}';
+
+        $liability = $serializer->deserialize($json, Liability::class, 'json');
+
+        $this->assertSame(LiableEntity::ThreeDs, $liability->getLiableEntity());
+        $this->assertSame(InPsd2Scope::Yes, $liability->getInPsd2Scope());
+    }
+
+    public function testCheckResultDeserializesStatus(): void
+    {
+        $serializer = SerializerFactory::get();
+        $json = '{"Result":"OK","Message":"Check passed"}';
+
+        $checkResult = $serializer->deserialize($json, CheckResult::class, 'json');
+
+        $this->assertSame(CheckResultStatus::Ok, $checkResult->getResult());
+    }
+
+    public function testCardFormSerializesVerificationCode(): void
+    {
+        $cardForm = (new CardForm())
+            ->setVerificationCode(CardFormVerificationCode::Mandatory);
+
+        $data = json_decode(SerializerFactory::get()->serialize($cardForm, 'json'), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame('MANDATORY', $data['VerificationCode']);
+    }
+
+    public function testRequestCardSerializesVerificationCode(): void
+    {
+        $card = (new Card())
+            ->setNumber('9010003150000001')
+            ->setExpMonth(12)
+            ->setExpYear(2030)
+            ->setVerificationCode('123');
+
+        $data = json_decode(SerializerFactory::get()->serialize($card, 'json'), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame('123', $data['VerificationCode']);
+        $this->assertArrayNotHasKey('CountryCode', $data);
+    }
+
+    public function testAuthenticationSerializesIssuerReference(): void
+    {
+        $authentication = (new Authentication())
+            ->setIssuerReference(new IssuerReference('transaction-stamp'));
+
+        $data = json_decode(SerializerFactory::get()->serialize($authentication, 'json'), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame('transaction-stamp', $data['IssuerReference']['TransactionStamp']);
+    }
+
+    public function testPayerSerializesBrowserFields(): void
+    {
+        $payer = (new Payer())
+            ->setAcceptHeader('text/html')
+            ->setUserAgent('Mozilla/5.0')
+            ->setScreenWidth(1920)
+            ->setScreenHeight(1080)
+            ->setJavaScriptEnabled(true);
+
+        $data = json_decode(SerializerFactory::get()->serialize($payer, 'json'), true, 512, JSON_THROW_ON_ERROR);
+
+        $this->assertSame('text/html', $data['AcceptHeader']);
+        $this->assertSame('Mozilla/5.0', $data['UserAgent']);
+        $this->assertSame(1920, $data['ScreenWidth']);
+        $this->assertSame(1080, $data['ScreenHeight']);
+        $this->assertTrue($data['JavaScriptEnabled']);
+    }
+}

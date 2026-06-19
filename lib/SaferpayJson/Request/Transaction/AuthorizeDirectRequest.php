@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Enum\Initiator;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\DccReference;
 use Ticketpark\SaferpayJson\Request\Container\Order;
@@ -14,6 +13,7 @@ use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
+use Ticketpark\SaferpayJson\Request\Enum\Initiator;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -22,8 +22,8 @@ use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeDirectResponse;
 final class AuthorizeDirectRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Transaction/AuthorizeDirect';
-    public const RESPONSE_CLASS = AuthorizeDirectResponse::class;
+    public const string API_PATH = '/Payment/v1/Transaction/AuthorizeDirect';
+    public const string RESPONSE_CLASS = AuthorizeDirectResponse::class;
 
     #[SerializedName('Authentication')]
     private ?Authentication $authentication = null;
@@ -157,6 +157,7 @@ final class AuthorizeDirectRequest extends Request
         return $this;
     }
 
+    #[\Override]
     public function execute(): AuthorizeDirectResponse
     {
         /** @var AuthorizeDirectResponse $response */

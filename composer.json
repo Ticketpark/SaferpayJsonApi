@@ -16,8 +16,8 @@
         }
     ],
     "require": {
-        "php": "^8.2",
-        "jms/serializer": "^3.16",
+        "php": "^8.3",
+        "jms/serializer": "^3.20",
         "psr/http-client": "^1.0",
         "guzzlehttp/guzzle": "^7.0"
     },
@@ -34,8 +34,15 @@
         }
     },
     "scripts": {
-        "test": "phpunit",
+        "test": "phpunit --testsuite SaferpayJsonApi",
+        "test-integration": [
+            "npm --prefix example/PaymentPage/browser ci",
+            "npm --prefix example/PaymentPage/browser run install-browsers",
+            "phpunit --testsuite integration"
+        ],
         "phpstan": "phpstan analyse",
+        "rector": "rector process",
+        "rector-check": "rector process --dry-run",
         "cs-check": "php-cs-fixer --no-interaction --dry-run --diff fix",
         "cs-fix": "php-cs-fixer --no-interaction fix"
     }

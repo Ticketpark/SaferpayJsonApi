@@ -19,8 +19,8 @@ use Ticketpark\SaferpayJson\Response\Transaction\CaptureResponse;
 final class CaptureRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Transaction/Capture';
-    public const RESPONSE_CLASS = CaptureResponse::class;
+    public const string API_PATH = '/Payment/v1/Transaction/Capture';
+    public const string RESPONSE_CLASS = CaptureResponse::class;
 
     #[SerializedName('Amount')]
     private ?Amount $amount = null;
@@ -110,6 +110,7 @@ final class CaptureRequest extends Request
         return $this;
     }
 
+    #[\Override]
     public function execute(): CaptureResponse
     {
         /** @var CaptureResponse $response */

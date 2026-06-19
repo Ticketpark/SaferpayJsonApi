@@ -20,8 +20,8 @@ final class Card
     #[SerializedName('HolderName')]
     private ?string $holderName = null;
 
-    #[SerializedName('CountryCode')]
-    private ?string $countryCode = null;
+    #[SerializedName('VerificationCode')]
+    private ?string $verificationCode = null;
 
     public function getNumber(): ?string
     {
@@ -71,14 +71,14 @@ final class Card
         return $this;
     }
 
-    public function getCountryCode(): ?string
+    public function getVerificationCode(): ?string
     {
-        return $this->countryCode;
+        return $this->verificationCode;
     }
 
-    public function setCountryCode(?string $countryCode): self
+    public function setVerificationCode(?string $verificationCode): self
     {
-        $this->countryCode = $countryCode;
+        $this->verificationCode = $verificationCode;
 
         return $this;
     }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Enum\StylingTheme;
+use Ticketpark\SaferpayJson\Request\Enum\StylingTheme;
 
 final class Styling
 {

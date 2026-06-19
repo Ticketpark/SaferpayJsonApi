@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Response\Enum\CheckResultStatus;
 
 final class CheckResult
 {
     #[SerializedName('Result')]
-    private ?string $result = null;
+    private ?CheckResultStatus $result = null;
 
     #[SerializedName('Message')]
     private ?string $message = null;
@@ -17,7 +18,7 @@ final class CheckResult
     #[SerializedName('Authentication')]
     private ?HolderAuthentication $authentication = null;
 
-    public function getResult(): ?string
+    public function getResult(): ?CheckResultStatus
     {
         return $this->result;
     }

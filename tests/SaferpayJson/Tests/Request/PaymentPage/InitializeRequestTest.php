@@ -20,7 +20,8 @@ class InitializeRequestTest extends CommonRequestTestCase
         );
     }
 
-    protected function getInstance()
+    #[\Override]
+    protected function getInstance(): InitializeRequest
     {
         return new InitializeRequest(
             $this->getRequestConfig(),

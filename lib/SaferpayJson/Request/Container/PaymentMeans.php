@@ -5,27 +5,14 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Enum\Wallet;
 
 final class PaymentMeans
 {
-    #[SerializedName('Brand')]
-    private ?Brand $brand = null;
-
-    #[SerializedName('DisplayText')]
-    private ?string $displayText = null;
-
-    #[SerializedName('Wallet')]
-    private ?Wallet $wallet = null;
-
     #[SerializedName('Card')]
     private ?Card $card = null;
 
     #[SerializedName('BankAccount')]
     private ?BankAccount $bankAccount = null;
-
-    #[SerializedName('Twint')]
-    private ?Twint $twint = null;
 
     #[SerializedName('SaferpayFields')]
     private ?SaferpayFields $saferpayFields = null;
@@ -41,42 +28,6 @@ final class PaymentMeans
 
     #[SerializedName('GooglePay')]
     private ?GooglePay $googlePay = null;
-
-    public function getBrand(): ?Brand
-    {
-        return $this->brand;
-    }
-
-    public function setBrand(?Brand $brand): self
-    {
-        $this->brand = $brand;
-
-        return $this;
-    }
-
-    public function getDisplayText(): ?string
-    {
-        return $this->displayText;
-    }
-
-    public function setDisplayText(?string $displayText): self
-    {
-        $this->displayText = $displayText;
-
-        return $this;
-    }
-
-    public function getWallet(): ?Wallet
-    {
-        return $this->wallet;
-    }
-
-    public function setWallet(?Wallet $wallet): self
-    {
-        $this->wallet = $wallet;
-
-        return $this;
-    }
 
     public function getCard(): ?Card
     {
@@ -98,18 +49,6 @@ final class PaymentMeans
     public function setBankAccount(?BankAccount $bankAccount): self
     {
         $this->bankAccount = $bankAccount;
-
-        return $this;
-    }
-
-    public function getTwint(): ?Twint
-    {
-        return $this->twint;
-    }
-
-    public function setTwint(?Twint $twint): self
-    {
-        $this->twint = $twint;
 
         return $this;
     }

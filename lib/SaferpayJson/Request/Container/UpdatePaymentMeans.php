@@ -14,7 +14,7 @@ final readonly class UpdatePaymentMeans
     ) {
     }
 
-    public function getCard(): ?Card
+    public function getCard(): Card
     {
         return $this->card;
     }

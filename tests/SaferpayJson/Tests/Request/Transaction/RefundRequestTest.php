@@ -20,7 +20,8 @@ class RefundRequestTest extends CommonRequestTestCase
         );
     }
 
-    public function getInstance()
+    #[\Override]
+    public function getInstance(): RefundRequest
     {
         return new RefundRequest(
             $this->getRequestConfig(),

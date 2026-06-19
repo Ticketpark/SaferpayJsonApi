@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Enum\CardScheme;
-use Ticketpark\SaferpayJson\Enum\ThreeDsAuthenticationMode;
-use Ticketpark\SaferpayJson\Enum\ThreeDsTransStatus;
+use Ticketpark\SaferpayJson\Request\Enum\CardScheme;
+use Ticketpark\SaferpayJson\Request\Enum\ThreeDsAuthenticationMode;
+use Ticketpark\SaferpayJson\Request\Enum\ThreeDsTransStatus;
 
 final class ExternalThreeDS
 {

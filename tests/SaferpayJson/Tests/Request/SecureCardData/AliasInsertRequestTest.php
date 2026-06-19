@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request\SecureCardData;
 
-use Ticketpark\SaferpayJson\Enum\AliasIdGenerator;
-use Ticketpark\SaferpayJson\Enum\AliasInsertType;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
 use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
+use Ticketpark\SaferpayJson\Request\Enum\AliasIdGenerator;
+use Ticketpark\SaferpayJson\Request\Enum\AliasInsertType;
 use Ticketpark\SaferpayJson\Request\SecureCardData\AliasInsertRequest;
 use Ticketpark\SaferpayJson\Response\SecureCardData\AliasInsertResponse;
 use Ticketpark\SaferpayJson\Tests\Request\CommonRequestTestCase;
@@ -21,7 +21,8 @@ class AliasInsertRequestTest extends CommonRequestTestCase
         );
     }
 
-    public function getInstance()
+    #[\Override]
+    public function getInstance(): AliasInsertRequest
     {
         return new AliasInsertRequest(
             $this->getRequestConfig(),

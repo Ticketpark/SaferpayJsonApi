@@ -14,7 +14,10 @@ final class SerializerFactory
     public static function get(): SerializerInterface
     {
         if (null === self::$serializer) {
-            self::$serializer = SerializerBuilder::create()->build();
+            $builder = SerializerBuilder::create();
+            $builder->enableEnumSupport();
+
+            self::$serializer = $builder->build();
         }
 
         return self::$serializer;

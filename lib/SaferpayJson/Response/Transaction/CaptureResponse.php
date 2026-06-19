@@ -6,52 +6,33 @@ namespace Ticketpark\SaferpayJson\Response\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Ticketpark\SaferpayJson\Response\Container\Invoice;
+use Ticketpark\SaferpayJson\Response\Enum\TransactionStatus;
 use Ticketpark\SaferpayJson\Response\Response;
 
 final class CaptureResponse extends Response
 {
-    public const STATUS_PENDING = 'PENDING';
-    public const STATUS_CAPTURED = 'CAPTURED';
-
-    #[SerializedName('TransactionId')]
-    private ?string $transactionId = null;
-
     #[SerializedName('CaptureId')]
     private ?string $captureId = null;
 
     #[SerializedName('Status')]
-    private ?string $status = null;
+    private ?TransactionStatus $status = null;
 
     #[SerializedName('Date')]
-    #[Type("DateTime<'Y-m-d\TH:i:s.uT'>")]
-    private ?\DateTime $date = null;
-
-    #[SerializedName('Invoice')]
-    private ?Invoice $invoice = null;
-
-    public function getTransactionId(): ?string
-    {
-        return $this->transactionId;
-    }
+    #[Type("DateTimeImmutable<'Y-m-d\TH:i:s.uT'>")]
+    private ?\DateTimeImmutable $date = null;
 
     public function getCaptureId(): ?string
     {
         return $this->captureId;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): ?TransactionStatus
     {
         return $this->status;
     }
 
-    public function getDate(): ?\DateTime
+    public function getDate(): ?\DateTimeImmutable
     {
         return $this->date;
-    }
-
-    public function getInvoice(): ?Invoice
-    {
-        return $this->invoice;
     }
 }

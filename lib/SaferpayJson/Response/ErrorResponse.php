@@ -7,19 +7,15 @@ namespace Ticketpark\SaferpayJson\Response;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use Ticketpark\SaferpayJson\Response\Container\Risk;
+use Ticketpark\SaferpayJson\Response\Enum\ErrorBehaviour;
 
 class ErrorResponse extends Response
 {
-    public const BEHAVIOUR_DO_NOT_RETRY = 'DO_NOT_RETRY';
-    public const BEHAVIOUR_OTHER_MEANS = 'OTHER_MEANS';
-    public const BEHAVIOUR_RETRY = 'RETRY';
-    public const BEHAVIOUR_RETRY_LATER = 'RETRY_LATER';
-
     #[SerializedName('Risk')]
     private ?Risk $risk = null;
 
     #[SerializedName('Behavior')]
-    private ?string $behaviour = null;
+    private ?ErrorBehaviour $behaviour = null;
 
     #[SerializedName('ErrorName')]
     private ?string $errorName = null;
@@ -52,7 +48,7 @@ class ErrorResponse extends Response
         return $this->risk;
     }
 
-    public function getBehaviour(): ?string
+    public function getBehaviour(): ?ErrorBehaviour
     {
         return $this->behaviour;
     }

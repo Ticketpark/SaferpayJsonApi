@@ -17,8 +17,8 @@ use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeReferencedResponse;
 final class AuthorizeReferencedRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Transaction/AuthorizeReferenced';
-    public const RESPONSE_CLASS = AuthorizeReferencedResponse::class;
+    public const string API_PATH = '/Payment/v1/Transaction/AuthorizeReferenced';
+    public const string RESPONSE_CLASS = AuthorizeReferencedResponse::class;
 
     #[SerializedName('Authentication')]
     private ?Authentication $authentication = null;
@@ -92,6 +92,7 @@ final class AuthorizeReferencedRequest extends Request
         return $this;
     }
 
+    #[\Override]
     public function execute(): AuthorizeReferencedResponse
     {
         /** @var AuthorizeReferencedResponse $response */

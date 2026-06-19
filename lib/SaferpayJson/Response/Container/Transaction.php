@@ -5,21 +5,17 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use Ticketpark\SaferpayJson\Response\Enum\TransactionStatus;
+use Ticketpark\SaferpayJson\Response\Enum\TransactionType;
 
 final class Transaction
 {
-    public const TYPE_PAYMENT = 'PAYMENT';
-
-    public const STATUS_AUTHORIZED = 'AUTHORIZED';
-    public const STATUS_CANCELED = 'CANCELED';
-    public const STATUS_CAPTURED = 'CAPTURED';
-    public const STATUS_PENDING = 'PENDING';
-
     #[SerializedName('Type')]
-    private ?string $type = null;
+    private ?TransactionType $type = null;
 
     #[SerializedName('Status')]
-    private ?string $status = null;
+    private ?TransactionStatus $status = null;
 
     #[SerializedName('Id')]
     private ?string $id = null;
@@ -28,7 +24,8 @@ final class Transaction
     private ?string $captureId = null;
 
     #[SerializedName('Date')]
-    private ?string $date = null;
+    #[Type("DateTimeImmutable<'Y-m-d\TH:i:s.uT'>")]
+    private ?\DateTimeImmutable $date = null;
 
     #[SerializedName('Amount')]
     private ?Amount $amount = null;
@@ -51,18 +48,15 @@ final class Transaction
     #[SerializedName('DirectDebit')]
     private ?DirectDebit $directDebit = null;
 
-    #[SerializedName('Invoice')]
-    private ?Invoice $invoice = null;
-
     #[SerializedName('IssuerReference')]
     private ?IssuerReference $issuerReference = null;
 
-    public function getType(): ?string
+    public function getType(): ?TransactionType
     {
         return $this->type;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): ?TransactionStatus
     {
         return $this->status;
     }
@@ -77,7 +71,7 @@ final class Transaction
         return $this->captureId;
     }
 
-    public function getDate(): ?string
+    public function getDate(): ?\DateTimeImmutable
     {
         return $this->date;
     }
@@ -115,11 +109,6 @@ final class Transaction
     public function getDirectDebit(): ?DirectDebit
     {
         return $this->directDebit;
-    }
-
-    public function getInvoice(): ?Invoice
-    {
-        return $this->invoice;
     }
 
     public function getIssuerReference(): ?IssuerReference

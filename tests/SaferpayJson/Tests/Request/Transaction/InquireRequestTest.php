@@ -18,7 +18,8 @@ class InquireRequestTest extends CommonRequestTestCase
         );
     }
 
-    protected function getInstance()
+    #[\Override]
+    protected function getInstance(): InquireRequest
     {
         return new InquireRequest(
             $this->getRequestConfig(),

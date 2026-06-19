@@ -1,0 +1,11 @@
+services:
+  php:
+    container_name: php-saferpay-json-api
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    working_dir: /var/www/html
+    environment:
+      PLAYWRIGHT_BROWSERS_PATH: /opt/ms-playwright
+    volumes:
+      - .:/var/www/html

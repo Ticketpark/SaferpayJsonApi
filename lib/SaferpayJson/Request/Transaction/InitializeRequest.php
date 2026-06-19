@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Enum\PaymentMethod;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\CardForm;
 use Ticketpark\SaferpayJson\Request\Container\Order;
@@ -17,6 +16,7 @@ use Ticketpark\SaferpayJson\Request\Container\ReturnUrl;
 use Ticketpark\SaferpayJson\Request\Container\RiskFactors;
 use Ticketpark\SaferpayJson\Request\Container\Styling;
 use Ticketpark\SaferpayJson\Request\Container\Transaction\Notification;
+use Ticketpark\SaferpayJson\Request\Enum\PaymentMethod;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -25,8 +25,8 @@ use Ticketpark\SaferpayJson\Response\Transaction\InitializeResponse;
 final class InitializeRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Transaction/Initialize';
-    public const RESPONSE_CLASS = InitializeResponse::class;
+    public const string API_PATH = '/Payment/v1/Transaction/Initialize';
+    public const string RESPONSE_CLASS = InitializeResponse::class;
 
     #[SerializedName('ConfigSet')]
     private ?string $configSet = null;
@@ -74,6 +74,7 @@ final class InitializeRequest extends Request
         parent::__construct($requestConfig);
     }
 
+    #[\Override]
     public function execute(): InitializeResponse
     {
         /** @var InitializeResponse $response */

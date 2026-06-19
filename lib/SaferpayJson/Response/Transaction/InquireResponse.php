@@ -6,6 +6,7 @@ namespace Ticketpark\SaferpayJson\Response\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Response\Container\Dcc;
+use Ticketpark\SaferpayJson\Response\Container\FraudPrevention;
 use Ticketpark\SaferpayJson\Response\Container\Liability;
 use Ticketpark\SaferpayJson\Response\Container\Payer;
 use Ticketpark\SaferpayJson\Response\Container\PaymentMeans;
@@ -28,6 +29,9 @@ final class InquireResponse extends Response
 
     #[SerializedName('Dcc')]
     private ?Dcc $dcc = null;
+
+    #[SerializedName('FraudPrevention')]
+    private ?FraudPrevention $fraudPrevention = null;
 
     public function getTransaction(): ?Transaction
     {
@@ -52,5 +56,10 @@ final class InquireResponse extends Response
     public function getDcc(): ?Dcc
     {
         return $this->dcc;
+    }
+
+    public function getFraudPrevention(): ?FraudPrevention
+    {
+        return $this->fraudPrevention;
     }
 }

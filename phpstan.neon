@@ -2,9 +2,10 @@ parameters:
     level: 8
     paths:
         - lib
+        - tests
+    excludePaths:
+        - tests/SaferpayJson/Tests/Integration
     ignoreErrors:
         -
             identifier: property.unusedType
             path: lib/SaferpayJson/Response
-        -
-            identifier: return.unusedType

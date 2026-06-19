@@ -20,7 +20,8 @@ class AuthorizeReferencedRequestTest extends CommonRequestTestCase
         );
     }
 
-    protected function getInstance()
+    #[\Override]
+    protected function getInstance(): AuthorizeReferencedRequest
     {
         return new AuthorizeReferencedRequest(
             $this->getRequestConfig(),

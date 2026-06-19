@@ -18,7 +18,7 @@ use Ticketpark\SaferpayJson\Response\Response;
 
 abstract class Request
 {
-    private const ERROR_RESPONSE_CLASS = ErrorResponse::class;
+    private const string ERROR_RESPONSE_CLASS = ErrorResponse::class;
 
     abstract public function execute(): Response;
 
@@ -67,11 +67,16 @@ abstract class Request
         }
 
         $statusCode = $response->getStatusCode();
+        $body = (string) $response->getBody();
 
         if ($statusCode >= 400 && $statusCode < 500) {
+            if ('' !== $body && !json_validate($body)) {
+                throw new HttpRequestException('Unexpected invalid JSON error response body.');
+            }
+
             /** @var ErrorResponse $errorResponse */
             $errorResponse = $this->getSerializer()->deserialize(
-                (string) $response->getBody(),
+                $body,
                 self::ERROR_RESPONSE_CLASS,
                 'json',
             );
@@ -83,9 +88,13 @@ abstract class Request
             throw new HttpRequestException(sprintf('Unexpected http request response with status code %s.', $response->getStatusCode()));
         }
 
+        if ('' !== $body && !json_validate($body)) {
+            throw new HttpRequestException('Unexpected invalid JSON response body.');
+        }
+
         /** @var Response $libraryResponse */
         $libraryResponse = $this->getSerializer()->deserialize(
-            (string) $response->getBody(),
+            $body,
             $this->getResponseClass(),
             'json',
         );

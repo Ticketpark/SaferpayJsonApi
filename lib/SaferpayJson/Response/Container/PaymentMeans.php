@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Enum\Wallet;
+use Ticketpark\SaferpayJson\Response\Enum\Wallet;
 
 final class PaymentMeans
 {

@@ -5,23 +5,37 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Request\Enum\CardFormHolderName;
+use Ticketpark\SaferpayJson\Request\Enum\CardFormVerificationCode;
 
 final class CardForm
 {
-    public const HOLDER_NAME_NONE = 'NONE';
-    public const HOLDER_NAME_MANDATORY = 'MANDATORY';
-
     #[SerializedName('HolderName')]
-    private ?string $holderName = null;
+    private ?CardFormHolderName $holderName = null;
 
-    public function getHolderName(): ?string
+    #[SerializedName('VerificationCode')]
+    private ?CardFormVerificationCode $verificationCode = null;
+
+    public function getHolderName(): ?CardFormHolderName
     {
         return $this->holderName;
     }
 
-    public function setHolderName(string $holderName): self
+    public function setHolderName(CardFormHolderName $holderName): self
     {
         $this->holderName = $holderName;
+
+        return $this;
+    }
+
+    public function getVerificationCode(): ?CardFormVerificationCode
+    {
+        return $this->verificationCode;
+    }
+
+    public function setVerificationCode(CardFormVerificationCode $verificationCode): self
+    {
+        $this->verificationCode = $verificationCode;
 
         return $this;
     }

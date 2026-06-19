@@ -5,43 +5,41 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Request\Enum\AuthenticationExemption;
+use Ticketpark\SaferpayJson\Request\Enum\ThreeDsChallenge;
 
 final class Authentication
 {
-    public const EXEMPTION_LOW_VALUE = 'LOW_VALUE';
-    public const EXEMPTION_TRANSACTION_RISK_ANALYSIS = 'TRANSACTION_RISK_ANALYSIS';
-    public const EXEMPTION_RECURRING = 'RECURRING';
-
-    public const THREEDSCHALLENGE_FORCE = 'FORCE';
-    public const THREEDSCHALLENGE_AVOID = 'AVOID';
-
     #[SerializedName('Exemption')]
-    private ?string $exemption = null;
+    private ?AuthenticationExemption $exemption = null;
 
     #[SerializedName('ThreeDsChallenge')]
-    private ?string $threeDsChallenge = null;
+    private ?ThreeDsChallenge $threeDsChallenge = null;
 
     #[SerializedName('ExternalThreeDS')]
     private ?ExternalThreeDS $externalThreeDS = null;
 
-    public function getExemption(): ?string
+    #[SerializedName('IssuerReference')]
+    private ?IssuerReference $issuerReference = null;
+
+    public function getExemption(): ?AuthenticationExemption
     {
         return $this->exemption;
     }
 
-    public function setExemption(?string $exemption): self
+    public function setExemption(?AuthenticationExemption $exemption): self
     {
         $this->exemption = $exemption;
 
         return $this;
     }
 
-    public function getThreeDsChallenge(): ?string
+    public function getThreeDsChallenge(): ?ThreeDsChallenge
     {
         return $this->threeDsChallenge;
     }
 
-    public function setThreeDsChallenge(?string $threeDsChallenge): self
+    public function setThreeDsChallenge(?ThreeDsChallenge $threeDsChallenge): self
     {
         $this->threeDsChallenge = $threeDsChallenge;
 
@@ -56,6 +54,18 @@ final class Authentication
     public function setExternalThreeDS(?ExternalThreeDS $externalThreeDS): self
     {
         $this->externalThreeDS = $externalThreeDS;
+
+        return $this;
+    }
+
+    public function getIssuerReference(): ?IssuerReference
+    {
+        return $this->issuerReference;
+    }
+
+    public function setIssuerReference(?IssuerReference $issuerReference): self
+    {
+        $this->issuerReference = $issuerReference;
 
         return $this;
     }

@@ -13,8 +13,8 @@ use Ticketpark\SaferpayJson\Response\SecureCardData\AliasDeleteResponse;
 final class AliasDeleteRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Alias/Delete';
-    public const RESPONSE_CLASS = AliasDeleteResponse::class;
+    public const string API_PATH = '/Payment/v1/Alias/Delete';
+    public const string RESPONSE_CLASS = AliasDeleteResponse::class;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -29,6 +29,7 @@ final class AliasDeleteRequest extends Request
         return $this->aliasId;
     }
 
+    #[\Override]
     public function execute(): AliasDeleteResponse
     {
         /** @var AliasDeleteResponse $response */

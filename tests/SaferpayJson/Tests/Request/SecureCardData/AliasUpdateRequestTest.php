@@ -20,7 +20,8 @@ class AliasUpdateRequestTest extends CommonRequestTestCase
         );
     }
 
-    public function getInstance()
+    #[\Override]
+    public function getInstance(): AliasUpdateRequest
     {
         return new AliasUpdateRequest(
             $this->getRequestConfig(),

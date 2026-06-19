@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Request\Transaction;
 
 use JMS\Serializer\Annotation\SerializedName;
-use Ticketpark\SaferpayJson\Enum\ThreeDsCondition;
 use Ticketpark\SaferpayJson\Request\Container\RegisterAlias;
+use Ticketpark\SaferpayJson\Request\Enum\ThreeDsCondition;
 use Ticketpark\SaferpayJson\Request\Request;
 use Ticketpark\SaferpayJson\Request\RequestCommonsTrait;
 use Ticketpark\SaferpayJson\Request\RequestConfig;
@@ -15,14 +15,11 @@ use Ticketpark\SaferpayJson\Response\Transaction\AuthorizeResponse;
 final class AuthorizeRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Transaction/Authorize';
-    public const RESPONSE_CLASS = AuthorizeResponse::class;
+    public const string API_PATH = '/Payment/v1/Transaction/Authorize';
+    public const string RESPONSE_CLASS = AuthorizeResponse::class;
 
     #[SerializedName('Condition')]
     private ?ThreeDsCondition $condition = null;
-
-    #[SerializedName('VerificationCode')]
-    private ?string $verificationCode = null;
 
     #[SerializedName('RegisterAlias')]
     private ?RegisterAlias $registerAlias = null;
@@ -45,11 +42,6 @@ final class AuthorizeRequest extends Request
         return $this->condition;
     }
 
-    public function getVerificationCode(): ?string
-    {
-        return $this->verificationCode;
-    }
-
     public function getRegisterAlias(): ?RegisterAlias
     {
         return $this->registerAlias;
@@ -62,13 +54,6 @@ final class AuthorizeRequest extends Request
         return $this;
     }
 
-    public function setVerificationCode(?string $verificationCode): self
-    {
-        $this->verificationCode = $verificationCode;
-
-        return $this;
-    }
-
     public function setRegisterAlias(?RegisterAlias $registerAlias): self
     {
         $this->registerAlias = $registerAlias;
@@ -76,6 +61,7 @@ final class AuthorizeRequest extends Request
         return $this;
     }
 
+    #[\Override]
     public function execute(): AuthorizeResponse
     {
         /** @var AuthorizeResponse $response */

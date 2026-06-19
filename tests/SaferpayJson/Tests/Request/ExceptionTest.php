@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Ticketpark\SaferpayJson\Tests\Request;
 
+use GuzzleHttp\Psr7\Response as GuzzleResponse;
+use GuzzleHttp\Psr7\Utils as GuzzleUtils;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
@@ -41,6 +43,52 @@ class ExceptionTest extends TestCase
 
         $this->assertSame($previous, $exception->getPrevious());
         $this->assertInstanceOf(SaferpayException::class, $exception);
+    }
+
+    public function testRequestRejectsInvalidJsonSuccessResponse(): void
+    {
+        $client = $this->createMock(ClientInterface::class);
+        $response = $this->createMock(GuzzleResponse::class);
+        $response->method('getStatusCode')->willReturn(200);
+        $response->method('getBody')->willReturn(GuzzleUtils::streamFor('not-json'));
+
+        $client->method('sendRequest')->willReturn($response);
+
+        $requestConfig = new RequestConfig('apiKey', 'apiSecret', 'customerId');
+        $requestConfig->setClient($client);
+
+        $request = new CancelRequest(
+            $requestConfig,
+            new TransactionReference(),
+        );
+
+        $this->expectException(HttpRequestException::class);
+        $this->expectExceptionMessage('Unexpected invalid JSON response body.');
+
+        $request->execute();
+    }
+
+    public function testRequestRejectsInvalidJsonErrorResponse(): void
+    {
+        $client = $this->createMock(ClientInterface::class);
+        $response = $this->createMock(GuzzleResponse::class);
+        $response->method('getStatusCode')->willReturn(400);
+        $response->method('getBody')->willReturn(GuzzleUtils::streamFor('not-json'));
+
+        $client->method('sendRequest')->willReturn($response);
+
+        $requestConfig = new RequestConfig('apiKey', 'apiSecret', 'customerId');
+        $requestConfig->setClient($client);
+
+        $request = new CancelRequest(
+            $requestConfig,
+            new TransactionReference(),
+        );
+
+        $this->expectException(HttpRequestException::class);
+        $this->expectExceptionMessage('Unexpected invalid JSON error response body.');
+
+        $request->execute();
     }
 
     public function testRequestWrapsTransportErrorsInHttpRequestException(): void

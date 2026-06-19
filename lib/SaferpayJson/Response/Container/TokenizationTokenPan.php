@@ -5,14 +5,10 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Response\Enum\TokenPanStatus;
 
 final class TokenizationTokenPan
 {
-    public const STATUS_ACTIVE = 'ACTIVE';
-    public const STATUS_SUSPENDED = 'SUSPENDED';
-    public const STATUS_DELETED = 'DELETED';
-    public const STATUS_ACTIVATION_IN_PROGRESS = 'ACTIVATION_IN_PROGRESS';
-
     #[SerializedName('CardImageUrl')]
     private ?string $cardImageUrl = null;
 
@@ -23,7 +19,7 @@ final class TokenizationTokenPan
     private ?int $expYear = null;
 
     #[SerializedName('Status')]
-    private ?string $status = null;
+    private ?TokenPanStatus $status = null;
 
     public function getCardImageUrl(): ?string
     {
@@ -40,7 +36,7 @@ final class TokenizationTokenPan
         return $this->expYear;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): ?TokenPanStatus
     {
         return $this->status;
     }

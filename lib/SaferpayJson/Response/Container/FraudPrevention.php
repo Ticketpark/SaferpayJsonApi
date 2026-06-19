@@ -5,16 +5,14 @@ declare(strict_types=1);
 namespace Ticketpark\SaferpayJson\Response\Container;
 
 use JMS\Serializer\Annotation\SerializedName;
+use Ticketpark\SaferpayJson\Response\Enum\FraudPreventionResult;
 
 final class FraudPrevention
 {
-    public const APPROVED = 'APPROVED';
-    public const CHALLENGED = 'CHALLENGED';
-
     #[SerializedName('Result')]
-    private ?string $result = null;
+    private ?FraudPreventionResult $result = null;
 
-    public function getResult(): ?string
+    public function getResult(): ?FraudPreventionResult
     {
         return $this->result;
     }

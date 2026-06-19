@@ -17,7 +17,8 @@ class AliasAssertInsertRequestTest extends CommonRequestTestCase
         );
     }
 
-    public function getInstance()
+    #[\Override]
+    public function getInstance(): AliasAssertInsertRequest
     {
         return new AliasAssertInsertRequest(
             $this->getRequestConfig(),

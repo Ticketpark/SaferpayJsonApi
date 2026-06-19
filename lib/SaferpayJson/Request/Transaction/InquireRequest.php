@@ -14,8 +14,8 @@ use Ticketpark\SaferpayJson\Response\Transaction\InquireResponse;
 final class InquireRequest extends Request
 {
     use RequestCommonsTrait;
-    public const API_PATH = '/Payment/v1/Transaction/Inquire';
-    public const RESPONSE_CLASS = InquireResponse::class;
+    public const string API_PATH = '/Payment/v1/Transaction/Inquire';
+    public const string RESPONSE_CLASS = InquireResponse::class;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -30,6 +30,7 @@ final class InquireRequest extends Request
         return $this->transactionReference;
     }
 
+    #[\Override]
     public function execute(): InquireResponse
     {
         /** @var InquireResponse $response */

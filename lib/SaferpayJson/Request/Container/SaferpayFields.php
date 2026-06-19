@@ -14,7 +14,7 @@ final readonly class SaferpayFields
     ) {
     }
 
-    public function getToken(): ?string
+    public function getToken(): string
     {
         return $this->token;
     }
