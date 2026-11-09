@@ -11,7 +11,7 @@ use Ticketpark\SaferpayJson\Uuid;
 final class RequestHeader
 {
     #[SerializedName('SpecVersion')]
-    private string $specVersion = '1.52';
+    private string $specVersion = '1.53';
 
     #[SerializedName('RequestId')]
     private readonly ?string $requestId;
