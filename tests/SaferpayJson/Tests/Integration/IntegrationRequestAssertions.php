@@ -11,6 +11,7 @@ use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\CaptureReference;
 use Ticketpark\SaferpayJson\Request\Container\Card;
 use Ticketpark\SaferpayJson\Request\Container\CardForm;
+use Ticketpark\SaferpayJson\Request\Container\DccReference;
 use Ticketpark\SaferpayJson\Request\Container\IssuerReference;
 use Ticketpark\SaferpayJson\Request\Container\Payer;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
@@ -153,6 +154,18 @@ trait IntegrationRequestAssertions
         if (null !== $request->getCardForm()) {
             $this->assertCardFormJson($data['CardForm'], $request->getCardForm());
         }
+        $this->assertJsonKeyPresentWhenSet($data, 'Dcc', $request->getDcc());
+        if (null !== $request->getDcc()) {
+            $this->assertDccReferenceJson($data['Dcc'], $request->getDcc());
+        }
+    }
+
+    /** @param array<string, mixed> $data */
+    protected function assertDccReferenceJson(array $data, DccReference $dcc): void
+    {
+        $this->assertJsonHasKeys($data, ['SelectedCurrencyCode', 'Token']);
+        $this->assertSame($dcc->getSelectedCurrencyCode(), $data['SelectedCurrencyCode']);
+        $this->assertSame($dcc->getToken(), $data['Token']);
     }
 
     protected function assertAuthorizeRequest(AuthorizeRequest $request): void
@@ -317,7 +330,7 @@ trait IntegrationRequestAssertions
         $header = $data['RequestHeader'];
         $this->assertIsArray($header);
         $this->assertJsonHasKeys($header, ['SpecVersion', 'CustomerId', 'RetryIndicator']);
-        $this->assertSame('1.53', $header['SpecVersion']);
+        $this->assertSame('1.54', $header['SpecVersion']);
         $this->assertSame($customerId, $header['CustomerId']);
         $this->assertIsInt($header['RetryIndicator']);
         $this->assertArrayHasKey('RequestId', $header);

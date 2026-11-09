@@ -7,6 +7,7 @@ namespace Ticketpark\SaferpayJson\Request\Transaction;
 use JMS\Serializer\Annotation\SerializedName;
 use Ticketpark\SaferpayJson\Request\Container\Authentication;
 use Ticketpark\SaferpayJson\Request\Container\CardForm;
+use Ticketpark\SaferpayJson\Request\Container\DccReference;
 use Ticketpark\SaferpayJson\Request\Container\Order;
 use Ticketpark\SaferpayJson\Request\Container\Payer;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
@@ -61,6 +62,9 @@ final class InitializeRequest extends Request
 
     #[SerializedName('Notification')]
     private ?Notification $notification = null;
+
+    #[SerializedName('Dcc')]
+    private ?DccReference $dcc = null;
 
     public function __construct(
         RequestConfig $requestConfig,
@@ -228,6 +232,18 @@ final class InitializeRequest extends Request
     public function setNotification(?Notification $notification): self
     {
         $this->notification = $notification;
+
+        return $this;
+    }
+
+    public function getDcc(): ?DccReference
+    {
+        return $this->dcc;
+    }
+
+    public function setDcc(?DccReference $dcc): self
+    {
+        $this->dcc = $dcc;
 
         return $this;
     }
