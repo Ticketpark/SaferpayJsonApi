@@ -28,7 +28,7 @@ final class SecureCardDataFlowIntegrationTest extends IntegrationTestCase
         $insertResponse = $this->executeIntegrationRequest(new AliasInsertDirectRequest(
             $requestConfig,
             new RegisterAlias(AliasIdGenerator::Random),
-            (new PaymentMeans())->setCard($this->createTestCard()),
+            new PaymentMeans()->setCard($this->createTestCard()),
         ));
         $this->assertAliasInsertDirectResponse($insertResponse);
 
@@ -54,12 +54,12 @@ final class SecureCardDataFlowIntegrationTest extends IntegrationTestCase
         $returnUrlServer = $this->startReturnUrlServer();
         $requestConfig = $this->createTestRequestConfig($credentials);
 
-        $insertRequest = (new AliasInsertRequest(
+        $insertRequest = new AliasInsertRequest(
             $requestConfig,
             new RegisterAlias(AliasIdGenerator::Random),
             AliasInsertType::Card,
             new ReturnUrl($returnUrlServer->getSuccessUrl()),
-        ))
+        )
             ->setLanguageCode('de')
             ->setPaymentMethods([PaymentMethod::Visa, PaymentMethod::Mastercard]);
 

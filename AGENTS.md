@@ -8,7 +8,7 @@ PHP library (`ticketpark/saferpay-json-api`) that wraps the [Saferpay JSON API](
 
 - **Namespace:** `Ticketpark\SaferpayJson`
 - **Autoload:** `lib/SaferpayJson/` (PSR-4)
-- **PHP:** 8.3–8.5
+- **PHP:** 8.4–8.5
 - **Key dependencies:** `jms/serializer`, `psr/http-client`, `guzzlehttp/guzzle` (default HTTP client)
 
 Check `lib/SaferpayJson/Request/Container/RequestHeader.php` and `README.md` for the current target API version.
@@ -212,7 +212,7 @@ Flows call `$this->executeIntegrationRequest($request)`, which asserts the seria
 
 Do not skip integration assertion updates when altering request/response types that already have coverage — stale asserts hide spec drift.
 
-CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.3–8.5 (prefer-lowest and prefer-stable). Static analysis on PHP 8.5 runs PHPStan level 8, Rector, php-cs-fixer, and `composer validate`. Integration tests are not run in CI by default (credentials required).
+CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.4–8.5 (prefer-lowest and prefer-stable). Static analysis on PHP 8.5 runs PHPStan level 8, Rector, php-cs-fixer, and `composer validate`. Integration tests are not run in CI by default (credentials required).
 
 ## Common pitfalls
 

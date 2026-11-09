@@ -9,7 +9,7 @@ final class ReturnUrlServer
     /** @var resource|null */
     private $process;
 
-    private string $documentRoot;
+    private readonly string $documentRoot;
 
     public function __construct(
         private readonly int $port,

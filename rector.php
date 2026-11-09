@@ -11,7 +11,8 @@ return RectorConfig::configure()
         __DIR__ . '/lib',
         __DIR__ . '/tests',
     ])
-    ->withPhpVersion(PhpVersion::PHP_83)
+    ->withPhpVersion(PhpVersion::PHP_84)
+    ->withPhpSets(php84: true)
     ->withImportNames(importShortClasses: false, removeUnusedImports: true)
     ->withPreparedSets(typeDeclarations: true)
     ->withRules([

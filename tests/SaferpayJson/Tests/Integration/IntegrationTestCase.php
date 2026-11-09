@@ -65,7 +65,7 @@ abstract class IntegrationTestCase extends TestCase
 
     protected function createTestCard(): Card
     {
-        return (new Card())
+        return new Card()
             ->setNumber(self::TEST_CARD_NUMBER)
             ->setExpMonth(self::TEST_CARD_EXP_MONTH)
             ->setExpYear(self::TEST_CARD_EXP_YEAR)
@@ -74,7 +74,7 @@ abstract class IntegrationTestCase extends TestCase
 
     protected function createTestPayer(): Payer
     {
-        return (new Payer())
+        return new Payer()
             ->setIpAddress('127.0.0.1')
             ->setLanguageCode('de')
             ->setAcceptHeader('text/html,application/xhtml+xml')

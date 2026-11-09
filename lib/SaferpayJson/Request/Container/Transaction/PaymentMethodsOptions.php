@@ -10,7 +10,7 @@ use JMS\Serializer\Annotation\Type;
 final class PaymentMethodsOptions
 {
     #[SerializedName('Ideal')]
-    #[Type("Ticketpark\SaferpayJson\Request\Container\Transaction\Ideal")]
+    #[Type(Ideal::class)]
     private ?Ideal $ideal = null;
 
     public function getIdeal(): ?Ideal

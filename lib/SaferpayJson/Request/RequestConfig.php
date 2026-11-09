@@ -24,10 +24,10 @@ final class RequestConfig
     private int $retryIndicator = self::MIN_RETRY_INDICATOR;
 
     public function __construct(
-        private string $apiKey,
-        private string $apiSecret,
-        private string $customerId,
-        private bool $test = false,
+        private readonly string $apiKey,
+        private readonly string $apiSecret,
+        private readonly string $customerId,
+        private readonly bool $test = false,
         ?string $rootUrl = null,
     ) {
         $this->rootUrl = $rootUrl ?? ($test ? self::ROOT_URL_TEST : self::ROOT_URL);

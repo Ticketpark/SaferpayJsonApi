@@ -21,12 +21,12 @@ final class TransactionLifecycleIntegrationTest extends IntegrationTestCase
         $requestConfig = $this->createTestRequestConfig($credentials);
 
         $authorizeResponse = $this->executeIntegrationRequest(
-            (new AuthorizeDirectRequest(
+            new AuthorizeDirectRequest(
                 $requestConfig,
                 $credentials->terminalId,
                 $this->createTestPayment(description: 'SaferpayJsonApi Cancel integration test'),
-                (new PaymentMeans())->setCard($this->createTestCard()),
-            ))
+                new PaymentMeans()->setCard($this->createTestCard()),
+            )
                 ->setInitiator(Initiator::Merchant)
                 ->setPayer($this->createTestPayer()),
         );
@@ -37,7 +37,7 @@ final class TransactionLifecycleIntegrationTest extends IntegrationTestCase
 
         $cancelResponse = $this->executeIntegrationRequest(new CancelRequest(
             $requestConfig,
-            (new TransactionReference())->setTransactionId($transactionId),
+            new TransactionReference()->setTransactionId($transactionId),
         ));
         $this->assertCancelResponse($cancelResponse, $transactionId);
     }
@@ -51,12 +51,12 @@ final class TransactionLifecycleIntegrationTest extends IntegrationTestCase
         $initialPayment->setRecurring(new Recurring(true));
 
         $initialResponse = $this->executeIntegrationRequest(
-            (new AuthorizeDirectRequest(
+            new AuthorizeDirectRequest(
                 $requestConfig,
                 $credentials->terminalId,
                 $initialPayment,
-                (new PaymentMeans())->setCard($this->createTestCard()),
-            ))
+                new PaymentMeans()->setCard($this->createTestCard()),
+            )
                 ->setInitiator(Initiator::Merchant)
                 ->setPayer($this->createTestPayer()),
         );
@@ -67,7 +67,7 @@ final class TransactionLifecycleIntegrationTest extends IntegrationTestCase
 
         $captureResponse = $this->executeIntegrationRequest(new CaptureRequest(
             $requestConfig,
-            (new TransactionReference())->setTransactionId($initialTransactionId),
+            new TransactionReference()->setTransactionId($initialTransactionId),
         ));
         $this->assertCaptureResponse($captureResponse);
 
@@ -78,7 +78,7 @@ final class TransactionLifecycleIntegrationTest extends IntegrationTestCase
             $requestConfig,
             $credentials->terminalId,
             $followUpPayment,
-            (new TransactionReference())->setTransactionId($initialTransactionId),
+            new TransactionReference()->setTransactionId($initialTransactionId),
         ));
         $this->assertAuthorizeReferencedResponse($referencedResponse);
     }

@@ -145,7 +145,7 @@ class SerializationTest extends TestCase
 
     public function testCardFormSerializesVerificationCode(): void
     {
-        $cardForm = (new CardForm())
+        $cardForm = new CardForm()
             ->setVerificationCode(CardFormVerificationCode::Mandatory);
 
         $data = json_decode(SerializerFactory::get()->serialize($cardForm, 'json'), true, 512, JSON_THROW_ON_ERROR);
@@ -155,7 +155,7 @@ class SerializationTest extends TestCase
 
     public function testRequestCardSerializesVerificationCode(): void
     {
-        $card = (new Card())
+        $card = new Card()
             ->setNumber('9010003150000001')
             ->setExpMonth(12)
             ->setExpYear(2030)
@@ -169,7 +169,7 @@ class SerializationTest extends TestCase
 
     public function testAuthenticationSerializesIssuerReference(): void
     {
-        $authentication = (new Authentication())
+        $authentication = new Authentication()
             ->setIssuerReference(new IssuerReference('transaction-stamp'));
 
         $data = json_decode(SerializerFactory::get()->serialize($authentication, 'json'), true, 512, JSON_THROW_ON_ERROR);
@@ -179,7 +179,7 @@ class SerializationTest extends TestCase
 
     public function testPayerSerializesBrowserFields(): void
     {
-        $payer = (new Payer())
+        $payer = new Payer()
             ->setAcceptHeader('text/html')
             ->setUserAgent('Mozilla/5.0')
             ->setScreenWidth(1920)

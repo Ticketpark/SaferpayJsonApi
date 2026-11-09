@@ -26,12 +26,12 @@ final class TransactionFlowIntegrationTest extends IntegrationTestCase
         $payment = $this->createTestPayment(description: 'SaferpayJsonApi Transaction integration test');
         $payment->setOrderId('txn-flow-'.uniqid());
 
-        $initializeRequest = (new InitializeRequest(
+        $initializeRequest = new InitializeRequest(
             $requestConfig,
             $credentials->terminalId,
             $payment,
             new ReturnUrl($returnUrlServer->getSuccessUrl()),
-        ))
+        )
             ->setPayer($this->createTestPayer())
             ->setPaymentMethods([PaymentMethod::Visa, PaymentMethod::Mastercard]);
 
@@ -52,14 +52,14 @@ final class TransactionFlowIntegrationTest extends IntegrationTestCase
 
         $captureResponse = $this->executeIntegrationRequest(new CaptureRequest(
             $requestConfig,
-            (new TransactionReference())->setTransactionId($transactionId),
+            new TransactionReference()->setTransactionId($transactionId),
         ));
         $this->assertCaptureResponse($captureResponse);
         $captureId = $captureResponse->getCaptureId();
 
         $inquireResponse = $this->executeIntegrationRequest(new InquireRequest(
             $requestConfig,
-            (new TransactionReference())->setTransactionId($transactionId),
+            new TransactionReference()->setTransactionId($transactionId),
         ));
         $this->assertInquireResponse($inquireResponse, $transactionId, TransactionStatus::Captured);
         $this->assertSame($captureId, $inquireResponse->getTransaction()?->getCaptureId());
