@@ -8,19 +8,15 @@ use Ticketpark\SaferpayJson\Response\ErrorResponse;
 
 class SaferpayErrorException extends \Exception implements SaferpayException
 {
-    private ErrorResponse $errorResponse;
-
-    public function __construct(ErrorResponse $errorResponse)
+    public function __construct(private readonly ErrorResponse $errorResponse)
     {
-        $this->errorResponse = $errorResponse;
-
-        $behaviour = $errorResponse->getBehaviour();
+        $behaviour = $this->errorResponse->getBehaviour();
 
         parent::__construct(sprintf(
             '[%s] %s: %s',
-            null !== $behaviour ? $behaviour->value : '',
-            $errorResponse->getErrorName(),
-            $errorResponse->getErrorMessage(),
+            $behaviour->value ?? '',
+            $this->errorResponse->getErrorName(),
+            $this->errorResponse->getErrorMessage(),
         ));
     }
 

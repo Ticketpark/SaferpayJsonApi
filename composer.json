@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": "^8.3",
+        "php": "~8.4.0 || ~8.5.0",
         "jms/serializer": "^3.20",
         "psr/http-client": "^1.0",
         "guzzlehttp/guzzle": "^7.0"

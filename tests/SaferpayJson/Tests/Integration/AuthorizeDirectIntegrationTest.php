@@ -20,12 +20,12 @@ final class AuthorizeDirectIntegrationTest extends IntegrationTestCase
         $payment = $this->createTestPayment(description: 'SaferpayJsonApi AuthorizeDirect integration test');
         $payment->setOrderId('auth-direct-'.uniqid());
 
-        $request = (new AuthorizeDirectRequest(
+        $request = new AuthorizeDirectRequest(
             $requestConfig,
             $credentials->terminalId,
             $payment,
-            (new PaymentMeans())->setCard($this->createTestCard()),
-        ))
+            new PaymentMeans()->setCard($this->createTestCard()),
+        )
             ->setInitiator(Initiator::Merchant)
             ->setPayer($this->createTestPayer());
 
@@ -38,12 +38,12 @@ final class AuthorizeDirectIntegrationTest extends IntegrationTestCase
         $credentials = $this->requireCredentials();
         $requestConfig = $this->createTestRequestConfig($credentials);
 
-        $request = (new AuthorizeDirectRequest(
+        $request = new AuthorizeDirectRequest(
             $requestConfig,
             $credentials->terminalId,
             $this->createTestPayment(description: 'SaferpayJsonApi AuthorizeDirect alias integration test'),
-            (new PaymentMeans())->setCard($this->createTestCard()),
-        ))
+            new PaymentMeans()->setCard($this->createTestCard()),
+        )
             ->setInitiator(Initiator::Merchant)
             ->setRegisterAlias(new RegisterAlias(AliasIdGenerator::Random))
             ->setPayer($this->createTestPayer());

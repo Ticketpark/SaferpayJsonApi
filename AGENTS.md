@@ -8,34 +8,14 @@ PHP library (`ticketpark/saferpay-json-api`) that wraps the [Saferpay JSON API](
 
 - **Namespace:** `Ticketpark\SaferpayJson`
 - **Autoload:** `lib/SaferpayJson/` (PSR-4)
-- **PHP:** 8.3–8.5
+- **PHP:** 8.4–8.5
 - **Key dependencies:** `jms/serializer`, `psr/http-client`, `guzzlehttp/guzzle` (default HTTP client)
 
-Check `lib/SaferpayJson/Request/Container/RequestHeader.php` and `README.md` for the current target API version.
+Check `lib/SaferpayJson/Request/Container/RequestHeader.php` (`$specVersion`) for the current target API version.
 
 ## Repository layout
 
-```
-lib/SaferpayJson/
-  Request/              # API request classes and shared request infrastructure
-    Container/          # Request payload containers (nested JSON objects)
-    Enum/               # Backed enums for request-side API vocabulary
-    PaymentPage/        # PaymentPage/* endpoints
-    Transaction/        # Transaction/* endpoints
-    SecureCardData/     # Alias/* endpoints
-  Response/             # API response classes
-    Container/          # Response payload containers
-    Enum/               # Backed enums for response-side API vocabulary
-    PaymentPage/
-    Transaction/
-    SecureCardData/
-tests/SaferpayJson/Tests/Request/   # Mirrors Request/ structure
-tests/SaferpayJson/Tests/Integration/ # Sandbox integration tests (optional credentials)
-example/                            # Runnable usage examples (need credentials.php)
-.github/
-  contributing.md       # Container conventions (authoritative)
-  pull_request_template.md
-```
+`lib/SaferpayJson/Request/` and `lib/SaferpayJson/Response/` mirror each other: endpoint classes in `PaymentPage/`, `Transaction/`, `SecureCardData/` (the `Alias/*` endpoints), plus `Container/` (nested JSON objects) and `Enum/` (backed enums). Unit tests in `tests/SaferpayJson/Tests/Request/` mirror `Request/`; sandbox tests live in `tests/SaferpayJson/Tests/Integration/`. `example/` holds runnable scripts (need `example/credentials.php`). Container conventions are defined in [.github/contributing.md](.github/contributing.md).
 
 ## Architecture
 
@@ -67,6 +47,7 @@ Each endpoint is a `final class` extending `Request`:
 - `final class`, `#[SerializedName]` on every property
 - Mandatory Saferpay fields → constructor parameters, **no setters** for constructor args
 - Optional fields → nullable properties with getters/setters returning `self`
+- Containers with only mandatory fields (no setters) are `final readonly class` with constructor property promotion (e.g. `Amount`, `ReturnUrl`)
 - Reuse existing containers when Saferpay reuses the same JSON structure (e.g. `ForeignRetailer` in both `Marketplace` and `MerchantFundDistributor`)
 
 **Response containers** (`lib/SaferpayJson/Response/Container/`):
@@ -97,11 +78,12 @@ Follow the [Saferpay changelog](https://saferpay.github.io/jsonapi/) for the tar
 1. Read the changelog entry for the new version (e.g. [v1.43](https://saferpay.github.io/jsonapi/1.43/index.html)).
 2. Apply only changes relevant to **implemented** endpoints and containers.
 3. Update `RequestHeader::$specVersion` (default spec version sent with every request).
-4. Update the version link in `README.md` to `https://saferpay.github.io/jsonapi/{version}/index.html`.
-5. Add new containers / fields / enum cases as described in the spec.
-6. Wire new optional containers into the matching `*Request` classes with getter/setter.
-7. Update integration test assertions if request/response shape or `SpecVersion` changed (see [Integration tests](#integration-tests)).
-8. Run tests and static analysis (see below).
+4. Update the version in `README.md` ("This library is currently based on **v1.XX** of the Saferpay JSON API").
+5. Update the expected `SpecVersion` in `IntegrationRequestAssertions::assertRequestHeaderJson()`.
+6. Add new containers / fields / enum cases as described in the spec.
+7. Wire new optional containers into the matching `*Request` classes with getter/setter.
+8. Update integration tests for any changed request/response shape (see [Integration tests](#integration-tests)).
+9. Run tests and static analysis (see below).
 
 **Example (v1.43):**
 
@@ -147,7 +129,7 @@ Place under `Request/Container/`. Use sub-namespaces when Saferpay groups contai
 2. Add `*Response` in the matching `Response/` subdirectory extending `Response`.
 3. Add containers for any new JSON structures.
 4. Add `tests/SaferpayJson/Tests/Request/.../*RequestTest.php` extending `CommonRequestTestCase`.
-5. Extend integration tests: add or update flows under `tests/SaferpayJson/Tests/Integration/` and wire `IntegrationRequestAssertions` / `IntegrationResponseAssertions` (see [Integration tests](#integration-tests)).
+5. Extend integration tests (see [Integration tests](#integration-tests)).
 6. Optionally add an `example/` script.
 
 ### Enums
@@ -165,7 +147,7 @@ Add a new enum file per vocabulary group; wire properties and getters/setters (r
 
 - `declare(strict_types=1);` in every file
 - Follow [Symfony coding standards](https://symfony.com/doc/current/contributing/code/standards.html)
-- `final` on concrete classes
+- `final` on concrete classes — except the exceptions in `Request/Exception/` and `Response/ErrorResponse`, which stay extensible
 - Minimal scope — match surrounding code; no drive-by refactors
 
 ## Testing
@@ -180,6 +162,16 @@ composer cs-check
 composer cs-fix   # apply coding standard fixes
 ```
 
+Single test:
+
+```bash
+vendor/bin/phpunit tests/SaferpayJson/Tests/Request/Transaction/CaptureRequestTest.php
+vendor/bin/phpunit --testsuite SaferpayJsonApi --filter CaptureRequestTest
+vendor/bin/phpunit --testsuite integration --filter <TestName>
+```
+
+PHPStan (level 8) and Rector cover `lib/` and `tests/`, but PHPStan excludes `tests/SaferpayJson/Tests/Integration/`.
+
 Request tests extend `CommonRequestTestCase`:
 
 - Implement `getInstance()` returning a configured request
@@ -190,9 +182,7 @@ Request tests extend `CommonRequestTestCase`:
 
 Optional end-to-end tests against the Saferpay sandbox (`composer test-integration`). They require `example/credentials.php` (copy from `credentials.dist.php`) and Playwright for browser flows (`Transaction/Initialize`, PaymentPage, `Alias/Insert`).
 
-In Docker: `docker compose build && docker compose run --rm php composer install && docker compose run --rm php composer test-integration` (see [tests/README.md](tests/README.md)). The PHP image ships Node.js, Playwright OS deps, and Chromium at `/opt/ms-playwright`.
-
-Location: `tests/SaferpayJson/Tests/Integration/`
+For running them in Docker (image ships Node.js, Playwright deps and Chromium), see [tests/README.md](tests/README.md). `Makefile` has shortcuts: `make docker-start`, `make docker-rebuild`, `make docker-stop`, `make into-docker`.
 
 | File | Role |
 |------|------|
@@ -212,17 +202,17 @@ Flows call `$this->executeIntegrationRequest($request)`, which asserts the seria
 
 Do not skip integration assertion updates when altering request/response types that already have coverage — stale asserts hide spec drift.
 
-CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.3–8.5 (prefer-lowest and prefer-stable). Static analysis on PHP 8.5 runs PHPStan level 8, Rector, php-cs-fixer, and `composer validate`. Integration tests are not run in CI by default (credentials required).
+CI (`.github/workflows/tests.yml`) runs PHPUnit on PHP 8.4–8.5 (prefer-lowest and prefer-stable). Static analysis on PHP 8.5 runs PHPStan level 8, Rector, php-cs-fixer, and `composer validate`. Integration tests are not run in CI by default (credentials required).
 
 ## Common pitfalls
 
-- **Spec version:** Must stay in sync across `RequestHeader` and `README.md`.
+- **Spec version:** Must stay in sync across `RequestHeader`, `README.md`, and `IntegrationRequestAssertions::assertRequestHeaderJson()`.
 - **Mandatory vs optional:** Follow Saferpay docs for requests; keep response fields optional regardless.
 - **RequestHeader:** Never add it as a serialized property on request classes — it is a virtual property.
 - **Container reuse:** Check for an existing container before creating a duplicate.
 - **Shared enums:** `PaymentMethod`, `Wallet`, and `Gender` exist in both `Request\Enum` and `Response\Enum`; update both when Saferpay adds values.
 - **Partial API coverage:** Changelog entries may mention endpoints this library does not implement; skip those unless adding the endpoint is in scope.
-- **Tests:** New request classes need a unit test class; existing unit tests mock Guzzle and do not hit the real API. Keep `IntegrationRequestAssertions` and `IntegrationResponseAssertions` in sync with request/response changes (see [Integration tests](#integration-tests)).
+- **Tests:** New request classes need a unit test class; unit tests mock Guzzle and do not hit the real API.
 
 ## References
 

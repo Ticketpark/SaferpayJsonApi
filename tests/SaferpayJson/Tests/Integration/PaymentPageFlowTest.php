@@ -30,12 +30,12 @@ final class PaymentPageFlowTest extends IntegrationTestCase
         $payment = $this->createTestPayment();
         $payment->setOrderId('pp-flow-'.uniqid());
 
-        $initializeRequest = (new InitializeRequest(
+        $initializeRequest = new InitializeRequest(
             $requestConfig,
             $credentials->terminalId,
             $payment,
             new ReturnUrl($returnUrlServer->getSuccessUrl()),
-        ))
+        )
             ->setPaymentMethods([PaymentMethod::Visa])
             ->setPayer($this->createTestPayer());
 
@@ -53,25 +53,25 @@ final class PaymentPageFlowTest extends IntegrationTestCase
 
         $captureResponse = $this->executeIntegrationRequest(new CaptureRequest(
             $requestConfig,
-            (new TransactionReference())->setTransactionId($transactionId),
+            new TransactionReference()->setTransactionId($transactionId),
         ));
         $this->assertCaptureResponse($captureResponse);
         $captureId = $captureResponse->getCaptureId();
 
         $inquireResponse = $this->executeIntegrationRequest(new InquireRequest(
             $requestConfig,
-            (new TransactionReference())->setTransactionId($transactionId),
+            new TransactionReference()->setTransactionId($transactionId),
         ));
         $this->assertInquireResponse($inquireResponse, $transactionId, TransactionStatus::Captured);
         $this->assertSame($captureId, $inquireResponse->getTransaction()?->getCaptureId());
 
-        $refund = (new Refund(new Amount(2_000, 'CHF')))
+        $refund = new Refund(new Amount(2_000, 'CHF'))
             ->setDescription('SaferpayJsonApi integration partial refund');
 
         $refundResponse = $this->executeIntegrationRequest(new RefundRequest(
             $requestConfig,
             $refund,
-            (new CaptureReference())->setCaptureId($captureId),
+            new CaptureReference()->setCaptureId($captureId),
         ));
         $this->assertRefundResponse($refundResponse);
     }
