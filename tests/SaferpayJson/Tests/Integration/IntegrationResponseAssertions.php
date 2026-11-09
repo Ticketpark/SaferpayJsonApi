@@ -333,6 +333,7 @@ trait IntegrationResponseAssertions
         }
         $this->assertOptionalString($card->getCountryCode());
         $this->assertTokenPanContainer($card->getTokenPan());
+        $this->assertOptionalString($card->getPaymentAccountReference());
     }
 
     protected function assertAmountContainer(?Amount $amount, bool $mandatory = false): void

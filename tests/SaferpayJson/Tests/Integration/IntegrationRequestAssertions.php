@@ -13,6 +13,7 @@ use Ticketpark\SaferpayJson\Request\Container\Card;
 use Ticketpark\SaferpayJson\Request\Container\CardForm;
 use Ticketpark\SaferpayJson\Request\Container\DccReference;
 use Ticketpark\SaferpayJson\Request\Container\IssuerReference;
+use Ticketpark\SaferpayJson\Request\Container\KlarnaPaymentMeans;
 use Ticketpark\SaferpayJson\Request\Container\Payer;
 use Ticketpark\SaferpayJson\Request\Container\Payment;
 use Ticketpark\SaferpayJson\Request\Container\PaymentMeans;
@@ -330,7 +331,7 @@ trait IntegrationRequestAssertions
         $header = $data['RequestHeader'];
         $this->assertIsArray($header);
         $this->assertJsonHasKeys($header, ['SpecVersion', 'CustomerId', 'RetryIndicator']);
-        $this->assertSame('1.54', $header['SpecVersion']);
+        $this->assertSame('1.55', $header['SpecVersion']);
         $this->assertSame($customerId, $header['CustomerId']);
         $this->assertIsInt($header['RetryIndicator']);
         $this->assertArrayHasKey('RequestId', $header);
@@ -450,7 +451,19 @@ trait IntegrationRequestAssertions
             $this->assertJsonKeyPresentWhenSet($data, 'GooglePay', $paymentMeans->getGooglePay());
             $this->assertJsonKeyPresentWhenSet($data, 'SchemeToken', $paymentMeans->getSchemeToken());
             $this->assertJsonKeyPresentWhenSet($data, 'SaferpayFields', $paymentMeans->getSaferpayFields());
+            $this->assertJsonKeyPresentWhenSet($data, 'Klarna', $paymentMeans->getKlarna());
+            if (null !== $paymentMeans->getKlarna()) {
+                $this->assertKlarnaPaymentMeansJson($data['Klarna'], $paymentMeans->getKlarna());
+            }
         }
+    }
+
+    /** @param array<string, mixed> $data */
+    protected function assertKlarnaPaymentMeansJson(array $data, KlarnaPaymentMeans $klarna): void
+    {
+        $this->assertJsonHasKeys($data, ['KlarnaNetworkSessionToken']);
+        $this->assertSame($klarna->getKlarnaNetworkSessionToken(), $data['KlarnaNetworkSessionToken']);
+        $this->assertOptionalStringJsonKey($data, 'KlarnaNetworkData', $klarna->getKlarnaNetworkData());
     }
 
     /** @param array<string, mixed> $data */

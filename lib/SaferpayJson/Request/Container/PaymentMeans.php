@@ -29,6 +29,9 @@ final class PaymentMeans
     #[SerializedName('GooglePay')]
     private ?GooglePay $googlePay = null;
 
+    #[SerializedName('Klarna')]
+    private ?KlarnaPaymentMeans $klarna = null;
+
     public function getCard(): ?Card
     {
         return $this->card;
@@ -109,6 +112,18 @@ final class PaymentMeans
     public function setGooglePay(?GooglePay $googlePay): self
     {
         $this->googlePay = $googlePay;
+
+        return $this;
+    }
+
+    public function getKlarna(): ?KlarnaPaymentMeans
+    {
+        return $this->klarna;
+    }
+
+    public function setKlarna(?KlarnaPaymentMeans $klarna): self
+    {
+        $this->klarna = $klarna;
 
         return $this;
     }
