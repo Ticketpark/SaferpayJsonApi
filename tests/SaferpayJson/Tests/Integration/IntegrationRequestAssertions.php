@@ -317,7 +317,7 @@ trait IntegrationRequestAssertions
         $header = $data['RequestHeader'];
         $this->assertIsArray($header);
         $this->assertJsonHasKeys($header, ['SpecVersion', 'CustomerId', 'RetryIndicator']);
-        $this->assertSame('1.52', $header['SpecVersion']);
+        $this->assertSame('1.53', $header['SpecVersion']);
         $this->assertSame($customerId, $header['CustomerId']);
         $this->assertIsInt($header['RetryIndicator']);
         $this->assertArrayHasKey('RequestId', $header);
