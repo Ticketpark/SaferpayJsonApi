@@ -34,6 +34,9 @@ final class Card
     #[SerializedName('TokenPan')]
     private ?TokenPan $tokenPan = null;
 
+    #[SerializedName('PaymentAccountReference')]
+    private ?string $paymentAccountReference = null;
+
     public function getMaskedNumber(): ?string
     {
         return $this->maskedNumber;
@@ -72,5 +75,10 @@ final class Card
     public function getTokenPan(): ?TokenPan
     {
         return $this->tokenPan;
+    }
+
+    public function getPaymentAccountReference(): ?string
+    {
+        return $this->paymentAccountReference;
     }
 }
